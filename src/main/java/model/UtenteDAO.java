@@ -1,9 +1,6 @@
 package model;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class UtenteDAO {
     public Utente doRetrieveByUsernamePassword(String username, String password) {
@@ -45,22 +42,54 @@ public class UtenteDAO {
         return utente;
     }
 
-    public void doSave(Utente utente) {
+//    public void doSave(Utente utente) {
+//
+//            try (Connection con = ConPool.getConnection()) {
+//                PreparedStatement ps = con.prepareStatement("INSERT INTO utente (username, password, email, name, admin) VALUES(?,?,?,?,?)");
+//                ps.setString(1, utente.getUsername());
+//                ps.setString(2, utente.getPassword());
+//                ps.setString(3, utente.getEmail());
+//                ps.setString(4, utente.getName());
+//                ps.setString(5, String.valueOf(0));
+//                if (ps.executeUpdate() != 1) {
+//                    throw new RuntimeException("INSERT error.");
+//                }
+//
+//            } catch (SQLException e) {
+//                throw new RuntimeException(e);
+//            }
+//    }
 
-            try (Connection con = ConPool.getConnection()) {
-                PreparedStatement ps = con.prepareStatement("INSERT INTO utente (username, password, email, name, admin) VALUES(?,?,?,?,?)");
-                ps.setString(1, utente.getUsername());
-                ps.setString(2, utente.getPassword());
-                ps.setString(3, utente.getEmail());
-                ps.setString(4, utente.getName());
-                ps.setBoolean(5, utente.isAdmin());
-                if (ps.executeUpdate() != 1) {
-                    throw new RuntimeException("INSERT error.");
-                }
+    public static void doRegistration(Utente utente) {
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement("INSERT INTO utente (username, password, email, name, admin) VALUES (?,?,?,?,?)",
+                    Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, utente.getUsername());
+            ps.setString(2, utente.getPassword());
+            ps.setString(3, utente.getEmail());
+            ps.setString(4, utente.getName());
+            ps.setInt(5, 0);
 
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
+            if (ps.executeUpdate() != 1)
+                throw new RuntimeException("Errore nel definire l'utente");
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    public static boolean checkEmail(String email){
+        try (Connection con = ConPool.getConnection()){
+            PreparedStatement ps = con.prepareStatement("SELECT email FROM utente WHERE email= ?");
+            ps.setString(1, email);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                return true;
             }
-
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return false;
     }
 }
