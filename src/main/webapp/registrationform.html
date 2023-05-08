@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="wrapper">
+  <h1>Sign Up </h1>
+  <form action="process_registration" method="post">
+    <input type="text" placeholder="Username" name ="username">
+    <input type="text" placeholder="Name" name="name">
+    <input type="email" placeholder="E-mail" name="email">
+    <input type="password" placeholder="Password" name="password">
+
+  <div class="admin">
+    <label for="admin"> Administrator </label>
+    <input type="checkbox" id="admin" name="admin" value="yes">
+  </div>
+  <hr>
+  <button type="submit">Sign Up</button>
+  <div class="user">
+    Sei gia' registrato? <a href="index.jsp"> Login Here </a>
+  </div>
+  </form>
+</div>
+
+</body>
+</html>
