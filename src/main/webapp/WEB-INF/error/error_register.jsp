@@ -9,7 +9,7 @@
     String x = (String) request.getAttribute("check");
     if(x.equals("emailAlreadyPresent")){
 %>
-
+    
 <%
     }
 %>
