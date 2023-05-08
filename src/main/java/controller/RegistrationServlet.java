@@ -31,7 +31,7 @@ public class RegistrationServlet extends HttpServlet {
         if(UtenteDAO.checkEmail(request.getParameter("email"))){
             request.setAttribute("check","emailAlreadyPresent");
             RequestDispatcher dispatcher =
-                    request.getRequestDispatcher("/WEB-INF/results/register.jsp");
+                    request.getRequestDispatcher("/WEB-INF/error/error_register.jsp");
             dispatcher.forward(request, response);
         }else{
             /*String regex = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+(?:.[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+)*@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$";
