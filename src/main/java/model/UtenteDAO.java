@@ -78,7 +78,6 @@ public class UtenteDAO {
         }
     }
 
-
     public static boolean checkEmail(String email){
         try (Connection con = ConPool.getConnection()){
             PreparedStatement ps = con.prepareStatement("SELECT email FROM utente WHERE email= ?");
