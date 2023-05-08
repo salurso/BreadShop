@@ -31,7 +31,7 @@ public class RegistrationServlet extends HttpServlet {
         utenteDAO.doSave(utente);
 
         RequestDispatcher dispatcher =
-            request.getRequestDispatcher("login");
+            request.getRequestDispatcher("/WEB-INF/results/header.jsp");
         dispatcher.forward(request, response);
     }
 }
