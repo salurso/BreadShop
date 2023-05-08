@@ -24,34 +24,26 @@ public class RegistrationServlet extends HttpServlet {
         utente.setName(nome);
         utente.setEmail(email);
         utente.setPassword(password);
-//        utente.setAdmin(admin);
 
         request.getSession().setAttribute("utente", utente);
-        UtenteDAO utenteDAO = new UtenteDAO();
-        if(UtenteDAO.checkEmail(request.getParameter("email"))){
-            request.setAttribute("check","emailAlreadyPresent");
+
+        if(UtenteDAO.checkEmail(request.getParameter("email"))) {
+            request.setAttribute("check", "emailAlreadyPresent");
             RequestDispatcher dispatcher =
                     request.getRequestDispatcher("/WEB-INF/error/error_register.jsp");
             dispatcher.forward(request, response);
-        }else{
-            /*String regex = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+(?:.[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+)*@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$";
-            Pattern p = Pattern.compile(regex);
-            if(p.matcher(utente.getEmail()).matches()){
-                request.setAttribute("check","Email non valida");
-                RequestDispatcher dispatcher =
-                        request.getRequestDispatcher("/WEB-INF/results/error.jsp");
-                dispatcher.forward(request, response);
-            }*/
-            String regex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
-            Pattern pattern = Pattern.compile(regex);
-            Matcher matcher = pattern.matcher(email);
-            if(!matcher.matches()){
-                request.setAttribute("check","invalidEmail");
-                RequestDispatcher dispatcher =
-                        request.getRequestDispatcher("/WEB-INF/results/error.jsp");
-                dispatcher.forward(request, response);
-            }
         }
+        String regex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(email);
+        if(!matcher.matches()){
+            request.setAttribute("check","invalidEmail");
+            RequestDispatcher dispatcher =
+                    request.getRequestDispatcher("/WEB-INF/error/error_register.jsp");
+            dispatcher.forward(request, response);
+        }
+
+        UtenteDAO utenteDAO = new UtenteDAO();
         UtenteDAO.doRegistration(utente);
         RequestDispatcher dispatcher =
                 request.getRequestDispatcher("/WEB-INF/index.jsp");
