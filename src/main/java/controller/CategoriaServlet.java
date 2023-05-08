@@ -19,7 +19,7 @@ public class CategoriaServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+//PROVA 
         String categorie = request.getParameter("categorie");
         CategoriaDAO categoriaDao = new CategoriaDAO();
         ProdottoDAO prodottoDAO = new ProdottoDAO();
