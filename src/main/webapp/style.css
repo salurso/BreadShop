@@ -24,6 +24,17 @@ body{
 
 }
 
+.wrapper_reg{
+    width:300px;
+    padding: 2rem 1rem;
+    margin:50px auto;
+    background-color: white;
+    border-radius: 10px;
+    text-align:center;
+    box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+
+}
+
 h1{
     font-size: 2rem;
     color:#38271E;
