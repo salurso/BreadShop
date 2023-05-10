@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-@WebServlet(name = "LoginServlet", value = "/login")
+@WebServlet(name = "LoginServlet", value = "/loginServlet")
 public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -26,7 +26,6 @@ public class LoginServlet extends HttpServlet {
             // Salva l'utente nella sessione
             HttpSession session = request.getSession();
             session.setAttribute("utente", utente);
-
             // Redirect alla home page dell'utente
             address = "show-prodotti";
         } else {
