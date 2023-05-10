@@ -8,7 +8,7 @@
 <html>
 <head>
     <title> Categoria </title>
-    <link rel="stylesheet" href="stile.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
