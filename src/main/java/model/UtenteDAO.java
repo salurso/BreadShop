@@ -9,6 +9,9 @@ public class UtenteDAO {
         ResultSet resultSet = null;
         Utente utente = null;
 
+        if(username==null || password==null)
+            return utente;
+
         try (Connection connection = ConPool.getConnection()) {
             statement = connection.prepareStatement("SELECT  FROM utente WHERE username=? AND password=SHA1(?)");
             statement.setString(1, username);
