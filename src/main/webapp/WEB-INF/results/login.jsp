@@ -12,21 +12,58 @@
 <%--<c:if test="${param.error == 1}">--%>
 <%--<p style="color:red"> Il nome utente non è presente all'interno del database, Prova di nuovo o registrati.</p>--%>
 <%--</c:if>--%>
+<%
+    String x = null;
+    if(request.getAttribute("parametri")!=null){
+        x="Email o password errati!";
+    }
+%>
 <div class="wrapper">
     <h1>Login </h1>
-    <form action="loginServlet">
+    <form action="loginServlet" method="post">
         <input type="text" placeholder="Username" required>
         <i class="bi bi-person-fill"></i>
         <input type="password" placeholder="Password" required>
         <div class="recover">
             <a href="#">Password Dimenticata?</a>
         </div>
-    <button> Login </button>
+    <button onclick="return(validateLogin())" type="submit"> Login </button>
+    <script>
+        <%if(x!=null){%>
+            alert(<%=x%>);
+        <%}%>
+    </script>
     </form>
     <div class="user">
         Sei nuovo? <a href="Register"> Register Here </a>
     </div>
 </div>
+<script>
+    function validateLogin() {
+        //var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+        //var emailRGX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        //var resultEmail = emailRGX.test(email);
+        var passwordRGX=/^[a-zA-Z0-9!@#$%^&*]*$/;
+        var resultPassword=passwordRGX.test(password);
+
+        if (password.length < 8) {
+            alert("La password non rispetta il numero minimo di caratteri");
+            return false;
+        }
+
+        // if (resultEmail == false) {
+        //     alert("L'email non rispecchia il formato corretto.Riprovare");
+        //     return false;
+        // }
+
+        if (resultPassword == false) {
+            alert("La password non rispecchia il formato corretto.Riprovare");
+            return false;
+        }
+        return true;
+    }
+</script>
 </body>
 </html>
 
