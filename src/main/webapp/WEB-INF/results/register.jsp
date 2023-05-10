@@ -4,11 +4,12 @@
     <title>Registrazione</title>
   <link rel="stylesheet" href="style.css">
 
-  <% String x=" ";
-    if(request.getAttribute("check")!=null)
-    {
+  <%
+    String x=" ";
+    if(request.getAttribute("check")!=null){
       x="Email già presente!";
-    }%>
+    }
+  %>
 
   <script>
     function validateRegistration() {
@@ -19,14 +20,35 @@
         return false;
       }
 
+      var passwordRGX=/^[a-zA-Z0-9!@?]*$/;
+      var password = document.getElementById('password').value;
+      if((passwordRGX.test(password))==false){
+        alert("Caratteri password non validi!");
+        return false;
+      }
+      if((password.length<8 ||password.length>30 ))
+      {
+        alert("Dimensione password non valida!");
+        return false;
+      }
+
+      var nomeRGX=/^[a-zA-Z' ']*$/;
+      var nome=document.getElementById('name').value;
+      if((nomeRGX.test(nome))==false){
+        alert("Nome non valido!");
+        return false;
+      }
+
+      var cognomeRGX=/^[a-zA-Z' ']*$/;
+      var cognome=document.getElementById('surname').value;
+      if((cognomeRGX.test(cognome))==false){
+        alert("Cognome non valido!");
+        return false;
+      }
       
       return true;
     }
-
-
   </script>
-
-
 </head>
 <body>
 
@@ -44,7 +66,6 @@
     <!--    <input type="text" placeholder="Street" name="street">-->
     <!--    <input type="text" placeholder="Civic number" name="civic_number">-->
     <input type="password" placeholder="Password" name="password" required>
-
     <hr>
     <button onclick="return(validateRegistration())" type="submit">Sign up</button>
     <div class="user">
