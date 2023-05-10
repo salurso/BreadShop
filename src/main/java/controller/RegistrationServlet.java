@@ -27,27 +27,34 @@ public class RegistrationServlet extends HttpServlet {
 
         request.getSession().setAttribute("utente", utente);
 
-        if(UtenteDAO.checkEmail(request.getParameter("email"))) {
-            request.setAttribute("check", "emailAlreadyPresent");
+        if (UtenteDAO.checkEmail(request.getParameter("email"))) {
+            request.setAttribute("check", "Email già presente");
             RequestDispatcher dispatcher =
-                    request.getRequestDispatcher("/WEB-INF/error/error_register.jsp");
+                    request.getRequestDispatcher("/WEB-INF/results/register.jsp");
+            dispatcher.forward(request, response);
+        } else {
+            UtenteDAO.doRegistration(utente);
+            RequestDispatcher dispatcher =
+                    request.getRequestDispatcher("/WEB-INF/results/login.jsp");
             dispatcher.forward(request, response);
         }
-        String regex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(email);
-        if(!matcher.matches()){
-            request.setAttribute("check","invalidEmail");
-            RequestDispatcher dispatcher =
-                    request.getRequestDispatcher("/WEB-INF/error/error_register.jsp");
-            dispatcher.forward(request, response);
-        }
-
-        UtenteDAO utenteDAO = new UtenteDAO();
-        UtenteDAO.doRegistration(utente);
-        RequestDispatcher dispatcher =
-                request.getRequestDispatcher("/WEB-INF/index.jsp");
-        dispatcher.forward(request, response);
     }
 }
+//        String regex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
+//        Pattern pattern = Pattern.compile(regex);
+//        Matcher matcher = pattern.matcher(email);
+//        if(!matcher.matches()){
+//            request.setAttribute("check","invalidEmail");
+//            RequestDispatcher dispatcher =
+//                    request.getRequestDispatcher("/WEB-INF/error/error_register.jsp");
+//            dispatcher.forward(request, response);
+//        }
+//
+//        UtenteDAO utenteDAO = new UtenteDAO();
+//        UtenteDAO.doRegistration(utente);
+//        RequestDispatcher dispatcher =
+//                request.getRequestDispatcher("/WEB-INF/login.jsp");
+//        dispatcher.forward(request, response);
+//    }
+
 
