@@ -8,14 +8,14 @@
   <title>Benvenuti</title>
 </head>
 <body>
-
-<%@ include file="WEB-INF/results/header.jsp" %>
 <br>
 <br>
-<c:if test="${param.error == 1}">
-  <p style="color:red"> Il nome utente non è presente all'interno del database, Prova di nuovo o registrati.</p>
-</c:if>
-
+<%--<c:if test="${param.error == 1}">--%>
+<%--  <p style="color:red"> Il nome utente non è presente all'interno del database, Prova di nuovo o registrati.</p>--%>
+<%--</c:if>--%>
+<form action="login">
+<input type="submit"> Login </input>
+</form>
 </body>
 </html>
 
