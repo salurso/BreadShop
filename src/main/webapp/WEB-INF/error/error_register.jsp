@@ -9,11 +9,11 @@
     String x = (String) request.getAttribute("check");
     if(x.equals("emailAlreadyPresent")){
 %>
-<div class="error-message">Email già esistente: <a href="${pageContext.request.contextPath}/index.jsp">Login</a></div>
+<div class="error-message">Email già esistente: <a href="./index.jsp">Login</a></div>
 <%
     }else if(x.equals("invalidEmail")){
 %>
-<div class="error-message">Inserisci un indirizzo valido: <a href="${pageContext.request.contextPath}/registrationform.html">Sign-in</a></div>
+<div class="error-message">Inserisci un indirizzo valido: <a href="./WEB-INF/results/register.jsp">Sign-in</a></div>
 <%
     }
 %>
