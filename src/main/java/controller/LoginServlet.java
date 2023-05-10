@@ -14,7 +14,7 @@ import java.security.NoSuchAlgorithmException;
 @WebServlet(name = "LoginServlet", value = "/loginServlet")
 public class LoginServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
@@ -29,16 +29,20 @@ public class LoginServlet extends HttpServlet {
             // Redirect alla home page dell'utente
             address = "show-prodotti";
         } else {
-
+            String verifica = "Email o password errati!";
+            request.setAttribute("verifica", verifica);
+            address = "/WEB-INF/results/login.jsp";
             // Redirect alla pagina con un messaggio di errore
-            address ="index.jsp?error=1";  // con redirect, la pagina non può essere in WEB-INF, il browser non potrebbe raggiungerla
+            //address ="index.jsp?error=1";  // con redirect, la pagina non può essere in WEB-INF, il browser non potrebbe raggiungerla
         }
 
-        response.sendRedirect(address);
+        //response.sendRedirect(address);
+        RequestDispatcher ds = request.getRequestDispatcher(address);
+        ds.forward(request, response);
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
     }
 
