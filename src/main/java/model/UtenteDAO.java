@@ -3,7 +3,7 @@ package model;
 import java.sql.*;
 
 public class UtenteDAO {
-    public Utente doRetrieveByUsernamePassword(String username, String password) {
+    public static Utente doRetrieveByUsernamePassword(String username, String password) {
 
         PreparedStatement statement = null;
         ResultSet resultSet = null;
@@ -45,6 +45,7 @@ public class UtenteDAO {
         return utente;
     }
 
+
 //    public void doSave(Utente utente) {
 //
 //            try (Connection con = ConPool.getConnection()) {
@@ -71,7 +72,7 @@ public class UtenteDAO {
             ps.setString(2, utente.getPassword());
             ps.setString(3, utente.getEmail());
             ps.setString(4, utente.getName());
-            ps.setInt(5, 0);
+            ps.setBoolean(5, false);
 
             if (ps.executeUpdate() != 1)
                 throw new RuntimeException("Errore nel definire l'utente");
