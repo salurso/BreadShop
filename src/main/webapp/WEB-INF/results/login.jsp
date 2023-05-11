@@ -5,39 +5,36 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
     <title>Benvenuti</title>
+    
+    <%
+        String x = " ";
+        if(request.getAttribute("parametri")!=null){
+            x="Email o password errati!";
+        }
+    %>
+
 </head>
 <body>
 <br>
 <br>
-<%--<c:if test="${param.error == 1}">--%>
-<%--<p style="color:red"> Il nome utente non è presente all'interno del database, Prova di nuovo o registrati.</p>--%>
-<%--</c:if>--%>
-<%
-    String x = null;
-    if(request.getAttribute("parametri")!=null){
-        x="Email o password errati!";
-    }
-%>
 <div class="wrapper">
     <h1>Login </h1>
-    <form action="loginServlet" method="post">
-        <input type="text" placeholder="Username" required>
+    <form action="Homepage">
+        <input type="text" placeholder="Username" id="username" required>
         <i class="bi bi-person-fill"></i>
-        <input type="password" placeholder="Password" required>
+        <input type="password" placeholder="Password" id="password" required>
         <div class="recover">
             <a href="#">Password Dimenticata?</a>
         </div>
-    <button onclick="return(validateLogin())" type="submit"> Login </button>
-    <script>
-        <%if(x!=null){%>
-            alert(<%=x%>);
-        <%}%>
-    </script>
+        <button onclick="validateLogin()" type="submit" id="submit"> Login </button>
+        <p style="color: red; text-align: center"><%=x%></p>
     </form>
     <div class="user">
         Sei nuovo? <a href="Register"> Register Here </a>
     </div>
 </div>
+
+
 <script>
     function validateLogin() {
         //var email = document.getElementById('email').value;
@@ -52,13 +49,19 @@
             return false;
         }
 
+        // if (passwordForm.password.value != passwordForm.password2.value) {
+        //     alert("La passord inserita non coincide con la prima!")
+        //     passwordForm.password.focus()
+        //     passwordForm.password.select()
+        //     return false
+        // }
         // if (resultEmail == false) {
         //     alert("L'email non rispecchia il formato corretto.Riprovare");
         //     return false;
         // }
 
         if (resultPassword == false) {
-            alert("La password non rispecchia il formato corretto.Riprovare");
+            alert("La password è errata. Riprovare");
             return false;
         }
         return true;
@@ -66,7 +69,6 @@
 </script>
 </body>
 </html>
-
 
 
 
