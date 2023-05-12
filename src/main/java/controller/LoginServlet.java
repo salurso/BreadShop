@@ -7,23 +7,33 @@ import model.Utente;
 import model.UtenteDAO;
 
 import java.io.IOException;
-
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-
 @WebServlet(name = "LoginServlet", value = "/loginServlet")
 public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String parametri;
+        String check;
         HttpSession session = request.getSession();
+        UtenteDAO uDAO = new UtenteDAO();
 //        Utente utente = UtenteDAO.doRetrieveByUsernamePassword(request.getParameter("username"), request.getParameter("password"));
         Utente utente = UtenteDAO.doRetrieveByEmailPassword(request.getParameter("email"), request.getParameter("password"));
         if (request.getParameter("action") == null) {
-            if (utente == null) {
-                parametri = "Email o password errati!";
-                request.setAttribute("parametri", parametri);
+            if (utente == null && !uDAO.checkEmail(request.getParameter("email"))) {
+                check = "Non riusciamo a trovare un account con quell'indirizzo e-mail!";
+                request.setAttribute("check", check);
                 RequestDispatcher rs = request.getRequestDispatcher("/WEB-INF/results/login.jsp");
+                rs.include(request, response);
+            }else if(utente == null && uDAO.checkEmail(request.getParameter("email"))){
+                check = "Password non corretta!";
+                request.setAttribute("check", check);
+                RequestDispatcher rs = request.getRequestDispatcher("/WEB-INF/results/login.jsp");
+                rs.include(request, response);
+            }else if(utente != null && utente.isAdmin()==false){
+                session.setAttribute("utente", utente);
+                RequestDispatcher rs = request.getRequestDispatcher("index.jsp");
+                rs.include(request, response);
+            }else if(utente != null && utente.isAdmin()==true){
+                session.setAttribute("amministratore", utente);
+                RequestDispatcher rs = request.getRequestDispatcher("index.jsp");
                 rs.include(request, response);
             }
         }
