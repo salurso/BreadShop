@@ -17,12 +17,13 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String parametri;
         HttpSession session = request.getSession();
-        Utente utente = UtenteDAO.doRetrieveByUsernamePassword(request.getParameter("username"), request.getParameter("password"));
+//        Utente utente = UtenteDAO.doRetrieveByUsernamePassword(request.getParameter("username"), request.getParameter("password"));
+        Utente utente = UtenteDAO.doRetrieveByEmailPassword(request.getParameter("email"), request.getParameter("password"));
         if (request.getParameter("action") == null) {
             if (utente == null) {
                 parametri = "Email o password errati!";
                 request.setAttribute("parametri", parametri);
-                RequestDispatcher rs = request.getRequestDispatcher("/WEB-INF/results/Login.jsp");
+                RequestDispatcher rs = request.getRequestDispatcher("/WEB-INF/results/login.jsp");
                 rs.include(request, response);
             }
         }
