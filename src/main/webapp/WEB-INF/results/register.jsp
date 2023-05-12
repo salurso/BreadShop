@@ -55,10 +55,10 @@
 <div class="wrapper_reg">
   <h1>Sign Up </h1>
   <form action="process_registration" method="post">
-    <input type="text" placeholder="Username" name ="username" id = "username" required>
+<%--    <input type="text" placeholder="Username" name ="username" id = "username" required>--%>
+    <input type="email" placeholder="E-mail" name="email" id="email" required>
     <input type="text" placeholder="Name" name="name" id = "name" required>
     <input type="text" placeholder="Surname" name="surname" id = "surname"required>
-    <input type="email" placeholder="E-mail" name="email" id="email" required>
     <input type="password" placeholder="Password" name="password" id = "password" required>
     <hr>
     <button onclick="return(validateRegistration())" type="submit">Sign up</button>
