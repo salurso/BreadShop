@@ -25,14 +25,6 @@ public class LoginServlet extends HttpServlet {
                 request.setAttribute("parametri", parametri);
                 RequestDispatcher rs = request.getRequestDispatcher("/WEB-INF/results/login.jsp");
                 rs.include(request, response);
-            }else if(utente != null && utente.isAdmin()==false){
-                session.setAttribute("utente", utente);
-                RequestDispatcher rs = request.getRequestDispatcher("index.jsp");
-                rs.include(request, response);
-            }else if(utente != null && utente.isAdmin()==true){
-                session.setAttribute("amministratore", utente);
-                RequestDispatcher rs = request.getRequestDispatcher("index.jsp");
-                rs.include(request, response);
             }
         }
     }
