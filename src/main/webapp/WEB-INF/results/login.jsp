@@ -12,12 +12,7 @@
 <%--<c:if test="${param.error == 1}">--%>
 <%--<p style="color:red"> Il nome utente non è presente all'interno del database, Prova di nuovo o registrati.</p>--%>
 <%--</c:if>--%>
-<%
-    String x = null;
-    if(request.getAttribute("parametri")!=null){
-        x="Email o password errati!";
-    }
-%>
+
 <div class="wrapper">
     <h1>Login </h1>
     <form action="loginServlet" method="post">
@@ -28,11 +23,9 @@
             <a href="#">Password Dimenticata?</a>
         </div>
     <button onclick="return(validateLogin())" type="submit"> Login </button>
-    <script>
-        <%if(x!=null){%>
-            alert(<%=x%>);
-        <%}%>
-    </script>
+    <%if(request.getAttribute("check")!=null){%>
+        <p style="color: red; text-align: center"><%=request.getAttribute("check")%></p>
+    <%}%>
     </form>
     <div class="user">
         Sei nuovo? <a href="Register"> Register Here </a>
