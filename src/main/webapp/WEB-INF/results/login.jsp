@@ -13,7 +13,7 @@
 <%--<p style="color:red"> Il nome utente non è presente all'interno del database, Prova di nuovo o registrati.</p>--%>
 <%--</c:if>--%>
 <%
-    String x = "";
+    String x = null;
     if(request.getAttribute("parametri")!=null){
         x="Email o password errati!";
     }
@@ -29,9 +29,9 @@
         </div>
     <button onclick="return(validateLogin())" type="submit"> Login </button>
     <script>
-<%--        <%if(x!=null){%>--%>
+        <%if(x!=null){%>
             alert(<%=x%>);
-<%--        <%}%>--%>
+        <%}%>
     </script>
     </form>
     <div class="user">

@@ -79,9 +79,8 @@ button{
 
 button:hover{
     background-color:rgb(200,147,79);
-    font-weight: bold;
-    font-size: 18px;
     transition: 0.2s;
+    font-weight: bolder;
 }
 
 input:focus{

@@ -55,21 +55,17 @@
 <div class="wrapper_reg">
   <h1>Sign Up </h1>
   <form action="process_registration" method="post">
-    <input type="text" placeholder="Username" name ="username" required>
-    <input type="text" placeholder="Name" name="name" required>
-    <input type="text" placeholder="Surname" name="surname" required>
+    <input type="text" placeholder="Username" name ="username" id = "username" required>
+    <input type="text" placeholder="Name" name="name" id = "name" required>
+    <input type="text" placeholder="Surname" name="surname" id = "surname"required>
     <input type="email" placeholder="E-mail" name="email" id="email" required>
-    <!--    <input type="text" placeholder="Phone number" name="phone_number">-->
-    <!--    <input type="text" placeholder="Province" name="province">-->
-    <!--    <input type="text" placeholder="City" name="city">-->
-    <!--    <input type="text" placeholder="CAP" name="cap">-->
-    <!--    <input type="text" placeholder="Street" name="street">-->
-    <!--    <input type="text" placeholder="Civic number" name="civic_number">-->
-    <input type="password" placeholder="Password" name="password" required>
+    <input type="password" placeholder="Password" name="password" id = "password" required>
     <hr>
     <button onclick="return(validateRegistration())" type="submit">Sign up</button>
+    <p style="color: red; text-align: center"><%=x%></p>
+
     <div class="user">
-      Sei gia' registrato? <a href="login.jsp"> Login Here </a>
+      Sei gia' registrato? <a href="login"> Login Here </a>
     </div>
   </form>
 </div>
