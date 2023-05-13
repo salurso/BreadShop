@@ -5,7 +5,6 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 public class Utente {
 
-//    private int id;
     private String email;
     private String name;
     private String surname;
@@ -18,7 +17,6 @@ public class Utente {
     private int cap;
     private boolean admin;
     private String password;
-
 
     // metodi getter e setter
     public void setEmail(String email) {
@@ -73,15 +71,6 @@ public class Utente {
         }
     }
 
-//    public String getUsername() {
-//        return username;
-//    }
-//
-//    public void setUsername(String username) {
-//        this.username = username;
-//    }
-
-
     public String getEmail() {
         return email;
     }
@@ -125,19 +114,5 @@ public class Utente {
     public String getPassword() {
         return password;
     }
-
-
-
-
-
-
-
-//    public int getId() {
-//        return id;
-//    }
-
-//    public void setId(int id) {
-//        this.id = id;
-//    }
 }
 
