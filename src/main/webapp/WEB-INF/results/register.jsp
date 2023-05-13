@@ -2,14 +2,7 @@
 <html>
 <head>
     <title>Registrazione</title>
-  <link rel="stylesheet" href="style.css">
-
-  <%
-    String x=" ";
-    if(request.getAttribute("check")!=null){
-      x="Email già presente!";
-    }
-  %>
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
 
   <script>
     function validateRegistration() {
@@ -52,17 +45,22 @@
 </head>
 <body>
 
+<%if(request.getAttribute("check")!=null){%>
+<div class="alert" id="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <%=request.getAttribute("check")%>
+</div>
+<%}%>
+
 <div class="wrapper_reg">
   <h1>Sign Up </h1>
   <form action="process_registration" method="post">
 <%--    <input type="text" placeholder="Username" name ="username" id = "username" required>--%>
     <input type="email" placeholder="E-mail" name="email" id="email" required>
     <input type="text" placeholder="Name" name="name" id = "name" required>
-    <input type="text" placeholder="Surname" name="surname" id = "surname"required>
+    <input type="text" placeholder="Surname" name="surname" id = "surname" required>
     <input type="password" placeholder="Password" name="password" id = "password" required>
-    <hr>
     <button onclick="return(validateRegistration())" type="submit">Sign up</button>
-    <p style="color: red; text-align: center"><%=x%></p>
 
     <div class="user">
       Sei gia' registrato? <a href="login"> Login Here </a>
