@@ -2,47 +2,50 @@ package model;
 
 public class Prodotto {
 
-    public void setId(int id) {
+    private int id;
+    private String name;
+    private double price;
+    private String description;
+    private String nameCategory;
 
+
+    public void setId(int id) {
         this.id = id;
     }
 
-    public int getId() {
+    public void setName(String name) {
+        this.name = name;
+    }
 
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setIdCategory(String nameCategory) {
+        this.nameCategory = nameCategory;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setNome(String nome) {
-
-        this.nome = nome;
+    public String getName() {
+        return name;
     }
 
-    public String getNome() {
-
-        return nome;
+    public double getPrice() {
+        return price;
     }
 
-    public String getDescrizione() {
-
-        return descrizione;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescrizione(String descrizione) {
-
-        this.descrizione = descrizione;
+    public String getNameCategory() {
+        return nameCategory;
     }
-
-    public void setCosto(double costo) {
-
-        this.costo = costo;
-    }
-
-    public double getCosto() {
-
-        return costo;
-    }
-
-    private int id;
-    private String nome, descrizione;
-    private double costo;
 }
