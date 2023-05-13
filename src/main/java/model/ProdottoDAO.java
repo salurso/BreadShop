@@ -19,13 +19,13 @@ public class ProdottoDAO {
 
             while (rs.next()) {
 
-                Prodotto p = new Prodotto();
-                p.setId(rs.getInt(1));
-                p.setNome(rs.getString(2));
-                p.setDescrizione(rs.getString(3));
-                p.setCosto(rs.getDouble(4));
+//                Prodotto p = new Prodotto();
+//                p.setId(rs.getInt(1));
+//                p.setNome(rs.getString(2));
+//                p.setDescrizione(rs.getString(3));
+//                p.setCosto(rs.getDouble(4));
 
-                prodotti.add(p);
+//                prodotti.add(p);
             }
 
             return prodotti;
@@ -36,34 +36,24 @@ public class ProdottoDAO {
         }
     }
 
-    public List<Prodotto> doRetrieveByCategory(int id) {
+    public List<Prodotto> doRetrieveByCategory(String cat) {
 
         try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement("SELECT id, nome, descrizione, prezzo FROM Prodotto p, Categoria c WHERE p.nomeCategoria = c.nome AND c.nome = ?");
 
-            PreparedStatement ps =
-                    con.prepareStatement("select prodotto.id, prodotto.nome, prodotto.descrizione, prodotto.prezzoCent " +
-                            "from prodotto, prodotto_Categoria " +
-                            "where prodotto.id = prodotto_Categoria.idProdotto and prodotto_Categoria.idCategoria = ?");
-
-            ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             List<Prodotto> prodotti = new ArrayList<>();
-
             while (rs.next()) {
-
                 Prodotto p = new Prodotto();
                 p.setId(rs.getInt(1));
-                p.setNome(rs.getString(2));
-                p.setDescrizione(rs.getString(3));
-                p.setCosto(rs.getDouble(4));
+                p.setName(rs.getString(2));
+                p.setDescription(rs.getString(3));
+                p.setPrice(rs.getDouble(4));
 
                 prodotti.add(p);
             }
-
             return prodotti;
-
         } catch (SQLException s) {
-
             throw new RuntimeException(s);
         }
     }
