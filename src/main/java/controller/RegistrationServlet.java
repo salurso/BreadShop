@@ -30,7 +30,7 @@ public class RegistrationServlet extends HttpServlet {
         request.getSession().setAttribute("utente", utente);
 
         if (UtenteDAO.checkEmail(request.getParameter("email"))) {
-            request.setAttribute("check", "Email già presente");
+            request.setAttribute("check", "E-mail già presente!");
             RequestDispatcher dispatcher =
                     request.getRequestDispatcher("/WEB-INF/results/register.jsp");
             dispatcher.forward(request, response);
