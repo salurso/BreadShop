@@ -3,18 +3,48 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
     <title>Benvenuti</title>
+
+    <script>
+        function validateLogin() {
+            var password = document.getElementById('password').value;
+            var emailRGX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            var passwordRGX=/^[a-zA-Z0-9!@#$%^&*]*$/;
+            var resultPassword=passwordRGX.test(password);
+            if (password.length < 8) {
+                alert("La password non rispetta il numero minimo di caratteri");
+                return false;
+            }
+            if (resultPassword == false) {
+                alert("La password non rispecchia il formato corretto.Riprovare");
+                return false;
+            }
+
+            var email = document.getElementById('email').value;
+            var resultEmail = emailRGX.test(email);
+            if (resultEmail == false) {
+                alert("L'email non rispecchia il formato corretto.Riprovare");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+
 </head>
 <body>
-<br>
-<br>
-<%--<c:if test="${param.error == 1}">--%>
-<%--<p style="color:red"> Il nome utente non è presente all'interno del database, Prova di nuovo o registrati.</p>--%>
-<%--</c:if>--%>
+
+<%if(request.getAttribute("check")!=null){%>
+<div class="alert" id="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <%=request.getAttribute("check")%>
+</div>
+<%}%>
 
 <div class="wrapper">
     <h1>Login </h1>
+
     <form action="loginServlet" method="post">
         <input type="text" placeholder="E-mail" name="email" id="email"required>
         <i class="bi bi-person-fill"></i>
@@ -23,10 +53,8 @@
             <a href="#">Password Dimenticata?</a>
         </div>
     <button onclick="return(validateLogin())" type="submit"> Login </button>
-    <%if(request.getAttribute("check")!=null){%>
-        <p style="color: red; text-align: center"><%=request.getAttribute("check")%></p>
-    <%}%>
     </form>
+
     <div class="user">
         Sei nuovo? <a href="Register"> Register Here </a>
     </div>
