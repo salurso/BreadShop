@@ -178,3 +178,28 @@ header{
     transition: 0.3s;
 
 }
+
+.container{
+    padding: 1rem;
+    border: 1px solid red;
+    display: flex; /*allinea gli elementi uno di fianco all'altro*/
+    flex-wrap: wrap; /*se ho un elemento in più va daccapo*/
+}
+
+.item{
+    /*background: #ccc;*/
+    flex-basis: 20%; /*larghezza singolo elemento*/
+    padding: 20px;
+    background-image: url('/images/addProduct.png');
+    background-repeat:no-repeat; /*Fa si che l'immagine non venga ripetuta se la grandezza del button è maggiore dell'immagine*/
+    background-position:center center; /*Fa si che l'immagine sia sempre al centro del button*/
+    justify-content: space-between;
+}
+
+@media(max-width: 767px){
+    .item{
+        background: #ccc;
+        flex-basis: 50%; /*larghezza singolo elemento*/
+        padding: 20px;
+    }
+}
