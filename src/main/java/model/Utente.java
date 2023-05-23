@@ -8,7 +8,6 @@ public class Utente {
     private String email;
     private String name;
     private String surname;
-    private String username;
     private int phone_number;
     private String city;
     private String street;
