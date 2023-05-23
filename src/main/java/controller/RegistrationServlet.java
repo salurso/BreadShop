@@ -14,14 +14,12 @@ import java.util.regex.Pattern;
 public class RegistrationServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        String username = request.getParameter("username");
         String email = request.getParameter("email");
         String name = request.getParameter("name");
         String surname = request.getParameter("surname");
         String password = request.getParameter("password");
 
         Utente utente = new Utente();
-//        utente.setUsername(username);
         utente.setEmail(email);
         utente.setName(name);
         utente.setSurname(surname);
