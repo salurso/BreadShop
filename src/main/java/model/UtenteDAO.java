@@ -22,8 +22,8 @@ public class UtenteDAO {
             if (resultSet.next()) {
                 utente = new Utente();
                 utente.setEmail(resultSet.getString("email"));
-                utente.setName(resultSet.getString("name"));
-                utente.setSurname(resultSet.getString("surname"));
+                utente.setName(resultSet.getString("nome"));
+                utente.setSurname(resultSet.getString("cognome"));
                 utente.setAdmin(resultSet.getBoolean("admin"));
                 utente.setPassword(password);
             }
@@ -47,7 +47,7 @@ public class UtenteDAO {
 
     public static void doRegistration(Utente utente) {
         try (Connection con = ConPool.getConnection()) {
-            PreparedStatement ps = con.prepareStatement("INSERT INTO utente (email, name, surname, admin, password) VALUES (?,?,?,?,?)",
+            PreparedStatement ps = con.prepareStatement("INSERT INTO utente (email, nome, cognome, admin, password) VALUES (?,?,?,?,?)",
                     Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, utente.getEmail());
             ps.setString(2, utente.getName());
