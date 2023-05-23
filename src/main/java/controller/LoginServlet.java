@@ -33,6 +33,7 @@ public class LoginServlet extends HttpServlet {
             }else if(utente != null && utente.isAdmin()==true){
                 session.setAttribute("loginAdmin", utente);
                 RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/administrator/homeAdmin.jsp");
+//                RequestDispatcher rd = request.getRequestDispatcher("homeServletAdministrator");
                 rd.include(request, response);
             }
         }
