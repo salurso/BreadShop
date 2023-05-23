@@ -1,5 +1,7 @@
 package model;
 
+import java.awt.*;
+
 public class Prodotto {
 
     private int id;
@@ -7,6 +9,7 @@ public class Prodotto {
     private double price;
     private String description;
     private String nameCategory;
+    private Image image;
 
 
     public void setId(int id) {
