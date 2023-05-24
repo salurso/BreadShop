@@ -9,7 +9,7 @@ public class Prodotto {
     private double price;
     private String description;
     private String nameCategory;
-    private Image image;
+    private byte image;
 
 
     public void setId(int id) {
@@ -32,6 +32,10 @@ public class Prodotto {
         this.nameCategory = nameCategory;
     }
 
+    public void setImage(byte image) {
+        this.image = image;
+    }
+
     public int getId() {
         return id;
     }
@@ -50,5 +54,9 @@ public class Prodotto {
 
     public String getNameCategory() {
         return nameCategory;
+    }
+
+    public byte getImage() {
+        return image;
     }
 }
