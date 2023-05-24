@@ -53,7 +53,7 @@
 <div class="container">
     <button class="item" id="add_product" value=" " onclick="location.href='HomeServletAdministrator?action=add_product'">
     </button>
-    <button class="item" id="manage_product" value=" " onclick="location.href='HomeServletAdministrator?action=add_product'">
+    <button class="item" id="manage_product" value=" " onclick="location.href='HomeServletAdministrator?action=manage_product'">
     </button>
     <button class="item" id="sold-out_products" value=" " onclick="location.href='HomeServletAdministrator?action=add_product'">
     </button>
