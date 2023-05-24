@@ -174,23 +174,23 @@ header{
 }
 
 .item#add_product{
-    background-image: url('addProduct.png');
+    background-image: url('../images/addProduct.png');
 }
 
 .item#manage_product{
-    background-image: url('manageProduct.png');
+    background-image: url('../images/manageProduct.png');
 }
 
 .item#sold-out_products{
-    background-image: url('sold-outProduct.png');
+    background-image: url('../images/sold-outProduct.png');
 }
 
 .item#orders{
-    background-image: url('orders.png');
+    background-image: url('../images/orders.png');
 }
 
 .item#users{
-    background-image: url('users.png');
+    background-image: url('../images/users.png');
 }
 
 @media(max-width: 767px){
