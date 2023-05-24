@@ -136,70 +136,79 @@ header{
     }
 }
 
-/*HEADER*/
-#showprod .container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 70vh;
-    background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("../images/sfondohome.webp");
-    background-size: cover;
-    background-position: center;
-}
-
-#showprod .container h1{
-    color:#E4E0BB;
-    font-size: 4.3rem;
-    padding-bottom: 2rem;
-}
-
-#showprod .container p {
-    color:#E4E0BB;
-    font-size: 1.3rem;
-    padding-bottom: 2rem;
-}
-.color{
-    color: #A06028;
-}
-
-.btn_prod{
-    display: inline-block;
-    font-size: 18px;
-    color: #E4E0BB;
-    background: black;
-    padding: 13px 18px;
-    border: none;
-}
-
-.btn_prod:hover{
-    background: #A06028;
-    color:black;
-    transition: 0.3s;
-
-}
-
 .container{
     padding: 1rem;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
     display: flex; /*allinea gli elementi uno di fianco all'altro*/
     flex-wrap: wrap; /*se ho un elemento in più va daccapo*/
+    justify-content: space-around;
+    align-items: center;
 }
-
+/*
+#E4E0BB
+#C8934F
+#AE7349
+#A0602B
+#38271E
+*/
 .item{
-    /*background: #ccc;*/
-    flex-basis: 20%; /*larghezza singolo elemento*/
+    background: #C8934F;
+    flex-basis: 30%; /*larghezza singolo elemento*/
     padding: 20px;
-    background-image: url('/images/addProduct.png');
+    margin-top: 50px;
+    background-size: 200px;
     background-repeat:no-repeat; /*Fa si che l'immagine non venga ripetuta se la grandezza del button è maggiore dell'immagine*/
     background-position:center center; /*Fa si che l'immagine sia sempre al centro del button*/
-    justify-content: space-between;
+    width: 200px;
+    height: 300px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+}
+
+.item:hover {
+    background: #AE7349;
+    background-size: 205px;
+    background-repeat:no-repeat; /*Fa si che l'immagine non venga ripetuta se la grandezza del button è maggiore dell'immagine*/
+    background-position:center center; /*Fa si che l'immagine sia sempre al centro del button*/
+}
+
+.item#add_product{
+    background-image: url('addProduct.png');
+}
+
+.item#manage_product{
+    background-image: url('manageProduct.png');
+}
+
+.item#sold-out_products{
+    background-image: url('sold-outProduct.png');
+}
+
+.item#orders{
+    background-image: url('orders.png');
+}
+
+.item#users{
+    background-image: url('users.png');
 }
 
 @media(max-width: 767px){
     .item{
-        background: #ccc;
+        background: #C8934F;
         flex-basis: 50%; /*larghezza singolo elemento*/
-        padding: 20px;
+        padding: 50px;
+        background-size: 150px;
+        background-repeat:no-repeat; /*Fa si che l'immagine non venga ripetuta se la grandezza del button è maggiore dell'immagine*/
+        background-position:center center;
+        width: 150px;
+        height: 200px;
+    }
+
+    .item:hover{
+        background: #AE7349;
+        background-size: 155px;
+        background-repeat:no-repeat; /*Fa si che l'immagine non venga ripetuta se la grandezza del button è maggiore dell'immagine*/
+        background-position:center center; /*Fa si che l'immagine sia sempre al centro del button*/
     }
 }
