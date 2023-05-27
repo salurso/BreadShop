@@ -59,17 +59,31 @@
 ArrayList<Prodotto> prodotti = (ArrayList<Prodotto>) request.getAttribute("prodotti");
 for(Prodotto p : prodotti){
 %>
+<%--    <div class="card-product">--%>
+<%--        <img class="card-img" src="images/paneBianco.png" alt="Card image">--%>
+<%--        <div class="card-body">--%>
+<%--            <h4 class="card-title"><%=p.getName()%></h4>--%>
+<%--            <p class="card-price"><%=p.getPrice()%></p>--%>
+<%--            <a href="#" class="link-card-info">See Profile</a>--%>
+<%--        </div>--%>
+<%--    </div>--%>
     <div class="card-product">
-        <img class="card-img" src="images/paneBianco.png" alt="Card image">
         <div class="card-body">
+            <a>
+                <img class="card-img" src="images/paneBianco.png" alt="Card image" width="600" height="400">
+            </a>
             <h4 class="card-title"><%=p.getName()%></h4>
-            <p class="card-price"><%=p.getPrice()%></p>
-            <a href="#" class="link-card-info">See Profile</a>
+            <div class="card-price"><%=p.getPrice()%>€</div>
+            <div class="div-btn">
+                <button class="btn-card" value=" " onclick="location.href='ManageProduct?action=manage_product'">Gestisci prodotto</button>
+            </div>
+<%--            <a href="#" class="link-card-info">See Profile</a>--%>
         </div>
     </div>
 <%
 }
 %>
+    <div class="clearfix"></div>
 </div>
 </body>
 </html>
