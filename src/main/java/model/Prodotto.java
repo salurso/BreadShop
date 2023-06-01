@@ -1,6 +1,6 @@
 package model;
 
-import java.awt.*;
+import java.io.InputStream;
 
 public class Prodotto {
 
@@ -9,7 +9,7 @@ public class Prodotto {
     private double price;
     private String description;
     private String nameCategory;
-    private byte image;
+    private InputStream image;
 
 
     public void setId(int id) {
@@ -32,7 +32,7 @@ public class Prodotto {
         this.nameCategory = nameCategory;
     }
 
-    public void setImage(byte image) {
+    public void setImage(InputStream image) {
         this.image = image;
     }
 
@@ -56,7 +56,7 @@ public class Prodotto {
         return nameCategory;
     }
 
-    public byte getImage() {
+    public InputStream getImage() {
         return image;
     }
 }
