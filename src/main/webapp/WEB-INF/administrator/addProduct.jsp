@@ -12,9 +12,18 @@
 </head>
 <body>
     <form action="InsertProduct" enctype="multipart/form-data" method="POST">
-        <input type="text" name="prodotto">
-        <input type="file" id="image" name="image" value="inserisci immagine">
-        <input type="submit" value="inserisci prodotto">INSERISCI PRODOTTO</input>
+        <label for="name">Nome: </label>
+        <input type="text" name="name" id="name">
+        <label for="price">Prezzo: </label>
+        <input type="number" name="price" id="price">
+        <label for="imgage">Immagine: </label>
+        <input type="file" id="imgage" name="image" value="inserisci immagine">
+        <label for="description">Descrizione: </label>
+        <input type="text" name="description" id="description">
+        <label for="category">Nome categoria: </label>
+        <input type="text" name="category" id="category">
+
+        <input type="submit" value="INSERISCI PRODOTTO">
     </form>
 </body>
 </html>
