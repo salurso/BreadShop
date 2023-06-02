@@ -46,7 +46,7 @@
         <li><a href="HomeServletAdministrator?action=utenti">Utenti</a></li>
         <li><a href="HomeServletAdministrator?action=prodotti_esauriti">Prodotti esauriti</a></li>
         <li><a href="HomeServletAdministrator?action=ordini">Ordini</a></li>
-        <li> <i class="fa-solid fa-cart-shopping fa-lg"></i></li>
+        <li><i class="fa-solid fa-cart-shopping fa-lg"></i></li>
         <li><a href="InitServlet?action=login" class="action_btn"> Bentornato <%=utente.getName().toUpperCase(java.util.Locale.ROOT)%></a></li>
     </div>
 </header>
