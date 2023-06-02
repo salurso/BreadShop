@@ -43,31 +43,9 @@ public class ManageProduct extends HttpServlet {
 //        RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/product.jsp");
 //        ds.forward(request, response);
 
-        int productId = Integer.parseInt(request.getParameter("action"));
+        int product = Integer.parseInt(request.getParameter("action"));
         ProdottoDAO pDAO = new ProdottoDAO();
-        Prodotto p = pDAO.doRetrieveByIdImage(productId);
-        InputStream imageStream = p.getImage();
-
-        try {
-            response.setContentType("image/png"); // Imposta il tipo di contenuto come immagine PNG
-            OutputStream os = response.getOutputStream();
-
-            byte[] buffer = new byte[4096];
-            int bytesRead;
-            while ((bytesRead = imageStream.read(buffer)) != -1) {
-                os.write(buffer, 0, bytesRead);
-            }
-
-            os.flush();
-            os.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } finally {
-            if (imageStream != null) {
-                imageStream.close();
-            }
-        }
-
+        Prodotto p = pDAO.doRetrieveById(product);
         request.setAttribute("prodotto", p);
         RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/product.jsp");
         ds.forward(request, response);
