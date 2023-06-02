@@ -8,8 +8,10 @@ public class Prodotto {
     private String name;
     private double price;
     private String description;
+    private String image;
     private String nameCategory;
-    private InputStream image;
+
+//    private InputStream imageFile;
 
 
     public void setId(int id) {
@@ -28,13 +30,17 @@ public class Prodotto {
         this.description = description;
     }
 
-    public void setIdCategory(String nameCategory) {
+    public void setNameCategory(String nameCategory) {
         this.nameCategory = nameCategory;
     }
 
-    public void setImage(InputStream image) {
+    public void setImage(String image) {
         this.image = image;
     }
+
+    //    public void setImageFile(InputStream image) {
+//        this.imageFile = image;
+//    }
 
     public int getId() {
         return id;
@@ -56,7 +62,11 @@ public class Prodotto {
         return nameCategory;
     }
 
-    public InputStream getImage() {
+    public String getImage() {
         return image;
     }
+
+    //    public InputStream getImageFile() {
+//        return imageFile;
+//    }
 }
