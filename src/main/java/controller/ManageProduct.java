@@ -43,9 +43,9 @@ public class ManageProduct extends HttpServlet {
 //        RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/product.jsp");
 //        ds.forward(request, response);
 
-        int product = Integer.parseInt(request.getParameter("action"));
+        int idProduct = Integer.parseInt(request.getParameter("action"));
         ProdottoDAO pDAO = new ProdottoDAO();
-        Prodotto p = pDAO.doRetrieveById(product);
+        Prodotto p = pDAO.doRetrieveById(idProduct);
         request.setAttribute("prodotto", p);
         RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/product.jsp");
         ds.forward(request, response);
