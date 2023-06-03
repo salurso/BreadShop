@@ -30,6 +30,9 @@ public class HomeServletAdministrator extends HttpServlet {
             ds.forward(request, response);
         }
         if(action.equals("add_product")){
+            ProdottoDAO pDAO = new ProdottoDAO();
+            ArrayList<String> categories = pDAO.getCategories();
+            request.setAttribute("categories", categories);
             RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/addProduct.jsp");
             ds.forward(request, response);
         }
