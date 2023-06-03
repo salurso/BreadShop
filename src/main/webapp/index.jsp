@@ -66,7 +66,7 @@
         <p> Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è
             considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo
         </p>
-        <a class="btn_prod" href="prodotti"> I nostri Prodotti</a>
+        <a class="home_btn" href="prodotti"> I nostri Prodotti</a>
     </div>
 </section>
 
@@ -78,104 +78,180 @@
     </div>
     <div class="about-text">
         <h2> Our History</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+        <p>La Forneria del Cilento nasce ad Agropoli, all'interno del Parco Nazionale, con l'intenzione e la volontà di esaltare ogni giorno i prodotti ed i sapori autentici di una terra ricca di storia e tradizioni. </p>
+        <p> Con la passione nella cura e nella lavorazione delle materie prime, con la continua ricerca delle ricette migliori per la soddisfazione quotidiana dei clienti, con la gentilezza e la disponibilità che li contraddistinguono,</p>
+        <p>Simone e Marielena vi aspettano nel loro laboratorio artigianale per poter condividere con voi i sapori genuini del Cilento.</p>
         <a href="#" class="btn_about"> Learn More</a>
     </div>
 </section>
 
-<%--PRODUCT--%>
-
-<section class="product" id="product">
-    <div class="heading">
-        <h2> Our Products </h2>
-    </div>
-
-    <div class="products-container">
-        <div class="box">
-            <img src="./images/pane1.avif" alt="">
-            <h3> Pane Bianco </h3>
-            <div class="content-prod">
-                <span> €3.00/kg</span>
-                <a href="#"> Add to cart </a>
-            </div>
-        </div>
-            <div class="box">
-                <img src="./images/pane1.avif" alt="">
-                <h3> Pane Bianco </h3>
-                <div class="content-prod">
-                    <span> €3.00/kg</span>
-                    <a href="#"> Add to cart </a>
-                </div>
-             </div>
-                <div class="box">
-                    <img src="./images/pane1.avif" alt="">
-                    <h3> Pane Bianco </h3>
-                    <div class="content-prod">
-                        <span> €3.00/kg</span>
-                        <a href="#"> Add to cart </a>
-                    </div>
-                </div>
-                    <div class="box">
-                        <img src="./images/pane1.avif" alt="">
-                        <h3> Pane Bianco </h3>
-                        <div class="content-prod">
-                            <span> €3.00/kg</span>
-                            <a href="#"> Add to cart </a>
-                        </div>
-                    </div>
-        <div class="box">
-            <img src="./images/pane1.avif" alt="">
-            <h3> Pane Bianco </h3>
-            <div class="content-prod">
-                <span> €3.00/kg</span>
-                <a href="#"> Add to cart </a>
-            </div>
-        </div>
-        <div class="box">
-            <img src="./images/pane1.avif" alt="">
-            <h3> Pane Bianco </h3>
-            <div class="content-prod">
-                <span> €3.00/kg</span>
-                <a href="#"> Add to cart </a>
-            </div>
-        </div>
-    </div>
-
-</section>
-
-
-
-
-
-
-
-
-<%--<section id="about">--%>
-<%--    <div class="content">--%>
-<%--        <div class="title">--%>
-<%--            <h2> La storia del nostro pane</h2>--%>
-<%--            <p>Più di 30 anni di esperienza!!</p>--%>
-<%--        </div>--%>
-<%--        <div class="about-content">--%>
-<%--            <div>--%>
-<%--                <p>--%>
-<%--                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy--%>
-<%--                    text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.--%>
-<%--                    It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.--%>
-<%--                </p>--%>
-<%--                <p>--%>
-<%--                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy--%>
-<%--                    text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.--%>
-<%--                    It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.--%>
-<%--                </p>--%>
-<%--                <a href="#" class="btn_about"> Learn More </a>--%>
-<%--            </div>--%>
-<%--            <img src="./images/fotoabout.jpeg" alt="fotoabout">--%>
-<%--        </div>--%>
+<%--<section class="mid">--%>
+<%--    <div>--%>
+<%--        <img src="./images/fotomid.png">--%>
 <%--    </div>--%>
 <%--</section>--%>
+
+
+<%--PRODUCT--%>
+<div class="container-prod">
+    <h3 class="title">Our Products</h3>
+    <div class="product-container">
+
+    <div class="product" data-name="p-1">
+        <img src="./images/pane1.webp" alt="fotopane">
+        <h3> Pane Bianco </h3>
+        <div class="price">€3.00/kg</div>
+    </div>
+
+        <div class="product" data-name="p-2">
+            <img src="./images/rosticceria.png" alt="fotopane">
+            <h3> Rosticceria </h3>
+            <div class="price">€3.00/kg</div>
+        </div>
+
+        <div class="product" data-name="p-3">
+            <img src="./images/semola.png" alt="fotopane">
+            <h3> Pane di Semola </h3>
+            <div class="price">€4.99/kg</div>
+        </div>
+
+        <div class="product" data-name="p-4">
+            <img src="./images/integrale.png" alt="fotopane">
+            <h3> Pane Integrale </h3>
+            <div class="price">€3.00/kg</div>
+        </div>
+
+        <div class="product" data-name="p-5">
+            <img src="./images/biscottato.png" alt="fotopane">
+            <h3> Pane Biscottato </h3>
+            <div class="price">€3.00/kg</div>
+        </div>
+
+        <div class="product" data-name="p-6">
+            <img src="./images/frese.png" alt="fotopane">
+            <h3> Frese Integrali </h3>
+            <div class="price">€3.00/kg</div>
+        </div>
+    </div>
+</div>
+
+<div class="product-preview">
+    <div class="preview" data-target="p-1">
+        <i class="fas fa-times"></i>
+        <img src="./images/pane1.webp" alt ="fotopane">
+        <h3> Pane Bianco </h3>
+        <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+            <span>(250)</span>
+        </div>
+        <p>Lorem Ipsum dolor sit amet consectetur adipisicing elit. Consequatr, dolorem</p>
+        <div class="price">€3.00/kg</div>
+        <div class="btn">
+            <a href="#" class="more">Learn More</a>
+        </div>
+    </div>
+
+    <div class="preview" data-target="p-2">
+        <i class="fas fa-times"></i>
+        <img src="./images/rosticceria.png" alt ="fotopane">
+        <h3> Rosticceria </h3>
+        <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+            <span>(250)</span>
+        </div>
+        <p>Lorem Ipsum dolor sit amet consectetur adipisicing elit. Consequatr, dolorem</p>
+        <div class="price">€3.00/kg</div>
+        <div class="btn">
+            <a href="#" class="more">Learn More</a>
+        </div>
+    </div>
+
+    <div class="preview" data-target="p-3">
+        <i class="fas fa-times"></i>
+        <img src="./images/semola.png" alt ="fotopane">
+        <h3> Pane di Semola </h3>
+        <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+            <span>(250)</span>
+        </div>
+        <p>Lorem Ipsum dolor sit amet consectetur adipisicing elit. Consequatr, dolorem</p>
+        <div class="price">€3.00/kg</div>
+        <div class="btn">
+            <a href="#" class="more">Learn More</a>
+        </div>
+    </div>
+
+    <div class="preview" data-target="p-4">
+        <i class="fas fa-times"></i>
+        <img src="./images/integrale.png" alt ="fotopane">
+        <h3> Pane Integrale </h3>
+        <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+            <span>(250)</span>
+        </div>
+        <p>Lorem Ipsum dolor sit amet consectetur adipisicing elit. Consequatr, dolorem</p>
+        <div class="price">€3.00/kg</div>
+        <div class="btn">
+            <a href="#" class="more">Learn More</a>
+        </div>
+    </div>
+
+    <div class="preview" data-target="p-5">
+        <i class="fas fa-times"></i>
+        <img src="./images/biscottato.png" alt ="fotopane">
+        <h3> Pane Biscottato </h3>
+        <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+            <span>(250)</span>
+        </div>
+        <p>Lorem Ipsum dolor sit amet consectetur adipisicing elit. Consequatr, dolorem</p>
+        <div class="price">€3.00/kg</div>
+        <div class="btn">
+            <a href="./WEB-INF/results/prodotti.jsp" class="more">Learn More</a>
+        </div>
+    </div>
+
+    <div class="preview" data-target="p-6">
+        <i class="fas fa-times"></i>
+        <img src="./images/frese.png" alt="fotopane">
+        <h3> Frese Integrali </h3>
+        <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+            <span>(250)</span>
+        </div>
+        <p>Lorem Ipsum dolor sit amet consectetur adipisicing elit. Consequatr, dolorem</p>
+        <div class="price">€3.00/kg</div>
+        <div class="btn">
+            <a href="#" class="more">Learn More</a>
+        </div>
+    </div>
+
+</div>
+
 <script>
     const toggleBtn = document.querySelector('.toggle_btn')
     const toggleBtnIcon = document.querySelector('.toggle_btn i')
@@ -189,6 +265,31 @@
             ? 'fa-solid fa-xmark'
             : 'fa-solid fa-bars'
     }
+
+    // script products
+
+    let previewContainer = document.querySelector('.product-preview');
+    let previewBox = previewContainer.querySelectorAll('.preview');
+
+    document.querySelectorAll('.product-container .product').forEach(product =>{
+        product.onclick = () =>{
+            previewContainer.style.display='flex';
+            let name = product.getAttribute('data-name');
+            previewBox.forEach(preview =>{
+                let target = preview.getAttribute('data-target');
+                if(name == target){
+                    preview.classList.add('active');
+                }
+            });
+        };
+    });
+
+    previewBox.forEach(close =>{
+        close.querySelector('.fa-times').onclick = () =>{
+            close.classList.remove('active');
+            previewContainer.style.display ='none';
+        };
+    });
 
 </script>
 </body>
