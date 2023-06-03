@@ -72,7 +72,7 @@
 /*DROPDOWN MENU */
 .dropdown_menu{
     display:none ;
-    position: absolute;
+    /*position: absolute;*/
     right: 0;
     top:60px;
     height:0;
@@ -82,6 +82,7 @@
     border-radius: 5px;
     overflow: hidden;
     transition: height .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: fixed;
 }
 
 .dropdown_menu.open{
