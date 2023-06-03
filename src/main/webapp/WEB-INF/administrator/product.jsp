@@ -6,15 +6,19 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="./css/headerAdmin.css"/>
     <%
         Prodotto p = (Prodotto) request.getAttribute("prodotto");
     %>
     <title><%=p.getName()%></title>
 </head>
 <body>
+    <%@ include file="headerAdmin.jsp" %>
     <div class="product">
-    <img class="card-img" src="update/<%=p.getImage()%>" alt="Card image" width="600" height="400">
-    <div class="info-product">
+        <div class="prod">
+            <img class="card-img" src="upload/<%=p.getImage()%>" alt="Card image" width="600" height="400">
+        </div>
+        <div class="prod">
             <h4><%=p.getName()%></h4>
             <label>id: </label><input id="id" type="text" value="<%=p.getId()%>">
             <label>nome: </label><input id="name" type="text" value="<%=p.getName()%>">
