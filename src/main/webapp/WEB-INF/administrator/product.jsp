@@ -22,6 +22,7 @@
         <div class="box" id="product-img">
             <img class="card-img" src="upload/<%=p.getImage()%>" alt="Card image" width="600" height="400">
         </div>
+        <form action="UpdateProduct" method="POST">
         <div class="box" id="product-info">
             <h4><%=p.getName()%></h4>
 
@@ -53,7 +54,9 @@
             <label for="description">descrizione: </label>
             <textarea name="description" id="description" style="height:200px"><%=p.getDescription()%></textarea>
 
+            <input type="button" value="AGGIORNA">
         </div>
+        </form>
     </div>
 </body>
 </html>
