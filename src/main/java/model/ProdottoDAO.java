@@ -79,20 +79,36 @@ public class ProdottoDAO {
         }
     }
 
+    public ArrayList<String> getCategories() {
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement("SELECT nome FROM Categoria");
+
+            ResultSet rs = ps.executeQuery();
+            ArrayList<String> categories = new ArrayList<>();
+            while (rs.next()) {
+               categories.add(rs.getString(1));
+            }
+            return categories;
+        } catch (SQLException s) {
+            throw new RuntimeException(s);
+        }
+    }
+
     public Prodotto doRetrieveById(int id) {
 
         try (Connection con = ConPool.getConnection()) {
-            PreparedStatement ps = con.prepareStatement("SELECT id, nome, prezzo, immagine FROM Prodotto WHERE id = ?");
+            PreparedStatement ps = con.prepareStatement("SELECT id, nome, prezzo, immagine, descrizione, nomeCategoria FROM Prodotto WHERE id = ?");
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
-
             Prodotto p = new Prodotto();
-            p.setId(rs.getInt(1));
-            p.setName(rs.getString(2));
-//            p.setDescription(rs.getString(3));
-            p.setPrice(rs.getDouble(3));
-            p.setImage(rs.getString(4));
-
+            while (rs.next()) {
+                p.setId(rs.getInt(1));
+                p.setName(rs.getString(2));
+                p.setPrice(rs.getDouble(3));
+                p.setImage(rs.getString(4));
+                p.setDescription(rs.getString(5));
+                p.setNameCategory(rs.getString(6));
+            }
             return p;
         } catch (SQLException s) {
             throw new RuntimeException(s);
