@@ -1,0 +1,131 @@
+.header{
+    background:#E4E0BB;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:1.5rem 7%;
+    border-bottom: gray;
+    position: fixed;
+    top:0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.header .logo{
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+.header .logo ul{
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform:uppercase ;
+}
+
+.header .links{
+    display: flex;
+    gap: 2rem;
+}
+
+.header a{
+    margin:0 1rem;
+    color:#38271E;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.header .links a:hover{
+    color:#A06028;
+    border-bottom:.1rem solid gray;
+    padding-bottom: .5rem;
+}
+
+
+.header .toggle_btn{
+    color: #38271E;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+.action_btn{
+    background-color: #A06028;
+    color:#38271E;
+    padding: 0.5rem 1rem;
+    border:none;
+    outline:none;
+    border-radius: 1px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: scale 0.2s ease;
+}
+
+.action_btn:hover{
+    scale:1.05;
+    color: #E4E0BB;
+}
+
+.action_btn:active{
+    scale: 0.95;
+}
+
+/*DROPDOWN MENU */
+.dropdown_menu{
+    display:none ;
+    position: absolute;
+    right: 0;
+    top:60px;
+    height:0;
+    width: 300px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 5px;
+    overflow: hidden;
+    transition: height .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dropdown_menu.open{
+    height: 250px;
+    z-index: 1000;
+}
+
+.dropdown_menu li{
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown_menu .action_btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/*#menu-btn{*/
+/*    display: none;*/
+/*}*/
+
+
+
+/*RESPONSIVE*/
+@media(max-width: 992px){
+    .header .links,
+    .header .action_btn{
+        display: none;
+    }
+
+    .header .toggle_btn{
+        display: block;
+    }
+
+    .dropdown_menu{
+        display: block;
+    }
+}
+
+@media(max-width: 576px){
+    .dropdown_menu{
+        width: 100%;
+    }
+}
