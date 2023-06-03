@@ -1,4 +1,5 @@
-<%@ page import="java.util.ArrayList" %><%--
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.Random" %><%--
   Created by IntelliJ IDEA.
   User: Costantino
   Date: 01/06/2023
@@ -9,8 +10,8 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="./css/headerAdmin.css"/>
-    <link rel="stylesheet" type="text/css" href="./css/addProductAdmin.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/headerAdmin.css?v=<%=new Random().nextInt()%>"/>
+    <link rel="stylesheet" type="text/css" href="./css/addProductAdmin.css?v=<%=new Random().nextInt()%>"/>
     <title>Inserisci prodotto</title>
 </head>
 <body>
