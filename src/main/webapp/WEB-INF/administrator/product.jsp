@@ -20,9 +20,9 @@
         </div>
         <div class="prod">
             <h4><%=p.getName()%></h4>
-            <label>id: </label><input id="id" type="text" value="<%=p.getId()%>">
-            <label>nome: </label><input id="name" type="text" value="<%=p.getName()%>">
-            <label>prezzo: </label><input id="price" type="text" value="<%=p.getPrice()%>">
+            <label>id: </label><input id="id" type="text" value="<%=p.getId()%>"><br>
+            <label>nome: </label><input id="name" type="text" value="<%=p.getName()%>"><br>
+            <label>prezzo: </label><input id="price" type="text" value="<%=p.getPrice()%>"><br>
             <label>descrizione: </label><input id="description" type="text" value="<%=p.getDescription()%>">
         </div>
     </div>
