@@ -30,7 +30,7 @@ public class InsertProduct extends HttpServlet {
         String name = request.getParameter("name");
         Double price = Double.valueOf(request.getParameter("price"));
         String description = request.getParameter("description");
-        String category = request.getParameter("category");
+        String category = request.getParameter("categories");
 
 //        Part part = request.getPart("image");
 //        InputStream in = part.getInputStream();
