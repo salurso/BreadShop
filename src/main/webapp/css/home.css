@@ -5,7 +5,7 @@
     padding:0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, Nunito, sans-serif;
-    text-transform: capitalize;
+    /*text-transform: capitalize;*/
     transition:.2s linear;
     outline: none;
     border:none;
@@ -81,7 +81,7 @@ a{
 }
 
 .home_btn{
-    position: absolute;
+    /*position: center;*/
     color:#38271E;
     font-weight: bolder;
     padding:16px 32px;
@@ -90,7 +90,7 @@ a{
     font-size: 17px;
     cursor: pointer;
     background: #E4E0BB;
-    margin-top: 2rem;
+    /*margin-top: 10rem;*/
     border: 3.3px solid #38271E;
 }
 
@@ -118,9 +118,10 @@ a{
 /*ABOUT*/
 
 .about{
+    background: beige;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(17rem, auto));
-    /*align-items: center;*/
+    align-items: center;
     gap:1.5rem;
 }
 
@@ -133,7 +134,8 @@ a{
 .about-text h2{
     color: #38271E;
     font-size: 2rem;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
+    font-family: cursive;
 }
 
 .about-text p{
@@ -144,7 +146,7 @@ a{
 }
 
 .btn_about{
-    position: absolute;
+    /*position: relative;*/
     color:#38271E;
     font-weight: bolder;
     padding:16px 32px;
@@ -152,8 +154,8 @@ a{
     text-decoration: none;
     font-size: 17px;
     cursor: pointer;
-    background: #E4E0BB;
-    margin-top: 2rem;
+    background: transparent;
+    /*margin-top: 2rem;*/
     border: 3.3px solid #38271E;
 }
 
@@ -177,7 +179,7 @@ a{
     font-size: 3.5rem;
     color:#38271E;
     margin-bottom: 3rem;
-    text-transform: uppercase;
+    font-family: cursive;
     text-align: center;
 }
 
@@ -329,6 +331,127 @@ a{
     color: #E4E0BB;
 }
 
+
+/*MID*/
+
+.mid{
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    background:url(../images/fotomid.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.mid.container-mid{
+    max-width: 60rem;
+}
+
+.mid .container-mid h3{
+    font-size: 3rem;
+    color: #E4E0BB;
+}
+
+.mid .container-mid p{
+    font-size: 1.3rem;
+    /*font-weight:bold;*/
+    padding:1rem 0;
+    letter-spacing: inherit;
+    color: #E4E0BB;
+}
+
+
+
+
+/*FOOTER*/
+
+.container-footer{
+    max-width: 1170px;
+    margin: auto;
+}
+
+.row-footer{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer{
+    background-color: #24262b;
+    padding: 70px 0;
+}
+
+.footer-col{
+    width: 25%;
+    padding: 0 15px;
+}
+
+.footer-col{
+    width: 25%;
+    padding: 0 15px;
+}
+
+.footer-col h4{
+    font-size: 18px;
+    color: #E4E0BB;
+    text-transform: capitalize;
+    margin-bottom: 30px;
+    font-weight: bold;
+    position: relative;
+}
+
+.footer-col h4::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #e19e63;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+}
+
+.footer-col ul li:not(:last-child){
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a{
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #E4E0BB;
+    /*text-decoration: none;*/
+    font-weight: 300;
+    color: #bbbbbb;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover{
+    color:#E4E0BB;
+    padding-left: 8px;
+}
+
+.footer-col .social a{
+    display:inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255,255,255,0.2);
+    margin:0 5px;;
+    overflow:hidden;
+    float: left;
+    text-align:center;
+    border-radius: 50px;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+    transition: all 0.5s ease;
+}
+
+.footer-col .social a:hover{
+    color: #24262b;
+    background-color: #E4E0BB;
+}
+
+
+
 /*RESPONSIVE*/
 @media(max-width: 991px) {
     .home {
@@ -344,10 +467,28 @@ a{
     .home .container p {
         font-size: 1.5rem;
     }
+
+    .about-img{
+        display: none;
+    }
+
+    .footer-col{
+        width: 50%;
+        margin-bottom: 30px;
+    }
+
 }
 
 @media(max-width: 768px){
     .product-preview .preview img{
         height: 10rem;
     }
+}
+
+@media(max-width: 574px){
+    .row-footer{
+        width: 100%;
+    }
+
+
 }
