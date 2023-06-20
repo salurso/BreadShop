@@ -16,6 +16,7 @@ public class Ordine {
     private String email_user;
     private ArrayList<Prodotto> products;
 
+
     public void setId(int id) {
         this.id = id;
     }
