@@ -40,7 +40,7 @@ public class ManageProduct extends HttpServlet {
 //
 //        request.setAttribute("prodotto", p);
 //
-//        RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/product.jsp");
+//        RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/prodotti.jsp");
 //        ds.forward(request, response);
 
         int idProduct = Integer.parseInt(request.getParameter("action"));
@@ -49,7 +49,7 @@ public class ManageProduct extends HttpServlet {
         request.setAttribute("categories", categories);
         Prodotto p = pDAO.doRetrieveById(idProduct);
         request.setAttribute("product", p);
-        RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/product.jsp");
+        RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/prodotti.jsp");
         ds.forward(request, response);
     }
 

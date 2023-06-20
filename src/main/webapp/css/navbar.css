@@ -1,3 +1,18 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, Nunito, sans-serif;
+    transition:.2s linear;
+    outline: none;
+    border:none;
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+}
+
 .header{
     background:#E4E0BB;
     display: flex;

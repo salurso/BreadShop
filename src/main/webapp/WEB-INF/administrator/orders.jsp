@@ -18,13 +18,13 @@
       ArrayList<Ordine> orders = (ArrayList<Ordine>) request.getAttribute("orders");
 
       for(Ordine o : orders){
-          ArrayList<Prodotto> products = o.getProducts();
+          ArrayList<Prodotto> product = o.getProducts();
       %>
         <table>
             <tr>
               <th>DATA: <%=o.getDate()%></th><th>TOTALE: <%=o.getTotal()%></th><th>INVIA A: <%=o.getEmail_user()%></th><th>ORDINE #: <%=o.getId()%></th>
             </tr>
-            <%for(Prodotto p : products){%>
+            <%for(Prodotto p : product){%>
             <tr>
               <td><img src="upload/<%=p.getImage()%>"></td><td><%=p.getName()%></td><td>quantità</td><td><%=p.getPrice()%></td>
             </tr>

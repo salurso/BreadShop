@@ -18,6 +18,7 @@ public class Utente {
     private String password;
 
     // metodi getter e setter
+
     public void setEmail(String email) {
         this.email = email;
     }

@@ -12,6 +12,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/home.css?v=<%=new Random().nextInt()%>"/>
     <link rel="stylesheet" type="text/css" href="css/navbar.css?=<%=new Random().nextInt()%>"/>
+<%--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>--%>
+<%--    <link rel="stylesheet" href="animate.min.css">--%>
+    <link rel="stylesheet" href="aos-by-red.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <title>Forneria Del Cilento</title>
 </head>
 <body>
@@ -19,7 +24,7 @@
 <%--   <nav class="navbar">--%>
         <div class="logo"><a href="#">Forneria Del Cilento</a></div>
         <ul class="links">
-            <li><a href="InitServlet?action=prodotti">Prodotti</a></li>
+            <li><a href="InitServlet?action=product">Prodotti</a></li>
             <li><a href="InitServlet?action=specialita">Specialità</a></li>
             <li><a href="InitServlet?action=contatti">Contatti</a></li>
             <li><a><i class="fa-solid fa-cart-shopping" style="color: #38271E;"></i></a></li>
@@ -46,7 +51,7 @@
 </header>
 
 <div class="dropdown_menu">
-        <li><a href="InitServlet?action=prodotti">Prodotti</a></li>
+        <li><a href="InitServlet?action=product">Prodotti</a></li>
         <li><a href="InitServlet?action=specialita">Specialità</a></li>
         <li><a href="InitServlet?action=contatti">Contatti</a></li>
         <li><a><i class="fa-solid fa-cart-shopping" style="color: #38271E;"></i></a></li>
@@ -61,7 +66,8 @@
 
 <%--HOME--%>
 <section class="home" id="home">
-    <div class="container">
+    <div class="container" data-aos="fade-up" data-aos-duration="3000"
+         data-aos-anchor-placement="top-bottom">
         <h3> Forneria Del Cilento </h3>
         <p> Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è
             considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo
@@ -72,7 +78,8 @@
 
 <%--ABOUT--%>
 
-<section class="about" id="about">
+<section class="about" id="about" data-aos="fade-up" data-aos-duration="3000"
+         data-aos-anchor-placement="top-bottom">
     <div class="about-img">
         <img src="./images/aboutimg.jpg">
     </div>
@@ -88,7 +95,8 @@
 
 
 <%--PRODUCT--%>
-<div class="container-prod">
+<div class="container-prod" data-aos="fade-up" data-aos-duration="3000"
+     data-aos-anchor-placement="top-bottom">
     <h3 class="title"> I Nostri Prodotti</h3>
     <div class="product-container">
 
@@ -306,8 +314,13 @@
     </div>
 </footer>
 
-
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
+
+    AOS.init({
+        duration: 4000,
+        once: true,
+    });
 
     //script dropdown
     const toggleBtn = document.querySelector('.toggle_btn')
@@ -347,6 +360,9 @@
             previewContainer.style.display ='none';
         };
     });
+
+
+
 
 </script>
 </body>

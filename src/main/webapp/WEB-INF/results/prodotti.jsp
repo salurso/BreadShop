@@ -1,50 +1,67 @@
-
-<%@ page import = "model.Prodotto" %>
-<%@ page import = "model.Categoria" %>
-<%@ page contentType = "text/html;charset=UTF-8" language="java" %>
-<%@ page import = "java.util.List" %>
-
+<%@ page import="model.Prodotto" %>
+<%@ page import="java.io.InputStream" %>
+<%@ page import="java.io.ByteArrayOutputStream" %>
+<%@ page import="java.util.Base64" %>
+<%@ page import="java.io.IOException" %>
+<%@ page import="java.util.Random" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title> Prodotti </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="./css/headerAdmin.css?v=<%=new Random().nextInt()%>"/>
+  <link rel="stylesheet" type="text/css" href="./css/productAdmin.css?v=<%=new Random().nextInt()%>"/>
+  <%
+    Prodotto p = (Prodotto) request.getAttribute("product");
+  %>
+  <title><%=p.getName()%></title>
+
 </head>
 <body>
-    Sei loggato come "${utente.nome}" con email "${utente.email}"
-    <h1> Prodotti </h1>
-    <%
-        List<Prodotto> prodotti = (List<Prodotto>)request.getAttribute("prodotti");
-        List<Categoria> categorie = (List<Categoria>)request.getServletContext().getAttribute("categorie");
-    %>
+<%@ include file="/WEB-INF/navbar/navbar.jsp" %>
+<div class="product">
+  <div class="box" id="product-img">
+    <img class="card-img" src="upload/<%=p.getImage()%>" alt="Card image" width="600" height="400">
+  </div>
+  <form action="UpdateProduct" method="POST">
+    <div class="box" id="product-info">
+      <h4><%=p.getName()%></h4>
 
-    <table id="customers">
-        <tr>
-            <th> Nome </th>
-            <th> Descrizione </th>
-            <th> Costo </th>
-        </tr>
-        <% for (Prodotto p : prodotti) { %>
-        <tr>
-            <td> <%= p.getNome()%> </td>
-            <td> <%=p.getDescrizione()%> </td>
-            <td> <%=p.getCosto()%></td>
-        </tr>
-        <% } %>
-    </table>
+      <label for="id">id: </label>
+      <input id="id" name="id" type="text" value="<%=p.getId()%>" readonly>
 
-    <br>
-    <hr/>
-    <br>
+      <label for="name">nome: </label>
+      <input id="name" name="name" type="text" value="<%=p.getName()%>" maxlength="50">
 
-    <form action = "show-category" method = "get">
-        <label for = "categorie"> Scegli una categoria </label>
-        <select id = "categorie" name = "categorie">
-            <% for (Categoria c : categorie) { %>
-            <option value = "<%=c.getNome().toLowerCase()%>"> <%=c.getNome()%> </option>
-            <% } %>
-        </select>
-        <button type = "submit"> Scegli </button>
-        oppure <button type="submit" formaction="index.jsp">Exit </button>   <!-- questo permette di lanciare un'azione divera ma con gli stessi parametri - qui è un errore (non ho bisogno dei parametri di questo form per uscire) ma è utile da sapere -->
+      <label for="price">prezzo: </label>
+      <input id="price" name="price" type="text" value="<%=p.getPrice()%>">
 
-    </form>
+      <%--            <label for="image">Immagine: (il nome del file deve essere di max 20 caratteri)</label>--%>
+      <%--            <input type="file" id="image" name="image" value="<%=p.getImage()%>">--%>
+
+      <label for="categories">Nome categoria: </label>
+      <select id="categories" name="categories">
+        <%
+          ArrayList<String> categories = (ArrayList<String>) request.getAttribute("categories");
+          for(String c : categories){
+            if(c.equals(p.getNameCategory())){
+        %>
+        <option value="<%=c%>" selected><%=c%></option>
+        <%      }else{
+        %>
+        <option value="<%=c%>"><%=c%></option>
+        <%      }
+        }
+        %>
+      </select>
+
+      <label for="description">descrizione: </label>
+      <textarea name="description" id="description" style="height:200px" maxlength="200"><%=p.getDescription()%></textarea>
+
+      <input type="submit" name="action" value="AGGIORNA" onclick="return(validateUpdate())">
+      <input type="submit" name="action" value="ELIMINA">
+    </div>
+  </form>
+</div>
 </body>
 </html>

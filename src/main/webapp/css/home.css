@@ -31,7 +31,9 @@ html::-webkit-scrollbar-thumb{
     border-radius: 1px;
 }
 
-
+.fade-in-Up{
+    animation: fadeInUp 1.5s;
+}
 
 section{
     padding:2rem 7%;
@@ -92,6 +94,7 @@ a{
     background: #E4E0BB;
     /*margin-top: 10rem;*/
     border: 3.3px solid #38271E;
+
 }
 
 .home_btn:hover{
@@ -136,6 +139,7 @@ a{
     font-size: 2rem;
     /*text-transform: uppercase;*/
     font-family: cursive;
+    animation: fadeInUp 1.5s;
 }
 
 .about-text p{
@@ -143,6 +147,7 @@ a{
     font-size:1.5rem;
     margin: 0.5rem 0 1.1rem;
     font-family:Poppins;
+
 }
 
 .btn_about{
