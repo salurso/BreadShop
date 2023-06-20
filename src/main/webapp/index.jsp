@@ -66,7 +66,7 @@
         <p> Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è
             considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo
         </p>
-        <a class="home_btn" href="prodotti"> I nostri Prodotti</a>
+        <a class="home_btn" href="prodotti"> Learn More </a>
     </div>
 </section>
 
@@ -77,7 +77,7 @@
         <img src="./images/aboutimg.jpg">
     </div>
     <div class="about-text">
-        <h2> Our History</h2>
+        <h2> Qualità e Tradizione</h2>
         <p>La Forneria del Cilento nasce ad Agropoli, all'interno del Parco Nazionale, con l'intenzione e la volontà di esaltare ogni giorno i prodotti ed i sapori autentici di una terra ricca di storia e tradizioni. </p>
         <p> Con la passione nella cura e nella lavorazione delle materie prime, con la continua ricerca delle ricette migliori per la soddisfazione quotidiana dei clienti, con la gentilezza e la disponibilità che li contraddistinguono,</p>
         <p>Simone e Marielena vi aspettano nel loro laboratorio artigianale per poter condividere con voi i sapori genuini del Cilento.</p>
@@ -85,16 +85,11 @@
     </div>
 </section>
 
-<%--<section class="mid">--%>
-<%--    <div>--%>
-<%--        <img src="./images/fotomid.png">--%>
-<%--    </div>--%>
-<%--</section>--%>
 
 
 <%--PRODUCT--%>
 <div class="container-prod">
-    <h3 class="title">Our Products</h3>
+    <h3 class="title"> I Nostri Prodotti</h3>
     <div class="product-container">
 
     <div class="product" data-name="p-1">
@@ -104,7 +99,7 @@
     </div>
 
         <div class="product" data-name="p-2">
-            <img src="./images/rosticceria.png" alt="fotopane">
+            <img src="./images/pane1.webp" alt="fotopane">
             <h3> Rosticceria </h3>
             <div class="price">€3.00/kg</div>
         </div>
@@ -116,7 +111,7 @@
         </div>
 
         <div class="product" data-name="p-4">
-            <img src="./images/integrale.png" alt="fotopane">
+            <img src="./images/semola.png" alt="fotopane">
             <h3> Pane Integrale </h3>
             <div class="price">€3.00/kg</div>
         </div>
@@ -129,7 +124,7 @@
 
         <div class="product" data-name="p-6">
             <img src="./images/frese.png" alt="fotopane">
-            <h3> Frese Integrali </h3>
+            <h3> Specialità </h3>
             <div class="price">€3.00/kg</div>
         </div>
     </div>
@@ -157,7 +152,7 @@
 
     <div class="preview" data-target="p-2">
         <i class="fas fa-times"></i>
-        <img src="./images/rosticceria.png" alt ="fotopane">
+        <img src="./images/semola.png" alt ="fotopane">
         <h3> Rosticceria </h3>
         <div class="stars">
             <i class="fas fa-star"></i>
@@ -195,7 +190,7 @@
 
     <div class="preview" data-target="p-4">
         <i class="fas fa-times"></i>
-        <img src="./images/integrale.png" alt ="fotopane">
+        <img src="./images/paneBianco.png" alt ="fotopane">
         <h3> Pane Integrale </h3>
         <div class="stars">
             <i class="fas fa-star"></i>
@@ -234,7 +229,7 @@
     <div class="preview" data-target="p-6">
         <i class="fas fa-times"></i>
         <img src="./images/frese.png" alt="fotopane">
-        <h3> Frese Integrali </h3>
+        <h3> Specialità </h3>
         <div class="stars">
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
@@ -252,7 +247,69 @@
 
 </div>
 
+<section class="mid" id="mid">
+    <div class="container-mid">
+        <h3> Acquista i nostri prodotti! </h3>
+        <p> La forneria del cilento, si impegna ad offrire <br>
+            la miglior qualità e velocità di spedizione su tutto il territorio del Cilento <br>
+            Cosa aspetti? Acquista anche tu il nostro pane
+        </p>
+        <a class="home_btn" href="prodotti"> Nostro shop</a>
+    </div>
+</section>
+
+
+<%--footer--%>
+
+<footer class="footer">
+    <div class="container-footer">
+        <div class="row-footer">
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">about us</a></li>
+                    <li><a href="#">our products</a></li>
+                    <li><a href="#">our service</a></li>
+                    <li><a href="#">privacy & policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Get Help</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">shipping</a></li>
+                    <li><a href="#">returns</a></li>
+                    <li><a href="#">order status</a></li>
+                    <li><a href="#">payment options</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Online Shop</h4>
+                <ul>
+                    <li><a href="#">Pane</a></li>
+                    <li><a href="#">Rosticceria</a></li>
+                    <li><a href="#">Biscotti</a></li>
+                    <li><a href="#">Specialità</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div class="social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
 <script>
+
+    //script dropdown
     const toggleBtn = document.querySelector('.toggle_btn')
     const toggleBtnIcon = document.querySelector('.toggle_btn i')
     const dropDownMenu= document.querySelector('.dropdown_menu')
@@ -266,8 +323,8 @@
             : 'fa-solid fa-bars'
     }
 
-    // script products
 
+    // script products
     let previewContainer = document.querySelector('.product-preview');
     let previewBox = previewContainer.querySelectorAll('.preview');
 
