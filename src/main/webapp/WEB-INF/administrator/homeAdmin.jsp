@@ -12,6 +12,12 @@
 </head>
 <body>
 <%@ include file="headerAdmin.jsp" %>
+<%if(request.getAttribute("result")!=null){%>
+<div class="alert" id="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <%=request.getAttribute("result")%>
+</div>
+<%}%>
 <div class="container">
     <button class="item" id="add_product" value=" " onclick="location.href='HomeServletAdministrator?action=add_product'">
     </button>
@@ -19,7 +25,7 @@
     </button>
     <button class="item" id="sold-out_products" value=" " onclick="location.href='HomeServletAdministrator?action=add_product'">
     </button>
-    <button class="item" id="orders" value=" " onclick="location.href='HomeServletAdministrator?action=add_product'">
+    <button class="item" id="orders" value=" " onclick="location.href='HomeServletAdministrator?action=orders'">
     </button>
     <button class="item" id="users" value=" " onclick="location.href='HomeServletAdministrator?action=add_product'">
     </button>

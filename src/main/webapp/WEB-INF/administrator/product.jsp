@@ -15,6 +15,25 @@
         Prodotto p = (Prodotto) request.getAttribute("product");
     %>
     <title><%=p.getName()%></title>
+    <script>
+        function validateUpdate() {
+            var nameRGX=/^[a-zA-Z' ']*$/;
+            var name=document.getElementById('name').value;
+            if((nameRGX.test(name))==false){
+                alert("Nome non valido!");
+                return false;
+            }
+
+            var price=document.getElementById('price').value;
+            var priceRGX=/^[0-9'.']*$/;
+            if(priceRGX.test(price)==false){
+                alert("Errore nella definizione del prezzo");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
 </head>
 <body>
     <%@ include file="headerAdmin.jsp" %>
@@ -27,13 +46,16 @@
             <h4><%=p.getName()%></h4>
 
             <label for="id">id: </label>
-            <input id="id" type="text" value="<%=p.getId()%>">
+            <input id="id" name="id" type="text" value="<%=p.getId()%>" readonly>
 
             <label for="name">nome: </label>
-            <input id="name" type="text" value="<%=p.getName()%>">
+            <input id="name" name="name" type="text" value="<%=p.getName()%>" maxlength="50">
 
             <label for="price">prezzo: </label>
-            <input id="price" type="text" value="<%=p.getPrice()%>">
+            <input id="price" name="price" type="text" value="<%=p.getPrice()%>">
+
+<%--            <label for="image">Immagine: (il nome del file deve essere di max 20 caratteri)</label>--%>
+<%--            <input type="file" id="image" name="image" value="<%=p.getImage()%>">--%>
 
             <label for="categories">Nome categoria: </label>
             <select id="categories" name="categories">
@@ -46,15 +68,16 @@
                 <%      }else{
                 %>
                             <option value="<%=c%>"><%=c%></option>
-                <%        }
+                <%      }
                     }
                 %>
             </select>
 
             <label for="description">descrizione: </label>
-            <textarea name="description" id="description" style="height:200px"><%=p.getDescription()%></textarea>
+            <textarea name="description" id="description" style="height:200px" maxlength="200"><%=p.getDescription()%></textarea>
 
-            <input type="button" value="AGGIORNA">
+            <input type="submit" name="action" value="AGGIORNA" onclick="return(validateUpdate())">
+            <input type="submit" name="action" value="ELIMINA">
         </div>
         </form>
     </div>

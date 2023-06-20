@@ -37,7 +37,7 @@ public class ProdottoDAO {
         }
     }
 
-    public boolean doInsertProduct(Prodotto p) throws IOException {
+    public int doInsert(Prodotto p) throws IOException {
 
         int result;
             try (Connection con = ConPool.getConnection()) {
@@ -50,11 +50,10 @@ public class ProdottoDAO {
                 ps.setString(4, p.getDescription());
                 ps.setString(5, p.getNameCategory());
 
-                result = ps.executeUpdate();
+                return result = ps.executeUpdate();
             } catch (SQLException s) {
                 throw new RuntimeException(s);
             }
-        return false;
     }
 
     public List<Prodotto> doRetrieveByCategory(String cat) {
@@ -110,6 +109,33 @@ public class ProdottoDAO {
                 p.setNameCategory(rs.getString(6));
             }
             return p;
+        } catch (SQLException s) {
+            throw new RuntimeException(s);
+        }
+    }
+
+    public int doUpdate(Prodotto p) {
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement("UPDATE prodotto SET nome = ?, prezzo = ?, descrizione = ?, nomeCategoria = ? WHERE id = ?");
+            ps.setString(1, p.getName());
+            ps.setDouble(2, p.getPrice());
+//            ps.setString(3,p.getImage());
+            ps.setString(3, p.getDescription());
+            ps.setString(4, p.getNameCategory());
+            ps.setInt(5, p.getId());
+
+            return ps.executeUpdate();
+        } catch (SQLException s) {
+            throw new RuntimeException(s);
+        }
+    }
+
+    public int doDelete(int id) {
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement("DELETE FROM prodotto WHERE id = ?");
+            ps.setInt(1, id);
+
+            return ps.executeUpdate();
         } catch (SQLException s) {
             throw new RuntimeException(s);
         }

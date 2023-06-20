@@ -3,6 +3,7 @@ package controller;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import model.Ordine;
 import model.Prodotto;
 import model.ProdottoDAO;
 
@@ -25,7 +26,11 @@ public class HomeServletAdministrator extends HttpServlet {
             RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/sold-outProducts.jsp");
             ds.forward(request, response);
         }
-        if(action.equals("ordini")){
+        if(action.equals("orders")){
+            ProdottoDAO pDAO = new ProdottoDAO();
+            ArrayList<Prodotto> orders = new ArrayList<>();
+            orders = (ArrayList<Prodotto>) pDAO.doRetrieveAll();
+            request.setAttribute("orders", orders);
             RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/orders.jsp");
             ds.forward(request, response);
         }

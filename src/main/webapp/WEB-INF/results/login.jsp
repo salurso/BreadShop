@@ -24,7 +24,7 @@
             var email = document.getElementById('email').value;
             var resultEmail = emailRGX.test(email);
             if (resultEmail == false) {
-                alert("L'email non rispecchia il formato corretto.Riprovare");
+                alert("L'email non rispecchia il formato corretto. Riprovare");
                 return false;
             }
 

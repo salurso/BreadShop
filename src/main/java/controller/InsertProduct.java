@@ -46,10 +46,12 @@ public class InsertProduct extends HttpServlet {
         p.setDescription(description);
         p.setNameCategory(category);
 
+        String result;
         ProdottoDAO pDAO = new ProdottoDAO();
-        pDAO.doInsertProduct(p);
-
-
+        if(pDAO.doInsert(p) == 0)
+            result = "Problema inserimento!";
+        else
+            result = "Prodotto inserito!";
 
         String destinazione = CARTELLA_UPLOAD + File.separator + fileName;
         Path pathDestinazione = Paths.get(getServletContext().getRealPath(destinazione));
@@ -66,9 +68,8 @@ public class InsertProduct extends HttpServlet {
         // scrive il file
         Files.copy(fileInputStream, pathDestinazione);
 
-        request.setAttribute("uploaded", fileName);
-
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/administrator/uploadResult.jsp");
+        request.setAttribute("result", result);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/administrator/homeAdmin.jsp");
         requestDispatcher.forward(request, response);
 
     }

@@ -11,7 +11,7 @@
     background: #C8934F;
     flex-basis: 30%; /*larghezza singolo elemento*/
     padding: 20px;
-    margin-top: 50px;
+    margin: 10px 0 50px 0;
     background-size: 200px;
     background-repeat:no-repeat; /*Fa si che l'immagine non venga ripetuta se la grandezza del button è maggiore dell'immagine*/
     background-position:center center; /*Fa si che l'immagine sia sempre al centro del button*/
@@ -52,7 +52,7 @@
 @media(max-width: 767px){
     .item{
         background: #C8934F;
-        flex-basis: 50%; /*larghezza singolo elemento*/
+        flex-basis: 48%; /*larghezza singolo elemento*/
         padding: 50px;
         background-size: 150px;
         background-repeat:no-repeat; /*Fa si che l'immagine non venga ripetuta se la grandezza del button è maggiore dell'immagine*/
