@@ -25,7 +25,7 @@ public class InitServlet extends HttpServlet {
             RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/results/contatti.jsp");
             ds.forward(request, response);
         }
-        if(action.equals("prodotti")){
+        if(action.equals("product")){
             RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/results/prodotti.jsp");
             ds.forward(request, response);
         }
