@@ -3,6 +3,9 @@
 <html>
 <head>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/navbar.css?=<%=new Random().nextInt()%>"/>
+
     <script>
         const toggleBtn = document.querySelector('.toggle_btn')
         const toggleBtnIcon = document.querySelector('.toggle_btn i')
@@ -22,17 +25,24 @@
 <%
     Utente utente = (Utente) session.getAttribute("loginAdmin");
 %>
-<header>
-    <div class="navbar">
+<header class="header">
+
         <div class="logo"><a href="#">Forneria Del Cilento</a></div>
         <ul class="links">
             <li><a href="HomeServletAdministrator?action=utenti">Utenti</a></li>
             <li><a href="HomeServletAdministrator?action=prodotti_esauriti">Prodotti esauriti</a></li>
             <li><a href="HomeServletAdministrator?action=ordini">Ordini</a></li>
-
-            <li><i class="fa-solid fa-cart-shopping fa-lg"></i></li>
+            <li><a href="HomeServletAdministrator?action=prova">PROVA</a></li>
         </ul>
-        <a href="InitServlet?action=login" class="action_btn"> Bentornato <%=utente.getName().toUpperCase(java.util.Locale.ROOT)%> </a>
+
+    <ul class="menu">
+        <li class="has-children"> <a href="InitServlet?action=login" class="action_btn"> Bentornato <%=utente.getName().toUpperCase(java.util.Locale.ROOT)%> <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+            <ul class="sub-menu">
+                <li><a href="loginServlet?action=logout"> Logout </a></li>
+            </ul>
+        </li>
+    </ul>
+
         <div class="toggle_btn">
             <i class="fa-solid fa-bars"></i>
         </div>
@@ -41,7 +51,7 @@
         <li><a href="HomeServletAdministrator?action=utenti">Utenti</a></li>
         <li><a href="HomeServletAdministrator?action=prodotti_esauriti">Prodotti esauriti</a></li>
         <li><a href="HomeServletAdministrator?action=ordini">Ordini</a></li>
-        <li><i class="fa-solid fa-cart-shopping fa-lg"></i></li>
+        <li><a href="HomeServletAdministrator?action=prova">PROVA</a></li>
         <li><a href="InitServlet?action=login" class="action_btn"> Bentornato <%=utente.getName().toUpperCase(java.util.Locale.ROOT)%></a></li>
     </div>
 </header>

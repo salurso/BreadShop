@@ -1,0 +1,335 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, Nunito, sans-serif;
+    transition:.2s linear;
+    outline: none;
+    border:none;
+
+}
+
+html{
+    overflow-x: hidden;
+    scroll-padding-top: 9rem;
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar{
+    width: .8rem;
+}
+
+html::-webkit-scrollbar-track{
+    background: #E4E0BB;
+}
+
+html::-webkit-scrollbar-thumb{
+    background: black;
+    border-radius: 1px;
+}
+
+
+.home_ord{
+    min-height: 60vh;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    background:url(../images/sfondohome.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.home_ord .container_ord{
+    max-width: 60rem;
+}
+
+.home_ord .container_ord h3{
+    font-size: 4.5rem;
+    text-transform: uppercase;
+    color: #38271E;
+}
+
+/*.home_ord .container_ord p{*/
+/*    font-size: 2rem;*/
+/*    font-weight:bold;*/
+/*    padding:1rem 0;*/
+/*    color: #38271E;*/
+/*}*/
+
+/*CARD*/
+
+
+.container-prod{
+    max-width: 1200px;
+    margin:0 auto;
+    padding:3rem 2rem;
+}
+
+.container-prod .title{
+    font-size: 3.5rem;
+    color:#38271E;
+    margin-bottom: 3rem;
+    font-family: cursive;
+    text-align: center;
+}
+
+.container-prod .product-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+    gap:2rem;
+}
+
+.container-prod .product-container .product{
+    text-align: center;
+    padding: 3rem 2rem;
+    background: #fff;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    outline: .1rem solid #ccc;
+    outline-offset: -1.5rem;
+    cursor: pointer;
+}
+
+.container-prod .product-container .product:hover{
+    outline: .1rem solid #A06028;
+    outline-offset: 0;
+}
+
+.container-prod .product-container .product img{
+    height: 13.5rem;
+}
+
+.container-prod .product-container .product:hover img{
+    transform: scale(.9);
+}
+
+.container-prod .product-container .product h3{
+    padding: .5rem 0;
+    font-size: 2rem;
+    color: #38271E;
+}
+
+.container-prod .product-container .product h3:hover {
+    color: #A06028;
+}
+
+.container-prod .product-container .product .price{
+    font-size: 1.5rem;
+    color: #38271E;
+}
+/*PRODUCT == PRODUCT CONTAINER*/
+/*PRODUCT CARD == PRODUCT*/
+
+
+/*product-preview == POPUP-VIEW*/
+/*preview ==POPUP-CARD*/
+
+.product-container .product-preview{
+    z-index: 2;
+    background: rgba(255,255,255,0.5);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.product-container .product-preview.active{
+    opacity: 0;
+    visibility: visible;
+}
+
+.product-container .preview{
+    position: relative;
+    display: flex;
+    width: 800px;
+    height: 500px;
+    margin: 20px;
+}
+
+.product-container .preview .product-img {
+    z-index: 2;
+    background: #38271E;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45%;
+    height: 90%;
+    transform: translateY(25px);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.product-container .preview .product-img img{
+    z-index: 2;
+    position: relative;
+    width: 450px;
+    left: -50px;
+}
+
+.product-container .preview .info{
+    z-index: 2;
+    background: #E4E0BB;
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.product-container .preview .close-btn{
+    color: #24262b;
+    z-index: 3;
+    position: absolute;
+    right: 0;
+    font-size: 20px;
+    margin: 20px;
+    cursor: pointer;
+}
+
+.product-container .preview .info h3{
+    font-size: 40px;
+    line-height: 20px;
+    margin: 10px;
+}
+
+.product-container .preview .info h3 span{
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.product-container .preview .info p{
+    font-size: 15px;
+    margin: 10px;
+}
+
+.product-container .preview .info .price{
+    font-size: 45px;
+    font-weight: 300;
+    margin: 10px;
+}
+
+.product-container .preview .info .add-cart-btn{
+    background: #E4E0BB;
+    color: #38271E;
+    font-size:16px;
+    font-weight: 600;
+    text-align: center;
+    margin: 10px auto;
+    padding: 10px 50px;
+}
+
+.product-container .preview .info .add-wish{
+    color: #38271E;
+    font-size:16px;
+    font-weight: 600;
+    text-align: center;
+    margin: 10px auto;
+    padding: 10px 50px;
+}
+
+
+
+
+
+.flip-container{
+    width: 280px;
+    height: 380px;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    perspective: 1000px;
+    margin: 100px auto;
+}
+
+.flip-inner-container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+}
+
+.flip-container:hover .flip-inner-container{
+    transform:rotateY(180deg);
+    cursor: pointer;
+}
+
+.flip-front, .flip-back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+}
+
+.flip-front{
+    background: black;
+    padding: 2px;
+}
+
+.flip-front img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.flip-back{
+    width: 280px;
+    height: 380px;
+    background: black;
+    transform: rotateY(180deg);
+}
+
+.flip-back .profile-image img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 4px solid #38271E;
+    margin-top: 20px;
+}
+
+.flip-back p{
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.flip-back ul{
+    display: flex;
+    margin: 20px 20px;
+}
+
+.flip-back ul a {
+    display: block;
+    height: 40px;
+    width: 40px;
+    color: black;
+    text-align: center;
+    margin: 0 7px;
+    line-height: 38px;
+    border: 2px solid transparent;
+    border-radius:  50%;
+    background: #38271E;
+}
+
+.flip-back ul a:hover{
+    color: #c500d6;
+    border-color: #c500d6;
+    background: linear-gradient(375deg,  transparent, transparent);
+
+}
+
+
+

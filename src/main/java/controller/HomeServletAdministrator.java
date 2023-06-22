@@ -3,9 +3,7 @@ package controller;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
-import model.Ordine;
-import model.Prodotto;
-import model.ProdottoDAO;
+import model.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,16 +20,36 @@ public class HomeServletAdministrator extends HttpServlet {
             RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/userManagement.jsp");
             ds.forward(request, response);
         }
+        if(action.equals("prova")){
+            OrdineDAO oDAO = new OrdineDAO();
+            ArrayList<Ordine> orders = new ArrayList<>();
+            orders = (ArrayList<Ordine>) oDAO.doRetrieveAll();
+            request.setAttribute("orders", orders);
+            UtenteDAO uDAO = new UtenteDAO();
+            ArrayList<Utente> user = new ArrayList<>();
+            user = (ArrayList<Utente>) uDAO.doRetrieveAll();
+            request.setAttribute("user", user);
+            RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/homeprova.jsp");
+            ds.forward(request, response);
+        }
         if(action.equals("prodotti_esauriti")){
             RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/sold-outProducts.jsp");
             ds.forward(request, response);
         }
-        if(action.equals("orders")){
-            ProdottoDAO pDAO = new ProdottoDAO();
-            ArrayList<Prodotto> orders = new ArrayList<>();
-            orders = (ArrayList<Prodotto>) pDAO.doRetrieveAll();
+        if(action.equals("orders")) {
+            OrdineDAO oDAO = new OrdineDAO();
+            ArrayList<Ordine> orders = new ArrayList<>();
+            orders = (ArrayList<Ordine>) oDAO.doRetrieveAll();
             request.setAttribute("orders", orders);
-            RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/orders.jsp");
+            RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/order.jsp");
+            ds.forward(request, response);
+        }
+        if(action.equals("user")){
+            UtenteDAO uDAO = new UtenteDAO();
+            ArrayList<Utente> user = new ArrayList<>();
+            user = (ArrayList<Utente>) uDAO.doRetrieveAll();
+            request.setAttribute("user", user);
+            RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/users.jsp");
             ds.forward(request, response);
         }
         if(action.equals("add_product")){
@@ -57,7 +75,7 @@ public class HomeServletAdministrator extends HttpServlet {
 //        ArrayList<Prodotto> prodottiCategoria = new ArrayList<>();
 //        prodottiCategoria = (ArrayList<Prodotto>) pDAO.doRetrieveByCategory(action);
 //        request.setAttribute("categoria", prodottiCategoria);
-//        RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/results/prodotti.jsp");
+//        RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/results/products.jsp");
 //        ds.forward(request, response);
     }
 

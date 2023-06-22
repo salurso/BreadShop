@@ -50,7 +50,7 @@ form input{
 }
 
 .admin{
-    position: center;
+    /*position: center;*/
     width:92%;
     outline: none;
     padding:12px 20px;

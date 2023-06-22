@@ -5,7 +5,6 @@
     padding:0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, Nunito, sans-serif;
-    /*text-transform: capitalize;*/
     transition:.2s linear;
     outline: none;
     border:none;

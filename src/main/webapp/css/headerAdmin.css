@@ -2,58 +2,61 @@
     margin:0;
     padding:0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, Nunito, sans-serif;
+    transition:.2s linear;
+    outline: none;
+    border:none;
+    text-decoration: none;
 }
 
-body{
-    background-color: white;}
-
-li{
+ul{
     list-style: none;
 }
 
-a{
-    text-decoration: none;
-    color: #E4E0BB;
-    font-size: 1rem;
-}
-
-a:hover{
-    color: #A06028;
-}
-
-/*HEADER*/
-
-header{
-    position: relative;
-    padding: 0 2rem;
-    background: black;
-}
-
-.navbar{
-    width: 100%;
-    height: 60px;
-    max-width: 1200px;
-    margin: 0 auto;
+.header{
+    background:#E4E0BB;
     display: flex;
     align-items: center;
     justify-content: space-between;
-
+    padding:1.5rem 7%;
+    border-bottom: black;
+    position: fixed;
+    top:0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
 }
 
-.navbar .logo a{
+.header .logo{
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+.header .logo ul{
     font-size: 1.5rem;
     font-weight: bold;
     text-transform:uppercase ;
 }
 
-.navbar .links{
+.header .links{
     display: flex;
     gap: 2rem;
 }
 
-.navbar .toggle_btn{
-    color: #E4E0BB;
+.header a{
+    margin:0 1rem;
+    color:#38271E;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.header .links a:hover{
+    color:#A06028;
+    border-bottom:.1rem solid gray;
+    padding-bottom: .5rem;
+}
+
+
+.header .toggle_btn{
+    color: #38271E;
     font-size: 1.5rem;
     cursor: pointer;
     display: none;
@@ -61,11 +64,11 @@ header{
 
 .action_btn{
     background-color: #A06028;
-    color:#E4E0BB;
+    color:#38271E;
     padding: 0.5rem 1rem;
     border:none;
     outline:none;
-    border-radius: 20px;
+    border-radius: 1px;
     font-size: 0.8rem;
     font-weight: bold;
     cursor: pointer;
@@ -81,23 +84,39 @@ header{
     scale: 0.95;
 }
 
+.menu li{
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 14px;
+    position: relative;
+}
+
+.menu a{
+    display: block;
+    color: #38271E;
+    transition: .3s;
+}
+
 /*DROPDOWN MENU */
 .dropdown_menu{
     display:none ;
-    position: absolute;
-    right: 2rem;
+    /*position: absolute;*/
+    right: 0;
     top:60px;
     height:0;
     width: 300px;
     background: rgba(255,255,255,0.1);
     backdrop-filter: blur(15px);
-    border-radius: 10px;
+    border-radius: 5px;
     overflow: hidden;
     transition: height .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: fixed;
+    color: #38271E;
 }
 
 .dropdown_menu.open{
-    height: 240px;
+    height: 250px;
+    z-index: 1000;
 }
 
 .dropdown_menu li{
@@ -107,69 +126,37 @@ header{
     justify-content: center;
 }
 
-.dropdown_menu .action_btn{
+.dropdown_menu .action_btn {
     width: 100%;
     display: flex;
-    justify-content: center;;
+    justify-content: center;
 }
+
+
 
 /*RESPONSIVE*/
 @media(max-width: 992px){
-    .navbar .links,
-    .navbar .action_btn{
+    .header .links,
+    .header .action_btn{
         display: none;
     }
 
-    .navbar .toggle_btn{
+    .header .toggle_btn{
         display: block;
     }
 
     .dropdown_menu{
         display: block;
     }
-}
 
-@media(max-width: 576px){
-    .dropdown_men{
-        left: 2rem;
-        width: unset;
+    .dropdown_menu a{
+        color: #38271E;
+        font-weight: bold;
     }
 }
 
-/* The alert message box */
-.alert {
-    width: 50%;
-    padding: 1rem 1rem;
-    margin: 10px auto 0 auto;
-    background-color: white;
-    color: #38271E;
-    border-radius: 10px;
-    border: 2px solid red;
-    text-align:center;
-    font-weight: bold;
-    box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+@media(max-width: 576px){
+    .dropdown_menu{
+        width: 100%;
+    }
 }
-
-/* The close button */
-.closebtn {
-    margin-left: 15px;
-    color: #38271E;
-    font-weight: bold;
-    float: right;
-    font-size: 22px;
-    line-height: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-/* When moving the mouse over the close button */
-.closebtn:hover {
-    color: red;
-}
-/*
-#E4E0BB
-#C8934F
-#AE7349
-#A0602B
-#38271E
-*/
