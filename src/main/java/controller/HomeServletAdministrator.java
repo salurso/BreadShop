@@ -4,6 +4,7 @@ import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import model.Ordine;
+import model.OrdineDAO;
 import model.Prodotto;
 import model.ProdottoDAO;
 
@@ -27,11 +28,11 @@ public class HomeServletAdministrator extends HttpServlet {
             ds.forward(request, response);
         }
         if(action.equals("orders")){
-            ProdottoDAO pDAO = new ProdottoDAO();
-            ArrayList<Prodotto> orders = new ArrayList<>();
-            orders = (ArrayList<Prodotto>) pDAO.doRetrieveAll();
+            OrdineDAO oDAO = new OrdineDAO();
+            ArrayList<Ordine> orders = new ArrayList<>();
+            orders = (ArrayList<Ordine>) oDAO.doRetrieveAll();
             request.setAttribute("orders", orders);
-            RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/orders.jsp");
+            RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/order.jsp");
             ds.forward(request, response);
         }
         if(action.equals("add_product")){
@@ -57,7 +58,7 @@ public class HomeServletAdministrator extends HttpServlet {
 //        ArrayList<Prodotto> prodottiCategoria = new ArrayList<>();
 //        prodottiCategoria = (ArrayList<Prodotto>) pDAO.doRetrieveByCategory(action);
 //        request.setAttribute("categoria", prodottiCategoria);
-//        RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/results/prodotti.jsp");
+//        RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/results/products.jsp");
 //        ds.forward(request, response);
     }
 

@@ -12,15 +12,20 @@ import model.ProdottoDAO;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@WebServlet("/HomePage")
+@WebServlet(name = "HomePage", value = "/HomePage")
 public class HomeServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ProdottoDAO pDAO = new ProdottoDAO();
         ArrayList<Prodotto> prodotti = new ArrayList<Prodotto>();
         prodotti = (ArrayList<Prodotto>) pDAO.doRetrieveAll();
         request.setAttribute("prodotti", prodotti);
         RequestDispatcher ds = request.getRequestDispatcher("index.jsp");
         ds.forward(request, response);
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doPost(request, response);
     }
 }

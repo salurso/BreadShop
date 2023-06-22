@@ -19,6 +19,7 @@
     <li><a href="InitServlet?action=prodotti">Prodotti</a></li>
     <li><a href="InitServlet?action=specialita">Specialità</a></li>
     <li><a href="InitServlet?action=contatti">Contatti</a></li>
+    <li><a href="InitServlet?action=ordini">Ordini</a></li>
     <li><a><i class="fa-solid fa-cart-shopping" style="color: #38271E;"></i></a></li>
   </ul>
   <%
@@ -39,6 +40,8 @@
   <li><a href="InitServlet?action=prodotti">Prodotti</a></li>
   <li><a href="InitServlet?action=specialita">Specialità</a></li>
   <li><a href="InitServlet?action=contatti">Contatti</a></li>
+  <li><a href="InitServlet?action=ordini">Ordini</a></li>
+
   <li><a><i class="fa-solid fa-cart-shopping" style="color: #38271E;"></i></a></li>
   <%
     if(utente!=null){

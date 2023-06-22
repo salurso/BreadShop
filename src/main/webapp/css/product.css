@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, Nunito, sans-serif;
+    transition:.2s linear;
+    outline: none;
+    border:none;
+
+}
+
+html{
+    overflow-x: hidden;
+    scroll-padding-top: 9rem;
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar{
+    width: .8rem;
+}
+
+html::-webkit-scrollbar-track{
+    background: #E4E0BB;
+}
+
+html::-webkit-scrollbar-thumb{
+    background: black;
+    border-radius: 1px;
+}
+
+
+.home_ord{
+    min-height: 60vh;
+    display: flex;
+    align-items:center;
+    background:url(../images/sfondohome.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.home_ord .container_ord{
+    max-width: 60rem;
+}
+
+.home_ord .container_ord h3{
+    font-size: 4.5rem;
+    text-transform: uppercase;
+    color: #38271E;
+}
+
+.home_ord .container_ord p{
+    font-size: 2rem;
+    font-weight:bold;
+    padding:1rem 0;
+    color: #38271E;
+}
+
+/*CARD*/
+
+
+.container-prod{
+    /*justify-content: space-between;*/
+    max-width: 1200px;
+    margin:0 auto;
+    padding:3rem 2rem;
+}
+
+.container-prod .title{
+    font-size: 3.5rem;
+    color:#38271E;
+    margin-bottom: 3rem;
+    font-family: cursive;
+    text-align: center;
+}
+
+.container-prod .product-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+    gap:2rem;
+}
+
+.container-prod .product-container .product{
+    text-align: center;
+    padding: 3rem 2rem;
+    background: #fff;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    outline: .1rem solid #ccc;
+    outline-offset: -1.5rem;
+    cursor: pointer;
+}
+
+.container-prod .product-container .product:hover{
+    outline: .1rem solid #A06028;
+    outline-offset: 0;
+}
+
+.container-prod .product-container .product img{
+    height: 13.5rem;
+}
+
+.container-prod .product-container .product:hover img{
+    transform: scale(.9);
+}
+
+.container-prod .product-container .product h3{
+    padding: .5rem 0;
+    font-size: 2rem;
+    color: #38271E;
+}
+
+.container-prod .product-container .product h3:hover {
+    color: #A06028;
+}
+
+.container-prod .product-container .product .price{
+    font-size: 1.5rem;
+    color: #38271E;
+}
+
+.product-preview{
+    position: fixed;
+    top:0;
+    left:0;
+    min-height: 100vh;
+    width: 100%;
+    background: rgba(0,0,0,.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-preview .preview{
+    display: none;
+    padding: 2rem;
+    text-align: center;
+    background: white;
+    position: relative;
+    margin: 2rem;
+    width: 30rem;
+}
+
+.product-preview .preview.active{
+    display: inline-block;
+}
+
+.product-preview .preview img{
+    height: 13.5rem;
+}
+
+.product-preview .preview .fa-times{
+    position: absolute;
+    top:1rem;
+    right: 1.5rem;
+    cursor: pointer;
+    color: #38271E;
+    font-size: 4rem;
+}
+
+.product-preview .preview .fa-times:hover{
+    transform: rotate(90deg);
+}
+
+.product-preview .preview h3{
+    color: #38271E;
+    padding: .5rem 0;
+    font-size: 2.5rem;
+}
+
+.product-preview .preview .stars{
+    padding: 1rem 0;
+    font-size: 1.3rem;
+}
+
+.product-preview .preview .stars i{
+    color: #C8934F;
+}
+
+.product-preview .preview .stars span{
+    color: #636363;
+}
+
+.product-preview .preview p{
+    line-height: 1.5rem;
+    padding: 1rem 0;
+    font-size: 1.6rem;
+    color: #636363;
+}
+
+.product-preview .preview .price{
+    padding: 1rem 0;
+    font-size: 2.5rem;
+    color: #C8934F;
+}
+
+.product-preview .preview .btn{
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.product-preview .preview .btn a{
+    flex: 1 1 16rem;
+    padding:1rem;
+    font-size: 1.8rem;
+    color: #A06028;
+    border: .1rem solid #A06028;
+}
+
+.product-preview .preview .btn a.cart{
+    background:#A06028;
+    color: #E4E0BB;
+}
+
+.product-preview .preview .btn a.cart:hover{
+    background: #38271E;
+}
+
+.product-preview .preview .btn a.more:hover{
+    background: #A06028;
+    color: #E4E0BB;
+}

@@ -39,7 +39,7 @@ public class LoginServlet extends HttpServlet {
         }
         else if(request.getParameter("action").equals("logout")){
             session.invalidate();
-            RequestDispatcher rd = request.getRequestDispatcher("Homepage");
+            RequestDispatcher rd = request.getRequestDispatcher("HomePage");
             rd.forward(request, response);
         }
     }

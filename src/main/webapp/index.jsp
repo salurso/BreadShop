@@ -22,7 +22,7 @@
 <body>
 <header class="header">
 <%--   <nav class="navbar">--%>
-        <div class="logo"><a href="#">Forneria Del Cilento</a></div>
+        <div class="logo"><a href="HomePage">Forneria Del Cilento</a></div>
         <ul class="links">
             <li><a href="InitServlet?action=product">Prodotti</a></li>
             <li><a href="InitServlet?action=specialita">Specialità</a></li>
@@ -39,9 +39,18 @@
             Utente utente = (Utente) session.getAttribute("login");
             if(utente!=null){
         %>
+    <ul class="menu">
+        <li class="has-children"><a class="action_btn"> Ciao <%=utente.getName().toUpperCase(java.util.Locale.ROOT)%><i class="fa fa-caret-down" aria-hidden="true"></i></a>
+            <ul class="sub-menu">
+                <li><a href="InitServlet?action=orders"> Ordini</a></li>
+                <li><a href="loginServlet?action=logout"> Logout </a></li>
+            </ul>
+        </li>
+    </ul>
+<%--        <a href="InitServlet?action=homepage" class="btn_logout">Logout</a>--%>
 
-        <a href="InitServlet?action=login" class="action_btn"> Ciao <%=utente.getName().toUpperCase(java.util.Locale.ROOT)%> </a>
-        <%}else{%>
+
+    <%}else{%>
         <a href="InitServlet?action=login" class="action_btn">Login</a>
         <%}%>
         <div class="toggle_btn">
@@ -54,6 +63,7 @@
         <li><a href="InitServlet?action=product">Prodotti</a></li>
         <li><a href="InitServlet?action=specialita">Specialità</a></li>
         <li><a href="InitServlet?action=contatti">Contatti</a></li>
+        <li><a href="InitServlet?action=orders">Ordini</a></li>
         <li><a><i class="fa-solid fa-cart-shopping" style="color: #38271E;"></i></a></li>
         <%
             if(utente!=null){
@@ -72,7 +82,7 @@
         <p> Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è
             considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo
         </p>
-        <a class="home_btn" href="prodotti"> Learn More </a>
+        <a class="home_btn" href="product"> Learn More </a>
     </div>
 </section>
 
@@ -230,7 +240,7 @@
         <p>Lorem Ipsum dolor sit amet consectetur adipisicing elit. Consequatr, dolorem</p>
         <div class="price">€3.00/kg</div>
         <div class="btn">
-            <a href="./WEB-INF/results/prodotti.jsp" class="more">Learn More</a>
+            <a href="WEB-INF/results/products.jsp" class="more">Learn More</a>
         </div>
     </div>
 
@@ -262,7 +272,7 @@
             la miglior qualità e velocità di spedizione su tutto il territorio del Cilento <br>
             Cosa aspetti? Acquista anche tu il nostro pane
         </p>
-        <a class="home_btn" href="prodotti"> Nostro shop</a>
+        <a class="home_btn" href="InitServlet?action=product"> Nostro shop</a>
     </div>
 </section>
 
