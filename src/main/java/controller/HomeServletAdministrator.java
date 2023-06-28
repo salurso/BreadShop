@@ -3,10 +3,7 @@ package controller;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
-import model.Ordine;
-import model.OrdineDAO;
-import model.Prodotto;
-import model.ProdottoDAO;
+import model.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -36,18 +33,25 @@ public class HomeServletAdministrator extends HttpServlet {
             ds.forward(request, response);
         }
         if(action.equals("add_product")){
-            ProdottoDAO pDAO = new ProdottoDAO();
-            ArrayList<String> categories = pDAO.getCategories();
+            CategoriaDAO cDAO = new CategoriaDAO();
+            ArrayList<String> categories = cDAO.getCategoryName();
             request.setAttribute("categories", categories);
             RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/addProduct.jsp");
             ds.forward(request, response);
         }
         if(action.equals("manage_product")){
             ProdottoDAO pDAO = new ProdottoDAO();
-            ArrayList<Prodotto> prodotti = new ArrayList<Prodotto>();
-            prodotti = (ArrayList<Prodotto>) pDAO.doRetrieveAll();
-            request.setAttribute("prodotti", prodotti);
+            ArrayList<Prodotto> products = new ArrayList<Prodotto>();
+            products = (ArrayList<Prodotto>) pDAO.doRetrieveAll();
+            request.setAttribute("products", products);
             RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/manageProduct.jsp");
+            ds.forward(request, response);
+        }
+        if(action.equals("manage_category")){
+            CategoriaDAO cDAO = new CategoriaDAO();
+            ArrayList<Categoria> categories = (ArrayList<Categoria>) cDAO.doRetrieveAll();
+            request.setAttribute("categories", categories);
+            RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/manageCategory.jsp");
             ds.forward(request, response);
         }
 

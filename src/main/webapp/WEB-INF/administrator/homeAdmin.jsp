@@ -29,7 +29,8 @@
     </button>
     <button class="item" id="users" value=" " onclick="location.href='HomeServletAdministrator?action=add_product'">
     </button>
+    <button class="item" id="manage_category" value=" " onclick="location.href='HomeServletAdministrator?action=manage_category'">
+    </button>
 </div>
-
 </body>
 </html>

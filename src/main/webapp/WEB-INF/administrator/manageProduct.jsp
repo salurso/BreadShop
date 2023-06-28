@@ -18,8 +18,8 @@
 <%@ include file="headerAdmin.jsp" %>
 <div class="cards-products">
 <%
-ArrayList<Prodotto> prodotti = (ArrayList<Prodotto>) request.getAttribute("prodotti");
-for(Prodotto p : prodotti){
+ArrayList<Prodotto> products = (ArrayList<Prodotto>) request.getAttribute("products");
+for(Prodotto p : products){
 %>
 
     <div class="card-product">
