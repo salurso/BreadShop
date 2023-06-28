@@ -1,6 +1,8 @@
 package model;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UtenteDAO {
 
@@ -75,5 +77,28 @@ public class UtenteDAO {
             throw new RuntimeException(e);
         }
         return false;
+    }
+
+    public List<Utente> doRetrieveAll(){
+        try (Connection con = ConPool.getConnection()) {
+
+            PreparedStatement ps = con.prepareStatement("select nome, cognome, email from utente WHERE NOT nome <> admin");
+            ResultSet rs = ps.executeQuery();
+            ArrayList<Utente> user = new ArrayList<>();
+
+            while (rs.next()){
+                Utente u = new Utente();
+                u.setName(rs.getString(1));
+                u.setSurname(rs.getString(2));
+                u.setEmail(rs.getString(3));
+
+
+                user.add(u);
+            }
+            return user;
+
+        } catch (SQLException s) {
+            throw new RuntimeException(s);
+        }
     }
 }

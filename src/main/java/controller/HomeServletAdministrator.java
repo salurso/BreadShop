@@ -20,6 +20,18 @@ public class HomeServletAdministrator extends HttpServlet {
             RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/userManagement.jsp");
             ds.forward(request, response);
         }
+        if(action.equals("prova")){
+            OrdineDAO oDAO = new OrdineDAO();
+            ArrayList<Ordine> orders = new ArrayList<>();
+            orders = (ArrayList<Ordine>) oDAO.doRetrieveAll();
+            request.setAttribute("orders", orders);
+            UtenteDAO uDAO = new UtenteDAO();
+            ArrayList<Utente> user = new ArrayList<>();
+            user = (ArrayList<Utente>) uDAO.doRetrieveAll();
+            request.setAttribute("user", user);
+            RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/homeprova.jsp");
+            ds.forward(request, response);
+        }
         if(action.equals("prodotti_esauriti")){
             RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/sold-outProducts.jsp");
             ds.forward(request, response);
@@ -30,6 +42,14 @@ public class HomeServletAdministrator extends HttpServlet {
             orders = (ArrayList<Ordine>) oDAO.doRetrieveAll();
             request.setAttribute("orders", orders);
             RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/order.jsp");
+            ds.forward(request, response);
+        }
+        if(action.equals("user")){
+            UtenteDAO uDAO = new UtenteDAO();
+            ArrayList<Utente> user = new ArrayList<>();
+            user = (ArrayList<Utente>) uDAO.doRetrieveAll();
+            request.setAttribute("user", user);
+            RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/users.jsp");
             ds.forward(request, response);
         }
         if(action.equals("add_product")){

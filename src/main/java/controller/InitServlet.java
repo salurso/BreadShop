@@ -50,15 +50,19 @@ public class InitServlet extends HttpServlet {
             ds.forward(request, response);
         }
 
+        if(request.getParameter("action").equals("carrello"))
+        {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/results/cart.jsp");
+            dispatcher.forward(request, response);
+        }
 
-
-        session.setAttribute("filters", action);
-        ProdottoDAO pDAO = new ProdottoDAO();
-        ArrayList<Prodotto> prodottiCategoria = new ArrayList<>();
-        prodottiCategoria = (ArrayList<Prodotto>) pDAO.doRetrieveByCategory(action);
-        request.setAttribute("categoria", prodottiCategoria);
-        RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/results/products.jsp");
-        ds.forward(request, response);
+//        session.setAttribute("filters", action);
+//        ProdottoDAO pDAO = new ProdottoDAO();
+//        ArrayList<Prodotto> prodottiCategoria = new ArrayList<>();
+//        prodottiCategoria = (ArrayList<Prodotto>) pDAO.doRetrieveByCategory(action);
+//        request.setAttribute("categoria", prodottiCategoria);
+//        RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/results/products.jsp");
+//        ds.forward(request, response);
     }
 
     @Override

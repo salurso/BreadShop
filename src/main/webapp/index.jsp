@@ -1,6 +1,8 @@
 <%@ page import="model.UtenteDAO" %>
 <%@ page import="model.Utente" %>
 <%@ page import="java.util.Random" %>
+<%@ page import="model.Prodotto" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
@@ -12,33 +14,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/home.css?v=<%=new Random().nextInt()%>"/>
     <link rel="stylesheet" type="text/css" href="css/navbar.css?=<%=new Random().nextInt()%>"/>
-<%--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>--%>
-<%--    <link rel="stylesheet" href="animate.min.css">--%>
+    <%--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>--%>
+    <%--    <link rel="stylesheet" href="animate.min.css">--%>
     <link rel="stylesheet" href="aos-by-red.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <title>Forneria Del Cilento</title>
 </head>
 <body>
 <header class="header">
-<%--   <nav class="navbar">--%>
-        <div class="logo"><a href="HomePage">Forneria Del Cilento</a></div>
-        <ul class="links">
-            <li><a href="InitServlet?action=product">Prodotti</a></li>
-            <li><a href="InitServlet?action=specialita">Specialità</a></li>
-            <li><a href="InitServlet?action=contatti">Contatti</a></li>
-            <li><a><i class="fa-solid fa-cart-shopping" style="color: #38271E;"></i></a></li>
-<%--            <%--%>
-<%--                Utente utente = (Utente) session.getAttribute("login");--%>
-<%--                if(utente!=null){--%>
-<%--            %>--%>
-<%--            <li><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></li>--%>
-<%--            <%}%>--%>
-        </ul>
-        <%
-            Utente utente = (Utente) session.getAttribute("login");
-            if(utente!=null){
-        %>
+    <%--   <nav class="navbar">--%>
+    <div class="logo"><a href="HomePage">Forneria Del Cilento</a></div>
+    <ul class="links">
+        <li><a href="InitServlet?action=product">Prodotti</a></li>
+        <li><a href="InitServlet?action=specialita">Specialità</a></li>
+        <li><a href="InitServlet?action=contatti">Contatti</a></li>
+        <li><a href="InitServlet?action=carrello" ><i class="fa-solid fa-cart-shopping" style="color: #38271E;"></i></a></li>
+        <%--            <%--%>
+        <%--                Utente utente = (Utente) session.getAttribute("login");--%>
+        <%--                if(utente!=null){--%>
+        <%--            %>--%>
+        <%--            <li><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></li>--%>
+        <%--            <%}%>--%>
+    </ul>
+    <%
+        Utente utente = (Utente) session.getAttribute("login");
+        if(utente!=null){
+    %>
     <ul class="menu">
         <li class="has-children"><a class="action_btn"> Ciao <%=utente.getName().toUpperCase(java.util.Locale.ROOT)%><i class="fa fa-caret-down" aria-hidden="true"></i></a>
             <ul class="sub-menu">
@@ -47,32 +49,32 @@
             </ul>
         </li>
     </ul>
-<%--        <a href="InitServlet?action=homepage" class="btn_logout">Logout</a>--%>
+    <%--        <a href="InitServlet?action=homepage" class="btn_logout">Logout</a>--%>
 
 
     <%}else{%>
-        <a href="InitServlet?action=login" class="action_btn">Login</a>
-        <%}%>
-        <div class="toggle_btn">
-            <i class="fa-solid fa-bars"></i>
-        </div>
-<%--   </nav>--%>
+    <a href="InitServlet?action=login" class="action_btn">Login</a>
+    <%}%>
+    <div class="toggle_btn">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+    <%--   </nav>--%>
 </header>
 
 <div class="dropdown_menu">
-        <li><a href="InitServlet?action=product">Prodotti</a></li>
-        <li><a href="InitServlet?action=specialita">Specialità</a></li>
-        <li><a href="InitServlet?action=contatti">Contatti</a></li>
-        <li><a href="InitServlet?action=orders">Ordini</a></li>
-        <li><a><i class="fa-solid fa-cart-shopping" style="color: #38271E;"></i></a></li>
-        <%
-            if(utente!=null){
-        %>
-        <li><a href="InitServlet?action=login" class="action_btn"> Ciao <%=utente.getName().toUpperCase(java.util.Locale.ROOT)%> </a></li>
-        <%}else{%>
-        <li><a href="InitServlet?action=login" class="action_btn">Login</a></li>
-        <%}%>
-    </div>
+    <li><a href="InitServlet?action=product">Prodotti</a></li>
+    <li><a href="InitServlet?action=specialita">Specialità</a></li>
+    <li><a href="InitServlet?action=contatti">Contatti</a></li>
+    <li><a href="InitServlet?action=orders">Ordini</a></li>
+    <li><a href="./WEB-INF/results/cart.jsp"><i class="fa-solid fa-cart-shopping" style="color: #38271E;"></i></a></li>
+    <%
+        if(utente!=null){
+    %>
+    <li><a href="InitServlet?action=login" class="action_btn"> Ciao <%=utente.getName().toUpperCase(java.util.Locale.ROOT)%> </a></li>
+    <%}else{%>
+    <li><a href="InitServlet?action=login" class="action_btn">Login</a></li>
+    <%}%>
+</div>
 
 <%--HOME--%>
 <section class="home" id="home">
@@ -110,11 +112,11 @@
     <h3 class="title"> I Nostri Prodotti</h3>
     <div class="product-container">
 
-    <div class="product" data-name="p-1">
-        <img src="./images/pane1.webp" alt="fotopane">
-        <h3> Pane Bianco </h3>
-        <div class="price">€3.00/kg</div>
-    </div>
+        <div class="product" data-name="p-1">
+            <img src="./images/pane1.webp" alt="fotopane">
+            <h3> Pane Bianco </h3>
+            <div class="price">€3.00/kg</div>
+        </div>
 
         <div class="product" data-name="p-2">
             <img src="./images/pane1.webp" alt="fotopane">
@@ -324,6 +326,7 @@
     </div>
 </footer>
 
+
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
 
@@ -357,7 +360,7 @@
             let name = product.getAttribute('data-name');
             previewBox.forEach(preview =>{
                 let target = preview.getAttribute('data-target');
-                if(name == target){
+                if(name === target){
                     preview.classList.add('active');
                 }
             });
