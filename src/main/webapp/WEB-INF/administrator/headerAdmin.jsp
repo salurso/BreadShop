@@ -4,7 +4,7 @@
 <head>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-    <link rel="stylesheet" type="text/css" href="css/navbar.css?=<%=new Random().nextInt()%>"/>
+    <link rel="stylesheet" type="text/css" href="css/headerAdmin.css?=<%=new Random().nextInt()%>"/>
 
     <script>
         const toggleBtn = document.querySelector('.toggle_btn')

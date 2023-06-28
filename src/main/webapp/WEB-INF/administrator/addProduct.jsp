@@ -42,19 +42,22 @@
 </head>
 <body>
     <%@ include file="headerAdmin.jsp" %>
+
     <div class="container-info">
+        <div class="add_product">
         <form action="InsertProduct" enctype="multipart/form-data" method="POST">
-            <label for="name">Nome: </label>
-            <input type="text" name="name" id="name" maxlength="50" required>
+            <h3>Aggiungi Prodotto</h3>
+<%--            <label for="name">Nome: </label>--%>
+            <input class="box" type="text" name="name" id="name" maxlength="50" placeholder="Nome" required>
 
-            <label for="price">Prezzo: </label>
-            <input type="text" name="price" id="price" required>
+<%--            <label for="price">Prezzo: </label>--%>
+            <input class="box" type="price" name="price" id="price" placeholder="Prezzo" required>
 
-            <label for="image">Immagine: </label>
-            <input type="file" id="image" name="image" value="inserisci immagine">
+<%--            <label for="image">Immagine: </label>--%>
+            <input class="box" type="file" id="image" name="image" value="inserisci immagine">
 
-            <label for="categories">Nome categoria: </label>
-            <select id="categories" name="categories" required>
+            <label for="categories">Categoria: </label>
+            <select class="box" id="categories" name="categories" required>
                 <%
                     ArrayList<String> categories = (ArrayList<String>) request.getAttribute("categories");
                     for(String c : categories){
@@ -66,10 +69,14 @@
             </select>
 
             <label for="description">Descrizione: </label>
-            <textarea name="description" id="description" style="height:200px" maxlength="200"></textarea>
+            <textarea class="box" name="description" id="description" style="height:200px" maxlength="200"></textarea>
 
-            <input type="submit" value="INSERISCI PRODOTTO" onclick="return(validateInsert())">
+            <input class="btn_add" type="submit" value="INSERISCI PRODOTTO" onclick="return(validateInsert())">
+
         </form>
+        </div>
     </div>
+
+
 </body>
 </html>

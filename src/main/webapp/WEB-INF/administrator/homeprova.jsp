@@ -28,13 +28,18 @@
   <div class="brand-name">
     <h1>Forneria Del Cilento</h1>
   </div>
+  <%
+    ArrayList<Utente> user = (ArrayList<Utente>) request.getAttribute("user");
+    for(Utente u : user){
+  %>
   <ul>
-    <li><span>Dashboard</span></li>
-    <li><span>Utenti</span></li>
-    <li><span>Prodotti Esauriti</span></li>
-    <li><span>Aggiungi Prodotti</span></li>
+    <li><span><%= u.getName().toUpperCase() %> <%=u.getSurname().toUpperCase() %></span></li>
   </ul>
+  <%
+    }
+  %>
 </div>
+
 
 <div class="container">
   <div class="header">
@@ -136,7 +141,6 @@
               <th>Email</th>
             </tr>
             <%
-              ArrayList<Utente> user = (ArrayList<Utente>) request.getAttribute("user");
               for(Utente u : user){
             %>
 

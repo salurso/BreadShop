@@ -16,6 +16,7 @@
 </head>
 <body>
 <%@ include file="headerAdmin.jsp" %>
+<div class="home_ord">
 <div class="cards-products">
 <%
 ArrayList<Prodotto> products = (ArrayList<Prodotto>) request.getAttribute("products");
@@ -40,6 +41,7 @@ for(Prodotto p : products){
 }
 %>
     <div class="clearfix"></div>
+</div>
 </div>
 </body>
 </html>

@@ -12,6 +12,7 @@
 </head>
 <body>
 <%@ include file="headerAdmin.jsp" %>
+<div>
 <%if(request.getAttribute("result")!=null){%>
 <div class="alert" id="alert">
     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
@@ -31,6 +32,7 @@
     </button>
     <button class="item" id="manage_category" value=" " onclick="location.href='HomeServletAdministrator?action=manage_category'">
     </button>
+</div>
 </div>
 </body>
 </html>

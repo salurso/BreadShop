@@ -1,6 +1,17 @@
-* {box-sizing: border-box;}
+* {
+    box-sizing: border-box;
 
-input[type=text], input[type=file],select, textarea {
+}
+
+body{
+    background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("../images/sfondologin.jpeg");
+    background-size: cover;
+    background-position: center;
+    overflow-y: hidden;
+
+}
+
+input[type=text], input[type=price], input[type=file],select, textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -9,8 +20,8 @@ input[type=text], input[type=file],select, textarea {
     margin-top: 6px;
     margin-bottom: 16px;
     resize: none;
-    resize: none;
 }
+
 
 input[type=submit] {
     background-color: #AE7349;
@@ -30,12 +41,75 @@ input[type=submit]:active {
 }
 
 .container-info {
+    max-width: 600px;
+    height: auto;
     border-radius: 5px;
     background-color: #E4E0BB;
-    padding: 20px;
-    margin: 5% 10%;
+    padding: 2rem;
+    margin: 2rem auto;
+
+}
+
+.add_product form{
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: .5rem;
+}
+
+.add_product form h3{
+    text-transform: uppercase;
+    color: #38271E;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.add_product form h3 .box{
+    width: 100%;
+    border-radius: .5rem;
+    padding: 1.2rem 1.5rem;
+    font-size: 1.7rem;
+    margin: 1rem 0;
+}
+
+.btn_add{
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    border-radius: .5rem;
+    margin-top: 1rem;
+    font-size: 1.7rem;
+    padding: 1rem 3rem;
+    background: #A0602B;
+    color: #E4E0BB;
+    border:none;
+    outline:none;
+    font-weight: bold;
+}
+
+.btn_add:hover{
+    scale:1.05;
+    color: #38271E;
+    transition: .2s ease-in-out;
+}
+
+.btn_add:active{
+    scale: 0.95;
 }
 
 #image:hover {
     background-color: #AE7349;
+}
+
+@media (max-width: 991px){
+    .container-info{
+        font-size: 55%;
+    }
+}
+
+@media (max-width: 450px){
+    .container-info{
+        font-size: 50%;
+    }
 }
