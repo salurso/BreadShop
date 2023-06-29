@@ -29,7 +29,7 @@
         <li><a href="InitServlet?action=product">Prodotti</a></li>
         <li><a href="InitServlet?action=specialita">Specialità</a></li>
         <li><a href="InitServlet?action=contatti">Contatti</a></li>
-        <li><a href="InitServlet?action=carrello" ><i class="fa-solid fa-cart-shopping" style="color: #38271E;"></i></a></li>
+        <li><a href="CartServlet" ><i class="fa-solid fa-cart-shopping" style="color: #38271E;"></i></a></li>
         <%--            <%--%>
         <%--                Utente utente = (Utente) session.getAttribute("login");--%>
         <%--                if(utente!=null){--%>
@@ -66,7 +66,7 @@
     <li><a href="InitServlet?action=specialita">Specialità</a></li>
     <li><a href="InitServlet?action=contatti">Contatti</a></li>
     <li><a href="InitServlet?action=orders">Ordini</a></li>
-    <li><a href="./WEB-INF/results/cart.jsp"><i class="fa-solid fa-cart-shopping" style="color: #38271E;"></i></a></li>
+    <li><a href="CartServlet"><i class="fa-solid fa-cart-shopping" style="color: #38271E;"></i></a></li>
     <%
         if(utente!=null){
     %>
@@ -354,6 +354,7 @@
     let previewContainer = document.querySelector('.product-preview');
     let previewBox = previewContainer.querySelectorAll('.preview');
 
+    //per ogni prodotto quando ci clicchi mostra le info
     document.querySelectorAll('.product-container .product').forEach(product =>{
         product.onclick = () =>{
             previewContainer.style.display='flex';
@@ -373,9 +374,6 @@
             previewContainer.style.display ='none';
         };
     });
-
-
-
 
 </script>
 </body>

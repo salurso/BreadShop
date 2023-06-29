@@ -1,4 +1,5 @@
-<%@ page import="model.Utente" %><%--
+<%@ page import="model.Utente" %>
+<%@ page import="java.util.Random" %><%--
   Created by IntelliJ IDEA.
   User: andre
   Date: 20/06/2023
@@ -21,7 +22,8 @@
     <li><a href="InitServlet?action=product">Prodotti</a></li>
     <li><a href="InitServlet?action=specialita">Specialità</a></li>
     <li><a href="InitServlet?action=contatti">Contatti</a></li>
-    <li><a href="InitServlet?action=carrello" ><i class="fa-solid fa-cart-shopping" style="color: #38271E;"></i></a></li>
+    <li><a href="CartServlet" ><i class="fa-solid fa-cart-shopping" style="color: #38271E;"></i></a></li>
+<%--    <li><a href="InitServlet?action=carts" ><i class="fa-solid fa-cart-shopping" style="color: #38271E;"></i></a></li>--%>
 
   </ul>
   <%
@@ -52,7 +54,7 @@
   <li><a href="InitServlet?action=specialita">Specialità</a></li>
   <li><a href="InitServlet?action=contatti">Contatti</a></li>
   <li><a href="InitServlet?action=orders">Ordini</a></li>
-  <li><a href="./WEB-INF/results/cart.jsp"><i class="fa-solid fa-cart-shopping" style="color: #38271E;"></i></a></li>
+  <li><a href="InitServlet?action=carts"><i class="fa-solid fa-cart-shopping" style="color: #38271E;"></i></a></li>
   <%
     if(utente!=null){
   %>

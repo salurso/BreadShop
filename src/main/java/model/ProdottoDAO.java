@@ -93,6 +93,17 @@ public class ProdottoDAO {
         }
     }
 
+    public double getPriceById(int id) {
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement("SELECT prezzo FROM Prodotto WHERE id=?");
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            return rs.getDouble(1);
+        } catch (SQLException s) {
+            throw new RuntimeException(s);
+        }
+    }
+
     public Prodotto doRetrieveById(int id) {
 
         try (Connection con = ConPool.getConnection()) {

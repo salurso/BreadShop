@@ -8,8 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OrdineDAO {
-    public
-    List<Ordine> doRetrieveAll(){
+    public List<Ordine> doRetrieveAll(){
         try (Connection con = ConPool.getConnection()) {
 
             PreparedStatement ps = con.prepareStatement("select id, data, totale, citta, via, num_civico, provincia, cap, emailUtente from ordine");

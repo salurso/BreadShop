@@ -331,5 +331,90 @@ html::-webkit-scrollbar-thumb{
 
 }
 
+/*card*/
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 200px;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.overlay.active {
+    display: flex;
+}
+
+.overlay-content {
+    width: 400px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: red;
+}
+
+.overlay-content img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.overlay-content h3 {
+    margin-top: 0;
+}
+
+.overlay-content p {
+    margin-bottom: 10px;
+}
+
+.add-to-cart-btn {
+    display: block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #3498db;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #2980b9;
+}
+
 
 

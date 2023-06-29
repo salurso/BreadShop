@@ -41,23 +41,25 @@
             <table>
                 <thead>
                 <tr>
-                    <th>Data: <%= o.getDate() %></th>
-                    <th>Totale: €<%=o.getTotal()%> </th>
-                    <th>Indirizzo: <%= o.getVia() %></th>
-                    <th>ORDINE #<%=o.getId()%></th>
+                    <th>Immagine</th>
+                    <th>Nome</th>
+                    <th>Descrizione </th>
+                    <th>Prezzo </th>
+                    <th>Quantità</th>
+                    <th>Elimina</th>
                 </tr>
                 </thead>
                 <br>
                 <%for(Prodotto p : product){ %>
-
-
 
                 <tbody>
                 <tr>
                     <td><img class="ord-img" src="upload/<%=p.getImage()%>"></td>
                     <td><%= p.getName() %></td>
                     <td><%= p.getDescription()%></td>
-                    <td><%= p.getNameCategory()%></td>
+                    <td><%= p.getPrice()%></td>
+                    <td>2</td>
+                    <td><button name="eliminaDaCarrello" value="<%=p.getId()%>"></button></td>
                 </tr>
                 </tbody>
                 <%
@@ -72,7 +74,7 @@
         </div>
         <%
         }else{%>
-        <h3>ERROREEEEEE, REGISTRATIIIIIIIIIIIIII</h3>
+        <h3>Attenzione, il tuo carrello è vuoto</h3>
         <%
             }
         %>
