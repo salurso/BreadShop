@@ -12,30 +12,27 @@
 </head>
 <body>
 <%@ include file="headerAdmin.jsp" %>
+<div>
 <%if(request.getAttribute("result")!=null){%>
 <div class="alert" id="alert">
     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
     <%=request.getAttribute("result")%>
 </div>
 <%}%>
-
-
-
-<section class="home" id="home">
-    <div class="container">
-        <button class="item" id="add_product" value=" " onclick="location.href='HomeServletAdministrator?action=add_product'">
-        </button>
-        <button class="item" id="manage_product" value=" " onclick="location.href='HomeServletAdministrator?action=manage_product'">
-        </button>
-        <button class="item" id="sold-out_products" value=" " onclick="location.href='HomeServletAdministrator?action=add_product'">
-        </button>
-        <button class="item" id="orders" value=" " onclick="location.href='HomeServletAdministrator?action=orders'">
-        </button>
-        <button class="item" id="users" value=" " onclick="location.href='HomeServletAdministrator?action=add_product'">
-        </button>
-    </div>
-</section>
-
-
+<div class="container">
+    <button class="item" id="add_product" value=" " onclick="location.href='HomeServletAdministrator?action=add_product'">
+    </button>
+    <button class="item" id="manage_product" value=" " onclick="location.href='HomeServletAdministrator?action=manage_product'">
+    </button>
+    <button class="item" id="sold-out_products" value=" " onclick="location.href='HomeServletAdministrator?action=add_product'">
+    </button>
+    <button class="item" id="orders" value=" " onclick="location.href='HomeServletAdministrator?action=orders'">
+    </button>
+    <button class="item" id="users" value=" " onclick="location.href='HomeServletAdministrator?action=add_product'">
+    </button>
+    <button class="item" id="manage_category" value=" " onclick="location.href='HomeServletAdministrator?action=manage_category'">
+    </button>
+</div>
+</div>
 </body>
 </html>

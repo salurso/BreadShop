@@ -28,25 +28,35 @@
   <div class="brand-name">
     <h1>Forneria Del Cilento</h1>
   </div>
+  <%
+    ArrayList<Utente> user = (ArrayList<Utente>) request.getAttribute("user");
+    for(Utente u : user){
+  %>
   <ul>
-    <li><span>Dashboard</span></li>
-    <li><span>Utenti</span></li>
-    <li><span>Prodotti Esauriti</span></li>
-    <li><span>Aggiungi Prodotti</span></li>
+    <li><span><%= u.getName().toUpperCase() %> <%=u.getSurname().toUpperCase() %></span></li>
   </ul>
+  <%
+    }
+  %>
 </div>
+
 
 <div class="container">
   <div class="header">
     <div class="nav">
-      <div class="search">
-        <input type="text" placeholder="Search">
-        <button type="submit"><img src="./images/search.png" alt=""></button>
+      <div class="admin-title">
+       <h3> Forneria del cilento Administrator</h3>
       </div>
       <div class="user">
+
         <div class="menu">
-          <li><a href="InitServlet?action=login" class="action_btn"> Bentornato <%=utente.getName().toUpperCase(java.util.Locale.ROOT)%></a></li>
+            <li class="has-children"><a href="InitServlet?action=login" class="action_btn"> Bentornato <%=utente.getName().toUpperCase(java.util.Locale.ROOT)%> <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                <ul class="sub-menu">
+                  <li><a href="loginServlet?action=logout"> Logout </a></li>
+                </ul>
+            </li>
         </div>
+
       </div>
     </div>
   </div>
@@ -137,7 +147,6 @@
               <th>Email</th>
             </tr>
             <%
-              ArrayList<Utente> user = (ArrayList<Utente>) request.getAttribute("user");
               for(Utente u : user){
             %>
 

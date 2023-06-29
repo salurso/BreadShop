@@ -20,7 +20,7 @@ ul{
     justify-content: space-between;
     padding:1.5rem 7%;
     border-bottom: black;
-    position: fixed;
+    position: sticky;
     top:0;
     right: 0;
     left: 0;
@@ -95,6 +95,39 @@ ul{
     display: block;
     color: #38271E;
     transition: .3s;
+}
+
+.sub-menu{
+    position: absolute;
+    /*top:60px;*/
+    right: 0;
+    border: 1px solid #C8934F;
+    border-bottom: none;
+    visibility: hidden;
+    opacity: 0;
+    background: #E4E0BB;
+}
+
+.menu .has-children:hover .sub-menu{
+    transition: .5s;
+    visibility: visible;
+    opacity: 1;
+}
+
+.sub-menu li{
+    width: auto;
+    font-size: 16px;
+    border-bottom: 1px solid #C8934F;
+    padding: 15px 10px;
+}
+
+.sub-menu a{
+    color: #38271E;
+}
+
+.sub-menu a:hover{
+    background: #C8934F;
+    color: #38271E;
 }
 
 /*DROPDOWN MENU */

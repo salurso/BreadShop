@@ -17,65 +17,67 @@
 <body>
 <%@ include file="/WEB-INF/navbar/navbar.jsp" %>
 <div>
-  <div class="home_ord">
+    <div class="home_ord">
 
-      <h3> ORDINI </h3>
+        <h3> ORDINI </h3>
 
-  </div>
+    </div>
     <%
         if(utente!=null){
     %>
 
     <h1 class="main-title"> Ciao <%=utente.getName()%>, ecco i tuoi ordini:  </h1>
-<div class="tabular--wrapper">
-    <div class="table-container">
+    <div class="tabular--wrapper">
+        <div class="table-container">
 
-    <%
-        ArrayList<Ordine> orders = (ArrayList<Ordine>) request.getAttribute("orders");
+            <%
+                ArrayList<Ordine> orders = (ArrayList<Ordine>) request.getAttribute("orders");
 
-        for(Ordine o : orders){
-            if(utente.getEmail().equals(o.getEmail_user())){
-            ArrayList<Prodotto> product = o.getProducts();
+                for(Ordine o : orders){
+                    if(utente.getEmail().equals(o.getEmail_user())){
+                        ArrayList<Prodotto> product = o.getProducts();
 
-    %>
+            %>
             <table>
                 <thead>
                 <tr>
-                    <th>Data: <%= o.getDate() %></th>
-                    <th>Totale: €<%=o.getTotal()%> </th>
-                    <th>Indirizzo: <%= o.getVia() %></th>
-                    <th>ORDINE #<%=o.getId()%></th>
+                    <th>Immagine</th>
+                    <th>Nome</th>
+                    <th>Descrizione </th>
+                    <th>Prezzo </th>
+                    <th>Quantità</th>
+                    <th>Elimina</th>
                 </tr>
                 </thead>
                 <br>
-                 <%for(Prodotto p : product){ %>
-
-
+                <%for(Prodotto p : product){ %>
 
                 <tbody>
-                    <tr>
-                     <td><img class="ord-img" src="upload/<%=p.getImage()%>"></td>
-                     <td><%= p.getName() %></td>
-                     <td><%= p.getDescription()%></td>
-                     <td><%= p.getNameCategory()%></td>
-                    </tr>
+                <tr>
+                    <td><img class="ord-img" src="upload/<%=p.getImage()%>"></td>
+                    <td><%= p.getName() %></td>
+                    <td><%= p.getDescription()%></td>
+                    <td><%= p.getPrice()%></td>
+                    <td>2</td>
+                    <td><button name="eliminaDaCarrello" value="<%=p.getId()%>"></button></td>
+                </tr>
                 </tbody>
-                            <%
+                <%
                     }   %>
 
 
             </table>
-<%
-            }
-        }
-%>
-    </div>
-    <%
+            <%
+                    }
+                }
+            %>
+        </div>
+        <%
         }else{%>
-    <h3>ERROREEEEEE, REGISTRATIIIIIIIIIIIIII</h3>
-    <%
-        }
-    %>
+        <h3>Attenzione, il tuo carrello è vuoto</h3>
+        <%
+            }
+        %>
     </div>
 </div>
 

@@ -5,6 +5,20 @@
     font-family: 'Poppins', sans-serif;
 }
 
+::-webkit-scrollbar{
+    width: .8rem;
+}
+
+::-webkit-scrollbar-track{
+    background: #E4E0BB;
+}
+
+::-webkit-scrollbar-thumb{
+    background: black;
+    border-radius: 1px;
+}
+
+
 body{
     min-height: 100vh;
 }
@@ -45,6 +59,7 @@ h3{
     justify-content: space-around;
     padding: 15px 10px;
     border-bottom: 2px solid #38271E;
+
 }
 
 table{
@@ -65,21 +80,26 @@ th, td{
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
+    max-height: 100vh;
 }
 
 .side-menu .brand-name{
+    margin-top: 1rem;
     height: 10vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom:  1rem;
 }
 
 .side-menu li{
-    font-size: 24px;
+    font-size: 18px;
     padding: 10px 40px;
     color:#38271E;
     display: flex;
     align-items: center;
+
 }
 
 .side-menu li:hover{
@@ -115,39 +135,11 @@ th, td{
     align-items: center;
 }
 
-.container .header .nav .search{
+.container .header .nav .admin-title{
     flex: 3;
     display: flex;
     justify-content: center;
-}
-
-.container .header .nav .search input[type=text] {
-    border: none;
-    background: #E4E0BB;
-    padding: 10px;
-    width: 50%;
-}
-
-.container .header .nav .search button{
-    width: 40px;
-    height: 40px;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.container .header .nav .search button img{
-    width: 30px;
-    height: 30px;
-}
-
-
-.container .header .nav .user{
-    flex:1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    text-transform: uppercase;
 }
 
 .container .content{
@@ -204,6 +196,38 @@ th, td{
     transition: .3s;
 }
 
+
+.sub-menu{
+    position: absolute;
+    /*top:60px;*/
+    right: 0;
+    border: 1px solid #C8934F;
+    border-bottom: none;
+    visibility: hidden;
+    opacity: 0;
+    background: white;
+    font-weight: bold;
+
+}
+
+.menu .has-children:hover .sub-menu{
+    transition: .5s;
+    visibility: visible;
+    opacity: 1;
+}
+
+.sub-menu li{
+    width: auto;
+    font-size: 16px;
+    border-bottom: 1px solid #C8934F;
+    padding: 15px 10px;
+}
+
+.sub-menu:hover{
+    background: #E4E0BB;
+    color: #38271E;
+}
+
 .action_btn{
     background-color: #A06028;
     color:#38271E;
@@ -242,6 +266,8 @@ th, td{
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     display: flex;
     flex-direction: column;
+    max-height: 200px;
+    overflow-y: scroll;
 }
 
 .container .content .content-2 .new-students{
@@ -252,6 +278,8 @@ th, td{
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     display: flex;
     flex-direction: column;
+    max-height: 150px;
+    overflow-y: scroll;
 }
 
 /*MEDIA QUERY RESPONSIVE */

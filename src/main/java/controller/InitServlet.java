@@ -49,13 +49,12 @@ public class InitServlet extends HttpServlet {
             RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/results/specialita.jsp");
             ds.forward(request, response);
         }
+
         if(request.getParameter("action").equals("carrello"))
         {
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/results/cart.jsp");
             dispatcher.forward(request, response);
         }
-
-
 
 //        session.setAttribute("filters", action);
 //        ProdottoDAO pDAO = new ProdottoDAO();

@@ -16,10 +16,11 @@
 </head>
 <body>
 <%@ include file="headerAdmin.jsp" %>
+<div class="home_ord">
 <div class="cards-products">
 <%
-ArrayList<Prodotto> prodotti = (ArrayList<Prodotto>) request.getAttribute("prodotti");
-for(Prodotto p : prodotti){
+ArrayList<Prodotto> products = (ArrayList<Prodotto>) request.getAttribute("products");
+for(Prodotto p : products){
 %>
 
     <div class="card-product">
@@ -40,6 +41,7 @@ for(Prodotto p : prodotti){
 }
 %>
     <div class="clearfix"></div>
+</div>
 </div>
 </body>
 </html>

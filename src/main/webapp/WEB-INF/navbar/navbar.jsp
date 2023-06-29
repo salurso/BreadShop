@@ -1,4 +1,5 @@
-<%@ page import="model.Utente" %><%--
+<%@ page import="model.Utente" %>
+<%@ page import="java.util.Random" %><%--
   Created by IntelliJ IDEA.
   User: andre
   Date: 20/06/2023
@@ -8,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Navbar</title>
+  <title>Navbar</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <link rel="stylesheet" type="text/css" href="css/navbar.css?=<%=new Random().nextInt()%>"/>
 </head>
@@ -21,7 +22,8 @@
     <li><a href="InitServlet?action=product">Prodotti</a></li>
     <li><a href="InitServlet?action=specialita">Specialità</a></li>
     <li><a href="InitServlet?action=contatti">Contatti</a></li>
-    <li><a href="InitServlet?action=carrello" ><i class="fa-solid fa-cart-shopping" style="color: #38271E;"></i></a></li>
+    <li><a href="CartServlet" ><i class="fa-solid fa-cart-shopping" style="color: #38271E;"></i></a></li>
+<%--    <li><a href="InitServlet?action=carts" ><i class="fa-solid fa-cart-shopping" style="color: #38271E;"></i></a></li>--%>
 
   </ul>
   <%
@@ -52,7 +54,7 @@
   <li><a href="InitServlet?action=specialita">Specialità</a></li>
   <li><a href="InitServlet?action=contatti">Contatti</a></li>
   <li><a href="InitServlet?action=orders">Ordini</a></li>
-  <li><a href="./WEB-INF/results/cart.jsp"><i class="fa-solid fa-cart-shopping" style="color: #38271E;"></i></a></li>
+  <li><a href="InitServlet?action=carts"><i class="fa-solid fa-cart-shopping" style="color: #38271E;"></i></a></li>
   <%
     if(utente!=null){
   %>
@@ -64,19 +66,19 @@
 
 
 <script>
-//script dropdown
-const toggleBtn = document.querySelector('.toggle_btn')
-const toggleBtnIcon = document.querySelector('.toggle_btn i')
-const dropDownMenu= document.querySelector('.dropdown_menu')
+  //script dropdown
+  const toggleBtn = document.querySelector('.toggle_btn')
+  const toggleBtnIcon = document.querySelector('.toggle_btn i')
+  const dropDownMenu= document.querySelector('.dropdown_menu')
 
-toggleBtn.onclick=function (){
-dropDownMenu.classList.toggle('open')
-const isOpen = dropDownMenu.classList.contains('open')
+  toggleBtn.onclick=function (){
+    dropDownMenu.classList.toggle('open')
+    const isOpen = dropDownMenu.classList.contains('open')
 
-toggleBtnIcon.classList = isOpen
-? 'fa-solid fa-xmark'
-: 'fa-solid fa-bars'
-}
+    toggleBtnIcon.classList = isOpen
+            ? 'fa-solid fa-xmark'
+            : 'fa-solid fa-bars'
+  }
 </script>
 
 
