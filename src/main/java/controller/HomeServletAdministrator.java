@@ -46,9 +46,9 @@ public class HomeServletAdministrator extends HttpServlet {
         }
         if(action.equals("user")){
             UtenteDAO uDAO = new UtenteDAO();
-            ArrayList<Utente> user = new ArrayList<>();
-            user = uDAO.doRetrieveAll();
-            request.setAttribute("user", user);
+            ArrayList<Utente> users = new ArrayList<>();
+            users = uDAO.doRetrieveAll();
+            request.setAttribute("users", users);
             RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/users.jsp");
             ds.forward(request, response);
         }

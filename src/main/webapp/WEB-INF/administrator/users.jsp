@@ -40,8 +40,8 @@
           <th></th>
         </tr>
         <%
-          ArrayList<Utente> user = (ArrayList<Utente>) request.getAttribute("user");
-          for(Utente u : user){
+          ArrayList<Utente> users = (ArrayList<Utente>) request.getAttribute("users");
+          for(Utente u : users){
         %>
 
         <tr>
@@ -50,7 +50,7 @@
           <td><%=u.getEmail()%></td>
           <td><%=u.isAdmin()%></td>
           <td><button class="btn-user"><a class="link-user" href="ManageAdministrator?action=addAdmin<%=u.getEmail()%>">Rendi Amministratore</a></button></td>
-          <td><button class="btn-user"><a class="link-user" href="ManageAdministrator?action=removeAdmin<%=u.getEmail()%>">Rendi Amministratore</a></button></td>
+          <td><button class="btn-user"><a class="link-user" href="ManageAdministrator?action=removeAdmin<%=u.getEmail()%>">Rimuovi Amministratore</a></button></td>
         </tr>
         <%
           }

@@ -139,7 +139,7 @@ public class UtenteDAO {
 
     public void makeAdministrator(String email) {
         try (Connection con = ConPool.getConnection()) {
-            PreparedStatement ps = con.prepareStatement("UPDATE Cliente SET admin=? WHERE email = ? ",
+            PreparedStatement ps = con.prepareStatement("UPDATE Utente SET admin = ? WHERE email = ? ",
                     Statement.RETURN_GENERATED_KEYS);
             ps.setBoolean(1,true);
             ps.setString(2, email);
@@ -153,7 +153,7 @@ public class UtenteDAO {
 
     public void removeAdministrator(String email) {
         try (Connection con = ConPool.getConnection()) {
-            PreparedStatement ps = con.prepareStatement("UPDATE Cliente SET admin=? WHERE email = ? ",
+            PreparedStatement ps = con.prepareStatement("UPDATE Utente SET admin = ? WHERE email = ? ",
                     Statement.RETURN_GENERATED_KEYS);
             ps.setBoolean(1,false);
             ps.setString(2, email);

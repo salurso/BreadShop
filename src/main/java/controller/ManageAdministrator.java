@@ -24,20 +24,21 @@ public class ManageAdministrator extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
         UtenteDAO uDAO = new UtenteDAO();
+
         if(action.contains("addAdmin")){
-            String x[] = request.getParameter("action").split("addAdmin");
+            String x[] = action.split("addAdmin");
             String email = x[1];
             uDAO.makeAdministrator(email);
-            ArrayList<Utente> u = (ArrayList<Utente>) uDAO.doRetrieveAll();
+            ArrayList<Utente> u = uDAO.doRetrieveAll();
             request.setAttribute("users", u);
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/administrator/users.jsp");
             dispatcher.forward(request, response);
         }
-        if(action.equals("removeAdmin")){
-            String x[] = request.getParameter("action").split("removeAdmin");
+        if(action.contains("removeAdmin")){
+            String x[] = action.split("removeAdmin");
             String email = x[1];
-            uDAO.makeAdministrator(email);
-            ArrayList<Utente> u = (ArrayList<Utente>) uDAO.doRetrieveAll();
+            uDAO.removeAdministrator(email);
+            ArrayList<Utente> u = uDAO.doRetrieveAll();
             request.setAttribute("users", u);
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/administrator/users.jsp");
             dispatcher.forward(request, response);
