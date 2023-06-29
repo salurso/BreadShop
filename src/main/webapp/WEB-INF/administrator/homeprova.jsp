@@ -48,9 +48,15 @@
        <h3> Forneria del cilento Administrator</h3>
       </div>
       <div class="user">
+
         <div class="menu">
-          <li><a href="InitServlet?action=login" class="action_btn"> Bentornato <%=utente.getName().toUpperCase(java.util.Locale.ROOT)%></a></li>
+            <li class="has-children"><a href="InitServlet?action=login" class="action_btn"> Bentornato <%=utente.getName().toUpperCase(java.util.Locale.ROOT)%> <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                <ul class="sub-menu">
+                  <li><a href="loginServlet?action=logout"> Logout </a></li>
+                </ul>
+            </li>
         </div>
+
       </div>
     </div>
   </div>

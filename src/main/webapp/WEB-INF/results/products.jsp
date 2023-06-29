@@ -12,19 +12,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="./css/navbar.css?v=<%=new Random().nextInt()%>"/>
   <link rel="stylesheet" type="text/css" href="./css/product.css?v=<%=new Random().nextInt()%>"/>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-  <%--<script>--%>
-  <%--  function myprod(id){--%>
-  <%--    let prod = document.getElementById(id);--%>
-  <%--    prod.style.display = 'block';--%>
-  <%--  }--%>
 
-  <%--  function prodprev(id){--%>
-  <%--    let prod_prev = document.getElementById(id);--%>
-  <%--    prod_prev.style.display = 'flex';--%>
-
-  <%--  }--%>
-  <%--</script>--%>
   <%
     ArrayList<Prodotto> products = (ArrayList<Prodotto>) request.getAttribute("product");
     ArrayList<String> categories = (ArrayList<String>) request.getAttribute("categories");
@@ -61,7 +51,7 @@
         if(p.getNameCategory().equals(category)){
     %>
 
-    <div class="product" data-name="<%=p.getId()%>">
+    <div <%=p.getId()%> class="product" data-name="<%=p.getId()%>">
       <img src="upload/<%=p.getImage()%>" alt="CardImage">
       <h3> <%=p.getName()%> </h3>
       <div class="price"><%=p.getPrice()%>€</div>
@@ -70,7 +60,7 @@
 
 
     <div class="product-preview">
-      <div class="preview" data-target="<%=p.getId()%>" >
+      <div id="<%=p.getId()%>" class="preview" data-target="<%=p.getId()%>" >
         <a><i class="fas fa-times close-btn"></i></a>
         <div class="product-img">
           <img src="upload/<%=p.getImage()%>" alt="CardImage">
@@ -92,40 +82,102 @@
   </div>
     <%
   }%>
+</div>
 
-
-  <script type="text/javascript">
-
-    var productsPreview = document.querySelectorAll('.product-preview');
-    var popupBtn = document.querySelectorAll('.popup-btn');
-    var closeBtn = document.querySelectorAll('.close-btn');
-
-    //QUICK VIEW
-
-    var popup = function(popupClick) {
-      productsPreview.onclick = () => {
-        previewContainer.style.display = 'flex';
-        preview.classList.add('active');
-      }
+<div class="container">
+  <h1> Prova </h1>
+  <div class="video-container">
+    <div class="video"><img src="./images/sfondoabout.jpg"></div>
+    <div class="video"><img src="./images/sfondoabout.jpg"></div>
+    <div class="video"><img src="./images/sfondoabout.jpg"></div>
+    <div class="video"><img src="./images/sfondoabout.jpg"></div>
+    <div class="video"><img src="./images/sfondoabout.jpg"></div>
+    <div class="video"><img src="./images/sfondoabout.jpg"></div>
+  </div>         <div class="popup-video">
+  <span>&times;</span>
+  <img src="./images/sfondoabout.jpg">
+</div>
+</div>
+<style>
+  .container{
+    position: relative;
+    min-height: 100vh;
+    background: #334;
+  }
+  .container h1{
+    color: #E4E0BB;
+    text-align: center;
+    padding: 15px;
+    font-size: 40px;
+    font-weight: normal;
+  }
+  .container .video-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    padding: 10px;
+  }
+  .container .video-container .video{
+    height: 250px;
+    width: 350px;
+    border: 5px solid #ffffff;
+    box-shadow:0 5px 15px rgba(0,0,0.7);
+    cursor: pointer;
+    overflow: hidden;
+  }
+  .container .video-container .video img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: .2s linear;
+  }
+  .container .video-container .video:hover img{
+    transform:scale(1.1);
+  }
+  .container .popup-video{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background: rgba(0,0,0,.8);
+    height: 100%;
+    width: 100%;
+    display: none;
+  }
+  .container .popup-video img{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 750px;
+    border-radius: 5px;
+    border: 3px solid #ffffff;
+    object-fit: cover;
+  }
+  .container .popup-video span{
+    position: absolute;
+    top:5px;
+    right: 20px;
+    font-size: 50px;
+    color: black;
+    font-weight: bolder;
+    z-index: 100;
+    cursor: pointer;
+  }
+</style>
+<script>
+  document.querySelectorAll('.video-container img').forEach(vid =>{
+    vid.onclick = () => {
+      document.querySelector('.popup-video').style.display = 'block';
+      document.querySelector('.popup-video img').src = vid.getAttribute('src');
     }
-
-    popupBtn.forEach((popupBtn, i) =>{
-      popupBtn.addEventListener("click", ()=>{
-        popup(i)
-      });
-    });
-
-
-    //CHIUSURA
-
-    closeBtn.forEach((closeBtn) =>{
-      closeBtn.addEventListener("click", () =>{
-        productsPreview.forEach((popupView) =>{
-          popupView.classList.remove('active');
-        });
-      });
-    });
-  </script>
+  });
+  document.querySelector('.popup-video span').onclick = () =>{
+    document.querySelector('.popup-video').style.display = 'none';
+  }
+</script>
 
 </body>
+
 </html>

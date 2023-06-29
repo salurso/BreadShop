@@ -7,16 +7,15 @@ body{
     background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("../images/sfondologin.jpeg");
     background-size: cover;
     background-position: center;
-    overflow-y: hidden;
 
 }
 
-input[type=text], input[type=price], input[type=file],select, textarea {
+input[type=text], input[type=number], input[type=file],select, textarea {
     width: 100%;
     padding: 12px;
-    border: 1px solid #ccc;
+    /*border: 1px solid #ccc;*/
     border-radius: 4px;
-    box-sizing: border-box;
+    /*box-sizing: border-box;*/
     margin-top: 6px;
     margin-bottom: 16px;
     resize: none;
@@ -47,8 +46,53 @@ input[type=submit]:active {
     background-color: #E4E0BB;
     padding: 2rem;
     margin: 2rem auto;
-
 }
+
+.inputbox{
+    position: relative;
+    width: 100%;
+}
+
+.inputbox input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #E4E0BB;
+    background: #ffffff;
+    outline: none;
+    font-size: 1em;
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    transition: .5s;
+}
+
+.inputbox span{
+    position: absolute;
+    left: 0;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 1em;
+    text-transform: uppercase;
+    color: gray;
+}
+
+.inputbox input:valid~span,
+.inputbox input:focus~span {
+    color: #A0602B;
+    transform: translateX(10px) translateY(-3px);
+    font-size: 0.85em;
+    padding: 0 10px;
+    background: transparent;
+    font-weight: bold;
+    border-left: 1px solid #A0602B;
+    border-right: 1px solid #A0602B;
+    letter-spacing: 0.2em;
+}
+
+.inputbox input:valid,
+.inputbox input:focus{
+    border: 1px solid #A0602B;
+}
+
 
 .add_product form{
     max-width: 50rem;
@@ -57,7 +101,7 @@ input[type=submit]:active {
     border-radius: .5rem;
 }
 
-.add_product form h3{
+.add_product h3{
     text-transform: uppercase;
     color: #38271E;
     margin-bottom: 1rem;
@@ -65,13 +109,6 @@ input[type=submit]:active {
     font-size: 2.5rem;
 }
 
-.add_product form h3 .box{
-    width: 100%;
-    border-radius: .5rem;
-    padding: 1.2rem 1.5rem;
-    font-size: 1.7rem;
-    margin: 1rem 0;
-}
 
 .btn_add{
     display: block;

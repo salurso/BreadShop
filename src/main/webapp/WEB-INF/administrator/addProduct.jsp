@@ -47,17 +47,22 @@
         <div class="add_product">
         <form action="InsertProduct" enctype="multipart/form-data" method="POST">
             <h3>Aggiungi Prodotto</h3>
-<%--            <label for="name">Nome: </label>--%>
-            <input class="box" type="text" name="name" id="name" maxlength="50" placeholder="Nome" required>
 
-<%--            <label for="price">Prezzo: </label>--%>
-            <input class="box" type="price" name="price" id="price" placeholder="Prezzo" required>
+            <div class="inputbox">
+                <input class="box" type="text" name="name" id="name" maxlength="50"  required>
+                <span> Nome </span>
+            </div>
 
-<%--            <label for="image">Immagine: </label>--%>
+            <div class="inputbox">
+                <input class="box" type="number" name="price" id="price" required>
+                <span> Price </span>
+            </div>
+
             <input class="box" type="file" id="image" name="image" value="inserisci immagine">
 
             <label for="categories">Categoria: </label>
             <select class="box" id="categories" name="categories" required>
+                <option value="Seleziona_categoria" disabled selected>Seleziona Categoria</option>
                 <%
                     ArrayList<String> categories = (ArrayList<String>) request.getAttribute("categories");
                     for(String c : categories){
