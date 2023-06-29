@@ -14,7 +14,7 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="./css/headerAdmin.css?v=<%=new Random().nextInt()%>"/>
-    <link rel="stylesheet" type="text/css" href="./css/manageorders.css?v=<%=new Random().nextInt()%>"/>
+    <link rel="stylesheet" type="text/css" href="./css/manageOrders.css?v=<%=new Random().nextInt()%>"/>
 
     <title>Ordini</title>
 </head>

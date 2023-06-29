@@ -27,7 +27,7 @@ public class HomeServletAdministrator extends HttpServlet {
             request.setAttribute("orders", orders);
             UtenteDAO uDAO = new UtenteDAO();
             ArrayList<Utente> user = new ArrayList<>();
-            user = (ArrayList<Utente>) uDAO.doRetrieveAll();
+            user = (ArrayList<Utente>) uDAO.doRetrieveNotAdmin();
             request.setAttribute("user", user);
             RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/homeprova.jsp");
             ds.forward(request, response);
@@ -46,9 +46,9 @@ public class HomeServletAdministrator extends HttpServlet {
         }
         if(action.equals("user")){
             UtenteDAO uDAO = new UtenteDAO();
-            ArrayList<Utente> user = new ArrayList<>();
-            user = (ArrayList<Utente>) uDAO.doRetrieveAll();
-            request.setAttribute("user", user);
+            ArrayList<Utente> users = new ArrayList<>();
+            users = uDAO.doRetrieveAll();
+            request.setAttribute("users", users);
             RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/users.jsp");
             ds.forward(request, response);
         }

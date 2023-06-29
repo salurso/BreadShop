@@ -117,3 +117,25 @@ tfoot td{
     padding: 15px;
 }
 
+.btn-user{
+    background-color: #AE7349;
+    color: white;
+    font-size: 16px;
+    padding: 4%;
+    border: 1px solid #A0602B;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    transition-duration: 0.4s;
+}
+
+.btn-card:hover{
+    background-color: #A0602B;
+    border: 1px solid #38271E;
+}
+
+.link-user{
+    text-decoration: none;
+    color: white;
+    text-underline: none;
+}
