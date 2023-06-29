@@ -49,7 +49,7 @@ public class ManageProduct extends HttpServlet {
         request.setAttribute("categories", categories);
         Prodotto p = pDAO.doRetrieveById(idProduct);
         request.setAttribute("product", p);
-        RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/products.jsp");
+        RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/product.jsp");
         ds.forward(request, response);
     }
 

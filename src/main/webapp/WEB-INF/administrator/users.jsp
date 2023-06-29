@@ -14,7 +14,7 @@
 <html>
 <head>
   <link rel="stylesheet" type="text/css" href="./css/headerAdmin.css?v=<%=new Random().nextInt()%>"/>
-  <link rel="stylesheet" type="text/css" href="./css/manageorders.css?v=<%=new Random().nextInt()%>"/>
+  <link rel="stylesheet" type="text/css" href="./css/manageOrders.css?v=<%=new Random().nextInt()%>"/>
 
   <title>Utenti</title>
 </head>
@@ -35,6 +35,9 @@
           <th>Nome</th>
           <th>Cognome</th>
           <th>Email</th>
+          <th>Admin</th>
+          <th></th>
+          <th></th>
         </tr>
         <%
           ArrayList<Utente> user = (ArrayList<Utente>) request.getAttribute("user");
@@ -45,6 +48,9 @@
           <td><%=u.getName()%></td>
           <td><%=u.getSurname()%></td>
           <td><%=u.getEmail()%></td>
+          <td><%=u.isAdmin()%></td>
+          <td><button class="btn-user"><a class="link-user" href="ManageAdministrator?action=addAdmin<%=u.getEmail()%>">Rendi Amministratore</a></button></td>
+          <td><button class="btn-user"><a class="link-user" href="ManageAdministrator?action=removeAdmin<%=u.getEmail()%>">Rendi Amministratore</a></button></td>
         </tr>
         <%
           }

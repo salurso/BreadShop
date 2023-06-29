@@ -79,7 +79,42 @@ public class UtenteDAO {
         return false;
     }
 
-    public List<Utente> doRetrieveAll(){
+    public ArrayList<Utente> doRetrieveAll(){
+        try (Connection con = ConPool.getConnection()) {
+
+            PreparedStatement ps = con.prepareStatement("select * from utente");
+            ResultSet rs = ps.executeQuery();
+            ArrayList<Utente> users = new ArrayList<>();
+
+            while (rs.next()){
+                Utente u = new Utente();
+                u.setEmail(rs.getString(1));
+                u.setName(rs.getString(2));
+                u.setSurname(rs.getString(3));
+                if(!(rs.getString(4)==null))
+                    u.setPhone_number(rs.getString(4));
+                if(!(rs.getString(5)==null))
+                    u.setCity(rs.getString(5));
+                if(!(rs.getString(6)==null))
+                    u.setStreet(rs.getString(6));
+                if(!(rs.getString(7)==null))
+                    u.setStreet_number(Integer.parseInt(rs.getString(7)));
+                if(!(rs.getString(8)==null))
+                    u.setProvince(rs.getString(8));
+                if(!(rs.getString(9)==null))
+                    u.setCap(rs.getString(9));
+                u.setAdmin(rs.getBoolean(10));
+
+                users.add(u);
+            }
+            return users;
+
+        } catch (SQLException s) {
+            throw new RuntimeException(s);
+        }
+    }
+
+    public List<Utente> doRetrieveNotAdmin(){
         try (Connection con = ConPool.getConnection()) {
 
             PreparedStatement ps = con.prepareStatement("select nome, cognome, email from utente WHERE NOT nome <> admin");
@@ -99,6 +134,34 @@ public class UtenteDAO {
 
         } catch (SQLException s) {
             throw new RuntimeException(s);
+        }
+    }
+
+    public void makeAdministrator(String email) {
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement("UPDATE Cliente SET admin=? WHERE email = ? ",
+                    Statement.RETURN_GENERATED_KEYS);
+            ps.setBoolean(1,true);
+            ps.setString(2, email);
+            if (ps.executeUpdate() != 1) {
+                throw new RuntimeException("UPDATE error.");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void removeAdministrator(String email) {
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement("UPDATE Cliente SET admin=? WHERE email = ? ",
+                    Statement.RETURN_GENERATED_KEYS);
+            ps.setBoolean(1,false);
+            ps.setString(2, email);
+            if (ps.executeUpdate() != 1) {
+                throw new RuntimeException("UPDATE error.");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 }
