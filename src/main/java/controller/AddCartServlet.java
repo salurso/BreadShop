@@ -6,10 +6,10 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.CarrelloDAO;
-import model.ProdottoDAO;
+import model.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 @WebServlet(name = "AddCartServlet", value = "/AddCartServlet")
 public class AddCartServlet extends HttpServlet {
@@ -17,13 +17,19 @@ public class AddCartServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         int id = Integer.parseInt(request.getParameter("id"));
-        double price = Double.parseDouble(request.getParameter("price"));
         String email = request.getParameter("email");
-
-        ProdottoDAO pDAO = new ProdottoDAO();
-        double priceProduct = pDAO.getPriceById(id);
+        int quantity = Integer.parseInt(request.getParameter("quantity"));
         CarrelloDAO cDAO = new CarrelloDAO();
-        cDAO.doInsert(email, id, 2, priceProduct);
+        cDAO.doInsert(email, id, quantity);
+
+//        CategoriaDAO catDAO = new CategoriaDAO();
+//        ArrayList<Categoria> categories = (ArrayList<Categoria>) catDAO.doRetrieveAll();
+//        request.setAttribute("categories", categories);
+//        ProdottoDAO pDAO = new ProdottoDAO();
+//        ArrayList<Prodotto> products = (ArrayList<Prodotto>) pDAO.doRetrieveAll();
+//        request.setAttribute("product", products);
+        ArrayList<Carrello> carts = cDAO.doRetrieveAll();
+        request.setAttribute("carts", carts);
         RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/results/cart.jsp");
         ds.forward(request, response);
     }

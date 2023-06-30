@@ -26,7 +26,6 @@
 </head>
 <body>
 <%@ include file="/WEB-INF/navbar/navbar.jsp" %>
-
 <section class="home_ord" id="home_prod">
     <div class="container_ord" data-aos="fade-up" data-aos-duration="3000"
          data-aos-anchor-placement="top-bottom">
@@ -51,88 +50,106 @@
         %>
         <div class="container">
             <div class="card">
-                <img src="upload/<%=p.getImage()%>" alt="Card 1">
-                <h3><%=p.getName()%></h3>
-                <div class="price"><%=p.getPrice()%>€</div>
-            </div>
-        </div>
-
-        <div class="overlay">
-            <div class="overlay-content">
-                <button class="btn_closed" onclick="function closeOverlay(){
-     var overlay = document.querySelector('.overlay');
-      overlay.style.display = 'none';
-    }
-    closeOverlay()">Chiudi anteprima</button>
-<%--                <form action="AddCartServlet" method="post">--%>
-                <img src="" alt="Preview Image" id="preview-image">
-                <h3 id="preview-title" name=""><%=p.getName()%></h3>
-                <p id="preview-category"><%=p.getNameCategory()%></p>
-                <p id="preview-price"><%=p.getPrice()%></p>
-                <p id="preview-description"><%=p.getDescription()%></p>
-<%--                <input id="cart" class="add-to-cart-btn" type="submit">Add to Ca</input>--%>
-<%--                <a href="AddCartServlet?id=<%=p.getId()%>&price=<%=p.getPrice()%>&email=<%=utente.getEmail()%>" class="add-to-cart-btn">Add to Cart</a>--%>
-<%--                    <button onclick="location.href='AddCartServlet'"></button>--%>
-                <a href="#" class="add-cart-btn">Add to Cart</a>
-<%--                </form>--%>
+                <%if(session.getAttribute("login")==null){%>
+                    <form action="InitServlet?action=login" method="post">
+                <%}else{%>
+                    <form action="AddCartServlet" method="post">
+                <%}%>
+                        <img src="upload/<%=p.getImage()%>" alt="Card 1">
+                        <h3><%=p.getName()%></h3>
+                        <div class="price"><%=p.getPrice()%>€</div>
+                        <input type="hidden" name="id" value="<%=p.getId()%>">
+                        <input type="number" name="quantity" min=1  value="1">
+                        <%if(session.getAttribute("login")!=null){%>
+                            <input type="hidden" name="email" value="<%=utente.getEmail()%>">
+                        <%}%>
+        <%--                <a href="AddCartServlet?id=<%=p.getId()%>&email=<%=utente.getEmail()%>" class="add-to-cart-btn">Add to Cart</a>--%>
+                        <input class="btn-cart" type="submit" value="Add to cart">
+                        <a href="ProductServlet?id=<%=p.getId()%>" class="add-to-cart-btn" >View More</a>
+                    </form>
             </div>
         </div>
         <%
                 }
         %>
     </div>
-        <%
-  }
-%>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const cards = document.querySelectorAll(".card");
-            const overlay = document.querySelector(".overlay");
-            const previewImage = document.getElementById("preview-image");
-            const previewTitle = document.getElementById("preview-title");
-            const previewCategory = document.getElementById("preview-category");
-            const previewPrice = document.getElementById("preview-price");
-            const previewDescription = document.getElementById("preview-description");
-            const addToCartBtn = document.querySelector(".add-to-cart-btn");
-            const closeBtn = document.querySelector(".close-btn");
-
-            cards.forEach(function(card) {
-                card.addEventListener("click", function() {
-                    const imgSrc = this.querySelector("img").src;
-                    const title = this.querySelector("h3").textContent;
-                    const category = "Category"; // Aggiungi la categoria corretta qui
-                    const price = this.querySelector(".price").textContent;
-
-                    previewImage.src = imgSrc;
-                    previewTitle.textContent = title;
-                    previewCategory.textContent = category;
-                    previewPrice.textContent = price;
-                    previewDescription.textContent = "Description"; // Aggiungi la descrizione corretta qui
-
-                    overlay.classList.add("active");
+    <%
+    }
+    %>
+            <script>
+                $(document).ready(function () {
+                    $(".btn-cart").click(function () {
+                        window.location="products.jsp"
+                    });
                 });
-            });
+            </script>
+<%--        <div class="overlay">--%>
+<%--            <div class="overlay-content">--%>
+<%--                <button class="btn_closed" onclick="function closeOverlay(){--%>
+<%--     var overlay = document.querySelector('.overlay');--%>
+<%--      overlay.style.display = 'none';--%>
+<%--    }--%>
+<%--    closeOverlay()">Chiudi anteprima</button>--%>
+<%--                <form action="AddCartServlet" method="post">--%>
+<%--                <img src="" alt="Preview Image" id="preview-image">--%>
+<%--                <h3 id="preview-title" name=""><%=p.getName()%></h3>--%>
+<%--                <p id="preview-category"><%=p.getNameCategory()%></p>--%>
+<%--                <p id="preview-price"><%=p.getPrice()%></p>--%>
+<%--                <p id="preview-description"><%=p.getDescription()%></p>--%>
+<%--                <div class="price">#<%=p.getId()%></div>--%>
 
-            addToCartBtn.addEventListener("click", function(event) {
-                event.preventDefault();
-                // Aggiungi il codice per l'azione "Aggiungi al carrello" qui
-            });
+            <%--                <input id="cart" class="add-to-cart-btn" type="submit">Add to Ca</input>--%>
+<%--                <a href="AddCartServlet?id=<%=p.getId()%>&price=<%=p.getPrice()%>&email=<%=utente.getEmail()%>" class="add-to-cart-btn">Add to Cart</a>--%>
+<%--                    <button onclick="location.href='AddCartServlet'"></button>--%>
+<%--                <a href="#" class="add-cart-btn">Add to Cart</a>--%>
+<%--                </form>--%>
+<%--            </div>--%>
+<%--        </div>--%>
 
-            function closeOverlay() {
-                var overlay = document.querySelector('.overlay');
-                overlay.style.display = 'none';
-            }
-        });
+<%--    <script>--%>
+<%--        document.addEventListener("DOMContentLoaded", function() {--%>
+<%--            const cards = document.querySelectorAll(".card");--%>
+<%--            const overlay = document.querySelector(".overlay");--%>
+<%--            const previewImage = document.getElementById("preview-image");--%>
+<%--            const previewTitle = document.getElementById("preview-title");--%>
+<%--            const previewCategory = document.getElementById("preview-category");--%>
+<%--            const previewPrice = document.getElementById("preview-price");--%>
+<%--            const previewDescription = document.getElementById("preview-description");--%>
+<%--            const addToCartBtn = document.querySelector(".add-to-cart-btn");--%>
+<%--            const closeBtn = document.querySelector(".close-btn");--%>
 
-        // function addCart(){
-        //     var id = document.querySelectorAll("input");
-        // }
+<%--            cards.forEach(function(card) {--%>
+<%--                card.addEventListener("click", function() {--%>
+<%--                    const imgSrc = this.querySelector("img").src;--%>
+<%--                    const title = this.querySelector("h3").textContent;--%>
+<%--                    const category = "Category"; // Aggiungi la categoria corretta qui--%>
+<%--                    const price = this.querySelector(".price").textContent;--%>
 
-        $(document).ready(function () {
-            $(".btn_closed").click(function () {
-                location.reload(true);
-            });
-        });
-    </script>
+<%--                    previewImage.src = imgSrc;--%>
+<%--                    previewTitle.textContent = title;--%>
+<%--                    previewCategory.textContent = category;--%>
+<%--                    previewPrice.textContent = price;--%>
+<%--                    previewDescription.textContent = "Description"; // Aggiungi la descrizione corretta qui--%>
+
+<%--                    overlay.classList.add("active");--%>
+<%--                });--%>
+<%--            });--%>
+
+<%--            addToCartBtn.addEventListener("click", function(event) {--%>
+<%--                event.preventDefault();--%>
+<%--                // Aggiungi il codice per l'azione "Aggiungi al carrello" qui--%>
+<%--            });--%>
+
+<%--            function closeOverlay() {--%>
+<%--                var overlay = document.querySelector('.overlay');--%>
+<%--                overlay.style.display = 'none';--%>
+<%--            }--%>
+<%--        });--%>
+
+<%--        // function addCart(){--%>
+<%--        //     var id = document.querySelectorAll("input");--%>
+<%--        // }--%>
+
+<%--    </script>--%>
 </body>
 </html>

@@ -1,12 +1,7 @@
 <%@ page import="model.Carrello" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="model.Prodotto" %><%--
-  Created by IntelliJ IDEA.
-  User: Costantino
-  Date: 29/06/2023
-  Time: 19:46
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="model.Prodotto" %>
+<%@ page import="model.ProdottoDAO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -34,6 +29,7 @@
       <table>
         <thead>
         <tr>
+          <th></th>
           <th>Nome </th>
           <th>Prezzo</th>
           <th>Quantità</th>
@@ -43,13 +39,14 @@
       <%
       for(Carrello c : carts){
         if(c.getEmail().equals(utente.getEmail())){
+          Prodotto p = c.getProducts();
       %>
         <tbody>
         <tr>
-          <td><img class="ord-img" src="upload/<%=c.getProducts().getImage()%>"></td>
-          <td><%= c.getProducts().getName() %></td>
-          <td><%= c.getProducts().getPrice()%></td>
-          <td><%=c.getQuantity()%>></td>
+          <td><img class="ord-img" src="upload/<%=p.getImage()%>"></td>
+          <td><%=p.getName()%></td>
+          <td><%=p.getPrice()%></td>
+          <td><%=c.getQuantity()%></td>
         </tr>
         </tbody>
       </table>
