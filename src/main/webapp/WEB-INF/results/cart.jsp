@@ -6,6 +6,8 @@
 <html>
 <head>
     <title>Carrello</title>
+  <link rel="stylesheet" type="text/css" href="./css/cart.css?v=<%=new Random().nextInt()%>"/>
+
 </head>
 <body>
 <%@ include file="/WEB-INF/navbar/navbar.jsp" %>
@@ -19,7 +21,6 @@
     if(utente!=null){
   %>
 
-  <h1 class="main-title"> Ciao <%=utente.getName()%>, ecco i tuoi ordini:  </h1>
   <div class="tabular--wrapper">
     <div class="table-container">
 
@@ -29,10 +30,12 @@
       <table>
         <thead>
         <tr>
-          <th></th>
+          <th>Prodotto</th>
           <th>Nome </th>
           <th>Prezzo</th>
           <th>Quantità</th>
+          <th>Totale</th>
+          <th>Action</th>
         </tr>
         </thead>
         <br>
@@ -45,15 +48,18 @@
         <tr>
           <td><img class="ord-img" src="upload/<%=p.getImage()%>"></td>
           <td><%=p.getName()%></td>
-          <td><%=p.getPrice()%></td>
+          <td>€<%=p.getPrice()%></td>
           <td><%=c.getQuantity()%></td>
+          <td><%=c.getTotal()%></td>
+          <td><button>Rimuovi</button></td>
         </tr>
         </tbody>
-      </table>
-      <%
+        <%
+            }
           }
-        }
-      %>
+        %>
+      </table>
+
     </div>
     <%
     }else{%>

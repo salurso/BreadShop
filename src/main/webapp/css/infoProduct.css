@@ -1,0 +1,328 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1;
+    font-family: 'Roboto', sans-serif;
+    /*overflow: hidden;*/
+}
+
+img{
+    /*border: 2px solid #38271E;*/
+    width: 100%;
+    display: block;
+}
+
+.main-wrapper{
+    min-height: 100vh;
+    background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("../images/sfondologin.jpeg");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+    max-height: max-content;
+}
+
+.product-div{
+    margin: 1rem 0;
+    padding: 2rem 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr auto);
+    background-color: #E4E0BB;
+    border-radius: 3px;
+    column-gap: 10px;
+}
+
+.product-div-left{
+    border-right:2px solid  #38271E;
+    padding: 20px;
+}
+
+.product-div-right{
+    padding: 20px;
+}
+
+.img-container img{
+    width: 300px;
+    height: 80%;
+    margin: 0 auto;
+}
+
+.product-div-right span{
+    display: block;
+}
+
+.product-name{
+    color: #38271E;
+    font-size: 26px;
+    margin-bottom: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+.product-name i{
+    color: #38271E;
+    font-size: 16px;
+    letter-spacing: 0.2px;
+}
+
+.product-price{
+    font-size: 24px;
+    opacity: 0.9;
+    font-weight: 400;
+}
+
+.product-rating{
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.product-rating span{
+    margin-right: 6px;
+}
+
+.product-description{
+    line-height: 1.6;
+    font-weight: 300;
+    opacity: 0.9;
+    margin-top: 22px;
+}
+
+.btn-groups{
+    margin-top: 22px;
+}
+
+.btn-groups button{
+    display: inline-block;
+    font-size: 16px;
+    font-family: inherit;
+    text-transform: uppercase;
+    padding: 15px 16px;
+    color: #E4E0BB;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-groups button .fas{
+    margin-right: 8px;
+}
+
+.add-cart-btn {
+    background-color: #A0602B;
+    border: 2px solid #A0602B;
+    margin-right: 8px;
+}
+
+.add-cart-btn:hover{
+    background-color: #E4E0BB;
+    color: #A0602B;
+}
+
+
+
+/*.container{*/
+/*    background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("../images/sfondologin.jpeg");*/
+/*    min-height: 100vh;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*}*/
+
+/*.box{*/
+/*    background-color: #E4E0BB;*/
+/*    border-radius: 10px;*/
+/*    box-shadow: 5px 5px 10px 1px rgb(0,0,0,12%);*/
+/*    padding: 45px;*/
+/*    margin: 15px 0;*/
+/*    width: 950px;*/
+/*    !*height: 500px;*!*/
+/*    display: grid;*/
+/*    grid-template-columns: repeat(2, 1fr);*/
+/*    grid-template-rows: auto 1fr;*/
+/*    grid-template-areas:*/
+/*    "images info"*/
+/*    "images description";*/
+/*    grid-gap: 35px;*/
+/*}*/
+
+/*.box .images{*/
+/*    border: 1px solid #38271E;*/
+/*    grid-area: images;*/
+/*    display: grid;*/
+/*    grid-template-columns:repeat(3, auto);*/
+/*    grid-template-rows: auto 1fr;*/
+/*    grid-template-areas:*/
+/*    "active active active"*/
+/*    "idle idle idle";*/
+/*    grid-gap: 5px;*/
+/*}*/
+
+/*.box .images .img-holder img{*/
+/*    width: 100%;*/
+/*    display: block;*/
+/*    border-radius: 10px;*/
+/*}*/
+
+/*.box .images .img-holder.active{*/
+/*    grid-area: active;*/
+/*}*/
+
+/*.box .images .img-holder:not(.active):hover{*/
+/*    opacity: 0.95;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.box .basic-info{*/
+/*    color: #38271E;*/
+/*    grid-area: info;*/
+/*    display: flex;*/
+/*    flex-direction:column;*/
+/*    gap: 15px;*/
+/*}*/
+
+/*.box .basic-info .rate{*/
+/*    color: #A0602B;*/
+/*}*/
+
+/*.box .basic-info span{*/
+/*    color: #38271E;*/
+/*    font-weight: 600;*/
+/*    font-size: 25px;*/
+/*}*/
+
+/*.box .basic-info .options a{*/
+/*    cursor: pointer;*/
+/*    color: #38271E;*/
+/*    background-color: #A0602B;*/
+/*    display: inline-block;*/
+/*    padding: 10px 15px;*/
+/*    text-decoration: none;*/
+/*    font-weight: 600;*/
+/*    font-size: 12px;*/
+/*    border-radius: 5px;*/
+/*}*/
+
+/*.box .basic-info .options a:hover{*/
+/*    background-color: white;*/
+/*    color: #E4E0BB;*/
+/*}*/
+
+
+/*.box .description{*/
+/*    grid-area: description;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    gap: 25px;*/
+/*}*/
+/*.box .description p{*/
+/*    color: #38271E;*/
+/*    font-size: 18px;*/
+/*    line-height: 1.5;*/
+/*}*/
+
+
+
+
+
+
+
+/*.small-container{*/
+/*    max-width: 1200px;*/
+/*    margin: auto;*/
+/*    padding-left: 25px;*/
+/*    padding-right: 20px;*/
+/*}*/
+
+/*.row{*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    flex-wrap: wrap;*/
+/*    justify-content: space-around;*/
+/*}*/
+
+/*.single-product{*/
+/*    margin-top: 80px;*/
+/*}*/
+
+/*.small-img-row{*/
+/*    display: flex;*/
+/*    justify-content: space-around;*/
+/*}*/
+
+/*.col-2 img{*/
+/*    max-width: 100%;*/
+/*    padding: 50px 0;*/
+/*}*/
+
+/*.single-product .col-2 img{*/
+/*    padding: 0;*/
+/*}*/
+
+/*.single-product .col-2{*/
+/*    padding: 20px;*/
+/*}*/
+
+/*.col-2{*/
+/*    flex-basis: 50%;*/
+/*    min-width: 300px;*/
+/*}*/
+
+/*.col-2{*/
+/*    font-size: 18px;*/
+/*    line-height: 60px;*/
+/*    margin: 25px 0;*/
+/*}*/
+
+/*.single-product h4{*/
+/*    margin: 20px;*/
+/*    font-size: 22px;*/
+/*    font-weight: bold;*/
+/*}*/
+
+/*.single-product input{*/
+/*    width: 50px;*/
+/*    height: 40px;*/
+/*    padding-left: 10px;*/
+/*    font-size: 20px;*/
+/*    margin-right: 10px;*/
+/*    border: 1px solid #ff523b;*/
+/*}*/
+
+/*.input:focus{*/
+/*    outline: none;*/
+/*}*/
+
+/*a{*/
+/*    text-decoration: none;*/
+/*    color: #555;*/
+/*}*/
+
+/*.single-product .fa{*/
+/*    color: #ff523b;*/
+/*    margin-left: 10px;*/
+/*}*/
+
+/*p{*/
+/*    color: #555;*/
+/*}*/
+
+/*.btn{*/
+/*    display: inline-block;*/
+/*    background: #ff523b;*/
+/*    color: white;*/
+/*    padding: 8px 30px;*/
+/*    margin: 30px 0;*/
+/*    border-radius: 30px;*/
+/*    transition: background 0.5s;*/
+/*}*/
+
+/*.btn:hover{*/
+/*    background: #563434;*/
+/*}*/

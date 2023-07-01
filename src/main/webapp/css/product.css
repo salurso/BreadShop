@@ -32,7 +32,7 @@ html::-webkit-scrollbar-thumb{
 
 
 .home_ord{
-    min-height: 60vh;
+    min-height: 30vh;
     display: flex;
     align-items:center;
     justify-content: center;
