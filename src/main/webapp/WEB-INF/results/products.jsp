@@ -51,7 +51,8 @@
         <div class="container">
             <div class="card">
                 <%if(session.getAttribute("login")==null){%>
-                    <form action="InitServlet?action=login" method="post">
+<%--                    <form action="InitServlet?action=login" method="post">--%>
+                    <form action="AddCartSession" method="post">
                 <%}else{%>
                     <form action="AddCartServlet" method="post">
                 <%}%>
