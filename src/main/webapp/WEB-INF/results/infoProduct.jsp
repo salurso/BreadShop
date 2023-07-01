@@ -13,7 +13,6 @@
   <%
     Prodotto p = (Prodotto) request.getAttribute("product");
     Carrello c = (Carrello) request.getAttribute("carts");
-
   %>
 
     <title><%=p.getName()%> - <%=p.getNameCategory()%></title>

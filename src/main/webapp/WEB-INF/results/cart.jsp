@@ -6,8 +6,6 @@
 <html>
 <head>
     <title>Carrello</title>
-  <link rel="stylesheet" type="text/css" href="./css/cart.css?v=<%=new Random().nextInt()%>"/>
-
 </head>
 <body>
 <%@ include file="/WEB-INF/navbar/navbar.jsp" %>
@@ -18,54 +16,117 @@
 
   </div>
   <%
+//loggato
     if(utente!=null){
+      ArrayList<Carrello> carts = (ArrayList<Carrello>) request.getAttribute("carts");
+      if(carts!=null){
   %>
+      <h1 class="main-title"> Ciao <%=utente.getName()%>, ecco i tuoi ordini:  </h1>
+      <div class="tabular--wrapper">
+        <div class="table-container">
+          <table>
+            <thead>
+            <tr>
+              <th></th>
+              <th>Nome</th>
+              <th>Prezzo</th>
+              <th>Quantità</th>
+              <th></th>
+            </tr>
+            </thead>
+            <br>
+            <tbody>
+          <%
+          double total=0;
+          for(Carrello c : carts){
+            if(c.getEmail().equals(utente.getEmail())){
+              Prodotto p = c.getProducts();
 
-  <div class="tabular--wrapper">
-    <div class="table-container">
-
-      <%
-        ArrayList<Carrello> carts = (ArrayList<Carrello>) request.getAttribute("carts");
-      %>
-      <table>
-        <thead>
-        <tr>
-          <th>Prodotto</th>
-          <th>Nome </th>
-          <th>Prezzo</th>
-          <th>Quantità</th>
-          <th>Totale</th>
-          <th>Action</th>
-        </tr>
-        </thead>
-        <br>
-      <%
-      for(Carrello c : carts){
-        if(c.getEmail().equals(utente.getEmail())){
-          Prodotto p = c.getProducts();
-      %>
-        <tbody>
-        <tr>
-          <td><img class="ord-img" src="upload/<%=p.getImage()%>"></td>
-          <td><%=p.getName()%></td>
-          <td>€<%=p.getPrice()%></td>
-          <td><%=c.getQuantity()%></td>
-          <td><%=c.getTotal()%></td>
-          <td><button>Rimuovi</button></td>
-        </tr>
-        </tbody>
-        <%
+          %>
+            <tr>
+              <td><img class="ord-img" src="upload/<%=p.getImage()%>"></td>
+              <td><%=p.getName()%></td>
+              <td><%=p.getPrice()%></td>
+              <td><input type="number" name="quantity" min=1  value="<%=c.getQuantity()%>" onchange="location.href='ManageCart?action=addQuantity&id=<%=p.getId()%>&email=<%=utente.getEmail()%>'"></td>
+              <td><a class="link-user" href="ManageCart?action=removeProduct&id=<%=p.getId()%>&email=<%=utente.getEmail()%>">rimuovi</a></td>
+              <%total+=(p.getPrice()*c.getQuantity());%>
+            </tr>
+          <%
+              }
             }
-          }
-        %>
-      </table>
-
-    </div>
+          %>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>Totale: <%=total%></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
     <%
-    }else{%>
-    <h3> BUCCHIN, ACCATT COCCOS, E' VACANT </h3>
+      }else{
+//loggato senza prodotti
+    %>
+        <h1 class="main-title"> Ciao <%=utente.getName()%> il tuo carrello è vuoto!  </h1>
     <%
       }
+//non loggato
+    }else{
+        ArrayList<Carrello> carts = (ArrayList<Carrello>) session.getAttribute("carts");
+        if(carts!=null){
+    %>
+        <h1 class="main-title"> Benvenuto, ecco i tuoi ordini:</h1>
+        <div class="tabular--wrapper">
+          <div class="table-container">
+            <table>
+              <thead>
+              <tr>
+                <th></th>
+                <th>Nome </th>
+                <th>Prezzo</th>
+                <th>Quantità</th>
+              </tr>
+              </thead>
+              <br>
+              <tbody>
+              <%
+              double total=0;
+              for(Carrello c : carts){
+                Prodotto p = c.getProducts();
+              %>
+              <tr>
+                <td><img class="ord-img" src="upload/<%=p.getImage()%>"></td>
+                <td><%=p.getName()%></td>
+                <td><%=p.getPrice()%></td>
+                <td><%=c.getQuantity()%></td>
+                <td><a class="link-user" href="ManageCart?action=removeProductSession&id=<%=p.getId()%>">rimuovi</a></td>
+                <%total+=(p.getPrice()*c.getQuantity());%>
+              </tr>
+              <%
+                }
+              %>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Totale: <%=total%></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+    <%
+//non loggato senza prodotti
+        }else{
+    %>
+          <h1 class="main-title"> Benvenuto, il tuo carrello è vuoto!</h1>
+    <%
+        }
+    }
     %>
   </div>
 </div>

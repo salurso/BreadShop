@@ -109,4 +109,39 @@ public class CarrelloDAO {
             throw new RuntimeException(s);
         }
     }
+
+    public int doDelete(int id, String email) {
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement("DELETE FROM Carrello WHERE idProdotto = ? AND emailUtente=?");
+            ps.setInt(1, id);
+            ps.setString(2, email);
+
+            return ps.executeUpdate();
+        } catch (SQLException s) {
+            throw new RuntimeException(s);
+        }
+    }
+
+    public int addQuantity(int id, String email){
+        try (Connection con = ConPool.getConnection()) {
+
+            PreparedStatement ps = con.prepareStatement("SELECT quantita FROM Carrello WHERE emailUtente=? AND idProdotto=?");
+            ps.setInt(1, id);
+            ps.setString(2, email);
+            ResultSet rs = ps.executeQuery();
+            Carrello c = new Carrello();
+            rs.next();
+            c.setQuantity(rs.getInt(1));
+
+
+            PreparedStatement ps1 = con.prepareStatement("UPDATE Carrello SET quantita=? WHERE emailUtente=? AND idProdotto=?");
+            ps1.setInt(1, (c.getQuantity()+1));
+            ps1.setString(2, email);
+            ps1.setInt(3, id);
+
+            return ps.executeUpdate();
+        } catch (SQLException s) {
+            throw new RuntimeException(s);
+        }
+    }
 }
