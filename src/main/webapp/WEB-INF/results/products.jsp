@@ -60,7 +60,7 @@
                         <h3><%=p.getName()%></h3>
                         <div class="price"><%=p.getPrice()%>€</div>
                         <input type="hidden" name="id" value="<%=p.getId()%>">
-                        <input type="number" name="quantity" min=1  value="1">
+                        <input type="hidden" name="quantity" min=1  value="1">
                         <%if(session.getAttribute("login")!=null){%>
                             <input type="hidden" name="email" value="<%=utente.getEmail()%>">
                         <%}%>
@@ -77,13 +77,14 @@
     <%
     }
     %>
-            <script>
-                $(document).ready(function () {
-                    $(".btn-cart").click(function () {
-                        window.location="products.jsp"
-                    });
-                });
-            </script>
+<%--            <script>--%>
+<%--                $(document).ready(function () {--%>
+<%--                    $(".btn-cart").click(function () {--%>
+<%--                        location.reload()--%>
+<%--                        window.location="products.jsp"--%>
+<%--                    });--%>
+<%--                });--%>
+<%--            </script>--%>
 <%--        <div class="overlay">--%>
 <%--            <div class="overlay-content">--%>
 <%--                <button class="btn_closed" onclick="function closeOverlay(){--%>

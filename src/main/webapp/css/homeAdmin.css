@@ -1,10 +1,11 @@
+
 .container{
     padding: 1rem;
-    /*border: 1px solid red;*/
     display: flex; /*allinea gli elementi uno di fianco all'altro*/
     flex-wrap: wrap; /*se ho un elemento in più va daccapo*/
     justify-content: space-around;
     align-items: center;
+    z-index: 1;
 }
 
 .item{

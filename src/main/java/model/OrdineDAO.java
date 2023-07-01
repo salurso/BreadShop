@@ -51,6 +51,8 @@ public class OrdineDAO {
                 p.setPrice(rs.getDouble(3));
                 p.setImage(rs.getString(4));
                 p.setNameCategory(rs.getString(5));
+                p.setDescription(rs.getString(6));
+
 
                 prodotti.add(p);
             }
