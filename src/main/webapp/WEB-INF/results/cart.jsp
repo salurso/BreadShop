@@ -144,12 +144,12 @@
 
 
 
-    <%
-  //loggato
-      if(utente!=null){
-        ArrayList<Carrello> carts = (ArrayList<Carrello>) request.getAttribute("carts");
-        if(carts!=null){
-    %>
+  <%
+//loggato
+    if(utente!=null){
+      ArrayList<Carrello> carts = (ArrayList<Carrello>) request.getAttribute("carts");
+      if(carts!=null && !carts.isEmpty()){
+  %>
   <h1 class="main-title"> Ciao <%=utente.getName()%>, ecco il tuo carrello:  </h1>
   <div class="tabular--wrapper">
     <div class="table-container">
@@ -205,7 +205,7 @@
 //non loggato
       }else{
         ArrayList<Carrello> carts = (ArrayList<Carrello>) session.getAttribute("carts");
-        if(carts!=null){
+        if(carts!=null && !carts.isEmpty()){
     %>
       <h1 class="main-title"> Benvenuto, ecco il tuo carrello: </h1>
       <div class="tabular--wrapper">
@@ -219,7 +219,6 @@
             <%
               double total=0;
               for(Carrello c : carts){
-                if(c.getEmail().equals(utente.getEmail())){
                   Prodotto p = c.getProducts();
             %>
             <tr>
@@ -229,16 +228,15 @@
                   <div>
                     <p><%=p.getName()%></p>
                     <small><%=p.getPrice()%></small>
-                    <a class="link-user" href="ManageCart?action=removeProduct&id=<%=p.getId()%>&email=<%=utente.getEmail()%>">Remove</a>
+                    <a class="link-user" href="ManageCart?action=removeProductSession&id=<%=p.getId()%>">Remove</a>
                     <%total+=(p.getPrice()*c.getQuantity());%>
                   </div>
                 </div>
               </td>
-              <td><input type="number" name="quantity" min=1  value="<%=c.getQuantity()%>" onchange="location.href='ManageCart?action=addQuantity&id=<%=p.getId()%>&email=<%=utente.getEmail()%>'"></td>
+              <td><input type="number" name="quantity" min=1  value="<%=c.getQuantity()%>" onchange="location.href='ManageCart?action=addQuantity&id=<%=p.getId()%>'"></td>
               <td><%=p.getPrice()%></td>
             </tr>
             <%
-                }
               }
             %>
           </table>

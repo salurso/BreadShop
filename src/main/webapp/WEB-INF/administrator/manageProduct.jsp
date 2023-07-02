@@ -30,6 +30,7 @@ for(Prodotto p : products){
 <%--            </a>--%>
 <%--            <div class="info-product">--%>
                 <h4 class="card-title"><%=p.getName()%></h4>
+                <div class="card-price"><%=p.getNameCategory()%></div>
                 <div class="card-price"><%=p.getPrice()%>€</div>
                 <div class="div-btn">
                     <button class="btn-card" value=" " onclick="location.href='ManageProduct?action=<%=p.getId()%>'">Gestisci prodotto</button>
