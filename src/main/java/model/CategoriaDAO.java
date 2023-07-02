@@ -1,5 +1,6 @@
 package model;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -29,7 +30,7 @@ public class CategoriaDAO {
 
     public Categoria doRetrieveByName(String name) {
         try (Connection con = ConPool.getConnection()) {
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM Categoria WHERE name = ?");
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM Categoria WHERE nome = ?");
             ps.setString(1, name);
             ResultSet rs = ps.executeQuery();
             Categoria c = new Categoria();
@@ -58,10 +59,24 @@ public class CategoriaDAO {
         }
     }
 
+    public int doInsert(Categoria c) throws IOException {
+        try (Connection con = ConPool.getConnection()) {
+
+            PreparedStatement ps = con.prepareStatement("INSERT INTO Categoria (nome, descrizione) VALUES (?, ?)");
+            ps.setString(1, c.getName());
+            ps.setString(2, c.getDescription());
+
+            return ps.executeUpdate();
+        } catch (SQLException s) {
+            throw new RuntimeException(s);
+        }
+    }
+
     public int doUpdate(Categoria c) {
         try (Connection con = ConPool.getConnection()) {
-            PreparedStatement ps = con.prepareStatement("UPDATE Categoria SET descrizione = ? WHERE name = ?");
+            PreparedStatement ps = con.prepareStatement("UPDATE Categoria SET descrizione = ? WHERE nome = ?");
             ps.setString(1, c.getDescription());
+            ps.setString(2, c.getName());
 
             return ps.executeUpdate();
         } catch (SQLException s) {
@@ -71,7 +86,7 @@ public class CategoriaDAO {
 
     public int doDelete(String name) {
         try (Connection con = ConPool.getConnection()) {
-            PreparedStatement ps = con.prepareStatement("DELETE FROM Categoria WHERE name = ?");
+            PreparedStatement ps = con.prepareStatement("DELETE FROM Categoria WHERE nome = ?");
             ps.setString(1, name);
 
             return ps.executeUpdate();

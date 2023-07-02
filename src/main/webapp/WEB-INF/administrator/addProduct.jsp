@@ -1,11 +1,5 @@
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="java.util.Random" %><%--
-  Created by IntelliJ IDEA.
-  User: Costantino
-  Date: 01/06/2023
-  Time: 10:00
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.util.Random" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -30,7 +24,6 @@
             }
 
             var filePart=document.getElementById('image').value;;
-            alert(filePart.length);
             if(filePart.length>32){
                 alert("Nome immagine massimo 20 caratteri");
                 return false;
@@ -54,7 +47,7 @@
             </div>
 
             <div class="inputbox">
-                <input class="box" type="number" name="price" id="price" required>
+                <input class="box" type="text" name="price" id="price" required>
                 <span> Price </span>
             </div>
 

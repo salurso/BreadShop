@@ -152,6 +152,19 @@ public class ProdottoDAO {
         }
     }
 
+    public int doDeleteByCategory(String nameCat) {
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement("DELETE FROM prodotto WHERE nomeCategoria = ?");
+            ps.setString(1, nameCat);
+
+            return ps.executeUpdate();
+        } catch (SQLException s) {
+            throw new RuntimeException(s);
+        }
+    }
+
+
+
 //    public Prodotto doRetrieveByIdImage(int id) {
 //
 //        try (Connection con = ConPool.getConnection()) {

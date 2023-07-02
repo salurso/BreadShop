@@ -19,36 +19,42 @@ public class UpdateCategory extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
         CategoriaDAO cDAO = new CategoriaDAO();
+        Categoria c = new Categoria();
+        c.setName(request.getParameter("name"));
+        String result = null;
         if(action.equals("AGGIORNA")){
-            Categoria c = new Categoria();
-            c.setName(request.getParameter("id"));
             c.setDescription(request.getParameter("description"));
 
-            String result;
             if(cDAO.doUpdate(c)==0){
                 result = "Problema aggiornamento!";
             }else{
-                result = "Prodotto aggiornato!";
+                result = "Categoria aggiornato!";
             }
-            request.setAttribute("result", result);
-
-            RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/homeAdmin.jsp");
-            ds.forward(request, response);
         }
         if(action.equals("ELIMINA")){
-            String name = request.getParameter("name");
-            String result;
-            if(cDAO.doDelete(name)==0){
-                result = "Problema eliminazione!";
+            ProdottoDAO pDAO = new ProdottoDAO();
+            if(pDAO.doDeleteByCategory(c.getName())!=0){
+                if(cDAO.doDelete(c.getName())!=0){
+                    result = "Categoria eliminato!";
+                }
             }else{
-                result = "Prodotto eliminato!";
+                result = "Problema eliminazione!";
             }
 
-            request.setAttribute("result", result);
-
-            RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/homeAdmin.jsp");
-            ds.forward(request, response);
         }
+        if(action.equals("AGGIUNGI CATEGORIA")){
+            c.setDescription(request.getParameter("description"));
+
+            if(cDAO.doInsert(c)==0){
+                result = "Problema inserimento!";
+            }else{
+                result = "Categoria inserito!";
+            }
+        }
+        request.setAttribute("result", result);
+
+        RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/homeAdmin.jsp");
+        ds.forward(request, response);
     }
 
     @Override

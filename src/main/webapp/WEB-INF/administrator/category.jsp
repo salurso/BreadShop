@@ -10,8 +10,9 @@
     <title>Categoria </title>
 </head>
 <body>
+    <%@ include file="headerAdmin.jsp" %>
     <div class="category">
-        <form>
+        <form action="UpdateCategory" method="post">
             <div class="box" id="category-info">
 
                 <label for="name">nome: </label>
@@ -20,22 +21,12 @@
                 <label for="description">descrizione: </label>
                 <textarea name="description" id="description" style="height:200px" maxlength="200"><%=p.getDescription()%></textarea>
 
-                <input type="submit" name="action" value="AGGIORNA" onclick="return(validateUpdate())">
+                <input type="submit" name="action" value="AGGIORNA">
                 <input type="submit" name="action" value="ELIMINA">
             </div>
         </form>
     </div>
-<script>
-    function validateUpdate() {
-        var nameRGX=/^[a-zA-Z' ']*$/;
-        var name=document.getElementById('name').value;
-        if((nameRGX.test(name))==false){
-            alert("Nome non valido!");
-            return false;
-        }
-        return true;
-    }
-</script>
+
 
 </body>
 </html>
