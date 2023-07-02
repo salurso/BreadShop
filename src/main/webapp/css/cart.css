@@ -61,59 +61,101 @@ html::-webkit-scrollbar-thumb{
 }
 
 .tabular--wrapper{
+    margin: 80px auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #E4E0BB;
-    border-radius: 10px;
     padding: 2rem;
 }
 
 .table-container{
+    border-radius: 10px;
+    background: #ffffff;
     width: 50%;
+}
 
+.cart-page{
 }
 
 table{
     width: 100%;
     border-collapse: collapse;
+    /*border: 1px solid #38271E;*/
 }
 
-thead{
-    background: rgba(56,39,30,1);
-    color: #E4E0BB;
+.cart-info{
+    display: flex;
+    flex-wrap: wrap;
 }
+
+.link-user{
+    text-decoration: none;
+    border-radius: 1px;
+    text-transform: uppercase;
+    padding: 2px 5px;
+    background-color: #A0602B;
+    border: 2px solid #A0602B;
+    color: #E4E0BB;
+    transition: all .2s linear;
+}
+
+.link-user:hover {
+    background-color: #E4E0BB;
+    color: #A0602B;
+}
+
 
 th{
-    padding: 15px;
     text-align: left;
-}
-
-tbody{
-    background: #ffffff;
-}
-
-.ord-img{
-    width: 50%;
+    padding: 5px;
+    color: #E4E0BB;
+    background: #38271E;
+    font-weight: normal;
 }
 
 td{
-    padding: 15px;
-    font-size: 14px;
+    padding: 10px 5px;
+}
+
+td input{
+    width: 40px;
+    height: 30px;
+    padding: 5px;
+}
+
+td a{
     color: #38271E;
+    font-size: 12px;
 }
 
-tr:nth-child(even){
-    background: #E4E0BB;
+td img{
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+    border: 1px solid #38271E;
 }
 
-tfoot{
-    background: rgba(56,39,30,0.5);
-    font-weight: bold;
-    color: #E4E0BB;
+.total-price{
+    display: flex;
+    justify-content: flex-end;
 }
 
-tfoot td{
-    padding: 15px;
+.total-price table{
+    border-top: 3px solid #38271E;
+    width: 100%;
+    max-width: 350px;
 }
 
+td:last-child{
+    text-align: right;
+}
+
+th:last-child{
+    text-align: right;
+}
+
+@media only screen and(max-width: 600px){
+    .cart-info p{
+        display: none;
+    }
+}

@@ -35,7 +35,7 @@ public class AddCartSessionServlet extends HttpServlet {
                         check=true;
                         break;
                     }
-                if(check==false) {
+                if(!check) {
                     Carrello c = new Carrello();
                     c.setQuantity(quantity);
                     c.setProducts(p);

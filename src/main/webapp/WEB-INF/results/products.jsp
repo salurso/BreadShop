@@ -36,48 +36,141 @@
     </div>
 </section>
 
-<div class="container-prod">
-        <%
+<%--<div class="container-prod">--%>
+<%--        <%--%>
+<%--    for(String category : categories){--%>
+<%--  %>--%>
+
+<%--    <h3 class="title"><%=category%></h3>--%>
+
+<%--    <div class="product-container">--%>
+<%--        <%--%>
+<%--            for(Prodotto p : products)--%>
+<%--                if(p.getNameCategory().equals(category)){--%>
+<%--        %>--%>
+<%--        <div class="container">--%>
+<%--            <div class="card">--%>
+<%--                <%if(session.getAttribute("login")==null){%>--%>
+<%--&lt;%&ndash;                    <form action="InitServlet?action=login" method="post">&ndash;%&gt;--%>
+<%--                    <form action="AddCartSession" method="post">--%>
+<%--                <%}else{%>--%>
+<%--                    <form action="AddCartServlet" method="post">--%>
+<%--                <%}%>--%>
+<%--                        <img src="upload/<%=p.getImage()%>" alt="Card 1">--%>
+<%--                        <h3><%=p.getName()%></h3>--%>
+<%--                        <div class="price"><%=p.getPrice()%>€</div>--%>
+<%--                        <input type="hidden" name="id" value="<%=p.getId()%>">--%>
+<%--                        <input type="hidden" name="quantity" min=1  value="1">--%>
+<%--                        <%if(session.getAttribute("login")!=null){%>--%>
+<%--                            <input type="hidden" name="email" value="<%=utente.getEmail()%>">--%>
+<%--                        <%}%>--%>
+<%--        &lt;%&ndash;                <a href="AddCartServlet?id=<%=p.getId()%>&email=<%=utente.getEmail()%>" class="add-to-cart-btn">Add to Cart</a>&ndash;%&gt;--%>
+<%--                        <input class="btn-cart" type="submit" value="Add to cart">--%>
+<%--                        <a href="ProductServlet?id=<%=p.getId()%>" class="add-to-cart-btn" >View More</a>--%>
+<%--                    </form>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--        <%--%>
+<%--                }--%>
+<%--        %>--%>
+<%--    </div>--%>
+<%--    <%--%>
+<%--    }--%>
+<%--    %>--%>
+
+
+    <div class="container">
+    <%
     for(String category : categories){
-  %>
-
-    <h3 class="title"><%=category%></h3>
-
-    <div class="product-container">
+    %>
+        <h3 class="title"><%=category%></h3>
+        <div class="product-container">
         <%
-            for(Prodotto p : products)
-                if(p.getNameCategory().equals(category)){
+        for(Prodotto p : products)
+            if(p.getNameCategory().equals(category)){
         %>
-        <div class="container">
             <div class="card">
-                <%if(session.getAttribute("login")==null){%>
-<%--                    <form action="InitServlet?action=login" method="post">--%>
-                    <form action="AddCartSession" method="post">
-                <%}else{%>
-                    <form action="AddCartServlet" method="post">
-                <%}%>
-                        <img src="upload/<%=p.getImage()%>" alt="Card 1">
-                        <h3><%=p.getName()%></h3>
-                        <div class="price"><%=p.getPrice()%>€</div>
-                        <input type="hidden" name="id" value="<%=p.getId()%>">
-                        <input type="hidden" name="quantity" min=1  value="1">
-                        <%if(session.getAttribute("login")!=null){%>
-                            <input type="hidden" name="email" value="<%=utente.getEmail()%>">
+            <%if(session.getAttribute("login")==null){%>
+                <form action="AddCartSession" method="post">
+                        <%}else{%>
+                <form action="AddCartServlet" method="post">
                         <%}%>
-        <%--                <a href="AddCartServlet?id=<%=p.getId()%>&email=<%=utente.getEmail()%>" class="add-to-cart-btn">Add to Cart</a>--%>
-                        <input class="btn-cart" type="submit" value="Add to cart">
-                        <a href="ProductServlet?id=<%=p.getId()%>" class="add-to-cart-btn" >View More</a>
-                    </form>
+                <div class="imgbox">
+                    <img src="upload/<%=p.getImage()%>" alt="Card 1">
+                </div>
+                <div class="content">
+                    <h2><%=p.getName()%></h2>
+                    <div class="price"><%=p.getPrice()%>€</div>
+                    <input type="hidden" name="id" value="<%=p.getId()%>"/>
+                    <input type="hidden" name="quantity" min=1  value="1"/>
+                    <%if(session.getAttribute("login")!=null){%>
+                    <input type="hidden" name="email" value="<%=utente.getEmail()%>"/>
+                    <%}%>
+                    <p>
+                        <div class="buttons">
+                            <input class="add-to-cart" type="submit" value="Add to cart"/>
+                <%--                            <a href="AddCartServlet" class="add-to-cart" >Add To Cart</a>--%>
+                            <a href="ProductServlet?id=<%=p.getId()%>" class="view-more" >View More</a>
+                        </div>
+                    </p>
+                </div>
+                </form>
             </div>
+            <%
+            }
+            %>
         </div>
-        <%
-                }
-        %>
-    </div>
+        <br>
     <%
     }
     %>
-<%--            <script>--%>
+    </div>
+
+
+
+        <%--            <div class="container-prod">--%>
+<%--                <%--%>
+<%--                    for(String category : categories){--%>
+<%--                %>--%>
+
+<%--                <h3 class="title"><%=category%></h3>--%>
+
+<%--                <div class="product-container">--%>
+<%--                    <%--%>
+<%--                        for(Prodotto p : products)--%>
+<%--                            if(p.getNameCategory().equals(category)){--%>
+<%--                    %>--%>
+<%--                    <%if(session.getAttribute("login")==null){%>--%>
+<%--                    <form action="AddCartSession" method="post">--%>
+<%--                            <%}else{%>--%>
+<%--                        <form action="AddCartServlet" method="post">--%>
+<%--                                <%}%>--%>
+<%--                    <div class="product" data-name="p-1">--%>
+<%--                        <img src="upload/<%=p.getImage()%>" alt="Card 1">--%>
+<%--                        <h3> <%=p.getName()%> </h3>--%>
+<%--                        <div class="price">€<%=p.getPrice()%>/kg</div>--%>
+<%--                        <input type="hidden" name="id" value="<%=p.getId()%>">--%>
+<%--                        <input type="hidden" name="quantity" min=1  value="1">--%>
+<%--                        <div class="btn">--%>
+<%--                            <input class="btn-cart" type="submit" value="Add to cart">--%>
+<%--                            <a href="ProductServlet?id=<%=p.getId()%>" class="add-to-cart-btn" >View More</a>--%>
+<%--                        </div>--%>
+
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--    <%--%>
+<%--            }--%>
+<%--    %>--%>
+<%--            </div>--%>
+<%--<%--%>
+<%--    }--%>
+<%--%>--%>
+
+
+
+
+                <%--            <script>--%>
 <%--                $(document).ready(function () {--%>
 <%--                    $(".btn-cart").click(function () {--%>
 <%--                        location.reload()--%>

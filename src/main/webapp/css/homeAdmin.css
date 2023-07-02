@@ -49,6 +49,8 @@
     background-image: url('../images/users.png');
 }
 
+
+
 @media(max-width: 767px){
     .item{
         background: #C8934F;

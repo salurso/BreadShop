@@ -41,15 +41,26 @@
 
           Questo prodotto ha ricevuto la Medaglia d’Argento al Concorso Premio Roma – Sezione Nazionale per i migliori pani di tipo funzionale. </p>
         <div class="btn-groups">
-          <input type="number" name="quantity" min=1  value="1">
-          <button type="button" class="add-cart-btn"><i class="fas fa-shopping cart"></i>Add To Cart
-          </button>
+          <%if(session.getAttribute("login")==null){%>
+          <form action="AddCartSession" method="post">
+              <%}else{%>
+            <form action="AddCartServlet" method="post">
+                <%}%>
+              <input type="hidden" name="id" value="<%=p.getId()%>"/>
+             <input class="quantity" type="number" name="quantity" min=1  value="1">
+              <%if(session.getAttribute("login")!=null){%>
+              <input type="hidden" name="email" value="<%=utente.getEmail()%>"/>
+              <%}%>
+              <input class="add-cart-btn" type="submit" value="Add to cart"/>
+            </form>
         </div>
       </div>
 
     </div>
   </div>
 </div>
+
+
 
 <%@ include file="/WEB-INF/navbar/footer.jsp" %>
 <%--<div class="small-container single-product">--%>
