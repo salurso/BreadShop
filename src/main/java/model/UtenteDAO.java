@@ -117,7 +117,7 @@ public class UtenteDAO {
     public List<Utente> doRetrieveNotAdmin(){
         try (Connection con = ConPool.getConnection()) {
 
-            PreparedStatement ps = con.prepareStatement("select nome, cognome, email from utente WHERE NOT nome <> admin");
+            PreparedStatement ps = con.prepareStatement("SELECT nome, cognome, email FROM utente WHERE NOT nome <> admin");
             ResultSet rs = ps.executeQuery();
             ArrayList<Utente> user = new ArrayList<>();
 
@@ -164,4 +164,39 @@ public class UtenteDAO {
             throw new RuntimeException(e);
         }
     }
+
+//    public Utente doRetrieveByEmail(String email){
+//        try (Connection con = ConPool.getConnection()) {
+//
+//            PreparedStatement ps = con.prepareStatement("SELECT * FROM utente WHERE email=?");
+//            ps.setString(1, email);
+//            ResultSet rs = ps.executeQuery();
+//
+//            Utente u = new Utente();
+//            while (rs.next()){
+//                u.setEmail(rs.getString(1));
+//                u.setName(rs.getString(2));
+//                u.setSurname(rs.getString(3));
+//                if(!(rs.getString(4)==null))
+//                    u.setPhone_number(rs.getString(4));
+//                if(!(rs.getString(5)==null))
+//                    u.setCity(rs.getString(5));
+//                if(!(rs.getString(6)==null))
+//                    u.setStreet(rs.getString(6));
+//                if(!(rs.getString(7)==null))
+//                    u.setStreet_number(Integer.parseInt(rs.getString(7)));
+//                if(!(rs.getString(8)==null))
+//                    u.setProvince(rs.getString(8));
+//                if(!(rs.getString(9)==null))
+//                    u.setCap(rs.getString(9));
+//                u.setAdmin(rs.getBoolean(10));
+//            }
+//            return u;
+//
+//        } catch (SQLException s) {
+//            throw new RuntimeException(s);
+//        }
+//    }
+
+
 }

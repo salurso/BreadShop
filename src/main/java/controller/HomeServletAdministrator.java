@@ -41,7 +41,7 @@ public class HomeServletAdministrator extends HttpServlet {
             ArrayList<Ordine> orders = new ArrayList<>();
             orders = (ArrayList<Ordine>) oDAO.doRetrieveAll();
             request.setAttribute("orders", orders);
-            RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/order.jsp");
+            RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/ordersAdmin.jsp");
             ds.forward(request, response);
         }
         if(action.equals("user")){

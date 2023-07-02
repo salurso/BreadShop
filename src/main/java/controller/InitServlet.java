@@ -42,7 +42,7 @@ public class InitServlet extends HttpServlet {
             ArrayList<Ordine> orders = new ArrayList<>();
             orders = (ArrayList<Ordine>) oDAO.doRetrieveAll();
             request.setAttribute("orders", orders);
-            RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/results/order.jsp");
+            RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/results/orders.jsp");
             ds.forward(request, response);
         }
         if(action.equals("specialita")){
