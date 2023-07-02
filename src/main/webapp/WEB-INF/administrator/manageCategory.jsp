@@ -43,6 +43,8 @@
         </div>
     </div>
         <div class="category">
+            <fieldset>
+            <legend>Aggiungi una nuova categoria: </legend>
             <form action="UpdateCategory" method="post">
                 <div class="box" id="category-info">
 
@@ -55,6 +57,7 @@
                     <input type="submit" name="action" value="AGGIUNGI CATEGORIA" onclick="return(validateUpdate())">
                 </div>
             </form>
+            </fieldset>
         </div>
 
     <script>
