@@ -148,7 +148,7 @@
   //loggato
       if(utente!=null){
         ArrayList<Carrello> carts = (ArrayList<Carrello>) request.getAttribute("carts");
-        if(carts!=null){
+        if(carts!=null && !carts.isEmpty()){
     %>
   <h1 class="main-title"> Ciao <%=utente.getName()%>, ecco il tuo carrello:  </h1>
   <div class="tabular--wrapper">
@@ -205,7 +205,7 @@
 //non loggato
       }else{
         ArrayList<Carrello> carts = (ArrayList<Carrello>) session.getAttribute("carts");
-        if(carts!=null){
+        if(carts!=null && !carts.isEmpty()){
     %>
       <h1 class="main-title"> Benvenuto, ecco il tuo carrello: </h1>
       <div class="tabular--wrapper">
