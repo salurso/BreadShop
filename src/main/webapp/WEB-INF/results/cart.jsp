@@ -16,7 +16,7 @@
     <h3> CARRELLO </h3>
   </div>
 
-  <%
+    <%
 //loggato
   if(utente!=null){
     ArrayList<Carrello> carts = (ArrayList<Carrello>) request.getAttribute("carts");
@@ -27,9 +27,9 @@
     <div class="table-container">
       <table>
         <tr>
-            <th> Prodotto </th>
-            <th> Quantità </th>
-            <th> SubTotale </th>
+          <th> Prodotto </th>
+          <th> Quantità </th>
+          <th> SubTotale </th>
         </tr>
         <%
           double total=0;
@@ -38,19 +38,19 @@
               Prodotto p = c.getProducts();
         %>
         <tr>
-            <td>
-              <div class="cart-info">
-                <img class="ord-img" src="upload/<%=p.getImage()%>">
-                <div>
-                  <p><%=p.getName()%></p>
-                  <small><%=p.getPrice()%></small>
-                  <a class="link-user" href="ManageCart?action=removeProduct&id=<%=p.getId()%>&email=<%=utente.getEmail()%>">Remove</a>
-                  <%total+=(p.getPrice()*c.getQuantity());%>
-                </div>
+          <td>
+            <div class="cart-info">
+              <img class="ord-img" src="upload/<%=p.getImage()%>">
+              <div>
+                <p><%=p.getName()%></p>
+                <small><%=p.getPrice()%></small>
+                <a class="link-user" href="ManageCart?action=removeProduct&id=<%=p.getId()%>&email=<%=utente.getEmail()%>">Remove</a>
+                <%total+=(p.getPrice()*c.getQuantity());%>
               </div>
-            </td>
-            <td><input type="number" name="quantity" min=1  value="<%=c.getQuantity()%>" onchange="location.href='ManageCart?action=addQuantity&id=<%=p.getId()%>&email=<%=utente.getEmail()%>'"></td>
-            <td><%=p.getPrice()*c.getQuantity()%></td>
+            </div>
+          </td>
+          <td><input type="number" name="quantity" min=1  value="<%=c.getQuantity()%>" onchange="location.href='ManageCart?action=addQuantity&id=<%=p.getId()%>&email=<%=utente.getEmail()%>'"></td>
+          <td><%=p.getPrice()*c.getQuantity()%></td>
         </tr>
         <%
             }
@@ -67,13 +67,13 @@
         </table>
       </div>
     </div>
-      <button onclick="location.href='OrderServlet?action=checkout'">Procedi all'ordine</button>
-    </div>
+    <button onclick="location.href='OrderServlet?action=checkout'">Procedi all'ordine</button>
+  </div>
     <%
     }else{
 //loggato senza prodotti
     %>
-      <h1 class="main-title"> <%=utente.getName()%> il tuo carrello è vuoto!  </h1>
+  <h1 class="main-title"> <%=utente.getName()%> il tuo carrello è vuoto!  </h1>
     <%
     }
 //non loggato
@@ -81,57 +81,57 @@
       ArrayList<Carrello> carts = (ArrayList<Carrello>) session.getAttribute("carts");
       if(carts!=null && !carts.isEmpty()){
     %>
-      <h1 class="main-title"> Benvenuto, ecco il tuo carrello: </h1>
-      <div class="tabular--wrapper">
-        <div class="table-container">
-          <table>
-            <tr>
-              <th> Prodotto </th>
-              <th> Quantità </th>
-              <th> SubTotale </th>
-            </tr>
-            <%
-              double total=0;
-              for(Carrello c : carts){
-                  Prodotto p = c.getProducts();
-            %>
-            <tr>
-              <td>
-                <div class="cart-info">
-                  <img class="ord-img" src="upload/<%=p.getImage()%>">
-                  <div>
-                    <p><%=p.getName()%></p>
-                    <small><%=p.getPrice()%></small>
-                    <a class="link-user" href="ManageCart?action=removeProductSession&id=<%=p.getId()%>">Remove</a>
-                    <%total+=(p.getPrice()*c.getQuantity());%>
-                  </div>
-                </div>
-              </td>
-              <td><input type="number" name="quantity" min=1  value="<%=c.getQuantity()%>" onchange="location.href='ManageCart?action=addQuantity&id=<%=p.getId()%>'"></td>
-              <td><%=p.getPrice()*c.getQuantity()%></td>
-            </tr>
-            <%
-              }
-            %>
-          </table>
+  <h1 class="main-title"> Benvenuto, ecco il tuo carrello: </h1>
+  <div class="tabular--wrapper">
+    <div class="table-container">
+      <table>
+        <tr>
+          <th> Prodotto </th>
+          <th> Quantità </th>
+          <th> SubTotale </th>
+        </tr>
+        <%
+          double total=0;
+          for(Carrello c : carts){
+            Prodotto p = c.getProducts();
+        %>
+        <tr>
+          <td>
+            <div class="cart-info">
+              <img class="ord-img" src="upload/<%=p.getImage()%>">
+              <div>
+                <p><%=p.getName()%></p>
+                <small><%=p.getPrice()%></small>
+                <a class="link-user" href="ManageCart?action=removeProductSession&id=<%=p.getId()%>">Remove</a>
+                <%total+=(p.getPrice()*c.getQuantity());%>
+              </div>
+            </div>
+          </td>
+          <td><input type="number" name="quantity" min=1  value="<%=c.getQuantity()%>" onchange="location.href='ManageCart?action=addQuantity&id=<%=p.getId()%>'"></td>
+          <td><%=p.getPrice()*c.getQuantity()%></td>
+        </tr>
+        <%
+          }
+        %>
+      </table>
 
-          <div class="total-price">
-            <table>
-              <tr>
-                <td> Total </td>
-                <td><%=total%></td>
-              </tr>
-            </table>
-          </div>
-        </div>
-          <button onclick="location.href='InitServlet?action=login'">Procedi all'ordine</button>
-        </div>
-<%
+      <div class="total-price">
+        <table>
+          <tr>
+            <td> Total </td>
+            <td><%=total%></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <button onclick="location.href='InitServlet?action=login'">Procedi all'ordine</button>
+  </div>
+    <%
   //non loggato senza prodotti
     }else{
 %>
-          <h1 class="main-title"> Benvenuto il tuo carrello è vuoto! </h1>
-  <%
+  <h1 class="main-title"> Benvenuto il tuo carrello è vuoto! </h1>
+    <%
     }
   }
   %>
