@@ -27,8 +27,13 @@ public class HomeServletAdministrator extends HttpServlet {
             request.setAttribute("orders", orders);
             UtenteDAO uDAO = new UtenteDAO();
             ArrayList<Utente> user = new ArrayList<>();
-            user = (ArrayList<Utente>) uDAO.doRetrieveNotAdmin();
+            user = (ArrayList<Utente>) uDAO.doRetrieveNotAdmin(); //RESTITUISCE TUTTI GLI UTENTI ESCLUSO L'ADMIN
             request.setAttribute("user", user);
+            ArrayList<Utente> admin = new ArrayList<>();
+            admin = (ArrayList<Utente>) uDAO.doRetrieveAdmin(); //RESTITUISCE TUTTI GLI UTENTI CHE SONO ADMIN
+            request.setAttribute("admin", admin);
+
+
             RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/homeprova.jsp");
             ds.forward(request, response);
         }

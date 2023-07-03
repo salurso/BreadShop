@@ -149,6 +149,28 @@ public class UtenteDAO {
         }
     }
 
+    public List<Utente> doRetrieveAdmin(){
+        try (Connection con = ConPool.getConnection()) {
+
+            PreparedStatement ps = con.prepareStatement("SELECT nome, cognome, email FROM utente WHERE nome <> admin");
+            ResultSet rs = ps.executeQuery();
+            ArrayList<Utente> admin = new ArrayList<>();
+
+            while (rs.next()){
+                Utente a = new Utente();
+                a.setName(rs.getString(1));
+                a.setSurname(rs.getString(2));
+                a.setEmail(rs.getString(3));
+
+                admin.add(a);
+            }
+            return admin;
+
+        } catch (SQLException s) {
+            throw new RuntimeException(s);
+        }
+    }
+
     public void makeAdministrator(String email) {
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement("UPDATE Utente SET admin = ? WHERE email = ? ",

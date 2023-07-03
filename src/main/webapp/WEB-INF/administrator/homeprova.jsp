@@ -26,14 +26,14 @@
 
 <div class="side-menu">
   <div class="brand-name">
-    <h1>Forneria Del Cilento</h1>
+    <h1>Lista Admin</h1>
   </div>
   <%
-    ArrayList<Utente> user = (ArrayList<Utente>) request.getAttribute("user");
-    for(Utente u : user){
+    ArrayList<Utente> admin = (ArrayList<Utente>) request.getAttribute("admin");
+    for(Utente a : admin){
   %>
   <ul>
-    <li><span><%= u.getName().toUpperCase() %> <%=u.getSurname().toUpperCase() %></span></li>
+    <li><span><%= a.getName().toUpperCase() %> <%=a.getSurname().toUpperCase() %></span></li>
   </ul>
   <%
     }
@@ -78,7 +78,7 @@
 
       <div class="card">
         <div class="box">
-          <button class="card" id="sold-out_products" value=" " onclick="location.href='HomeServletAdministrator?action=add_product'"><h3 align="center">PRODOTTI SOLD-OUT</h3>
+          <button class="card" id="manage_category" value=" " onclick="location.href='HomeServletAdministrator?action=manage_category'"><h3 align="center">GESTISCI CATEGORIE</h3>
           </button>
         </div>
       </div>
@@ -147,6 +147,7 @@
               <th>Email</th>
             </tr>
             <%
+              ArrayList<Utente> user = (ArrayList<Utente>) request.getAttribute("user");
               for(Utente u : user){
             %>
 

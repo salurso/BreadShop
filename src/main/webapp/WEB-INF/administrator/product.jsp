@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="./css/headerAdmin.css?v=<%=new Random().nextInt()%>"/>
     <link rel="stylesheet" type="text/css" href="./css/productAdmin.css?v=<%=new Random().nextInt()%>"/>
+    <link rel="stylesheet" type="text/css" href="./css/orders.css?v=<%=new Random().nextInt()%>"/>
     <%
         Prodotto p = (Prodotto) request.getAttribute("product");
     %>
@@ -36,11 +37,30 @@
     </script>
 </head>
 <body>
-    <%@ include file="headerAdmin.jsp" %>
+<%@ include file="headerAdmin.jsp" %>
     <div class="product">
-        <div class="box" id="product-img">
-            <img class="card-img" src="upload/<%=p.getImage()%>" alt="Card image" width="600" height="400">
-        </div>
+        <table>
+            <thead>
+            <tr>
+                <th>Immagine</th>
+                <th>Nome</th>
+                <th>Descrizione </th>
+                <th>Prezzo </th>
+            </tr>
+            </thead>
+            <br>
+
+
+            <tbody>
+            <tr>
+                <td><img class="ord-img" src="upload/<%=p.getImage()%>"></td>
+
+                <td><%= p.getName() %></td>
+                <td><%= p.getDescription()%></td>
+                <td><%= p.getPrice()%></td>
+
+            </tr>
+        </table>
         <form action="UpdateProduct" method="POST">
         <div class="box" id="product-info">
             <h4><%=p.getName()%></h4>
@@ -81,5 +101,6 @@
         </div>
         </form>
     </div>
+
 </body>
 </html>

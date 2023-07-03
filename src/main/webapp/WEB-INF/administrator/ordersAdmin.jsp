@@ -37,10 +37,11 @@
                     ArrayList<Prodotto> product = o.getProducts();
             %>
 
-            <h2>Ordini di: <%=o.getEmail_user()%></h2>
+<%--            <h2>Ordini di: <%=o.getEmail_user()%></h2>--%>
             <table>
                 <thead>
                 <tr>
+                    <th>Utente: <%=o.getEmail_user()%></th>
                     <th>Data: <%= o.getDate() %></th>
                     <th>Totale: €<%=o.getTotal()%> </th>
                     <th>Indirizzo: <%= o.getVia() %></th>
@@ -53,6 +54,7 @@
                 <tbody>
                 <tr>
                     <td><img class="ord-img" src="upload/<%=p.getImage()%>"></td>
+                    <td></td>
                     <td><%= p.getName() %></td>
                     <td><%= p.getDescription()%></td>
                     <td><%= p.getNameCategory()%></td>

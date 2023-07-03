@@ -17,6 +17,13 @@
 /*    background-attachment: fixed;*/
 /*}*/
 
+body{
+    background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("../images/sfondologin.jpeg");
+    background-size: cover;
+    background-position: center;
+
+}
+
 li{
     list-style: none;
 }
@@ -242,7 +249,7 @@ div.card-body {
 
 div.card-body img {
     width: 100%;
-    height: auto;
+    height: 50%;
 }
 
 h4.card-title {
@@ -262,23 +269,25 @@ div.card-price {
     align-items: center;
 }
 
-.div-btn .btn-card{
-    background-color: #AE7349;
-    color: white;
-    font-size: 16px;
-    padding: 4%;
-    border: 1px solid #A0602B;
+.btn-card{
     cursor: pointer;
-    border-radius: 5px;
-    text-align: center;
-    transition-duration: 0.4s;
-}
-
-.btn-card:hover{
+    text-decoration: none;
+    border-radius: 4px;
+    text-transform: uppercase;
+    flex: 1 1 16rem;
+    padding: 10px 15px;
     background-color: #A0602B;
-    border: 1px solid #38271E;
+    border: 2px solid #A0602B;
+    color: #E4E0BB;
+    transition: all .2s linear;
 }
 
+.btn-card:hover {
+    background-color: #ffffff;
+    border: 2px solid #A0602B;
+    color: #A0602B;
+    transition: all .2s linear;
+}
 /*div.info-product{*/
 /*    position: relative;*/
 /*    top:30%;*/

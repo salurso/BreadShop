@@ -33,25 +33,26 @@
               <th> Data di scadenza </th>
               <th> </th>
             </tr>
-              <input type="hidden" name="action" value="checkout">
+            <input type="hidden" name="action" value="checkout">
             <%
               int i=0;
               for(Pagamento p : creditCards){
             %>
             <tr>
-              <td><%=p.getNumber()%></td>>
+              <td><%=p.getNumber()%></td>
               <td><%=p.getHolder()%></td>
               <td><%=p.getExpMonth()%>/<%=p.getExpYear()%></td>
               <td><input type="radio" id="card<%=i%>" name="card" value="<%=p.getNumber()%>"></td>
             </tr>
-<%--             --%>
-<%--            onchange="getForm()"--%>
-<%--              onchange="location.href='OrderServlet?action=checkout&card=<%=p.getNumber()%>&email=<%=utente.getEmail()%>'--%>
+            <%--             --%>
+            <%--            onchange="getForm()"--%>
+            <%--              onchange="location.href='OrderServlet?action=checkout&card=<%=p.getNumber()%>&email=<%=utente.getEmail()%>'--%>
             <%
                 i++;
               }
             %>
-              <input type="submit" name="action" value="inserisci">
+            <input type="submit" name="action" id="check" value="inserisci" class="submit-btn">
+
           </table>
         </div>
       </div>
@@ -178,6 +179,12 @@
 
 </div>
 <script>
+
+  // function checkFunc() {
+  //   if ($('input[type="radio"]:checked').length === 0) document.getElementById("#check").style.display = "none";
+  //   else document.getElementById("#check").style.display = "block";
+  // }
+
   function getForm() {
     //alert(radio.value);
     $("#form").submit();

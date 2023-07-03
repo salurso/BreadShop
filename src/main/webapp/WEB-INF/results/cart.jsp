@@ -64,10 +64,13 @@
             <td> Total </td>
             <td><%=total%></td>
           </tr>
+          <tr>
+            <td><button class="submit-ord" onclick="location.href='OrderServlet?action=checkout&email=<%=utente.getEmail()%>'">Procedi all'ordine</button></td>
+          </tr>
         </table>
       </div>
     </div>
-    <button onclick="location.href='OrderServlet?action=checkout&email=<%=utente.getEmail()%>'">Procedi all'ordine</button>
+
   </div>
     <%
     }else{

@@ -87,6 +87,8 @@
     color:#fff;
     margin-top: 5px;
     cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .container form .submit-btn:hover{
