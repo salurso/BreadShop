@@ -109,6 +109,6 @@
     %>
     </div>
 
-
+<%@ include file="/WEB-INF/navbar/footer.jsp" %>
 </body>
 </html>
