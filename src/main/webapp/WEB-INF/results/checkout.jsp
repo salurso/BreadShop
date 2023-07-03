@@ -1,8 +1,6 @@
 <%@ page import="java.util.Random" %>
-<%@ page import="model.Carrello" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="model.Utente" %>
-<%@ page import="model.Prodotto" %>
+<%@ page import="model.*" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,13 +16,48 @@
 <%@ include file="/WEB-INF/navbar/navbar.jsp" %>
 <%
   ArrayList<Carrello> carts = (ArrayList<Carrello>) request.getAttribute("carts");
+  ArrayList<Pagamento> creditCards = (ArrayList<Pagamento>) request.getAttribute("creditCards");
 %>
 <div class="container">
 
-  <form action="">
+  <form action="OrderServlet" method="post">
+    <div class="col">
+      <h3 class="title">METODO DI PAGAMENTO</h3>
+
+      <div class="tabular--wrapper">
+        <div class="table-container">
+          <table>
+            <tr>
+              <th> Numero </th>
+              <th> Titolare carta </th>
+              <th> Data di scadenza </th>
+              <th> </th>
+            </tr>
+              <input type="hidden" name="action" value="checkout">
+            <%
+              int i=0;
+              for(Pagamento p : creditCards){
+            %>
+            <tr>
+              <td><%=p.getNumber()%></td>>
+              <td><%=p.getHolder()%></td>
+              <td><%=p.getExpMonth()%>/<%=p.getExpYear()%></td>
+              <td><input type="radio" id="card<%=i%>" name="card" value="<%=p.getNumber()%>"></td>
+            </tr>
+<%--             --%>
+<%--            onchange="getForm()"--%>
+<%--              onchange="location.href='OrderServlet?action=checkout&card=<%=p.getNumber()%>&email=<%=utente.getEmail()%>'--%>
+            <%
+                i++;
+              }
+            %>
+              <input type="submit" name="action" value="inserisci">
+          </table>
+        </div>
+      </div>
+    </div><br>
 
     <div class="row">
-
       <div class="col">
         <h3 class="title">indirizzo</h3>
         <div class="inputBox">
@@ -32,26 +65,26 @@
           <input type="text" name="phone_number" <%if(utente.getPhone_number()!=null){%>value="<%=utente.getPhone_number()%>"<%}%> placeholder="333-333-3333">
         </div>
         <div class="inputBox">
-          <span>citta' :</span>
-          <input type="text" name="city" <%if(utente.getPhone_number()!=null){%>value="<%=utente.getCity()%>"<%}%> placeholder="Agropoli">
+          <span>città :</span>
+          <input type="text" name="city" <%if(utente.getCity()!=null){%>value="<%=utente.getCity()%>"<%}%> placeholder="Agropoli">
         </div>
         <div class="inputBox">
           <span>provincia :</span>
-          <input type="province" name="province" <%if(utente.getPhone_number()!=null){%>value="<%=utente.getProvince()%>"<%}%> placeholder="SA">
+          <input type="province" name="province" <%if(utente.getProvince()!=null){%>value="<%=utente.getProvince()%>"<%}%> placeholder="SA">
         </div>
         <div class="inputBox">
           <span>Indirizzo :</span>
-          <input type="text" name="street" <%if(utente.getPhone_number()!=null){%>value="<%=utente.getStreet()%>"<%}%> placeholder="Via Rossi">
+          <input type="text" name="street" <%if(utente.getStreet()!=null){%>value="<%=utente.getStreet()%>"<%}%> placeholder="Via Rossi">
         </div>
 
         <div class="flex">
           <div class="inputBox">
             <span>Num. civico</span>
-            <input type="text" name="street_number" <%if(utente.getPhone_number()!=null){%>value="<%=utente.getStreet_number()%>"<%}%> placeholder="15">
+            <input type="text" name="street_number" <%if(utente.getStreet()!=null){%>value="<%=utente.getStreet_number()%>"<%}%> placeholder="15">
           </div>
           <div class="inputBox">
             <span>CAP :</span>
-            <input type="text" name="cap" <%if(utente.getPhone_number()!=null){%>value="<%=utente.getCap()%>"<%}%> placeholder="84070">
+            <input type="text" name="cap" <%if(utente.getCap()!=null){%>value="<%=utente.getCap()%>"<%}%> placeholder="84070">
           </div>
         </div>
       </div>
@@ -64,26 +97,26 @@
         </div>
         <div class="inputBox">
           <span>titolare della carta :</span>
-          <input type="text" name="cardholder" placeholder="Mario Rossi">
+          <input type="text" name="cardholder" <%if(request.getParameter("card")!=null){Pagamento p = (Pagamento) request.getAttribute("card");%>value="<%=p.getHolder()%>"<%}%> placeholder="Mario Rossi">
         </div>
         <div class="inputBox">
           <span>numero carta di credito :</span>
-          <input type="number" name="creditCardNumber" placeholder="1111-2222-3333-4444">
+          <input type="number" name="creditCardNumber" <%if(request.getParameter("card")!=null){Pagamento p = (Pagamento) request.getAttribute("card");%>value="<%=p.getNumber()%>"<%}%> placeholder="1111-2222-3333-4444">
         </div>
         <div class="inputBox">
           <span>CVV :</span>
-          <input type="text" name="cvv" placeholder="1234">
+          <input type="text" name="cvv" <%if(request.getParameter("card")!=null){Pagamento p = (Pagamento) request.getAttribute("card");%>value="<%=p.getCvv()%>"<%}%> placeholder="1234">
         </div>
 
         <span>Data di scadenza</span>
         <div class="flex">
           <div class="inputBox">
             <span>mese :</span>
-            <input type="text" name="expMonth" placeholder="01">
+            <input type="text" name="expMonth" <%if(request.getParameter("card")!=null){Pagamento p = (Pagamento) request.getAttribute("card");%>value="<%=p.getExpMonth()%>"<%}%> placeholder="01">
           </div>
           <div class="inputBox">
             <span>anno :</span>
-            <input type="number" name="expYear" placeholder="2035">
+            <input type="number" name="expYear" <%if(request.getParameter("card")!=null){Pagamento p = (Pagamento) request.getAttribute("card");%>value="<%=p.getExpYear()%>"<%}%> placeholder="2035">
           </div>
         </div>
       </div>
@@ -144,6 +177,11 @@
   </form>
 
 </div>
-
+<script>
+  function getForm() {
+    //alert(radio.value);
+    $("#form").submit();
+  }
+</script>
 </body>
 </html>

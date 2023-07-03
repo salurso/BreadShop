@@ -37,7 +37,7 @@ public class OrdineDAO {
     private ArrayList<Prodotto> doRetrieveProductsOrder(int id){
         try (Connection con = ConPool.getConnection()) {
 
-            PreparedStatement ps = con.prepareStatement("select idProdotto a, nome p, prezzo p, immagine p, nomeCategoria p from appartiene a, prodotto p WHERE a.idProdotto = p.id");
+            PreparedStatement ps = con.prepareStatement("select idProdotto a, nome p, prezzo p, immagine p, nomeCategoria p, descrizione p from appartiene a, prodotto p WHERE a.idProdotto = p.id");
             ResultSet rs = ps.executeQuery();
             ArrayList<Prodotto> prodotti = new ArrayList<>();
 

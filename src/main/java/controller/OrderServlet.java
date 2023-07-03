@@ -17,14 +17,31 @@ public class OrderServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-//        String email = request.getParameter("email");
-//        double total = Double.parseDouble(request.getParameter("total"));
         String action = request.getParameter("action");
         String addres = null;
+        String email = request.getParameter("email");
         if(action.equals("checkout")){
             CarrelloDAO cDAO = new CarrelloDAO();
             ArrayList<Carrello> carts = cDAO.doRetrieveAll();
+            PagamentoDAO pDAO = new PagamentoDAO();
+            ArrayList<Pagamento> creditCards = pDAO.doRetriveByEmail(email);
+//            if(request.getParameter("card")!=null && !request.getParameter("card").isEmpty()) {
+//                long number = Long.parseLong(request.getParameter("card"));
+//                request.setAttribute("card", pDAO.doRetriveByNumber(number));
+//            }
             request.setAttribute("carts", carts);
+            request.setAttribute("creditCards", creditCards);
+            addres = "./WEB-INF/results/checkout.jsp";
+        }
+        if(action.equals("inserisci")){
+            CarrelloDAO cDAO = new CarrelloDAO();
+            ArrayList<Carrello> carts = cDAO.doRetrieveAll();
+            PagamentoDAO pDAO = new PagamentoDAO();
+            ArrayList<Pagamento> creditCards = pDAO.doRetriveByEmail(email);
+            long number = Long.parseLong(request.getParameter("card"));
+            request.setAttribute("card", pDAO.doRetriveByNumber(number));
+            request.setAttribute("carts", carts);
+            request.setAttribute("creditCards", creditCards);
             addres = "./WEB-INF/results/checkout.jsp";
         }
         if(action.equals("Acquista")){
@@ -36,9 +53,7 @@ public class OrderServlet extends HttpServlet {
             o.setHouse_number(Integer.parseInt(request.getParameter("street_number")));
             o.setCap(Integer.parseInt(request.getParameter("cap")));
             o.setTotal(Double.parseDouble(request.getParameter("total")));
-            o.setEmail_user(request.getParameter("email"));
-//            java.sql.Date date = (java.sql.Date) new Date();
-//            o.setDate(date);
+            o.setEmail_user(email);
 
             String result = null;
             OrdineDAO oDAO = new OrdineDAO();
