@@ -1,0 +1,115 @@
+<%@ page import="java.util.Random" %><%--
+  Created by IntelliJ IDEA.
+  User: andre
+  Date: 03/07/2023
+  Time: 15:58
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="./css/contacts.css?v=<%=new Random().nextInt()%>"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+    <title>Contatti</title>
+
+    <script>
+        function myFunction() {
+            // alert("Email Inviata con successo");
+            // location.href='HomePage'
+        }
+    </script>
+</head>
+<body>
+<%@ include file="/WEB-INF/navbar/navbar.jsp" %>
+<div class="about-container">
+
+</div>
+
+
+
+<%--<div class="home_ord">--%>
+
+<%--    <h3> ORDINI </h3>--%>
+
+<%--</div>--%>
+<div class="contactUs">
+  <div class="title">
+    <h2> Contact Us </h2>
+  </div>
+    <div class="box">
+        <div class="contact form">
+            <h3>Send a Message</h3>
+            <form action="InitServlet">
+                <div class="formBox">
+                    <div class="row50">
+                        <div class="inputBox">
+                            <span> First Name </span>
+                            <input type="text" placeholder="Andrea" required>
+                        </div>
+                        <div class="inputBox">
+                            <span> Last Name </span>
+                            <input type="text" placeholder="Salurso" required>
+                        </div>
+                    </div>
+
+                    <div class="row50">
+                        <div class="inputBox">
+                            <span> Email </span>
+                            <input type="email" placeholder="andre@gmail.com" required>
+                        </div>
+                        <div class="inputBox">
+                            <span> Mobile </span>
+                            <input type="text" placeholder="3348358969" required>
+                       </div>
+                    </div>
+
+                    <div class="row100">
+                        <div class="inputBox">
+                            <span> Message </span>
+                            <textarea placeholder="write here..." required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="row100">
+                        <div class="inputBox">
+                            <input onclick="myFunction()" type="submit" value="Send">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="contact info">
+            <h3> Contact Info </h3>
+            <div class="infoBox">
+                <div>
+                    <span><i class="fa-solid fa-map-pin"></i></span>
+                    <p> Via Dante Alighieri, Agropoli <br> ITALY </p>
+                </div>
+                <div>
+                    <span><i class="fa-regular fa-envelope"></i></span>
+                    <a href="mailto:forneriadelcilento@gmail.com">forneriadelcilento@gmail.com</a>
+                </div>
+                <div>
+                    <span><i class="fa-solid fa-phone"></i></span>
+                    <a href="tel:0974 8466 63">0974 8466 63</a>
+                </div>
+                <ul class="sci">
+                    <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="contact map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3040.699671422001!2d14.998644376480541!3d40.34900785975759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133bff930ea51f65%3A0x42f1a92494898c19!2spanificio%20Forneria%20del%20Cilento!5e0!3m2!1sit!2sit!4v1688395497202!5m2!1sit!2sit" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</div>
+<%@ include file="/WEB-INF/navbar/footer.jsp" %>
+
+</body>
+</html>
