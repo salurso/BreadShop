@@ -9,32 +9,44 @@ public class UtenteDAO {
     public static Utente doRetrieveByEmailPassword(String email, String password) {
 
         PreparedStatement statement = null;
-        ResultSet resultSet = null;
-        Utente utente = null;
+        ResultSet rs = null;
+        Utente u = null;
 
         if(email==null || password==null)
-            return utente;
+            return u;
 
         try (Connection connection = ConPool.getConnection()) {
             statement = connection.prepareStatement("SELECT * FROM utente WHERE email=? AND password=SHA1(?)");
             statement.setString(1, email);
             statement.setString(2, password);
-            resultSet = statement.executeQuery();
+            rs = statement.executeQuery();
 
-            if (resultSet.next()) {
-                utente = new Utente();
-                utente.setEmail(resultSet.getString("email"));
-                utente.setName(resultSet.getString("nome"));
-                utente.setSurname(resultSet.getString("cognome"));
-                utente.setAdmin(resultSet.getBoolean("admin"));
-                utente.setPassword(password);
+            if (rs.next()) {
+                u = new Utente();
+                u.setEmail(rs.getString("email"));
+                u.setName(rs.getString("nome"));
+                u.setSurname(rs.getString("cognome"));
+                u.setAdmin(rs.getBoolean("admin"));
+                u.setPassword(password);
+                if(!(rs.getString("telefono")==null))
+                    u.setPhone_number(rs.getString(4));
+                if(!(rs.getString("citta")==null))
+                    u.setCity(rs.getString(5));
+                if(!(rs.getString("via")==null))
+                    u.setStreet(rs.getString(6));
+                if(!(rs.getString("num_civico")==null))
+                    u.setStreet_number(Integer.parseInt(rs.getString(7)));
+                if(!(rs.getString("provincia")==null))
+                    u.setProvince(rs.getString(8));
+                if(!(rs.getString("cap")==null))
+                    u.setCap(rs.getString(9));
             }
         }  catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
             try {
-                if (resultSet != null) {
-                    resultSet.close();
+                if (rs != null) {
+                    rs.close();
                 }
                 if (statement != null) {
                     statement.close();
@@ -44,7 +56,7 @@ public class UtenteDAO {
             }
         }
 
-        return utente;
+        return u;
     }
 
     public static void doRegistration(Utente utente) {

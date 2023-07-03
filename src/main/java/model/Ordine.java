@@ -13,6 +13,7 @@ public class Ordine {
     private int house_number;
     private String province;
     private int cap;
+    private String phone_number;
     private String email_user;
     private ArrayList<Prodotto> products;
 
@@ -47,6 +48,10 @@ public class Ordine {
 
     public void setCap(int cap) {
         this.cap = cap;
+    }
+
+    public void setPhone_number(String phone_number) {
+        this.phone_number = phone_number;
     }
 
     public void setEmail_user(String email_user) {
@@ -87,6 +92,10 @@ public class Ordine {
 
     public int getCap() {
         return cap;
+    }
+
+    public String getPhone_number() {
+        return phone_number;
     }
 
     public String getEmail_user() {

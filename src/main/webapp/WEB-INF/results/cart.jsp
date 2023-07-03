@@ -67,7 +67,7 @@
         </table>
       </div>
     </div>
-      <button onclick="location.href='OrderServlet?email=<%=utente.getEmail()%>&total=<%=total%>'">Procedi all'ordine</button>
+      <button onclick="location.href='OrderServlet?action=checkout'">Procedi all'ordine</button>
     </div>
     <%
     }else{

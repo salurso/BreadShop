@@ -18,7 +18,6 @@
 <%@ include file="/WEB-INF/navbar/navbar.jsp" %>
 <%
   ArrayList<Carrello> carts = (ArrayList<Carrello>) request.getAttribute("carts");
-  Utente u = (Utente) request.getAttribute("user");
 %>
 <div class="container">
 
@@ -30,29 +29,29 @@
         <h3 class="title">indirizzo</h3>
         <div class="inputBox">
           <span>telefono :</span>
-          <input type="text" name="phone_number" placeholder="">
+          <input type="text" name="phone_number" <%if(utente.getPhone_number()!=null){%>value="<%=utente.getPhone_number()%>"<%}%> placeholder="333-333-3333">
         </div>
         <div class="inputBox">
           <span>citta' :</span>
-          <input type="text" name="city" placeholder="Agropoli">
+          <input type="text" name="city" <%if(utente.getPhone_number()!=null){%>value="<%=utente.getCity()%>"<%}%> placeholder="Agropoli">
         </div>
         <div class="inputBox">
           <span>provincia :</span>
-          <input type="province" name="province" placeholder="SA">
+          <input type="province" name="province" <%if(utente.getPhone_number()!=null){%>value="<%=utente.getProvince()%>"<%}%> placeholder="SA">
         </div>
         <div class="inputBox">
           <span>Indirizzo :</span>
-          <input type="text" name="street" placeholder="Via Rossi">
+          <input type="text" name="street" <%if(utente.getPhone_number()!=null){%>value="<%=utente.getStreet()%>"<%}%> placeholder="Via Rossi">
         </div>
 
         <div class="flex">
           <div class="inputBox">
             <span>Num. civico</span>
-            <input type="text" name="street_number" placeholder="15">
+            <input type="text" name="street_number" <%if(utente.getPhone_number()!=null){%>value="<%=utente.getStreet_number()%>"<%}%> placeholder="15">
           </div>
           <div class="inputBox">
             <span>CAP :</span>
-            <input type="text" name="cap" placeholder="84070">
+            <input type="text" name="cap" <%if(utente.getPhone_number()!=null){%>value="<%=utente.getCap()%>"<%}%> placeholder="84070">
           </div>
         </div>
       </div>
@@ -72,18 +71,19 @@
           <input type="number" name="creditCardNumber" placeholder="1111-2222-3333-4444">
         </div>
         <div class="inputBox">
-          <span>mese di scadenza :</span>
-          <input type="text" name="expMonth" placeholder="01">
+          <span>CVV :</span>
+          <input type="text" name="cvv" placeholder="1234">
         </div>
 
+        <span>Data di scadenza</span>
         <div class="flex">
           <div class="inputBox">
-            <span>anno di scadenza :</span>
-            <input type="number" name="expYear" placeholder="2035">
+            <span>mese :</span>
+            <input type="text" name="expMonth" placeholder="01">
           </div>
           <div class="inputBox">
-            <span>CVV :</span>
-            <input type="text" name="cvv" placeholder="1234">
+            <span>anno :</span>
+            <input type="number" name="expYear" placeholder="2035">
           </div>
         </div>
       </div>
@@ -130,7 +130,7 @@
               <table>
                 <tr>
                   <td> Total </td>
-                  <td><%=total%></td>
+                  <td><input type="text" name="total" value="<%=total%>" readonly/></td>
                 </tr>
               </table>
             </div>
@@ -138,8 +138,8 @@
         </div>
       </div>
     </div>
-
-    <input type="submit" value="Acquista" class="submit-btn">
+    <input type="hidden" name="email" value="<%=utente.getEmail()%>"/>
+    <input type="submit" name="action" value="Acquista" class="submit-btn">
 
   </form>
 

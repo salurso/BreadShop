@@ -1,9 +1,6 @@
 package model;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,6 +57,28 @@ public class OrdineDAO {
 
         } catch (SQLException s) {
             throw new RuntimeException(s);
+        }
+    }
+
+    public int doInsert(Ordine o) {
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement("INSERT INTO ordine (data, totale, citta, via, num_civico, provincia, cap, telefono, emailUtente) VALUES (?,?,?,?,?,?,?,?,?)",
+                    Statement.RETURN_GENERATED_KEYS);
+            java.sql.Date d = new java.sql.Date( new java.util.Date().getTime() );
+            ps.setDate(1, d);
+            ps.setDouble(2, o.getTotal());
+            ps.setString(3, o.getCity());
+            ps.setString(4, o.getVia());
+            ps.setInt(5, o.getHouse_number());
+            ps.setString(6, o.getProvince());
+            ps.setInt(7, o.getCap());
+            ps.setString(8, o.getPhone_number());
+            ps.setString(9, o.getEmail_user());
+
+            return ps.executeUpdate();
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 }
