@@ -1,9 +1,6 @@
 package model;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class PagamentoDAO {
@@ -51,6 +48,24 @@ public class PagamentoDAO {
 
         } catch (SQLException s) {
             throw new RuntimeException(s);
+        }
+    }
+
+    public int doInsert(Pagamento p){
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement("INSERT INTO MetodoDiPagamento (numero, cvv, meseScadenza, annoScadenza, titolare) VALUES (?,?,?,?,?)",
+                    Statement.RETURN_GENERATED_KEYS);
+
+            ps.setLong(1, p.getNumber());
+            ps.setInt(2, p.getCvv());
+            ps.setInt(3, p.getExpMonth());
+            ps.setInt(4, p.getExpYear());
+            ps.setString(5, p.getHolder());
+
+            return ps.executeUpdate();
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 }

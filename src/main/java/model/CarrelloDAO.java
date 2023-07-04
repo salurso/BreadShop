@@ -32,6 +32,29 @@ public class CarrelloDAO {
         }
     }
 
+    public ArrayList<Carrello> doRetrieveByEmail(String email){
+        try (Connection con = ConPool.getConnection()) {
+
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM Carrello WHERE emailUtente=?");
+            ps.setString(1, email);
+            ResultSet rs = ps.executeQuery();
+            ArrayList<Carrello> carts = new ArrayList<>();
+
+            while (rs.next()){
+                Carrello c = new Carrello();
+                c.setEmail(rs.getString(1));
+                c.setProducts(this.doRetrieveProductsCart(rs.getInt(2)));
+                c.setQuantity(rs.getInt(3));
+
+                carts.add(c);
+            }
+            return carts;
+
+        } catch (SQLException s) {
+            throw new RuntimeException(s);
+        }
+    }
+
     private Prodotto doRetrieveProductsCart(int id){
         try (Connection con = ConPool.getConnection()) {
 

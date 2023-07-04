@@ -1,13 +1,7 @@
 <%@ page import="model.Ordine" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="model.Prodotto" %>
-<%@ page import="java.util.Random" %><%--
-  Created by IntelliJ IDEA.
-  User: andre
-  Date: 21/06/2023
-  Time: 17:36
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.util.Random" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -17,26 +11,21 @@
 <body>
 <%@ include file="/WEB-INF/navbar/navbar.jsp" %>
 <div>
-    <div class="home_ord">
-
+    <div class="home_ord"
         <h3> ORDINI </h3>
-
     </div>
     <%
         if(utente!=null){
     %>
-
     <h1 class="main-title"> Ciao <%=utente.getName()%>, ecco i tuoi ordini:  </h1>
     <div class="tabular--wrapper">
         <div class="table-container">
-
             <%
-                ArrayList<Ordine> orders = (ArrayList<Ordine>) request.getAttribute("orders");
+            ArrayList<Ordine> orders = (ArrayList<Ordine>) request.getAttribute("orders");
 
-                for(Ordine o : orders){
-                    if(utente.getEmail().equals(o.getEmail_user())){
-                        ArrayList<Prodotto> product = o.getProducts();
-
+            for(Ordine o : orders){
+                if(utente.getEmail().equals(o.getEmail_user())){
+                    ArrayList<Prodotto> product = o.getProducts();
             %>
             <table>
                 <thead>

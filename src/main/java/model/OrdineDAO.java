@@ -59,10 +59,11 @@ public class OrdineDAO {
         }
     }
 
-    public int doInsert(Ordine o) {
+    public int doInsert(Ordine o, long number, ArrayList<Carrello> cards) {
         try (Connection con = ConPool.getConnection()) {
-            PreparedStatement ps = con.prepareStatement("INSERT INTO ordine (data, totale, citta, via, num_civico, provincia, cap, telefono, emailUtente) VALUES (?,?,?,?,?,?,?,?,?)",
+            PreparedStatement ps = con.prepareStatement("INSERT INTO ordine (data, totale, citta, via, num_civico, provincia, cap, telefono, emailUtente, numeroMetodo) VALUES (?,?,?,?,?,?,?,?,?,?)",
                     Statement.RETURN_GENERATED_KEYS);
+
             java.sql.Date d = new java.sql.Date( new java.util.Date().getTime() );
             ps.setDate(1, d);
             ps.setDouble(2, o.getTotal());
@@ -73,8 +74,37 @@ public class OrdineDAO {
             ps.setInt(7, o.getCap());
             ps.setString(8, o.getPhone_number());
             ps.setString(9, o.getEmail_user());
+            ps.setLong(10, number);
 
-            return ps.executeUpdate();
+            int execute = ps.executeUpdate();
+
+            ResultSet rs = ps.getGeneratedKeys();
+            rs.next();
+            int auto_id = rs.getInt(1);
+
+            return execute;
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void doInsertProduct(int id, ArrayList<Carrello> cards) {
+        try (Connection con = ConPool.getConnection()) {
+
+            for(Carrello c : cards) {
+                PreparedStatement ps = con.prepareStatement("INSERT INTO appartiene (idOrdine, idPrdotto, quantita, prezzo) VALUES (?,?,?,?)",
+                        Statement.RETURN_GENERATED_KEYS);
+
+                java.sql.Date d = new java.sql.Date(new java.util.Date().getTime());
+                ps.setInt(1, id);
+                ps.setInt(2, c.getProducts().getId());
+                ps.setInt(3, c.getQuantity());
+                ps.setDouble(4, c.getProducts().getPrice());
+
+                ps.executeUpdate();
+
+            }
         }
         catch (SQLException e) {
             throw new RuntimeException(e);

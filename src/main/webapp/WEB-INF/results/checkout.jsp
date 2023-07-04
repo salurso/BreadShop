@@ -33,7 +33,7 @@
               <th> Data di scadenza </th>
               <th> </th>
             </tr>
-            <input type="hidden" name="action" value="checkout">
+<%--            <input type="hidden" name="action" value="checkout">--%>
             <%
               int i=0;
               for(Pagamento p : creditCards){
@@ -44,15 +44,11 @@
               <td><%=p.getExpMonth()%>/<%=p.getExpYear()%></td>
               <td><input type="radio" id="card<%=i%>" name="card" value="<%=p.getNumber()%>"></td>
             </tr>
-            <%--             --%>
-            <%--            onchange="getForm()"--%>
-            <%--              onchange="location.href='OrderServlet?action=checkout&card=<%=p.getNumber()%>&email=<%=utente.getEmail()%>'--%>
             <%
                 i++;
               }
             %>
             <input type="submit" name="action" id="check" value="inserisci" class="submit-btn">
-
           </table>
         </div>
       </div>
@@ -98,7 +94,7 @@
         </div>
         <div class="inputBox">
           <span>titolare della carta :</span>
-          <input type="text" name="cardholder" <%if(request.getParameter("card")!=null){Pagamento p = (Pagamento) request.getAttribute("card");%>value="<%=p.getHolder()%>"<%}%> placeholder="Mario Rossi">
+          <input type="text" name="holder" <%if(request.getParameter("card")!=null){Pagamento p = (Pagamento) request.getAttribute("card");%>value="<%=p.getHolder()%>"<%}%> placeholder="Mario Rossi">
         </div>
         <div class="inputBox">
           <span>numero carta di credito :</span>
@@ -151,7 +147,7 @@
                     </div>
                   </div>
                 </td>
-                <td><input type="number" name="quantity" min=1  value="<%=c.getQuantity()%>" onchange="location.href='ManageCart?action=addQuantity&id=<%=p.getId()%>&email=<%=utente.getEmail()%>'"></td>
+                <td><input type="number" name="quantity" min=1 value="<%=c.getQuantity()%>" onchange="location.href='ManageCart?action=addQuantity&id=<%=p.getId()%>&email=<%=utente.getEmail()%>'"></td>
                 <td><%=p.getPrice()*c.getQuantity()%></td>
               </tr>
               <%
@@ -185,10 +181,10 @@
   //   else document.getElementById("#check").style.display = "block";
   // }
 
-  function getForm() {
+  // function getForm() {
     //alert(radio.value);
-    $("#form").submit();
-  }
+  //   $("#form").submit();
+  // }
 </script>
 </body>
 </html>

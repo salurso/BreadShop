@@ -55,13 +55,27 @@ public class OrderServlet extends HttpServlet {
             o.setTotal(Double.parseDouble(request.getParameter("total")));
             o.setEmail_user(email);
 
-            String result = null;
-            OrdineDAO oDAO = new OrdineDAO();
-            if(oDAO.doInsert(o)!=1)
-                result = "L'ordine non è andato a buon fine!";
-            else
-                result = "Ordine avvenuto con successo!";
+            Pagamento p = new Pagamento();
+            p.setNumber(Long.parseLong(request.getParameter("creditCardNumber")));
+            p.setCvv(Integer.parseInt(request.getParameter("cvv")));
+            p.setHolder(request.getParameter("holder"));
+            p.setExpYear(Integer.parseInt(request.getParameter("expMonth")));
+            p.setExpYear(Integer.parseInt(request.getParameter("expYear")));
 
+            CarrelloDAO cDAO = new CarrelloDAO();
+            ArrayList<Carrello> carts = cDAO.doRetrieveByEmail(email);
+
+            PagamentoDAO pDAO = new PagamentoDAO();
+            String result = null;
+            if(pDAO.doInsert(p)==1){
+                OrdineDAO oDAO = new OrdineDAO();
+                if(oDAO.doInsert(o, p.getNumber(), carts)!=1)
+                    result = "L'ordine non è andato a buon fine!";
+                else
+                    result = "Ordine avvenuto con successo!";
+            }else{
+                result = "L'ordine non è andato a buon fine!";
+            }
             request.setAttribute("result", result);
             addres = "index.jsp";
         }

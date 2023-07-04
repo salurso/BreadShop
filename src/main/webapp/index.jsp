@@ -78,6 +78,7 @@
 </div>
 
 <%--HOME--%>
+<h2><%=request.getAttribute("result")%></h2>
 <section class="home" id="home">
     <div class="container">
         <h3> Forneria Del Cilento </h3>
