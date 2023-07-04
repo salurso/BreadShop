@@ -18,11 +18,13 @@
   <title>Forneria Del Cilento</title>
 </head>
 <body>
-
-<%--<%@ include file="headerAdmin.jsp" %>--%>
 <%
   Utente utente = (Utente) session.getAttribute("loginAdmin");
 %>
+
+<%--<%@ include file="/WEB-INF/navbar/headerAdmin.jsp" %>--%>
+
+<%--<%@ include file="headerAdmin.jsp" %>--%>
 
 <div class="side-menu">
   <div class="brand-name">
@@ -92,7 +94,7 @@
 
       <div class="card">
         <div class="box">
-          <button class="card" id="users" value=" " onclick="location.href='HomeServletAdministrator?action=user'"><h3 align="center">GESTISCI UTENTI</h3>
+          <button class="card" id="users" value=" " onclick="location.href='HomeServletAdministrator?action=users'"><h3 align="center">GESTISCI UTENTI</h3>
           </button>
         </div>
       </div>
@@ -138,7 +140,7 @@
         <div class="new-students">
           <div class="title">
             <h2>Utenti</h2>
-            <a href="#" class="action_btn"> View All</a>
+            <a href="HomeServletAdministrator?action=users" class="action_btn"> View All</a>
             </div>
           <table>
             <tr>

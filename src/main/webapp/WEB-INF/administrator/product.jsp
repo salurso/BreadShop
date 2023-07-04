@@ -37,8 +37,9 @@
     </script>
 </head>
 <body>
-<%@ include file="headerAdmin.jsp" %>
-    <div class="product">
+<%@ include file="/WEB-INF/navbar/headerAdmin.jsp" %>
+
+<div class="product">
         <table>
             <thead>
             <tr>

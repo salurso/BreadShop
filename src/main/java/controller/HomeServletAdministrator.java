@@ -16,8 +16,8 @@ public class HomeServletAdministrator extends HttpServlet {
         if(action==null){
 
         }
-        if(action.equals("utenti")){
-            RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/userManagement.jsp");
+        if(action.equals("user")){
+            RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/manageUsers.jsp");
             ds.forward(request, response);
         }
         if(action.equals("prova")){
@@ -46,15 +46,15 @@ public class HomeServletAdministrator extends HttpServlet {
             ArrayList<Ordine> orders = new ArrayList<>();
             orders = (ArrayList<Ordine>) oDAO.doRetrieveAll();
             request.setAttribute("orders", orders);
-            RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/ordersAdmin.jsp");
+            RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/manageOrders.jsp");
             ds.forward(request, response);
         }
-        if(action.equals("user")){
+        if(action.equals("users")){
             UtenteDAO uDAO = new UtenteDAO();
             ArrayList<Utente> users = new ArrayList<>();
             users = uDAO.doRetrieveAll();
             request.setAttribute("users", users);
-            RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/users.jsp");
+            RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/manageUsers.jsp");
             ds.forward(request, response);
         }
         if(action.equals("add_product")){

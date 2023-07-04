@@ -4,13 +4,12 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="./css/headerAdmin.css?v=<%=new Random().nextInt()%>"/>
     <link rel="stylesheet" type="text/css" href="./css/categoryAdmin.css?v=<%=new Random().nextInt()%>"/>
     <%Categoria p = (Categoria) request.getAttribute("categories");%>
     <title>Categoria </title>
 </head>
 <body>
-    <%@ include file="headerAdmin.jsp" %>
+<%@ include file="/WEB-INF/navbar/headerAdmin.jsp" %>
     <div class="category">
         <form action="UpdateCategory" method="post">
             <div class="box" id="category-info">

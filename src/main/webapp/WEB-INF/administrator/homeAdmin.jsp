@@ -11,7 +11,8 @@
     <title>Forneria Del Cilento</title>
 </head>
 <body>
-<%@ include file="headerAdmin.jsp" %>
+<%@ include file="/WEB-INF/navbar/headerAdmin.jsp" %>
+
 <div>
 <%if(request.getAttribute("result")!=null){%>
 <div class="alert" id="alert">

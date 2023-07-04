@@ -20,7 +20,8 @@
 </head>
 <body>
 
-<%@ include file="/WEB-INF/administrator/headerAdmin.jsp" %>
+<%@ include file="/WEB-INF/navbar/headerAdmin.jsp" %>
+
 <div>
     <div class="home_ord">
         <h3> ORDINI </h3>

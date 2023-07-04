@@ -4,17 +4,20 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="./css/headerAdmin.css?v=<%=new Random().nextInt()%>"/>
-    <link rel="stylesheet" type="text/css" href="./css/manageProductAdmin.css?v=<%=new Random().nextInt()%>"/>
-    <link rel="stylesheet" type="text/css" href="./css/categoryAdmin.css?v=<%=new Random().nextInt()%>"/>
+    <link rel="stylesheet" type="text/css" href="./css/manageCategory.css?v=<%=new Random().nextInt()%>"/>
     <title>Categorie</title>
 </head>
 <body>
-    <%@ include file="headerAdmin.jsp" %>
-    <%  ArrayList<Categoria> categories = (ArrayList<Categoria>) request.getAttribute("categories");    %>
+<%@ include file="/WEB-INF/navbar/headerAdmin.jsp" %>
+
+    <%  ArrayList<Categoria> categories = (ArrayList<Categoria>) request.getAttribute("categories");%>
+
+
     <div class="home_ord">
         <h3> CATEGORIE </h3>
     </div>
+
+
     <div class="tabular--wrapper">
         <div class="table-container">
             <table id="categories">
@@ -48,10 +51,10 @@
             <form action="UpdateCategory" method="post">
                 <div class="box" id="category-info">
 
-                    <label for="name">nome: </label>
+                    <label for="name"> Nome: </label>
                     <input id="name" name="name" type="text" value="" maxlength="50">
 
-                    <label for="description">descrizione: </label>
+                    <label for="description"> Descrizione: </label>
                     <textarea name="description" id="description" style="height:200px" maxlength="200"></textarea>
 
                     <input type="submit" name="action" value="AGGIUNGI CATEGORIA" onclick="return(validateUpdate())">

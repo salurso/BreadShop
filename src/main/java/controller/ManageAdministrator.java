@@ -31,7 +31,7 @@ public class ManageAdministrator extends HttpServlet {
             uDAO.makeAdministrator(email);
             ArrayList<Utente> u = uDAO.doRetrieveAll();
             request.setAttribute("users", u);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/administrator/users.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/administrator/manageUsers.jsp");
             dispatcher.forward(request, response);
         }
         if(action.contains("removeAdmin")){
@@ -40,7 +40,7 @@ public class ManageAdministrator extends HttpServlet {
             uDAO.removeAdministrator(email);
             ArrayList<Utente> u = uDAO.doRetrieveAll();
             request.setAttribute("users", u);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/administrator/users.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/administrator/manageUsers.jsp");
             dispatcher.forward(request, response);
         }
     }

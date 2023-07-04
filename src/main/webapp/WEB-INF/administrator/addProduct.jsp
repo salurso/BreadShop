@@ -34,7 +34,8 @@
     </script>
 </head>
 <body>
-    <%@ include file="headerAdmin.jsp" %>
+<%@ include file="/WEB-INF/navbar/headerAdmin.jsp" %>
+
 
     <div class="container-info">
         <div class="add_product">

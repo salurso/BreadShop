@@ -52,7 +52,7 @@ html::-webkit-scrollbar-thumb{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #E4E0BB;
+    /*background: #E4E0BB;*/
     border-radius: 10px;
     padding: 2rem;
 }

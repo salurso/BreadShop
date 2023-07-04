@@ -15,7 +15,8 @@
     <title>Gestione prodotti</title>
 </head>
 <body>
-<%@ include file="headerAdmin.jsp" %>
+<%@ include file="/WEB-INF/navbar/headerAdmin.jsp" %>
+
 <div class="home_ord">
 <div class="cards-products">
 <%

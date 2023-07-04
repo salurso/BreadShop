@@ -84,7 +84,7 @@
       ArrayList<Carrello> carts = (ArrayList<Carrello>) session.getAttribute("carts");
       if(carts!=null && !carts.isEmpty()){
     %>
-  <h1 class="main-title"> Benvenuto, ecco il tuo carrello: </h1>
+  <h1 class="main-title"> Ecco il tuo carrello: </h1>
   <div class="tabular--wrapper">
     <div class="table-container">
       <table>
@@ -124,16 +124,18 @@
             <td> Total </td>
             <td><%=total%></td>
           </tr>
+          <tr>
+            <td><button class="submit-ord" onclick="location.href='InitServlet?action=login'">Procedi all'ordine</button></td>
+          </tr>
         </table>
       </div>
     </div>
-    <button onclick="location.href='InitServlet?action=login'">Procedi all'ordine</button>
   </div>
     <%
   //non loggato senza prodotti
     }else{
 %>
-  <h1 class="main-title"> Benvenuto il tuo carrello è vuoto! </h1>
+  <h1 class="main-title"> Il tuo carrello è vuoto! </h1>
     <%
     }
   }
