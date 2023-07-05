@@ -9,9 +9,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="./css/headerAdmin.css?v=<%=new Random().nextInt()%>"/>
-    <link rel="stylesheet" type="text/css" href="./css/productAdmin.css?v=<%=new Random().nextInt()%>"/>
-    <link rel="stylesheet" type="text/css" href="./css/orders.css?v=<%=new Random().nextInt()%>"/>
+    <link rel="stylesheet" type="text/css" href="./css/admin/productAdmin.css?v=<%=new Random().nextInt()%>"/>
     <%
         Prodotto p = (Prodotto) request.getAttribute("product");
     %>
@@ -37,71 +35,84 @@
     </script>
 </head>
 <body>
-<%@ include file="/WEB-INF/navbar/headerAdmin.jsp" %>
+<%@ include file="/WEB-INF/navbar/navbarAdmin.jsp" %>
 
-<div class="product">
-        <table>
+<div class="tabular--wrapper">
+    <div class="table-container">
+        <table id="categories1">
             <thead>
             <tr>
-                <th>Immagine</th>
-                <th>Nome</th>
-                <th>Descrizione </th>
-                <th>Prezzo </th>
+                <th>NOME</th>
+                <th>DESCRIZIONE</th>
+                <th>CATEGORIA</th>
+                <th>PREZZO</th>
+                <th></th>
             </tr>
             </thead>
             <br>
-
-
             <tbody>
             <tr>
-                <td><img class="ord-img" src="upload/<%=p.getImage()%>"></td>
-
-                <td><%= p.getName() %></td>
-                <td><%= p.getDescription()%></td>
-                <td><%= p.getPrice()%></td>
-
+                <td><%=p.getName()%></td>
+                <td><%=p.getDescription()%></td>
+                <td><%=p.getNameCategory()%></td>
+                <td>€<%=p.getPrice()%></td>
+                <td><input class="btn_delete" type="submit" name="action" value="ELIMINA" onclick="return(confirmDelete())"></td>
             </tr>
+            </tbody>
         </table>
-        <form action="UpdateProduct" method="POST">
-        <div class="box" id="product-info">
-            <h4><%=p.getName()%></h4>
-
-            <label for="id">id: </label>
-            <input id="id" name="id" type="text" value="<%=p.getId()%>" readonly>
-
-            <label for="name">nome: </label>
-            <input id="name" name="name" type="text" value="<%=p.getName()%>" maxlength="50">
-
-            <label for="price">prezzo: </label>
-            <input id="price" name="price" type="text" value="<%=p.getPrice()%>">
-
-<%--            <label for="image">Immagine: (il nome del file deve essere di max 20 caratteri)</label>--%>
-<%--            <input type="file" id="image" name="image" value="<%=p.getImage()%>">--%>
-
-            <label for="categories">Nome categoria: </label>
-            <select id="categories" name="categories">
-                <%
-                    ArrayList<String> categories = (ArrayList<String>) request.getAttribute("categories");
-                    for(String c : categories){
-                        if(c.equals(p.getNameCategory())){
-                %>
-                            <option value="<%=c%>" selected><%=c%></option>
-                <%      }else{
-                %>
-                            <option value="<%=c%>"><%=c%></option>
-                <%      }
-                    }
-                %>
-            </select>
-
-            <label for="description">descrizione: </label>
-            <textarea name="description" id="description" style="height:200px" maxlength="200"><%=p.getDescription()%></textarea>
-
-            <input type="submit" name="action" value="AGGIORNA" onclick="return(validateUpdate())">
-            <input type="submit" name="action" value="ELIMINA">
-        </div>
-        </form>
     </div>
+</div>
 
+<div class="update_product">
+    <form action="UpdateProduct"  method="POST">
+
+        <h3 class="add_prod_title">Modifica Prodotto</h3>
+
+        <label for="id">id: </label>
+        <input id="id" name="id" type="text" value="<%=p.getId()%>" readonly>
+
+        <label for="name"> Nome: </label>
+        <input id="name" name="name" type="text" value="<%=p.getName()%>" maxlength="50">
+
+        <label for="price">prezzo: </label>
+        <input id="price" name="price" type="text" value="<%=p.getPrice()%>">
+
+        <label for="image">Immagine: (il nome del file deve essere di max 20 caratteri)</label>
+        <input type="file" id="image" name="image" value="<%=p.getImage()%>"><br>
+
+        <label for="categories">Nome categoria: </label>
+        <select id="categories" name="categories">
+
+            <%
+                ArrayList<String> categories = (ArrayList<String>) request.getAttribute("categories");
+                for(String c : categories){
+                    if(c.equals(p.getNameCategory())){
+            %>
+            <option value="<%=c%>" selected><%=c%></option>
+            <%      }else{
+            %>
+            <option value="<%=c%>"><%=c%></option>
+            <%      }
+            }
+            %>
+        </select><br>
+
+        <label for="description">descrizione: </label>
+        <textarea name="description" id="description" style="height:200px" maxlength="200"><%=p.getDescription()%></textarea>
+        <div class="btnadd">
+            <input class="btn_update" type="submit" name="action" value="AGGIORNA" onclick="return(validateUpdate())">
+        </div>
+    </form>
+
+</div>
+<script>
+    function confirmDelete(){
+        if(confirm("Sei sicuro di voler eliminare il prodotto??")){
+            window.location.href="UpdateProduct?action=ELIMINA&id=<%=p.getId()%>";
+        }else{
+            alert("eliminazione annullata");
+        }
+    }
+</script>
 </body>
 </html>

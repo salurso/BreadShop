@@ -33,16 +33,16 @@
               <th> Data di scadenza </th>
               <th> </th>
             </tr>
-<%--            <input type="hidden" name="action" value="checkout">--%>
             <%
               int i=0;
               for(Pagamento p : creditCards){
+                String number = String.valueOf(p.getNumber()).substring(String.valueOf(p.getNumber()).length()-4);
             %>
             <tr>
-              <td><%=p.getNumber()%></td>
+              <td>termina con <%=number%></td>
               <td><%=p.getHolder()%></td>
               <td><%=p.getExpMonth()%>/<%=p.getExpYear()%></td>
-              <td><input type="radio" id="card<%=i%>" name="card" value="<%=p.getNumber()%>"></td>
+              <td><input type="radio" id="card<%=i%>" name="card" value="<%=p.getId()%>"></td>
             </tr>
             <%
                 i++;
@@ -59,7 +59,7 @@
         <h3 class="title">indirizzo</h3>
         <div class="inputBox">
           <span>telefono :</span>
-          <input type="text" name="phone_number" <%if(utente.getPhone_number()!=null){%>value="<%=utente.getPhone_number()%>"<%}%> placeholder="333-333-3333">
+          <input type="text" name="phone_number" <%if(utente.getPhone_number()!=null){%>value="<%=utente.getPhone_number()%>"<%}%> placeholder="333 333 3333">
         </div>
         <div class="inputBox">
           <span>città :</span>
@@ -86,8 +86,19 @@
         </div>
       </div>
 
+<%--      <%--%>
+<%--        if(request.getParameter("card")!=null){Pagamento p = (Pagamento) request.getAttribute("card");--%>
+<%--      %>--%>
+
       <div class="col">
         <h3 class="title">pagamento</h3>
+        <%if(request.getParameter("card")!=null){
+          Pagamento p = (Pagamento) request.getAttribute("card");
+        %>
+          <input type="hidden" name="cardId" value="<%=p.getId()%>">
+        <%}else{%>
+          <input type="hidden" name="cardId" value="insert">
+        <%}%>
         <div class="inputBox">
           <span>carte accettate :</span>
           <img src="./images/card_img.png" alt="mastercard - visa - paypal">
@@ -98,11 +109,11 @@
         </div>
         <div class="inputBox">
           <span>numero carta di credito :</span>
-          <input type="number" name="creditCardNumber" <%if(request.getParameter("card")!=null){Pagamento p = (Pagamento) request.getAttribute("card");%>value="<%=p.getNumber()%>"<%}%> placeholder="1111-2222-3333-4444">
+          <input type="text" name="creditCardNumber" <%if(request.getParameter("card")!=null){Pagamento p = (Pagamento) request.getAttribute("card");String number = String.valueOf(p.getNumber()).substring(String.valueOf(p.getNumber()).length()-4);%>value="termina con <%=number%>"<%}%> placeholder="1111 2222 3333 4444">
         </div>
         <div class="inputBox">
           <span>CVV :</span>
-          <input type="text" name="cvv" <%if(request.getParameter("card")!=null){Pagamento p = (Pagamento) request.getAttribute("card");%>value="<%=p.getCvv()%>"<%}%> placeholder="1234">
+          <input type="text" name="cvv" <%if(request.getParameter("card")!=null){%>value="metodo selezionato"<%}%> placeholder="123">
         </div>
 
         <span>Data di scadenza</span>
@@ -169,22 +180,10 @@
       </div>
     </div>
     <input type="hidden" name="email" value="<%=utente.getEmail()%>"/>
-    <input type="submit" name="action" value="Acquista" class="submit-btn">
+    <input type="submit" name="action" value="Acquista" class="submit-btn"/>
 
   </form>
 
 </div>
-<script>
-
-  // function checkFunc() {
-  //   if ($('input[type="radio"]:checked').length === 0) document.getElementById("#check").style.display = "none";
-  //   else document.getElementById("#check").style.display = "block";
-  // }
-
-  // function getForm() {
-    //alert(radio.value);
-  //   $("#form").submit();
-  // }
-</script>
 </body>
 </html>

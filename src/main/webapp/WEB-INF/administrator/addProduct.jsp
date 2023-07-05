@@ -4,8 +4,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="./css/headerAdmin.css?v=<%=new Random().nextInt()%>"/>
-    <link rel="stylesheet" type="text/css" href="./css/addProductAdmin.css?v=<%=new Random().nextInt()%>"/>
+    <link rel="stylesheet" type="text/css" href="./css/admin/addProductAdmin.css?v=<%=new Random().nextInt()%>"/>
     <title>Inserisci prodotto</title>
     <script>
         function validateInsert() {
@@ -34,8 +33,7 @@
     </script>
 </head>
 <body>
-<%@ include file="/WEB-INF/navbar/headerAdmin.jsp" %>
-
+<%@ include file="/WEB-INF/navbar/navbarAdmin.jsp" %>
 
     <div class="container-info">
         <div class="add_product">

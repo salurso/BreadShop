@@ -20,21 +20,20 @@ public class HomeServletAdministrator extends HttpServlet {
             RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/manageUsers.jsp");
             ds.forward(request, response);
         }
-        if(action.equals("prova")){
+        if(action.equals("homeAdmin")){
             OrdineDAO oDAO = new OrdineDAO();
             ArrayList<Ordine> orders = new ArrayList<>();
             orders = (ArrayList<Ordine>) oDAO.doRetrieveAll();
             request.setAttribute("orders", orders);
             UtenteDAO uDAO = new UtenteDAO();
-            ArrayList<Utente> user = new ArrayList<>();
-            user = (ArrayList<Utente>) uDAO.doRetrieveNotAdmin(); //RESTITUISCE TUTTI GLI UTENTI ESCLUSO L'ADMIN
-            request.setAttribute("user", user);
+            ArrayList<Utente> users = new ArrayList<>();
+            users = (ArrayList<Utente>) uDAO.doRetrieveNotAdmin(); //RESTITUISCE TUTTI GLI UTENTI NON ADMIN
+            request.setAttribute("users", users);
             ArrayList<Utente> admin = new ArrayList<>();
             admin = (ArrayList<Utente>) uDAO.doRetrieveAdmin(); //RESTITUISCE TUTTI GLI UTENTI CHE SONO ADMIN
             request.setAttribute("admin", admin);
 
-
-            RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/homeprova.jsp");
+            RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/homeAdmin.jsp");
             ds.forward(request, response);
         }
         if(action.equals("prodotti_esauriti")){

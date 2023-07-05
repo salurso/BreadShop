@@ -30,23 +30,23 @@
 }
 
 .item#add_product{
-    background-image: url('../images/addProduct.png');
+    background-image: url('../../images/addProduct.png');
 }
 
 .item#manage_product{
-    background-image: url('../images/manageProduct.png');
+    background-image: url('../../images/manageProduct.png');
 }
 
 .item#sold-out_products{
-    background-image: url('../images/sold-outProduct.png');
+    background-image: url('../../images/sold-outProduct.png');
 }
 
 .item#orders{
-    background-image: url('../images/orders.png');
+    background-image: url('../../images/orders.png');
 }
 
 .item#users{
-    background-image: url('../images/users.png');
+    background-image: url('../../images/users.png');
 }
 
 

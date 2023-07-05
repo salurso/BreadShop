@@ -8,10 +8,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
-import model.Prodotto;
-import model.ProdottoDAO;
-import model.Utente;
-import model.UtenteDAO;
+import model.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,6 +16,7 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 
 @MultipartConfig
 @WebServlet(name = "InsertProduct", value = "/InsertProduct")
@@ -69,6 +67,19 @@ public class InsertProduct extends HttpServlet {
         Files.copy(fileInputStream, pathDestinazione);
 
         request.setAttribute("result", result);
+
+        OrdineDAO oDAO = new OrdineDAO();
+        ArrayList<Ordine> orders = new ArrayList<>();
+        orders = (ArrayList<Ordine>) oDAO.doRetrieveAll();
+        request.setAttribute("orders", orders);
+        UtenteDAO uDAO = new UtenteDAO();
+        ArrayList<Utente> users = new ArrayList<>();
+        users = (ArrayList<Utente>) uDAO.doRetrieveNotAdmin(); //RESTITUISCE TUTTI GLI UTENTI NON ADMIN
+        request.setAttribute("users", users);
+        ArrayList<Utente> admin = new ArrayList<>();
+        admin = (ArrayList<Utente>) uDAO.doRetrieveAdmin(); //RESTITUISCE TUTTI GLI UTENTI CHE SONO ADMIN
+        request.setAttribute("admin", admin);
+
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/administrator/homeAdmin.jsp");
         requestDispatcher.forward(request, response);
 

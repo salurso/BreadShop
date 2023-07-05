@@ -91,9 +91,9 @@ public class OrdineDAO {
         }
     }
 
-    public int doInsert(Ordine o, long number, ArrayList<Carrello> carts) {
+    public int doInsert(Ordine o, int cardId, ArrayList<Carrello> carts) {
         try (Connection con = ConPool.getConnection()) {
-            PreparedStatement ps = con.prepareStatement("INSERT INTO ordine (data, totale, citta, via, num_civico, provincia, cap, telefono, emailUtente, numeroMetodo) VALUES (?,?,?,?,?,?,?,?,?,?)",
+            PreparedStatement ps = con.prepareStatement("INSERT INTO ordine (data, totale, citta, via, num_civico, provincia, cap, telefono, emailUtente, idMetodo) VALUES (?,?,?,?,?,?,?,?,?,?)",
                     Statement.RETURN_GENERATED_KEYS);
 
             java.sql.Date d = new java.sql.Date( new java.util.Date().getTime() );
@@ -106,7 +106,7 @@ public class OrdineDAO {
             ps.setInt(7, o.getCap());
             ps.setString(8, o.getPhone_number());
             ps.setString(9, o.getEmail_user());
-            ps.setLong(10, number);
+            ps.setLong(10, cardId);
 
             int execute = ps.executeUpdate();
 

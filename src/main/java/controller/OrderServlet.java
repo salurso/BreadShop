@@ -25,10 +25,6 @@ public class OrderServlet extends HttpServlet {
             ArrayList<Carrello> carts = cDAO.doRetrieveAll();
             PagamentoDAO pDAO = new PagamentoDAO();
             ArrayList<Pagamento> creditCards = pDAO.doRetriveByEmail(email);
-//            if(request.getParameter("card")!=null && !request.getParameter("card").isEmpty()) {
-//                long number = Long.parseLong(request.getParameter("card"));
-//                request.setAttribute("card", pDAO.doRetriveByNumber(number));
-//            }
             request.setAttribute("carts", carts);
             request.setAttribute("creditCards", creditCards);
             addres = "./WEB-INF/results/checkout.jsp";
@@ -38,8 +34,8 @@ public class OrderServlet extends HttpServlet {
             ArrayList<Carrello> carts = cDAO.doRetrieveAll();
             PagamentoDAO pDAO = new PagamentoDAO();
             ArrayList<Pagamento> creditCards = pDAO.doRetriveByEmail(email);
-            long number = Long.parseLong(request.getParameter("card"));
-            request.setAttribute("card", pDAO.doRetriveByNumber(number));
+            int id = Integer.parseInt((request.getParameter("card")));
+            request.setAttribute("card", pDAO.doRetriveById(id));
             request.setAttribute("carts", carts);
             request.setAttribute("creditCards", creditCards);
             addres = "./WEB-INF/results/checkout.jsp";
@@ -56,11 +52,6 @@ public class OrderServlet extends HttpServlet {
             o.setEmail_user(email);
 
             Pagamento p = new Pagamento();
-            p.setNumber(Long.parseLong(request.getParameter("creditCardNumber")));
-            p.setCvv(Integer.parseInt(request.getParameter("cvv")));
-            p.setHolder(request.getParameter("holder"));
-            p.setExpYear(Integer.parseInt(request.getParameter("expMonth")));
-            p.setExpYear(Integer.parseInt(request.getParameter("expYear")));
 
             CarrelloDAO cDAO = new CarrelloDAO();
             ArrayList<Carrello> carts = cDAO.doRetrieveByEmail(email);
@@ -68,18 +59,17 @@ public class OrderServlet extends HttpServlet {
             PagamentoDAO pDAO = new PagamentoDAO();
             String result = null;
 
-            if(pDAO.doRetriveByNumber(p.getNumber())!=null){
-                OrdineDAO oDAO = new OrdineDAO();
-                if(oDAO.doInsert(o, p.getNumber(), carts)!=1)
-                    result = "L'ordine non è andato a buon fine!";
-                else {
-                    result = "Ordine avvenuto con successo!";
-                    cDAO.doDeleteByEmail(email);
-                }
-            }else{
-                if(pDAO.doInsert(p)==1){
+            if(request.getParameter("cardId").equals("insert")){
+                p.setCvv(Integer.parseInt(request.getParameter("cvv")));
+                p.setHolder(request.getParameter("holder"));
+                p.setExpYear(Integer.parseInt(request.getParameter("expMonth")));
+                p.setExpYear(Integer.parseInt(request.getParameter("expYear")));
+                p.setId(pDAO.doInsert(p));
+                if(p.getId()!=0){
+
+                    p.setNumber(Long.parseLong(request.getParameter("creditCardNumber")));
                     OrdineDAO oDAO = new OrdineDAO();
-                    if(oDAO.doInsert(o, p.getNumber(), carts)!=1)
+                    if(oDAO.doInsert(o, p.getId(), carts)!=1)
                         result = "L'ordine non è andato a buon fine!";
                     else {
                         result = "Ordine avvenuto con successo!";
@@ -87,6 +77,15 @@ public class OrderServlet extends HttpServlet {
                     }
                 }else{
                     result = "L'ordine non è andato a buon fine!";
+                }
+            }else{
+                p.setId(Integer.parseInt(request.getParameter("cardId")));
+                OrdineDAO oDAO = new OrdineDAO();
+                if(oDAO.doInsert(o, p.getId(), carts)!=1)
+                    result = "L'ordine non è andato a buon fine!";
+                else {
+                    result = "Ordine avvenuto con successo!";
+                    cDAO.doDeleteByEmail(email);
                 }
             }
 

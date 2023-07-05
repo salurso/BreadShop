@@ -1,11 +1,20 @@
 package model;
 
 public class Pagamento {
+    private int id;
     private long number;
     private int cvv;
     private int expMonth;
     private int expYear;
     private String holder;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public long getNumber() {
         return number;

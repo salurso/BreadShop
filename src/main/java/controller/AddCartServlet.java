@@ -24,7 +24,6 @@ public class AddCartServlet extends HttpServlet {
         ProdottoDAO pDAO = new ProdottoDAO();
         Prodotto p = pDAO.doRetrieveById(id);
 
-
         ArrayList<Prodotto> products = new ArrayList<Prodotto>();
         products = (ArrayList<Prodotto>) pDAO.doRetrieveAll();
         request.setAttribute("product", products);

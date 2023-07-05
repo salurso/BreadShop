@@ -4,32 +4,37 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="./css/categoryAdmin.css?v=<%=new Random().nextInt()%>"/>
+    <link rel="stylesheet" type="text/css" href="./css/admin/categoryAdmin.css?v=<%=new Random().nextInt()%>"/>
     <%Categoria p = (Categoria) request.getAttribute("categories");%>
     <title>Categoria </title>
 </head>
 <body>
-<%@ include file="/WEB-INF/navbar/headerAdmin.jsp" %>
-<%--    <div class="category">--%>
-<%--        <form action="UpdateCategory" method="post">--%>
-<%--            <div class="box" id="category-info">--%>
-
-<%--                <label for="name">Nome: </label>--%>
-<%--                <input id="name" name="name" type="text" value="<%=p.getName()%>" maxlength="50">--%>
-
-<%--                <label for="description">Descrizione: </label>--%>
-<%--                <textarea name="description" id="description" style="height:200px" maxlength="200"><%=p.getDescription()%></textarea>--%>
-
-<%--                <input type="submit" name="action" value="AGGIORNA">--%>
-<%--                <input type="submit" name="action" value="ELIMINA">--%>
-<%--            </div>--%>
-<%--        </form>--%>
-<%--    </div>--%>
+<%@ include file="/WEB-INF/navbar/navbarAdmin.jsp" %>
+<div class="tabular--wrapper">
+    <div class="table-container">
+        <table id="categories1">
+            <thead>
+            <tr>
+                <th>NOME</th>
+                <th>DESCRIZIONE</th>
+                <th></th>
+            </tr>
+            </thead>
+            <br>
+            <tbody>
+            <tr>
+                <td><%=p.getName()%></td>
+                <td><%=p.getDescription()%></td>
+                <td><input class="btn_delete" type="submit" name="action" value="ELIMINA" onclick="return(confirmDelete())"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 
 <div class="category">
     <form action="UpdateCategory"  method="POST">
-
-        <h3 class="add_prod_title">Aggiungi Categoria</h3>
+        <h3 class="add_prod_title">Aggiorna Categoria</h3>
 
         <label for="name"> Nome: </label>
         <input id="name" name="name" type="text" value="<%=p.getName()%>" maxlength="50">
@@ -39,8 +44,8 @@
 
         <input class="btn_update" type="submit" name="action" value="AGGIORNA">
     </form>
-        <input class="btn_delete" type="submit" name="action" value="ELIMINA" onclick="confirmDelete()">
 </div>
+
 
 <script>
     function confirmDelete(){
@@ -51,6 +56,5 @@
         }
     }
 </script>
-
 </body>
 </html>

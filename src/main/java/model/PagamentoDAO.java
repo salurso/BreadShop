@@ -7,18 +7,19 @@ public class PagamentoDAO {
     public ArrayList<Pagamento> doRetriveByEmail(String email) {
 
         try (Connection con = ConPool.getConnection()) {
-            PreparedStatement ps = con.prepareStatement("SELECT p.* FROM MetodoDiPagamento p, associato a WHERE p.numero=a.numMetodo AND a.emailUtente=?");
+            PreparedStatement ps = con.prepareStatement("SELECT p.* FROM MetodoDiPagamento p, associato a WHERE p.id=a.idMetodo AND a.emailUtente=?");
             ps.setString(1, email);
             ResultSet rs = ps.executeQuery();
             ArrayList<Pagamento> creditCards = new ArrayList<>();
 
             while (rs.next()){
                 Pagamento p = new Pagamento();
-                p.setNumber(rs.getLong(1));
-                p.setCvv(Integer.parseInt(rs.getString(2)));
-                p.setExpMonth(Integer.parseInt(rs.getString(3)));
-                p.setExpYear(Integer.parseInt(rs.getString(4)));
-                p.setHolder(rs.getString(5));
+                p.setId(rs.getInt(1));
+                p.setNumber(rs.getLong(2));
+                p.setCvv(Integer.parseInt(rs.getString(3)));
+                p.setExpMonth(Integer.parseInt(rs.getString(4)));
+                p.setExpYear(Integer.parseInt(rs.getString(5)));
+                p.setHolder(rs.getString(6));
 
                 creditCards.add(p);
             }
@@ -29,20 +30,21 @@ public class PagamentoDAO {
         }
     }
 
-    public Pagamento doRetriveByNumber(long number) {
+    public Pagamento doRetriveById(int id) {
 
         try (Connection con = ConPool.getConnection()) {
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM MetodoDiPagamento WHERE numero=?");
-            ps.setLong(1, number);
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM MetodoDiPagamento WHERE id=?");
+            ps.setLong(1, id);
             ResultSet rs = ps.executeQuery();
             Pagamento p = new Pagamento();
 
             while (rs.next()){
-                p.setNumber(rs.getLong(1));
-                p.setCvv(Integer.parseInt(rs.getString(2)));
-                p.setExpMonth(Integer.parseInt(rs.getString(3)));
-                p.setExpYear(Integer.parseInt(rs.getString(4)));
-                p.setHolder(rs.getString(5));
+                p.setId(rs.getInt(1));
+                p.setNumber(rs.getLong(2));
+                p.setCvv(Integer.parseInt(rs.getString(3)));
+                p.setExpMonth(Integer.parseInt(rs.getString(4)));
+                p.setExpYear(Integer.parseInt(rs.getString(5)));
+                p.setHolder(rs.getString(6));
             }
             return p;
 
@@ -50,6 +52,29 @@ public class PagamentoDAO {
             throw new RuntimeException(s);
         }
     }
+
+//    public Pagamento doRetriveByNumber(long number) {
+//
+//        try (Connection con = ConPool.getConnection()) {
+//            PreparedStatement ps = con.prepareStatement("SELECT * FROM MetodoDiPagamento WHERE numero=?");
+//            ps.setLong(1, number);
+//            ResultSet rs = ps.executeQuery();
+//            Pagamento p = new Pagamento();
+//
+//            while (rs.next()){
+//                p.setId(rs.getInt(1));
+//                p.setNumber(rs.getLong(2));
+//                p.setCvv(Integer.parseInt(rs.getString(3)));
+//                p.setExpMonth(Integer.parseInt(rs.getString(4)));
+//                p.setExpYear(Integer.parseInt(rs.getString(5)));
+//                p.setHolder(rs.getString(6));
+//            }
+//            return p;
+//
+//        } catch (SQLException s) {
+//            throw new RuntimeException(s);
+//        }
+//    }
 
     public int doInsert(Pagamento p){
         try (Connection con = ConPool.getConnection()) {
@@ -62,7 +87,11 @@ public class PagamentoDAO {
             ps.setInt(4, p.getExpYear());
             ps.setString(5, p.getHolder());
 
-            return ps.executeUpdate();
+            ps.executeUpdate();
+
+            ResultSet rs = ps.getGeneratedKeys();
+            rs.next();
+            return rs.getInt(1);
         }
         catch (SQLException e) {
             throw new RuntimeException(e);

@@ -1,26 +1,17 @@
 <%@ page import="model.Ordine" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="model.Prodotto" %><%--
-  Created by IntelliJ IDEA.
-  User: Costantino
-  Date: 05/06/2023
-  Time: 17:11
-  To change this template use File | Settings | File Templates.
---%>
-
+<%@ page import="model.Prodotto" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.Random" %>
 
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="./css/headerAdmin.css?v=<%=new Random().nextInt()%>"/>
-    <link rel="stylesheet" type="text/css" href="./css/manageOrders.css?v=<%=new Random().nextInt()%>"/>
-
+    <link rel="stylesheet" type="text/css" href="./css/admin/manageOrders.css?v=<%=new Random().nextInt()%>"/>
     <title>Ordini</title>
 </head>
 <body>
 
-<%@ include file="/WEB-INF/navbar/headerAdmin.jsp" %>
+<%@ include file="/WEB-INF/navbar/navbarAdmin.jsp" %>
 
 <div>
     <div class="home_ord">

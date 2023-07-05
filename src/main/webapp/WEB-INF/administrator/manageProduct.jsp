@@ -10,12 +10,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-    <link rel="stylesheet" type="text/css" href="./css/headerAdmin.css?v=<%=new Random().nextInt()%>"/>
-    <link rel="stylesheet" type="text/css" href="./css/manageProductAdmin.css?v=<%=new Random().nextInt()%>"/>
+    <link rel="stylesheet" type="text/css" href="./css/admin/manageProductAdmin.css?v=<%=new Random().nextInt()%>"/>
     <title>Gestione prodotti</title>
 </head>
 <body>
-<%@ include file="/WEB-INF/navbar/headerAdmin.jsp" %>
+<%@ include file="/WEB-INF/navbar/navbarAdmin.jsp" %>
 
 <div class="home_ord">
 <div class="cards-products">

@@ -6,10 +6,10 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.Prodotto;
-import model.ProdottoDAO;
+import model.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 @WebServlet(name = "UpdateProduct", value = "/UpdateProduct")
 public class UpdateProduct extends HttpServlet {
@@ -17,6 +17,19 @@ public class UpdateProduct extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
         ProdottoDAO pDAO = new ProdottoDAO();
+
+        OrdineDAO oDAO = new OrdineDAO();
+        ArrayList<Ordine> orders = new ArrayList<>();
+        orders = (ArrayList<Ordine>) oDAO.doRetrieveAll();
+        request.setAttribute("orders", orders);
+        UtenteDAO uDAO = new UtenteDAO();
+        ArrayList<Utente> users = new ArrayList<>();
+        users = (ArrayList<Utente>) uDAO.doRetrieveNotAdmin(); //RESTITUISCE TUTTI GLI UTENTI NON ADMIN
+        request.setAttribute("users", users);
+        ArrayList<Utente> admin = new ArrayList<>();
+        admin = (ArrayList<Utente>) uDAO.doRetrieveAdmin(); //RESTITUISCE TUTTI GLI UTENTI CHE SONO ADMIN
+        request.setAttribute("admin", admin);
+
         if(action.equals("AGGIORNA")){
             Prodotto p = new Prodotto();
             p.setId(Integer.parseInt(request.getParameter("id")));

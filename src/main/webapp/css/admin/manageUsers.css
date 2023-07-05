@@ -8,7 +8,6 @@
     transition:.2s linear;
     outline: none;
     border:none;
-
 }
 
 body{
@@ -40,7 +39,7 @@ html::-webkit-scrollbar-thumb{
     display: flex;
     justify-content: center;
     align-items: center;
-    background:url(../images/sfondohome.jpg) no-repeat;
+    background:url(../../images/sfondohome.jpg) no-repeat;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -153,5 +152,16 @@ tfoot td{
     background-color: white;
     border: 2px solid brown;
     color: brown;
+    transition: all .2s linear;
+}
+
+.link-user-disabled{
+    text-decoration: none;
+    border-radius: 4px;
+    text-transform: uppercase;
+    padding: 5px 7px;
+    background-color: gray;
+    border: 2px solid gray;
+    color: #38271E;
     transition: all .2s linear;
 }
