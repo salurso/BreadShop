@@ -167,4 +167,15 @@ public class CarrelloDAO {
             throw new RuntimeException(s);
         }
     }
+
+    public int doDeleteByEmail(String email) {
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement("DELETE FROM Carrello WHERE emailUtente=?");
+            ps.setString(1, email);
+
+            return ps.executeUpdate();
+        } catch (SQLException s) {
+            throw new RuntimeException(s);
+        }
+    }
 }

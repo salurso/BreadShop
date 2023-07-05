@@ -1,12 +1,7 @@
 <%@ page import="model.Utente" %>
-<%@ page import="java.util.Random" %><%--
-  Created by IntelliJ IDEA.
-  User: andre
-  Date: 20/06/2023
-  Time: 09:54
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.util.Random" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
   <title>Navbar</title>

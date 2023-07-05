@@ -10,9 +10,9 @@ public class Prodotto {
     private String description;
     private String image;
     private String nameCategory;
+    private int quantity;
 
 //    private InputStream imageFile;
-
 
     public void setId(int id) {
         this.id = id;
@@ -36,6 +36,10 @@ public class Prodotto {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     //    public void setImageFile(InputStream image) {
@@ -64,6 +68,10 @@ public class Prodotto {
 
     public String getImage() {
         return image;
+    }
+
+    public int getQuantity() {
+        return quantity;
     }
 
     //    public InputStream getImageFile() {

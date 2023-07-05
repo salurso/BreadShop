@@ -67,15 +67,29 @@ public class OrderServlet extends HttpServlet {
 
             PagamentoDAO pDAO = new PagamentoDAO();
             String result = null;
-            if(pDAO.doInsert(p)==1){
+
+            if(pDAO.doRetriveByNumber(p.getNumber())!=null){
                 OrdineDAO oDAO = new OrdineDAO();
                 if(oDAO.doInsert(o, p.getNumber(), carts)!=1)
                     result = "L'ordine non è andato a buon fine!";
-                else
+                else {
                     result = "Ordine avvenuto con successo!";
+                    cDAO.doDeleteByEmail(email);
+                }
             }else{
-                result = "L'ordine non è andato a buon fine!";
+                if(pDAO.doInsert(p)==1){
+                    OrdineDAO oDAO = new OrdineDAO();
+                    if(oDAO.doInsert(o, p.getNumber(), carts)!=1)
+                        result = "L'ordine non è andato a buon fine!";
+                    else {
+                        result = "Ordine avvenuto con successo!";
+                        cDAO.doDeleteByEmail(email);
+                    }
+                }else{
+                    result = "L'ordine non è andato a buon fine!";
+                }
             }
+
             request.setAttribute("result", result);
             addres = "index.jsp";
         }
