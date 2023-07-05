@@ -17,6 +17,7 @@
     <li><a href="InitServlet?action=product">Prodotti</a></li>
     <li><a href="InitServlet?action=specialita">Specialità</a></li>
     <li><a href="InitServlet?action=contatti">Contatti</a></li>
+<%--    <li><a href="InitServlet?action=accounts"> Account</a></li>--%>
     <li><a href="CartServlet" ><i class="fa-solid fa-cart-shopping" style="color: #38271E;"></i></a></li>
 <%--    <li><a href="InitServlet?action=carts" ><i class="fa-solid fa-cart-shopping" style="color: #38271E;"></i></a></li>--%>
 
@@ -29,6 +30,7 @@
     <li class="has-children"><a class="action_btn"> Ciao <%=utente.getName().toUpperCase(java.util.Locale.ROOT)%><i class="fa fa-caret-down" aria-hidden="true"></i></a>
       <ul class="sub-menu">
         <li><a href="InitServlet?action=orders"> Ordini</a></li>
+<%--        <li><a href="InitServlet?action=accounts"> Account</a></li>--%>
         <li><a href="loginServlet?action=logout"> Logout </a></li>
       </ul>
     </li>
@@ -49,6 +51,7 @@
   <li><a href="InitServlet?action=specialita">Specialità</a></li>
   <li><a href="InitServlet?action=contatti">Contatti</a></li>
   <li><a href="InitServlet?action=orders">Ordini</a></li>
+<%--  <li><a href="InitServlet?action=accounts"> Account</a></li>--%>
   <li><a href="InitServlet?action=carts"><i class="fa-solid fa-cart-shopping" style="color: #38271E;"></i></a></li>
   <%
     if(utente!=null){

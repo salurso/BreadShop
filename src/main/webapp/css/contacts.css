@@ -51,6 +51,11 @@ body{
     font-weight: 500;
 }
 
+.form img{
+    width: 100%;
+    height: 645px;
+}
+
 .form{
     grid-area: form;
 }

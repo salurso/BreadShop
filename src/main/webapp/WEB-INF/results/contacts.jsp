@@ -35,14 +35,14 @@
 <%--</div>--%>
 <div class="contactUs">
     <div class="title">
-        <h2> Un po' di noi...</h2>
+        <h2> Un po' di noi</h2>
     </div>
     <div class="box">
 
         <div class="contact form">
 
             <div class="img">
-                <img src="./images/sfondoabout.jpg">
+                <img src="./images/aboutimg.jpg">
             </div>
 
         </div>

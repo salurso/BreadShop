@@ -57,7 +57,7 @@ thead{
 
 th{
     padding: 15px;
-    text-align: left;
+    text-align: center;
 }
 
 tbody{
@@ -158,12 +158,12 @@ input[type=text], textarea {
     padding: 1rem;
     background-color: brown;
     border: 2px solid  #E4E0BB;
-    color: #E4E0BB;
+    color: white;
     transition: all .2s linear;
 }
 
 .btn_delete:hover{
-    background-color: #E4E0BB;
+    background-color: white;
     border: 2px solid brown;
     color: brown;
     transition: all .2s linear;

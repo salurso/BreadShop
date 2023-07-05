@@ -30,11 +30,12 @@
 
     <div class="logo"><a href="HomeServletAdministrator?action=homeAdmin">Forneria Del Cilento</a></div>
     <ul class="links">
-        <li><a href="HomeServletAdministrator?action=users">Utenti</a></li>
         <li><a href="HomeServletAdministrator?action=add_product">Aggiungi Prodotti</a></li>
         <li><a href="HomeServletAdministrator?action=manage_product">Gestisci Prodotti</a></li>
         <li><a href="HomeServletAdministrator?action=manage_category">Categorie</a></li>
         <li><a href="HomeServletAdministrator?action=orders">Ordini</a></li>
+        <li><a href="HomeServletAdministrator?action=users">Utenti</a></li>
+
     </ul>
 
     <ul class="menu">
@@ -50,11 +51,12 @@
     </div>
     </div>
     <div class="dropdown_menu">
-        <li><a href="HomeServletAdministrator?action=users">Utenti</a></li>
         <li><a href="HomeServletAdministrator?action=add_product">Aggiungi Prodotti</a></li>
         <li><a href="HomeServletAdministrator?action=manage_product">Gestisci Prodotti</a></li>
         <li><a href="HomeServletAdministrator?action=manage_category">Categorie</a></li>
         <li><a href="HomeServletAdministrator?action=orders">Ordini</a></li>
+        <li><a href="HomeServletAdministrator?action=users">Utenti</a></li>
+
         <li><a href="InitServlet?action=login" class="action_btn"> Bentornato <%=utente.getName().toUpperCase(java.util.Locale.ROOT)%></a></li>
     </div>
 </header>
