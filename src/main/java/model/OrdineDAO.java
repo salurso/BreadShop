@@ -91,7 +91,7 @@ public class OrdineDAO {
         }
     }
 
-    public int doInsert(Ordine o, long number, ArrayList<Carrello> cards) {
+    public int doInsert(Ordine o, long number, ArrayList<Carrello> carts) {
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement("INSERT INTO ordine (data, totale, citta, via, num_civico, provincia, cap, telefono, emailUtente, numeroMetodo) VALUES (?,?,?,?,?,?,?,?,?,?)",
                     Statement.RETURN_GENERATED_KEYS);
@@ -114,7 +114,7 @@ public class OrdineDAO {
             rs.next();
             int auto_id = rs.getInt(1);
 
-            this.doInsertProduct(auto_id, cards);
+            this.doInsertProduct(auto_id, carts);
 
             return execute;
         }
@@ -123,10 +123,10 @@ public class OrdineDAO {
         }
     }
 
-    private void doInsertProduct(int id, ArrayList<Carrello> cards) {
+    private void doInsertProduct(int id, ArrayList<Carrello> carts) {
         try (Connection con = ConPool.getConnection()) {
 
-            for(Carrello c : cards) {
+            for(Carrello c : carts) {
                 PreparedStatement ps = con.prepareStatement("INSERT INTO appartiene (idOrdine, idProdotto, quantita, prezzo) VALUES (?,?,?,?)",
                         Statement.RETURN_GENERATED_KEYS);
 

@@ -38,10 +38,19 @@
         <textarea class="box" name="description" id="description" style="height:200px" maxlength="200"><%=p.getDescription()%></textarea>
 
         <input class="btn_update" type="submit" name="action" value="AGGIORNA">
-        <input class="btn_delete" type="submit" name="action" value="ELIMINA">
-
     </form>
+        <input class="btn_delete" type="submit" name="action" value="ELIMINA" onclick="confirmDelete()">
 </div>
+
+<script>
+    function confirmDelete(){
+        if(confirm("Sei sicuro di voler eliminare?\nRICORDA: verranno eliminati anche i prodotti appartententi a questa categoria!")){
+            window.location.href="UpdateCategory?action=ELIMINA&name=<%=p.getName()%>";
+        }else{
+            alert("eliminazione annullata");
+        }
+    }
+</script>
 
 </body>
 </html>

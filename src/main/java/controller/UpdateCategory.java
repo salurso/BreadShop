@@ -33,14 +33,12 @@ public class UpdateCategory extends HttpServlet {
         }
         if(action.equals("ELIMINA")){
             ProdottoDAO pDAO = new ProdottoDAO();
-            if(pDAO.doDeleteByCategory(c.getName())!=0){
-                if(cDAO.doDelete(c.getName())!=0){
-                    result = "Categoria eliminato!";
-                }
+            pDAO.doDeleteByCategory(c.getName());
+            if(cDAO.doDelete(c.getName())!=0){
+                result = "Categoria eliminato!";
             }else{
                 result = "Problema eliminazione!";
             }
-
         }
         if(action.equals("AGGIUNGI CATEGORIA")){
             c.setDescription(request.getParameter("description"));
