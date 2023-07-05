@@ -42,10 +42,10 @@
             <table>
                 <thead>
                 <tr>
-                    <th>Utente: <%=o.getEmail_user()%></th>
-                    <th>Data: <%= o.getDate() %></th>
-                    <th>Totale: €<%=o.getTotal()%> </th>
-                    <th>Indirizzo: <%= o.getVia() %></th>
+                    <th>UTENTE: <%=o.getEmail_user()%></th>
+                    <th>DATA: <%= o.getDate() %></th>
+                    <th>TOTALE: €<%=o.getTotal()%> </th>
+                    <th>INVIA A:<br><%=o.getVia()%>, <%=o.getHouse_number()%>, <%=o.getCity()%></th>
                     <th>ORDINE #<%=o.getId()%></th>
                 </tr>
                 </thead>
@@ -54,11 +54,14 @@
 
                 <tbody>
                 <tr>
+<%--                    <td><img class="ord-img" src="upload/<%=p.getImage()%>"></td>--%>
+<%--                    <td><%= p.getName() %></td>--%>
+<%--                    <td colspan="2"><%= p.getDescription()%></td>--%>
+<%--                    <td><%= p.getNameCategory()%></td>--%>
                     <td><img class="ord-img" src="upload/<%=p.getImage()%>"></td>
-                    <td></td>
                     <td><%= p.getName() %></td>
-                    <td><%= p.getDescription()%></td>
-                    <td><%= p.getNameCategory()%></td>
+                    <td colspan="2"><%= p.getDescription()%></td>
+                    <td><%= p.getPrice()%> x <%=p.getQuantity()%></td>
                 </tr>
                 </tbody>
                 <%

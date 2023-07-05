@@ -42,9 +42,6 @@ public class InitServlet extends HttpServlet {
             ArrayList<Ordine> orders = new ArrayList<>();
             orders = (ArrayList<Ordine>) oDAO.doRetrieveAll();
             request.setAttribute("orders", orders);
-            PagamentoDAO pDAO = new PagamentoDAO();
-            ArrayList<Pagamento> cards = pDAO.doRetriveByEmail(request.getParameter("email"));
-            request.setAttribute("cards", cards);
             RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/results/orders.jsp");
             ds.forward(request, response);
         }
