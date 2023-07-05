@@ -46,6 +46,10 @@ public class InitServlet extends HttpServlet {
             ds.forward(request, response);
         }
         if(action.equals("specialita")){
+            ProdottoDAO pDAO = new ProdottoDAO();
+            ArrayList<Prodotto> products = new ArrayList<Prodotto>();
+            products = (ArrayList<Prodotto>) pDAO.doRetrieveAll();
+            request.setAttribute("product", products);
             RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/results/specialita.jsp");
             ds.forward(request, response);
         }

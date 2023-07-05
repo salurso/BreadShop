@@ -10,22 +10,38 @@
 </head>
 <body>
 <%@ include file="/WEB-INF/navbar/headerAdmin.jsp" %>
-    <div class="category">
-        <form action="UpdateCategory" method="post">
-            <div class="box" id="category-info">
+<%--    <div class="category">--%>
+<%--        <form action="UpdateCategory" method="post">--%>
+<%--            <div class="box" id="category-info">--%>
 
-                <label for="name">nome: </label>
-                <input id="name" name="name" type="text" value="<%=p.getName()%>" maxlength="50">
+<%--                <label for="name">Nome: </label>--%>
+<%--                <input id="name" name="name" type="text" value="<%=p.getName()%>" maxlength="50">--%>
 
-                <label for="description">descrizione: </label>
-                <textarea name="description" id="description" style="height:200px" maxlength="200"><%=p.getDescription()%></textarea>
+<%--                <label for="description">Descrizione: </label>--%>
+<%--                <textarea name="description" id="description" style="height:200px" maxlength="200"><%=p.getDescription()%></textarea>--%>
 
-                <input type="submit" name="action" value="AGGIORNA">
-                <input type="submit" name="action" value="ELIMINA">
-            </div>
-        </form>
-    </div>
+<%--                <input type="submit" name="action" value="AGGIORNA">--%>
+<%--                <input type="submit" name="action" value="ELIMINA">--%>
+<%--            </div>--%>
+<%--        </form>--%>
+<%--    </div>--%>
 
+<div class="category">
+    <form action="UpdateCategory"  method="POST">
+
+        <h3 class="add_prod_title">Aggiungi Categoria</h3>
+
+        <label for="name"> Nome: </label>
+        <input id="name" name="name" type="text" value="<%=p.getName()%>" maxlength="50">
+
+        <label for="description">Descrizione: </label>
+        <textarea class="box" name="description" id="description" style="height:200px" maxlength="200"><%=p.getDescription()%></textarea>
+
+        <input class="btn_update" type="submit" name="action" value="AGGIORNA">
+        <input class="btn_delete" type="submit" name="action" value="ELIMINA">
+
+    </form>
+</div>
 
 </body>
 </html>

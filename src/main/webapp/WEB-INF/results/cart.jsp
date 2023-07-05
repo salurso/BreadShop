@@ -77,7 +77,9 @@
 //loggato senza prodotti
     %>
   <h1 class="main-title"> <%=utente.getName()%> il tuo carrello è vuoto!  </h1>
-    <%
+  <h3 class="main-title"> <button class="send_prod" onclick="location.href='InitServlet?action=product'"> Our Shop </button></h3>
+
+<%
     }
 //non loggato
     }else{
@@ -135,7 +137,12 @@
   //non loggato senza prodotti
     }else{
 %>
-  <h1 class="main-title"> Il tuo carrello è vuoto! </h1>
+
+    <h1 class="main-title"> Il tuo carrello è vuoto!</h1>
+      <h3 class="main-title"> <button class="send_prod" onclick="location.href='InitServlet?action=product'"> Our Shop </button></h3>
+<%--    <button class="send_prod" onclick="location.href='InitServlet?action=product'"> Our Shop </button>--%>
+
+
     <%
     }
   }

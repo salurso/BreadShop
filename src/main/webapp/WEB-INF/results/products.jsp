@@ -23,8 +23,10 @@
                 const value = $(this).attr('data-filter');
                 if(value == 'All'){
                     $('.product-container').show('1000');
+                    $('.title').show('1000');
                 }
                 else{
+                    $('.title').not('.'+value).hide('1000');
                     $('.product-container').not('.'+value).hide('1000');
                     $('.product-container').filter('.'+value).show('1000');
                 }
@@ -56,8 +58,10 @@
     <section>
         <ul>
             <li class="list active" data-filter="All">All</li>
-            <li class="list" data-filter="fresco">fresco</li>
-            <li class="list" data-filter="secco">secco</li>
+            <li class="list" data-filter="Fresco">Fresco</li>
+            <li class="list" data-filter="Secco">Secco</li>
+            <li class="list" data-filter="Rosticceria">Rosticceria</li>
+            <li class="list" data-filter="Pasticceria">Pasticceria</li>
         </ul>
     </section>
 

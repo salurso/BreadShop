@@ -170,12 +170,12 @@ section ul li.active{
 /*    gap:1rem;*/
 /*}*/
 .container .product-container {
-    gap: 1rem;
+    gap: 3rem;
     padding: 1rem;
     /*border: 1px solid red;*/
     display: flex; /*allinea gli elementi uno di fianco all'altro*/
     flex-wrap: wrap; /*se ho un elemento in più va daccapo*/
-    justify-content: center;
+    justify-content: flex-start;
 }
 /*.container{*/
 /*    width: 1000px;*/
