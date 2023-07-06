@@ -3,10 +3,7 @@ package controller;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
-import model.Ordine;
-import model.OrdineDAO;
-import model.Utente;
-import model.UtenteDAO;
+import model.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,6 +16,9 @@ public class LoginServlet extends HttpServlet {
         HttpSession session = request.getSession();
         UtenteDAO uDAO = new UtenteDAO();
         Utente utente = UtenteDAO.doRetrieveByEmailPassword(request.getParameter("email"), request.getParameter("password"));
+//        CategoriaDAO categoriaDAO = new CategoriaDAO();
+//        ArrayList<Categoria> categories = (ArrayList<Categoria>) categoriaDAO.doRetrieveAll();
+//        request.setAttribute("categories", categories);
         if (request.getParameter("action") == null) {
             if (utente == null && !uDAO.checkEmail(request.getParameter("email"))) {
                 check = "Indirizzo E-mail non trovato!";
@@ -31,6 +31,8 @@ public class LoginServlet extends HttpServlet {
                 RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/results/login.jsp");
                 rd.include(request, response);
             }else if(utente != null && utente.isAdmin()==false){
+
+
                 session.setAttribute("login", utente);
                 RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
                 rd.include(request, response);

@@ -3,6 +3,7 @@
 <%@ page import="java.util.Random" %>
 <%@ page import="model.Prodotto" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="model.Categoria" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
@@ -83,9 +84,32 @@
 </div>
 
 <%--HOME--%>
-<h2><%=request.getAttribute("result")%></h2>
+
+<%--<script type="text/javascript">--%>
+<%--    if(document.getElementById("alert").value!=null) {--%>
+<%--        alert(document.getElementById("alert").value)--%>
+<%--    }--%>
+<%--    alert("document.getElementById('alert').value");--%>
+<%--</script>--%>
+
+<%--    <%if(request.getAttribute("result")!=null){%>--%>
+<%--        <input type="hidden" id="alert" value="<%=request.getAttribute("result")%>">--%>
+<%--    <%}%>--%>
+
+<%--<div class="container">--%>
+<%--    <%if(request.getAttribute("result")!=null){%>--%>
+<%--    <div class="alert" id="alert">--%>
+<%--        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>--%>
+<%--        <%=request.getAttribute("result")%>--%>
+<%--    </div>--%>
+<%--    <%}%>--%>
+<%--</div>--%>
 <section class="home" id="home">
+
     <div class="container">
+
+
+
         <h3> Forneria Del Cilento </h3>
         <p> Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è
             considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo
@@ -109,48 +133,45 @@
     </div>
 </section>
 
-
-
 <%--PRODUCT--%>
 <div class="container-prod">
-    <h3 class="title"> I Nostri Prodotti</h3>
+    <h3 class="title"> Categorie </h3>
     <div class="product-container">
 
         <div class="product" data-name="p-1">
-            <img src="./images/pane1.webp" alt="fotopane">
-            <h3> Pane Bianco </h3>
-            <div class="price">€3.00/kg</div>
+            <img src="./images/sfondoabout.jpg" alt="Card 1">
+            <h3> Linea Fresco </h3>
         </div>
 
         <div class="product" data-name="p-2">
             <img src="./images/pane1.webp" alt="fotopane">
-            <h3> Rosticceria </h3>
+            <h3> Linea Secco </h3>
             <div class="price">€3.00/kg</div>
         </div>
 
         <div class="product" data-name="p-3">
             <img src="./images/semola.png" alt="fotopane">
-            <h3> Pane di Semola </h3>
+            <h3> Rosticceria </h3>
             <div class="price">€4.99/kg</div>
         </div>
 
         <div class="product" data-name="p-4">
             <img src="./images/semola.png" alt="fotopane">
-            <h3> Pane Integrale </h3>
+            <h3> Pasticceria </h3>
             <div class="price">€3.00/kg</div>
         </div>
 
         <div class="product" data-name="p-5">
             <img src="./images/biscottato.png" alt="fotopane">
-            <h3> Pane Biscottato </h3>
+            <h3> Speciali </h3>
             <div class="price">€3.00/kg</div>
         </div>
 
-        <div class="product" data-name="p-6">
-            <img src="./images/frese.png" alt="fotopane">
-            <h3> Specialità </h3>
-            <div class="price">€3.00/kg</div>
-        </div>
+<%--        <div class="product" data-name="p-6">--%>
+<%--            <img src="./images/frese.png" alt="fotopane">--%>
+<%--            <h3> Specialità </h3>--%>
+<%--            <div class="price">€3.00/kg</div>--%>
+<%--        </div>--%>
     </div>
 </div>
 
@@ -158,116 +179,44 @@
     <div class="preview" data-target="p-1">
         <i class="fas fa-times"></i>
         <img src="./images/pane1.webp" alt ="fotopane">
-        <h3> Pane Bianco </h3>
-        <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star-half-alt"></i>
-            <span>(250)</span>
-        </div>
+        <h3> Linea Fresco </h3>
         <p>Lorem Ipsum dolor sit amet consectetur adipisicing elit. Consequatr, dolorem</p>
-        <div class="price">€3.00/kg</div>
-        <div class="btn">
-            <a href="#" class="more">Learn More</a>
-        </div>
     </div>
 
     <div class="preview" data-target="p-2">
         <i class="fas fa-times"></i>
         <img src="./images/semola.png" alt ="fotopane">
-        <h3> Rosticceria </h3>
-        <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star-half-alt"></i>
-            <span>(250)</span>
-        </div>
+        <h3> Linea Secco </h3>
         <p>Lorem Ipsum dolor sit amet consectetur adipisicing elit. Consequatr, dolorem</p>
-        <div class="price">€3.00/kg</div>
-        <div class="btn">
-            <a href="#" class="more">Learn More</a>
-        </div>
     </div>
 
     <div class="preview" data-target="p-3">
         <i class="fas fa-times"></i>
         <img src="./images/semola.png" alt ="fotopane">
-        <h3> Pane di Semola </h3>
-        <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star-half-alt"></i>
-            <span>(250)</span>
-        </div>
+        <h3> Rosticceria </h3>
         <p>Lorem Ipsum dolor sit amet consectetur adipisicing elit. Consequatr, dolorem</p>
-        <div class="price">€3.00/kg</div>
-        <div class="btn">
-            <a href="#" class="more">Learn More</a>
-        </div>
     </div>
 
     <div class="preview" data-target="p-4">
         <i class="fas fa-times"></i>
         <img src="./images/paneBianco.png" alt ="fotopane">
-        <h3> Pane Integrale </h3>
-        <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star-half-alt"></i>
-            <span>(250)</span>
-        </div>
+        <h3> Pasticceria </h3>
         <p>Lorem Ipsum dolor sit amet consectetur adipisicing elit. Consequatr, dolorem</p>
-        <div class="price">€3.00/kg</div>
-        <div class="btn">
-            <a href="#" class="more">Learn More</a>
-        </div>
     </div>
 
     <div class="preview" data-target="p-5">
         <i class="fas fa-times"></i>
         <img src="./images/biscottato.png" alt ="fotopane">
-        <h3> Pane Biscottato </h3>
-        <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star-half-alt"></i>
-            <span>(250)</span>
-        </div>
+        <h3> Speciali </h3>
         <p>Lorem Ipsum dolor sit amet consectetur adipisicing elit. Consequatr, dolorem</p>
-        <div class="price">€3.00/kg</div>
-        <div class="btn">
-            <a href="WEB-INF/results/products.jsp" class="more">Learn More</a>
-        </div>
     </div>
 
-    <div class="preview" data-target="p-6">
-        <i class="fas fa-times"></i>
-        <img src="./images/frese.png" alt="fotopane">
-        <h3> Specialità </h3>
-        <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star-half-alt"></i>
-            <span>(250)</span>
-        </div>
-        <p>Lorem Ipsum dolor sit amet consectetur adipisicing elit. Consequatr, dolorem</p>
-        <div class="price">€3.00/kg</div>
-        <div class="btn">
-            <a href="#" class="more">Learn More</a>
-        </div>
-    </div>
+<%--    <div class="preview" data-target="p-6">--%>
+<%--        <i class="fas fa-times"></i>--%>
+<%--        <img src="./images/frese.png" alt="fotopane">--%>
+<%--        <h3> Specialità </h3>--%>
+<%--        <p>Lorem Ipsum dolor sit amet consectetur adipisicing elit. Consequatr, dolorem</p>--%>
+<%--    </div>--%>
 
 </div>
 

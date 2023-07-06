@@ -7,9 +7,11 @@ import model.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet(name = "InitServlet", value = "/InitServlet")
 public class InitServlet extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
@@ -36,7 +38,8 @@ public class InitServlet extends HttpServlet {
             ArrayList<Prodotto> products = new ArrayList<Prodotto>();
             products = (ArrayList<Prodotto>) pDAO.doRetrieveAll();
             request.setAttribute("product", products);
-            ArrayList<String> categories = pDAO.getCategories();
+            CategoriaDAO cDAO = new CategoriaDAO();
+            ArrayList<Categoria> categories = cDAO.doRetrieveAll();
             request.setAttribute("categories", categories);
             RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/results/products.jsp");
             ds.forward(request, response);

@@ -240,7 +240,7 @@ section ul li.active{
 
 @media only screen and (max-width: 381px) {
     .card {
-        width: -webkit-fill-available;
+        width: 100%;
         font-size: 90%;
     }
     .home_ord .container_ord h3 {

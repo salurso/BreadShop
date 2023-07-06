@@ -7,6 +7,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.mysql.cj.util.StringUtils" %>
 <%@ page import="java.time.temporal.UnsupportedTemporalTypeException" %>
+<%@ page import="model.Categoria" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -40,7 +41,7 @@
 
     <%
         ArrayList<Prodotto> products = (ArrayList<Prodotto>) request.getAttribute("product");
-        ArrayList<String> categories = (ArrayList<String>) request.getAttribute("categories");
+        ArrayList<Categoria> categories = (ArrayList<Categoria>) request.getAttribute("categories");
     %>
     <title>Prodotti</title>
 
@@ -58,23 +59,26 @@
     <section>
         <ul>
             <li class="list active" data-filter="All">All</li>
-            <li class="list" data-filter="Fresco">Fresco</li>
-            <li class="list" data-filter="Secco">Secco</li>
-            <li class="list" data-filter="Rosticceria">Rosticceria</li>
-            <li class="list" data-filter="Pasticceria">Pasticceria</li>
+            <%for(Categoria c : categories){%>
+                <li class="list" data-filter="<%=c.getName()%>"><%=c.getName()%></li>
+            <%}%>
+<%--            <li class="list" data-filter="Fresco">Fresco</li>--%>
+<%--            <li class="list" data-filter="Secco">Secco</li>--%>
+<%--            <li class="list" data-filter="Rosticceria">Rosticceria</li>--%>
+<%--            <li class="list" data-filter="Pasticceria">Pasticceria</li>--%>
         </ul>
     </section>
 
     <div class="container">
     <%
-    for(String category : categories){
+    for(Categoria c : categories){
     %>
-        <h3 class="title" align="center"><%=category%></h3>
-        <div class="product-container <%=category%>">
+        <h3 class="title" align="center"><%=c.getName()%></h3>
+        <div class="product-container <%=c.getName()%>">
 
         <%
         for(Prodotto p : products)
-            if(p.getNameCategory().equals(category)){
+            if(p.getNameCategory().equals(c.getName())){
         %>
 
             <div class="card">

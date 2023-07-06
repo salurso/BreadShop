@@ -180,13 +180,14 @@
       </div>
     </div>
     <input type="hidden" name="email" value="<%=utente.getEmail()%>"/>
-    <input type="submit" name="action" value="Acquista" class="submit-btn"/>
+    <input type="submit" name="action" value="Acquista"  onclick="showMessage()" class="submit-btn"/>
 
   </form>
 
 </div>
 
 <script>
+
   // // Creazione di un oggetto XMLHttpRequest
   // var xhr = new XMLHttpRequest();
   //

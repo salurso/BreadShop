@@ -6,6 +6,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import model.Categoria;
+import model.CategoriaDAO;
 import model.Prodotto;
 import model.ProdottoDAO;
 
@@ -20,6 +22,9 @@ public class HomeServlet extends HttpServlet {
         ArrayList<Prodotto> prodotti = new ArrayList<Prodotto>();
         prodotti = (ArrayList<Prodotto>) pDAO.doRetrieveAll();
         request.setAttribute("prodotti", prodotti);
+        CategoriaDAO cDAO = new CategoriaDAO();
+        ArrayList<Categoria> categories = (ArrayList<Categoria>) cDAO.doRetrieveAll();
+        request.setAttribute("categories", categories);
         RequestDispatcher ds = request.getRequestDispatcher("index.jsp");
         ds.forward(request, response);
     }

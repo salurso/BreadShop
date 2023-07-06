@@ -54,6 +54,27 @@ a{
 /*HOME*/
 
 
+
+
+.showalert{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.alert {
+    width:300px;
+    padding: 1rem 1rem;
+    margin:50px auto;
+    background-color: white;
+    color: #38271E;
+    border-radius: 10px;
+    border: 2px solid #A06028;
+    text-align:center;
+    font-weight: bold;
+    box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+}
+
 .home{
     min-height: 100vh;
     display: flex;
@@ -145,6 +166,8 @@ a{
     color: #38271E;
     font-size:1.5rem;
     margin: 0.5rem 0 1.1rem;
+    font-family:Poppins;
+
 }
 
 .btn_about{
@@ -170,6 +193,7 @@ a{
 
 /*PRODUCTS*/
 
+
 .container-prod{
     max-width: 1200px;
     margin:0 auto;
@@ -177,6 +201,7 @@ a{
 }
 
 .container-prod .title{
+    letter-spacing: 1px;
     font-size: 3.5rem;
     color:#38271E;
     margin-bottom: 3rem;
@@ -188,6 +213,7 @@ a{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap:2rem;
+
 }
 
 .container-prod .product-container .product{
@@ -195,6 +221,8 @@ a{
     padding: 3rem 2rem;
     background: #fff;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    outline: .1rem solid #ccc;
+    outline-offset: -1.5rem;
     cursor: pointer;
 }
 
@@ -450,11 +478,10 @@ a{
 }
 
 
-
 /*RESPONSIVE*/
 @media(max-width: 991px) {
     .home {
-        background-position: center;
+        background-position: left;
         justify-content: center;
         text-align: center;
     }
@@ -489,46 +516,3 @@ a{
         width: 100%;
     }
 }
-
-@media(max-width: 415px) {
-    .container-prod .product-container .product {
-        padding: 1rem 0.5rem;
-    }
-}
-
-@media(max-width: 300px){
-    .home .container h3 {
-        font-size: 3rem;
-    }
-
-    .home .container p {
-        font-size: 1rem;
-    }
-    .home_btn{
-        padding:4px 8px;
-        font-size: 16px;
-        background: #E4E0BB;
-    }
-    .about-text h2{
-        font-size: 1.8rem;
-        text-transform: uppercase;
-    }
-    .about-text p{
-        font-size:1rem;
-    }
-    .btn_about{
-        padding:4px 8px;
-        font-size: 17px;
-    }
-    .container-prod .title{
-        letter-spacing: 1px;
-        font-size: 2rem;
-        margin-bottom: 3rem;
-        text-align: center;
-        text-transform: uppercase;
-    }
-
-
-}
-
-

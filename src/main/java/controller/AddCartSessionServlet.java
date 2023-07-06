@@ -51,7 +51,8 @@ public class AddCartSessionServlet extends HttpServlet {
             ArrayList<Prodotto> products = new ArrayList<Prodotto>();
             products = (ArrayList<Prodotto>) pDAO.doRetrieveAll();
             request.setAttribute("product", products);
-            ArrayList<String> categories = pDAO.getCategories();
+            CategoriaDAO catDAO = new CategoriaDAO();
+            ArrayList<Categoria> categories = catDAO.doRetrieveAll();
             request.setAttribute("categories", categories);
             session.setAttribute("carts", carts);
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/results/products.jsp");
