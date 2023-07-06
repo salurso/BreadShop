@@ -185,5 +185,27 @@
   </form>
 
 </div>
+
+<script>
+  // // Creazione di un oggetto XMLHttpRequest
+  // var xhr = new XMLHttpRequest();
+  //
+  // // Definizione della funzione di callback da eseguire quando la richiesta viene completata
+  // xhr.onreadystatechange = function() {
+  //   if (xhr.readyState === 4 && xhr.status === 200) {
+  //     // Elabora la risposta del server
+  //     var response = xhr.responseText;
+  //     console.log(response);
+  //   }
+  // };
+  //
+  // // Configurazione della richiesta
+  // xhr.open("GET", "http://tuoserver.com/api/dati", true);
+  //
+  // // Invio della richiesta
+  // xhr.send();
+
+</script>
+
 </body>
 </html>

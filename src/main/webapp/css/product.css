@@ -57,11 +57,11 @@ body{
 section{
     padding: 20px;
     width: 100%;
-    /*margin: 40px auto;*/
 }
 
 section ul{
-    display: flex;
+    display: flex; /*allinea gli elementi uno di fianco all'altro*/
+    flex-wrap: wrap; /*se ho un elemento in più va daccapo*/
     margin-bottom: 10px;
     align-items: center;
     justify-content: center;
@@ -102,13 +102,13 @@ section ul li.active{
     object-fit: cover;
 }
 
-
 .buttons {
-    display: inline-block;
+    /*display: inline-block;*/
     gap: 1.5rem;
     margin-top: 10px;
     justify-content: center;
     text-align: center;
+    display: flex;
 }
 
 .buttons a{
@@ -175,7 +175,7 @@ section ul li.active{
     /*border: 1px solid red;*/
     display: flex; /*allinea gli elementi uno di fianco all'altro*/
     flex-wrap: wrap; /*se ho un elemento in più va daccapo*/
-    justify-content: flex-start;
+    justify-content: center;
 }
 /*.container{*/
 /*    width: 1000px;*/
@@ -193,11 +193,96 @@ section ul li.active{
 .card{
     position: relative;
     /*left: -6%;*/
-    width: 300px;
+    /*width: 300px;*/
+    width: 17%;
     height: 370px;
     transition: 0.3s ease-out;
     box-shadow: 0 3px 15px rgba(0,0,0,0.7);
 }
+
+@media only screen and (max-width: 1500px) {
+    .card {
+        width: 18%;
+        margin: 6px 0;
+        height: 300px;
+    }
+
+    .card .content {
+        height: 80px;
+    }
+}
+
+@media only screen and (max-width: 1231px) {
+    .card {
+        width: 21%;
+        margin: 6px 0;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .card {
+        width: 21%;
+        margin: 6px 0;
+    }
+    .buttons {
+        /*display: inline-block;*/
+        gap: 1.5rem;
+        margin-top: 10px;
+        justify-content: center;
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+@media only screen and (max-width: 931px) {
+    .card {
+        width: 29%;
+        margin: 6px 0;
+    }
+}
+
+@media only screen and (max-width: 770px) {
+    .card {
+        width: 28%;
+        margin: 6px 0;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .card {
+        width: 46%;
+        margin: 6px 0;
+    }
+}
+
+@media only screen and (max-width: 631px) {
+    .card {
+        width: 45%;
+    }
+}
+@media only screen and (max-width: 551px) {
+    .card {
+        width: 44%;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .card {
+        width: -webkit-fill-available;
+    }
+    .home_ord .container_ord h3 {
+        font-size: 300%;
+    }
+}
+
+@media only screen and (max-width: 282px) {
+    .home_ord .container_ord h3 {
+        font-size: 250%;
+    }
+}
+
+
 
 .card .imgbox{
     position: relative;
