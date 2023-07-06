@@ -99,10 +99,10 @@
         </div>
 
         <div class="content-2">
-            <div class="recent-payments">
+            <div class="recent-orders">
 
                 <div class="title">
-                    <h2> Ordini </h2>
+                    <h2> Ordini Recenti </h2>
                     <a href="HomeServletAdministrator?action=orders" class="action_btn"> View All</a>
                 </div>
 
@@ -135,9 +135,9 @@
 
             </div>
 
-            <div class="new-students">
+            <div class="new-users">
                 <div class="title">
-                    <h2>Utenti</h2>
+                    <h2>Nuovi Utenti</h2>
                     <a href="HomeServletAdministrator?action=users" class="action_btn"> View All</a>
                 </div>
                 <table>

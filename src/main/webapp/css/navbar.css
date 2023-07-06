@@ -133,6 +133,7 @@ ul{
 
 /*DROPDOWN MENU */
 .dropdown_menu{
+
     display:none ;
     /*position: absolute;*/
     right: 0;
@@ -149,7 +150,8 @@ ul{
 }
 
 .dropdown_menu.open{
-    height: 250px;
+    text-transform: uppercase;
+    height: 40%;
     z-index: 1000;
 }
 
@@ -161,7 +163,7 @@ ul{
 }
 
 .dropdown_menu .action_btn {
-    width: 100%;
+    width: 50%;
     display: flex;
     justify-content: center;
 }
@@ -169,6 +171,8 @@ ul{
 
 
 /*RESPONSIVE*/
+
+
 @media(max-width: 992px){
     .header .links,
     .header .action_btn{

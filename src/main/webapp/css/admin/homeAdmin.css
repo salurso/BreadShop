@@ -155,7 +155,7 @@ th, td{
     padding: 20px 15px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
 }
 
@@ -258,7 +258,7 @@ th, td{
     flex-wrap: wrap;
 }
 
-.container .content .content-2 .recent-payments{
+.container .content .content-2 .recent-orders{
     min-height: 50vh;
     flex: 5;
     background: white;
@@ -267,10 +267,10 @@ th, td{
     display: flex;
     flex-direction: column;
     max-height: 200px;
-    overflow-y: scroll;
+    /*overflow-y: scroll;*/
 }
 
-.container .content .content-2 .new-students{
+.container .content .content-2 .new-users{
     flex: 2;
     background: white;
     min-height: 50vh;
@@ -279,7 +279,7 @@ th, td{
     display: flex;
     flex-direction: column;
     max-height: 150px;
-    overflow-y: scroll;
+    /*overflow-y: scroll;*/
 }
 
 .alert {
@@ -314,45 +314,51 @@ th, td{
 
 /*MEDIA QUERY RESPONSIVE */
 
-/*@media screen and(max-width: 1050px){*/
-/*    .side-menu li{*/
-/*        font-size: 18px;*/
-/*    }*/
-/*}*/
+@media screen and(max-width: 1050px){
+    .side-menu li{
+        font-size: 18px;
+    }
+}
 
-/*@media screen and(max-width: 940px){*/
+@media screen and(max-width: 940px){
+    .side-menu{
+        align-items: center;
+        font-size: 12px;
+    }
+    .brand-name h1{
+        font-size: 8px;
+    }
+    .container .content .cards{
+        justify-content: center;
+    }
+    .side-menu li{
+        width: 30px;
+        height: 30px;
+    }
+
+}
+
+/*@media screen and(max-width: 650px){*/
 /*    .side-menu{*/
-/*        align-items: center;*/
-/*        font-size: 12px;*/
-/*    }*/
-/*    .brand-name h1{*/
-/*        font-size: 8px;*/
-/*    }*/
-/*    .container .content .cards{*/
-/*        justify-content: center;*/
-/*    }*/
-/*    .side-menu li{*/
-/*        width: 30px;*/
-/*        height: 30px;*/
-/*    }*/
-
-/*}*/
-
-/*@media screen and(max-width: 536px){*/
-/*    .brand-name h1{*/
-/*        font-size: 8px;*/
-/*    }*/
-/*    .container .content .cards{*/
-/*      justify-content: center;*/
-/*    }*/
-/*    .side-menu li{*/
-/*        width: 30px;*/
-/*        height: 30px;*/
-/*    }*/
-
-/*    .container .content .content-2 .recent-payments table th:nth-child(2),*/
-/*    .container .content .content-2 .recent-payments table td:nth-child(2){*/
 /*        display: none;*/
 /*    }*/
 /*}*/
+
+@media screen and(max-width: 536px){
+    .brand-name h1{
+        font-size: 8px;
+    }
+    .side-menu li{
+        width: 30px;
+        height: 30px;
+    }
+    .container .content .cards{
+        justify-content: center;
+    }
+
+    .container .content .content-2 .recent-orders table th:nth-child(2),
+    .container .content .content-2 .recent-orders table td:nth-child(2){
+        display: none;
+    }
+}
 

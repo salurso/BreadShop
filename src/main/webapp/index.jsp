@@ -71,6 +71,7 @@
     <li><a href="InitServlet?action=contatti">Contatti</a></li>
 <%--    <li><a href="InitServlet?action=accounts"> Account</a></li>--%>
     <li><a href="InitServlet?action=orders">Ordini</a></li>
+    <li><a href="loginServlet?action=logout"> Logout </a></li>
     <li><a href="CartServlet"><i class="fa-solid fa-cart-shopping" style="color: #38271E;"></i></a></li>
     <%
         if(utente!=null){
@@ -103,7 +104,7 @@
         <h2> Qualità e Tradizione</h2>
         <p>La Forneria del Cilento nasce ad Agropoli, all'interno del Parco Nazionale, con l'intenzione e la volontà di esaltare ogni giorno i prodotti ed i sapori autentici di una terra ricca di storia e tradizioni. </p>
         <p> Con la passione nella cura e nella lavorazione delle materie prime, con la continua ricerca delle ricette migliori per la soddisfazione quotidiana dei clienti, con la gentilezza e la disponibilità che li contraddistinguono,</p>
-        <p>Simone e Marielena vi aspettano nel loro laboratorio artigianale per poter condividere con voi i sapori genuini del Cilento.</p>
+        <p>Simone e Marielena vi aspettano nel loro laboratorio artigianale per poter condividere con voi i sapori genuini del Cilento.</p>
         <a href="#" class="btn_about"> Learn More</a>
     </div>
 </section>

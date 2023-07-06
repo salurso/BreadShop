@@ -144,11 +144,6 @@ img{
     color: #E4E0BB;
 }
 
-/*.quantity:hover{*/
-/*    background-color: #E4E0BB;*/
-/*    color: #A0602B;*/
-/*}*/
-
 .add-cart-btn {
     background-color: #A0602B;
     border: 2px solid #A0602B;
@@ -164,6 +159,7 @@ img{
     .product-div{
         grid-template-columns: 100%;
     }
+
     .product-div-right{
         text-align: center;
     }
@@ -175,6 +171,8 @@ img{
     }
 }
 
+
+
 @media screen and(max-width: 400px){
     .btn-groups button{
         width: 100%;
@@ -182,3 +180,8 @@ img{
     }
 }
 
+@media screen and (max-width: 992px){
+    .product-div{
+
+    }
+}

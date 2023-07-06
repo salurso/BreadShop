@@ -51,6 +51,7 @@
   <li><a href="InitServlet?action=specialita">Specialità</a></li>
   <li><a href="InitServlet?action=contatti">Contatti</a></li>
   <li><a href="InitServlet?action=orders">Ordini</a></li>
+  <li><a href="loginServlet?action=logout"> Logout </a></li>
 <%--  <li><a href="InitServlet?action=accounts"> Account</a></li>--%>
   <li><a href="InitServlet?action=carts"><i class="fa-solid fa-cart-shopping" style="color: #38271E;"></i></a></li>
   <%
