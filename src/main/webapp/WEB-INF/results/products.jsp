@@ -118,5 +118,17 @@
     </div>
 
 <%@ include file="/WEB-INF/navbar/footer.jsp" %>
+
+<%--<script>--%>
+<%--    function addCart(){--%>
+<%--        var form = document.getElementById("");--%>
+<%--        var nome = form.querySelector('.nome').value;--%>
+<%--        var email = form.querySelector('.email').value;--%>
+<%--        var xhr = new XMLHttpRequest();--%>
+<%--        xhr.open("POST", "AddCartServlet", true);--%>
+<%--        xhr.send();--%>
+<%--    }--%>
+<%--</script>--%>
+
 </body>
 </html>

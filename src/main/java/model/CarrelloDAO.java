@@ -101,7 +101,7 @@ public class CarrelloDAO {
         }
     }
 
-    private int getQuantity(String email, int id){
+    public int getQuantity(String email, int id){
         try (Connection con = ConPool.getConnection()) {
 
             PreparedStatement ps = con.prepareStatement("SELECT quantita FROM Carrello WHERE emailUtente=? AND idProdotto=?");
@@ -145,22 +145,21 @@ public class CarrelloDAO {
         }
     }
 
-    public int addQuantity(int id, String email){
+    public int changeQuantity(int id, String email, int quantity){
         try (Connection con = ConPool.getConnection()) {
 
-            PreparedStatement ps = con.prepareStatement("SELECT quantita FROM Carrello WHERE emailUtente=? AND idProdotto=?");
-            ps.setInt(1, id);
+//            PreparedStatement ps = con.prepareStatement("SELECT quantita FROM Carrello WHERE emailUtente=? AND idProdotto=?");
+//            ps.setInt(1, id);
+//            ps.setString(2, email);
+//            ResultSet rs = ps.executeQuery();
+//            Carrello c = new Carrello();
+//            rs.next();
+//            c.setQuantity(rs.getInt(1));
+//            (c.getQuantity()+1)
+            PreparedStatement ps = con.prepareStatement("UPDATE Carrello SET quantita=? WHERE emailUtente=? AND idProdotto=?");
+            ps.setInt(1, quantity);
             ps.setString(2, email);
-            ResultSet rs = ps.executeQuery();
-            Carrello c = new Carrello();
-            rs.next();
-            c.setQuantity(rs.getInt(1));
-
-
-            PreparedStatement ps1 = con.prepareStatement("UPDATE Carrello SET quantita=? WHERE emailUtente=? AND idProdotto=?");
-            ps1.setInt(1, (c.getQuantity()+1));
-            ps1.setString(2, email);
-            ps1.setInt(3, id);
+            ps.setInt(3, id);
 
             return ps.executeUpdate();
         } catch (SQLException s) {

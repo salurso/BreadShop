@@ -152,13 +152,14 @@
                     <img class="ord-img" src="upload/<%=p.getImage()%>">
                     <div>
                       <p><%=p.getName()%></p>
-                      <small><%=p.getPrice()%></small>
-                      <a class="link-user" href="ManageCart?action=removeProduct&id=<%=p.getId()%>&email=<%=utente.getEmail()%>">Remove</a>
+                      <small id="price<%=p.getId()%>"><%=p.getPrice()%></small>
+                      <a class="link-user" onclick="remove(<%=p.getId()%>)">Rimuovi</a>
+<%--                      <a class="link-user" href="ManageCart?action=removeProduct&id=<%=p.getId()%>&email=<%=utente.getEmail()%>">Rimuovi</a>--%>
                       <%total+=(p.getPrice()*c.getQuantity());%>
                     </div>
                   </div>
                 </td>
-                <td><input type="number" name="quantity" min=1 value="<%=c.getQuantity()%>" onchange="location.href='ManageCart?action=addQuantity&id=<%=p.getId()%>&email=<%=utente.getEmail()%>'"></td>
+                <td><input type="number" id="num_<%=p.getId()%>" name="quantity" min=1 value="<%=c.getQuantity()%>" onchange="changeQuantity('<%=p.getId()%>')"></td>
                 <td><%=p.getPrice()*c.getQuantity()%></td>
               </tr>
               <%
@@ -171,7 +172,7 @@
               <table>
                 <tr>
                   <td> Total </td>
-                  <td><input type="text" name="total" value="<%=total%>" readonly/></td>
+                  <td><input type="text" name="total" id="total" value="<%=total%>" readonly/></td>
                 </tr>
               </table>
             </div>
@@ -179,33 +180,53 @@
         </div>
       </div>
     </div>
-    <input type="hidden" name="email" value="<%=utente.getEmail()%>"/>
-    <input type="submit" name="action" value="Acquista"  onclick="showMessage()" class="submit-btn"/>
-
+    <input type="hidden" id="email" name="email" value="<%=utente.getEmail()%>"/>
+    <%if(total==0){
+    %>
+    <a href="InitServlet?action=product">RITORNA AI PRODOTTI</a>
+    <%
+      }else{
+    %>
+    <input type="submit" name="action" value="Acquista" class="submit-btn"/>
+    <%}%>
   </form>
 
 </div>
 
 <script>
+  function changeQuantity(id){
+    var email = document.getElementById("email").value;
+    var inputElement = document.getElementById('num_' + id); //elemento che contiene la quantità
+    var quantity = inputElement.value;
 
-  // // Creazione di un oggetto XMLHttpRequest
-  // var xhr = new XMLHttpRequest();
-  //
-  // // Definizione della funzione di callback da eseguire quando la richiesta viene completata
-  // xhr.onreadystatechange = function() {
-  //   if (xhr.readyState === 4 && xhr.status === 200) {
-  //     // Elabora la risposta del server
-  //     var response = xhr.responseText;
-  //     console.log(response);
-  //   }
-  // };
-  //
-  // // Configurazione della richiesta
-  // xhr.open("GET", "http://tuoserver.com/api/dati", true);
-  //
-  // // Invio della richiesta
-  // xhr.send();
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "ManageCart", true); //richiesta asincrona
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //necessario nella post, non indispensabile nel get
 
+    var params = "action=changeQuantity&id=" + encodeURIComponent(id) +
+            "&email=" + encodeURIComponent(email) +
+            "&quantity=" + encodeURIComponent(quantity);
+
+    xhr.send(params);
+    setTimeout(function() {
+      location.reload();
+    }, 100);
+  }
+
+  function remove(id){
+    var email = document.getElementById("email").value;
+    var xhr = new XMLHttpRequest();
+
+    xhr.open("POST", "ManageCart", true); //richiesta asincrona
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //necessario nella post, non indispensabile nel get
+
+    var params = "action=removeProduct&id=" + encodeURIComponent(id) +
+                 "&email=" + encodeURIComponent(email);
+    xhr.send(params);
+    setTimeout(function() {
+      location.reload();
+    }, 100);
+  }
 </script>
 
 </body>

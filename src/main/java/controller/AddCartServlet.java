@@ -16,6 +16,7 @@ import java.util.ArrayList;
 public class AddCartServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         int id = Integer.parseInt(request.getParameter("id"));
         String email = request.getParameter("email");
         int quantity = Integer.parseInt(request.getParameter("quantity"));

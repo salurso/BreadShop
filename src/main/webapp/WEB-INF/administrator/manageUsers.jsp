@@ -1,6 +1,4 @@
-<%@ page import="model.Ordine" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="model.Prodotto" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.Random" %>
 
@@ -23,8 +21,6 @@
         ArrayList<Utente> users = (ArrayList<Utente>) request.getAttribute("users");
 
       %>
-
-      <%--            <h2>Ordini di: <%=o.getEmail_user()%></h2>--%>
       <table>
         <thead>
         <tr>
@@ -39,55 +35,66 @@
         </thead>
         <br>
         <% for(Utente u : users){ %>
-<%--        <% for(Utente u : dataArray) %>--%>
         <tbody>
         <tr>
           <td><%=u.getName()%></td>
           <td><%=u.getSurname()%></td>
-          <td class="emailUser" value="<%=u.getEmail()%>"><%=u.getEmail()%></td>
+          <td class="emailUser" id="<%=u.getEmail()%>"><%=u.getEmail()%></td>
           <td class="isAdmin"><%=u.isAdmin()%></td>
           <%if(utente.getEmail().equals(u.getEmail())){%>
-            <td><button class="btn-user"><a class="link-user-disabled">Rendi Amministratore</a></button></td>
-            <td><button class="btn-user"><a class="link-user-disabled">Rimuovi Amministratore</a></button></td>
+          <td><button class="btn-user"><a class="link-user-disabled">Rendi Amministratore</a></button></td>
+          <td><button class="btn-user"><a class="link-user-disabled">Rimuovi Amministratore</a></button></td>
           <%}else{%>
-          <td><button class="btn-user" onclick="addAdmin()"><a class="link-user-rendi" value="<%=u.getEmail()%>" onclick="addAdmin()" id="btn-add">Rendi Amministratore</a></button></td>
-          <td><button class="btn-user"><a class="link-user-remove" href="ManageAdministrator?action=removeAdmin<%=u.getEmail()%>">Rimuovi Amministratore</a></button></td>
+          <td><button class="btn-user"><a class="link-user-rendi" onclick="addAdmin('<%=u.getEmail()%>')" id="btn-add">Rendi Amministratore</a></button></td>
+          <td><button class="btn-user"><a class="link-user-remove" onclick="removeAdmin('<%=u.getEmail()%>')">Rimuovi Amministratore</a></button></td>
           <%}%>
-<%--          href="ManageAdministrator?action=addAdmin<%=u.getEmail()%>--%>
         </tr>
 
         </tbody>
         <%
           }   %>
       </table>
-        <p id="bodyResponse"></p>
+      <p id="bodyResponse"></p>
     </div>
   </div>
 </div>
 
 <script>
-  function addAdmin(){
+
+  function addAdmin(email){
     var xhr = new XMLHttpRequest();
-    var elements = document.getElementsByClassName("myInput");
     xhr.onreadystatechange = function (){
       if(xhr.readyState == 4 && xhr.status == 200){
-        for (var i = 0; i < elements.length; i++) {
-          elements[i].innerHTML = xhr.responseText;
+        var users = document.getElementsByClassName("isAdmin");
+        var object = JSON.parse(xhr.responseText);
+        for (var i = 0; i < users.length; i++) {
+          var user = users[i];
+          var valueAdmin = object[i].admin;
+          user.innerHTML = valueAdmin;
         }
       }
     };
-    for (var i = 0; i < elements.length; i++) {
-      xhr.open("GET", "ManageAdministrator?action=addAdmin" + elements[i].value, true);
-      xhr.send();
-    }
-    // document.getElementById("emailUser").value
+    xhr.open("POST", "ManageAdministrator?action=addAdmin" + email, true);
+    xhr.send();
   }
 
-  // Supponiamo di avere una variabile "jsonResponse" contenente il JSON ricevuto dal server
-//  var jsonResponse = '[{"dato":"Dato 1"}, {"dato":"Dato 2"}]';
+  function removeAdmin(email){
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function (){
+      if(xhr.readyState == 4 && xhr.status == 200){
 
-  // Utilizza JSON.parse() per analizzare la stringa JSON in un oggetto JavaScript
-//  var dataArray = JSON.parse(jsonResponse);
+        var users = document.getElementsByClassName("isAdmin");
+        var object = JSON.parse(xhr.responseText);
+        for (var i = 0; i < users.length; i++) {
+          var user = users[i];
+          var valueAdmin = object[i].admin;
+          user.innerHTML = valueAdmin;
+        }
+      }
+    };
+    xhr.open("POST", "ManageAdministrator?action=removeAdmin" + email, true);
+    xhr.send();
+  }
 </script>
 
 </body>

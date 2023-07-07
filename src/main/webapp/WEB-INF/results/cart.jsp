@@ -44,13 +44,13 @@
               <img class="ord-img" src="upload/<%=p.getImage()%>">
               <div>
                 <p><%=p.getName()%></p>
-                <small><%=p.getPrice()%></small>
-                <a class="link-user" href="ManageCart?action=removeProduct&id=<%=p.getId()%>&email=<%=utente.getEmail()%>">Remove</a>
+                <small id="price<%=p.getId()%>"><%=p.getPrice()%></small>
+                <a class="link-user"  href="ManageCart?action=removeProduct&id=<%=p.getId()%>&email=<%=utente.getEmail()%>">Rimuovi</a>
                 <%total+=(p.getPrice()*c.getQuantity());%>
               </div>
             </div>
           </td>
-          <td><input type="number" name="quantity" min=1  value="<%=c.getQuantity()%>" onchange="location.href='ManageCart?action=addQuantity&id=<%=p.getId()%>&email=<%=utente.getEmail()%>'"></td>
+          <td><input type="number" id="num_<%=p.getId()%>" name="quantity" min=1 value="<%=c.getQuantity()%>" onchange="changeQuantity('<%=p.getId()%>')"></td>
           <td><%=p.getPrice()*c.getQuantity()%></td>
         </tr>
         <%
@@ -58,7 +58,7 @@
           }
         %>
       </table>
-
+      <input type="hidden" id="email" value="<%=utente.getEmail()%>">
       <div class="total-price">
         <table>
           <tr>
@@ -108,12 +108,13 @@
               <div>
                 <p><%=p.getName()%></p>
                 <small><%=p.getPrice()%></small>
-                <a class="link-user" href="ManageCart?action=removeProductSession&id=<%=p.getId()%>">Remove</a>
+                <a class="link-user" href="ManageCart?action=removeProductSession&id=<%=p.getId()%>">Rimuovi</a>
                 <%total+=(p.getPrice()*c.getQuantity());%>
               </div>
             </div>
           </td>
-          <td><input type="number" name="quantity" min=1  value="<%=c.getQuantity()%>" onchange="location.href='ManageCart?action=addQuantity&id=<%=p.getId()%>'"></td>
+          <td><input type="number" id="num_<%=p.getId()%>" name="quantity" min=1 value="<%=c.getQuantity()%>" onchange="changeQuantitySession('<%=p.getId()%>')"></td>
+<%--          <td><input type="number" name="quantity" min=1  value="<%=c.getQuantity()%>" onchange="location.href='ManageCart?action=addQuantity&id=<%=p.getId()%>'"></td>--%>
           <td><%=p.getPrice()*c.getQuantity()%></td>
         </tr>
         <%
@@ -149,4 +150,60 @@
   }
   %>
 </body>
+
+<script>
+  function changeQuantity(id){
+    var email = document.getElementById("email").value;
+    var inputElement = document.getElementById('num_' + id);
+    var quantity = inputElement.value;
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "ManageCart", true); //richiesta asincrona
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //necessario nella post, non indispensabile nel get
+
+    var params = "action=changeQuantity&id=" + encodeURIComponent(id) +
+            "&email=" + encodeURIComponent(email) +
+            "&quantity=" + encodeURIComponent(quantity);
+
+    xhr.send(params);
+    setTimeout(function() {
+      location.reload();
+    }, 100);
+  }
+
+  function changeQuantitySession(id){
+    // var email = document.getElementById("email").value;
+    var inputElement = document.getElementById('num_' + id);
+    var quantity = inputElement.value;
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "ManageCart", true); //richiesta asincrona
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //necessario nella post, non indispensabile nel get
+
+    var params = "action=changeQuantity&id=" + encodeURIComponent(id) +
+            "&email=" + encodeURIComponent(email) +
+            "&quantity=" + encodeURIComponent(quantity);
+
+    xhr.send(params);
+    setTimeout(function() {
+      location.reload();
+    }, 100);
+  }
+
+  function remove(id){
+    var email = document.getElementById("email").value;
+    var xhr = new XMLHttpRequest();
+
+    xhr.open("POST", "ManageCart", true); //richiesta asincrona
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //necessario nella post, non indispensabile nel get
+
+    var params = "action=removeProduct&id=" + encodeURIComponent(id) +
+            "&email=" + encodeURIComponent(email);
+    xhr.send(params);
+    setTimeout(function() {
+      location.reload();
+    }, 100);
+  }
+</script>
+
 </html>
