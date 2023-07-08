@@ -29,8 +29,7 @@ public class RegistrationServlet extends HttpServlet {
 
         if (UtenteDAO.checkEmail(request.getParameter("email"))) {
             request.setAttribute("check", "E-mail già presente!");
-            RequestDispatcher dispatcher =
-                    request.getRequestDispatcher("/WEB-INF/results/register.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/results/register.jsp");
             dispatcher.forward(request, response);
         } else {
             UtenteDAO.doRegistration(utente);
@@ -40,21 +39,5 @@ public class RegistrationServlet extends HttpServlet {
         }
     }
 }
-//        String regex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
-//        Pattern pattern = Pattern.compile(regex);
-//        Matcher matcher = pattern.matcher(email);
-//        if(!matcher.matches()){
-//            request.setAttribute("check","invalidEmail");
-//            RequestDispatcher dispatcher =
-//                    request.getRequestDispatcher("/WEB-INF/error/error_register.jsp");
-//            dispatcher.forward(request, response);
-//        }
-//
-//        UtenteDAO utenteDAO = new UtenteDAO();
-//        UtenteDAO.doRegistration(utente);
-//        RequestDispatcher dispatcher =
-//                request.getRequestDispatcher("/WEB-INF/login.jsp");
-//        dispatcher.forward(request, response);
-//    }
 
 

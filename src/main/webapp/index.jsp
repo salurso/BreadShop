@@ -17,98 +17,16 @@
     <link rel="stylesheet" type="text/css" href="css/navbar.css?=<%=new Random().nextInt()%>"/>
     <%--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>--%>
     <%--    <link rel="stylesheet" href="animate.min.css">--%>
-    <link rel="stylesheet" href="aos-by-red.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <title>Forneria Del Cilento</title>
 </head>
 <body>
-<header class="header">
-    <%--   <nav class="navbar">--%>
-    <div class="logo"><a href="HomePage">Forneria Del Cilento</a></div>
-    <ul class="links">
+<%@ include file="/WEB-INF/navbar/navbar.jsp" %>
 
-        <li><a href="InitServlet?action=product">Prodotti</a></li>
-        <li><a href="InitServlet?action=specialita">Specialità</a></li>
-        <li><a href="InitServlet?action=contatti">Contatti</a></li>
-<%--        <li><a href="InitServlet?action=accounts"> Account</a></li>--%>
 
-        <li><a href="CartServlet" ><i class="fa-solid fa-cart-shopping" style="color: #38271E;"></i></a></li>
-
-    </ul>
-<%--            <div class="search">--%>
-<%--                <label>--%>
-<%--                    <input type="text" placeholder="Search here">--%>
-<%--                    <i class="fa-solid fa-magnifying-glass"></i>--%>
-<%--                </label>--%>
-<%--            </div>--%>
-    <%
-        Utente utente = (Utente) session.getAttribute("login");
-        if(utente!=null){
-    %>
-    <ul class="menu">
-
-        <li class="has-children"><a class="action_btn"> Ciao <%=utente.getName().toUpperCase(java.util.Locale.ROOT)%><i class="fa fa-caret-down" aria-hidden="true"></i></a>
-            <ul class="sub-menu">
-                <li><a href="InitServlet?action=orders"> Ordini</a></li>
-<%--                <li><a href="InitServlet?action=accounts"> Account</a></li>--%>
-                <li><a href="loginServlet?action=logout"> Logout </a></li>
-            </ul>
-        </li>
-    </ul>
-
-    <%}else{%>
-    <a href="InitServlet?action=login" class="action_btn">Login</a>
-    <%}%>
-    <div class="toggle_btn">
-        <i class="fa-solid fa-bars"></i>
-    </div>
-    <%--   </nav>--%>
-</header>
-
-<div class="dropdown_menu">
-    <li><a href="InitServlet?action=product">Prodotti</a></li>
-    <li><a href="InitServlet?action=specialita">Specialità</a></li>
-    <li><a href="InitServlet?action=contatti">Contatti</a></li>
-<%--    <li><a href="InitServlet?action=accounts"> Account</a></li>--%>
-    <li><a href="InitServlet?action=orders">Ordini</a></li>
-    <li><a href="loginServlet?action=logout"> Logout </a></li>
-    <li><a href="CartServlet"><i class="fa-solid fa-cart-shopping" style="color: #38271E;"></i></a></li>
-    <%
-        if(utente!=null){
-    %>
-    <li><a href="InitServlet?action=login" class="action_btn"> Ciao <%=utente.getName().toUpperCase(java.util.Locale.ROOT)%> </a></li>
-    <%}else{%>
-    <li><a href="InitServlet?action=login" class="action_btn">Login</a></li>
-    <%}%>
-</div>
-
-<%--HOME--%>
-
-<%--<script type="text/javascript">--%>
-<%--    if(document.getElementById("alert").value!=null) {--%>
-<%--        alert(document.getElementById("alert").value)--%>
-<%--    }--%>
-<%--    alert("document.getElementById('alert').value");--%>
-<%--</script>--%>
-
-<%--    <%if(request.getAttribute("result")!=null){%>--%>
-<%--        <input type="hidden" id="alert" value="<%=request.getAttribute("result")%>">--%>
-<%--    <%}%>--%>
-
-<%--<div class="container">--%>
-<%--    <%if(request.getAttribute("result")!=null){%>--%>
-<%--    <div class="alert" id="alert">--%>
-<%--        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>--%>
-<%--        <%=request.getAttribute("result")%>--%>
-<%--    </div>--%>
-<%--    <%}%>--%>
-<%--</div>--%>
 <section class="home" id="home">
 
     <div class="container">
-
-
 
         <h3> Forneria Del Cilento </h3>
         <p> Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è
@@ -139,84 +57,68 @@
     <div class="product-container">
 
         <div class="product" data-name="p-1">
-            <img src="./images/sfondoabout.jpg" alt="Card 1">
+            <img src="./upload/paneFresco.png" alt="Card 1">
             <h3> Linea Fresco </h3>
         </div>
 
         <div class="product" data-name="p-2">
-            <img src="./images/pane1.webp" alt="fotopane">
+            <img src="./upload/fresaBianca.png" alt="Card 1">
             <h3> Linea Secco </h3>
-            <div class="price">€3.00/kg</div>
         </div>
 
         <div class="product" data-name="p-3">
-            <img src="./images/semola.png" alt="fotopane">
+            <img src="./upload/focacciaOrigan.png" alt="Card 1">
             <h3> Rosticceria </h3>
-            <div class="price">€4.99/kg</div>
         </div>
 
         <div class="product" data-name="p-4">
-            <img src="./images/semola.png" alt="fotopane">
+            <img src="./upload/pasticceria.png" alt="Card 1">
             <h3> Pasticceria </h3>
-            <div class="price">€3.00/kg</div>
         </div>
 
         <div class="product" data-name="p-5">
-            <img src="./images/biscottato.png" alt="fotopane">
+            <img src="./upload/speciale.png" alt="Card 1">
             <h3> Speciali </h3>
-            <div class="price">€3.00/kg</div>
         </div>
 
-<%--        <div class="product" data-name="p-6">--%>
-<%--            <img src="./images/frese.png" alt="fotopane">--%>
-<%--            <h3> Specialità </h3>--%>
-<%--            <div class="price">€3.00/kg</div>--%>
-<%--        </div>--%>
     </div>
 </div>
 
 <div class="product-preview">
     <div class="preview" data-target="p-1">
         <i class="fas fa-times"></i>
-        <img src="./images/pane1.webp" alt ="fotopane">
+        <img src="./upload/paneFresco.png" alt="Card 1">
         <h3> Linea Fresco </h3>
         <p>Lorem Ipsum dolor sit amet consectetur adipisicing elit. Consequatr, dolorem</p>
     </div>
 
     <div class="preview" data-target="p-2">
         <i class="fas fa-times"></i>
-        <img src="./images/semola.png" alt ="fotopane">
+        <img src="./upload/fresaBianca.png" alt="Card 1">
         <h3> Linea Secco </h3>
         <p>Lorem Ipsum dolor sit amet consectetur adipisicing elit. Consequatr, dolorem</p>
     </div>
 
     <div class="preview" data-target="p-3">
         <i class="fas fa-times"></i>
-        <img src="./images/semola.png" alt ="fotopane">
+        <img src="./upload/focacciaOrigan.png" alt="Card 1">
         <h3> Rosticceria </h3>
         <p>Lorem Ipsum dolor sit amet consectetur adipisicing elit. Consequatr, dolorem</p>
     </div>
 
     <div class="preview" data-target="p-4">
         <i class="fas fa-times"></i>
-        <img src="./images/paneBianco.png" alt ="fotopane">
+        <img src="./upload/pasticceria.png" alt="Card 1">
         <h3> Pasticceria </h3>
         <p>Lorem Ipsum dolor sit amet consectetur adipisicing elit. Consequatr, dolorem</p>
     </div>
 
     <div class="preview" data-target="p-5">
         <i class="fas fa-times"></i>
-        <img src="./images/biscottato.png" alt ="fotopane">
+        <img src="./upload/speciale.png" alt="Card 1">
         <h3> Speciali </h3>
         <p>Lorem Ipsum dolor sit amet consectetur adipisicing elit. Consequatr, dolorem</p>
     </div>
-
-<%--    <div class="preview" data-target="p-6">--%>
-<%--        <i class="fas fa-times"></i>--%>
-<%--        <img src="./images/frese.png" alt="fotopane">--%>
-<%--        <h3> Specialità </h3>--%>
-<%--        <p>Lorem Ipsum dolor sit amet consectetur adipisicing elit. Consequatr, dolorem</p>--%>
-<%--    </div>--%>
 
 </div>
 
@@ -279,65 +181,88 @@
     </div>
 </footer>
 
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
 
-    AOS.init({
-        duration: 4000,
-        once: true,
-    });
-
-    //script search
-    // const header = document.querySelector(".header"),
-    //     searchIcon = document.querySelector("#searchIcon");
+    // //script dropdown
+    // const toggleBtn = document.querySelector('.toggle_btn')
+    // const toggleBtnIcon = document.querySelector('.toggle_btn i')
+    // const dropDownMenu= document.querySelector('.dropdown_menu')
     //
-    //     searchIcon.addEventListener("click", () =>{
-    //         header.classList.toggle("openSearch");
-    //         if(header.classList.contains("openSearch")){
-    //            return searchIcon.classList.replace("fa-magnifying-glass", "fa-xmark");
-    //         }
-    //         searchIcon.classList.replace("fa-xmark", "fa-magnifying-glass")
+    // toggleBtn.onclick=function (){
+    //     dropDownMenu.classList.toggle('open')
+    //     const isOpen = dropDownMenu.classList.contains('open')
+    //
+    //     toggleBtnIcon.classList = isOpen
+    //         ? 'fa-solid fa-xmark'
+    //         : 'fa-solid fa-bars'
+    // }
+    //
+    //
+    // // script products
+    // let previewContainer = document.querySelector('.product-preview');
+    // let previewBox = previewContainer.querySelectorAll('.preview');
+    //
+    // //per ogni prodotto quando ci clicchi mostra le info
+    // document.querySelectorAll('.product-container .product').forEach(product =>{
+    //     product.onclick = () =>{
+    //         previewContainer.style.display='flex';
+    //         let name = product.getAttribute('data-name');
+    //         previewBox.forEach(preview =>{
+    //             let target = preview.getAttribute('data-target');
+    //             if(name === target){
+    //                 preview.classList.add('active');
+    //             }
+    //         });
+    //     };
+    // });
+    //
+    // previewBox.forEach(close =>{
+    //     close.querySelector('.fa-times').onclick = () =>{
+    //         close.classList.remove('active');
+    //         previewContainer.style.display ='none';
+    //     };
     // });
 
-    //script dropdown
-    const toggleBtn = document.querySelector('.toggle_btn')
-    const toggleBtnIcon = document.querySelector('.toggle_btn i')
-    const dropDownMenu= document.querySelector('.dropdown_menu')
+    window.addEventListener('DOMContentLoaded', function() {
+        // script dropdown
+        const toggleBtn = document.querySelector('.toggle_btn');
+        const toggleBtnIcon = document.querySelector('.toggle_btn i');
+        const dropDownMenu = document.querySelector('.dropdown_menu');
 
-    toggleBtn.onclick=function (){
-        dropDownMenu.classList.toggle('open')
-        const isOpen = dropDownMenu.classList.contains('open')
+        toggleBtn.addEventListener('click', function() {
+            dropDownMenu.classList.toggle('open');
+            const isOpen = dropDownMenu.classList.contains('open');
 
-        toggleBtnIcon.classList = isOpen
-            ? 'fa-solid fa-xmark'
-            : 'fa-solid fa-bars'
-    }
+            toggleBtnIcon.classList = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+        });
 
+        // script products
+        const previewContainer = document.querySelector('.product-preview');
+        const previewBox = Array.from(previewContainer.querySelectorAll('.preview'));
 
-    // script products
-    let previewContainer = document.querySelector('.product-preview');
-    let previewBox = previewContainer.querySelectorAll('.preview');
+        // per ogni prodotto quando ci clicchi mostra le info
+        document.querySelectorAll('.product-container .product').forEach(function(product) {
+            product.addEventListener('click', function() {
+                previewContainer.style.display = 'flex';
+                const name = product.getAttribute('data-name');
 
-    //per ogni prodotto quando ci clicchi mostra le info
-    document.querySelectorAll('.product-container .product').forEach(product =>{
-        product.onclick = () =>{
-            previewContainer.style.display='flex';
-            let name = product.getAttribute('data-name');
-            previewBox.forEach(preview =>{
-                let target = preview.getAttribute('data-target');
-                if(name === target){
-                    preview.classList.add('active');
-                }
+                previewBox.forEach(function(preview) {
+                    const target = preview.getAttribute('data-target');
+                    if (name === target) {
+                        preview.style.display = 'block';
+                    } else {
+                        preview.style.display = 'none';
+                    }
+                });
             });
-        };
-    });
+        });
 
-    previewBox.forEach(close =>{
-        close.querySelector('.fa-times').onclick = () =>{
-            close.classList.remove('active');
-            previewContainer.style.display ='none';
-        };
+        previewBox.forEach(function(close) {
+            close.querySelector('.fa-times').addEventListener('click', function() {
+                close.style.display = 'none';
+                previewContainer.style.display = 'none';
+            });
+        });
     });
 
 </script>

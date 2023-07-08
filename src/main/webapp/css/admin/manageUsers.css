@@ -165,3 +165,161 @@ tfoot td{
     color: #38271E;
     transition: all .2s linear;
 }
+
+@media only screen and (max-width: 1200px) {
+    table {
+        align-items: center;
+        justify-content: center;
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 1050px) {
+    .tabular--wrapper {
+        flex-wrap: wrap;
+    }
+
+    .table-container {
+        width: 100%;
+    }
+
+    .ord-img {
+        width: 100%;
+    }
+
+    td {
+        font-size: 12px;
+    }
+
+    .link-user-rendi,
+    .link-user-remove,
+    .link-user-disabled {
+        padding: 4px 6px;
+        font-size: 12px;
+    }
+}
+
+/*@media only screen and (max-width: 980px) {*/
+/*    .tabular--wrapper {*/
+/*        flex-wrap: wrap;*/
+/*    }*/
+
+/*    .table-container {*/
+/*        width: 100%;*/
+/*    }*/
+
+/*    .ord-img {*/
+/*        width: 100%;*/
+/*    }*/
+
+/*    td {*/
+/*        font-size: 12px;*/
+/*    }*/
+
+/*    .link-user-rendi,*/
+/*    .link-user-remove,*/
+/*    .link-user-disabled {*/
+/*        padding: 4px 6px;*/
+/*        font-size: 12px;*/
+/*    }*/
+/*}*/
+
+/*@media only screen and (max-width: 890px) {*/
+/*    .tabular--wrapper {*/
+/*        flex-wrap: wrap;*/
+/*    }*/
+
+/*    .table-container {*/
+/*        width: 100%;*/
+/*    }*/
+
+/*    .ord-img {*/
+/*        width: 100%;*/
+/*    }*/
+
+/*    td {*/
+/*        font-size: 12px;*/
+/*    }*/
+
+/*    .link-user-rendi,*/
+/*    .link-user-remove,*/
+/*    .link-user-disabled {*/
+/*        padding: 4px 6px;*/
+/*        font-size: 12px;*/
+/*    }*/
+/*}*/
+
+
+/*@media only screen and (max-width: 768px) {*/
+/*    .tabular--wrapper {*/
+/*        flex-wrap: wrap;*/
+/*    }*/
+
+/*    .table-container {*/
+/*        width: 100%;*/
+/*    }*/
+
+/*    .ord-img {*/
+/*        width: 100%;*/
+/*    }*/
+
+/*    td {*/
+/*        font-size: 12px;*/
+/*    }*/
+
+/*    .link-user-rendi,*/
+/*    .link-user-remove,*/
+/*    .link-user-disabled {*/
+/*        padding: 4px 6px;*/
+/*        font-size: 12px;*/
+/*    }*/
+/*}*/
+
+@media only screen and (max-width: 715px) {
+    thead{
+        display: none;
+    }
+    tbody,
+    tr,
+    th,
+    td {
+        display: block;
+    }
+    tr {
+        border-bottom: 1px solid #ccc;
+    }
+    th,
+    td {
+        text-align: left;
+        padding: 8px;
+    }
+    th {
+        font-weight: bold;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    th,
+    td {
+        font-size: 12px;
+    }
+
+    .table-container {
+        width: 100%;
+        overflow-x: auto;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .main-title{
+        font-size: 1.4rem;
+    }
+    th,
+    td {
+        font-size: 12px;
+    }
+    .table-container {
+        width: 100%;
+        overflow-x: auto;
+    }
+}

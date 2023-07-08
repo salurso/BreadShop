@@ -1,173 +1,135 @@
 * {
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, Nunito, sans-serif;
-    transition:.2s linear;
+    transition: .2s linear;
     outline: none;
-    border:none;
+    border: none;
 }
 
-body{
-    background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("../../images/sfondologin.jpeg");
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/sfondologin.jpeg");
 }
 
-html{
+html {
     overflow-x: hidden;
     scroll-padding-top: 9rem;
     scroll-behavior: smooth;
 }
 
-html::-webkit-scrollbar{
+html::-webkit-scrollbar {
     width: .8rem;
 }
 
-html::-webkit-scrollbar-track{
+html::-webkit-scrollbar-track {
     background: #E4E0BB;
 }
 
-html::-webkit-scrollbar-thumb{
+html::-webkit-scrollbar-thumb {
     background: black;
     border-radius: 1px;
 }
 
-.tabular--wrapper{
+.tabular--wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    /*background: #E4E0BB;*/
     border-radius: 10px;
     padding: 2rem;
 }
 
-.table-container{
-    width: 50%;
-
+.table-container {
+    width: 80%;
+    max-width: 100%;
+    overflow-x: auto;
+    margin: 0 auto;
 }
 
-table{
+table {
     width: 100%;
     border-collapse: collapse;
 }
 
-thead{
-    background: rgba(56,39,30,1);
+thead {
+    background: rgba(56, 39, 30, 1);
     color: #E4E0BB;
 }
 
-th{
+th {
     padding: 15px;
     text-align: center;
 }
 
-tbody{
+tbody {
     background: #ffffff;
 }
 
-td{
+td {
     padding: 15px;
     font-size: 14px;
     color: #38271E;
 }
 
-tr:nth-child(even){
+tr:nth-child(even) {
     background: #E4E0BB;
 }
 
-.add_prod_title{
-    text-transform: uppercase;
-    color: #38271E;
-    margin-bottom: 1rem;
-    text-align: center;
-    font-size: 2.5rem;
-}
-
-.category {
-    border-radius: 5px;
-    background-color: #E4E0BB;
-    padding: 20px;
-    margin: 5% 25%;
-    display: flex; /*allinea gli elementi uno di fianco all'altro*/
-    flex-wrap: wrap; /*se ho un elemento in più va daccapo*/
-    justify-content: center;
-}
-
-.add_category{
-    align-items: center;
-    justify-content: center;
-    text-transform: uppercase;
-}
-
-
-input[type=text], textarea {
-    width: 100%;
-    padding: 12px;
-    /*border: 1px solid #ccc;*/
-    border-radius: 4px;
-    /*box-sizing: border-box;*/
-    margin-top: 6px;
-    margin-bottom: 16px;
-    resize: none;
-}
-
-.btn_mod_cat{
+.btn_mod_cat {
     letter-spacing: 1px;
     text-decoration: none;
     border-radius: 4px;
     text-transform: uppercase;
-    /*flex: 1 1 16rem;*/
-    padding: 5px 7px;
+    padding: 3px 5px;
     background-color: #38271E;
-    border: 2px solid  white;
+    border: 2px solid white;
     color: white;
     transition: all .2s linear;
     cursor: pointer;
 }
 
-.btn_mod_cat:hover{
+.btn_mod_cat:hover {
     background-color: white;
     border: 2px solid #38271E;
     color: #38271E;
     transition: all .2s linear;
 }
 
-.btn_add{
-    letter-spacing: 1px;
-    text-decoration: none;
-    border-radius: 4px;
-    text-transform: uppercase;
-    padding: 1rem;
-    background-color: #A0602B;
-    border: 2px solid  #E4E0BB;
-    color: #E4E0BB;
-    transition: all .2s linear;
-}
-
-.btn_add:hover{
-    background-color: #E4E0BB;
-    border: 2px solid #A0602B;
-    color: #A0602B;
-    transition: all .2s linear;
-}
-
-
-
-@media only screen and (max-width: 992px) {
-    .box {
-        width: 50%;
-    }
-
-    #category-info {
-        margin-left: auto;
-        float: left;
-    }
-    .container-info{
-        font-size: 55%;
+@media only screen and (max-width: 768px) {
+    .table-container {
+        width: 90%;
     }
 }
 
-@media (max-width: 450px){
-    .container-info{
-        font-size: 50%;
+@media only screen and (max-width: 576px) {
+    .table-container {
+        width: 100%;
+    }
+
+    .btn_mod_cat {
+        padding: 2px 4px;
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .table-container {
+        width: 100%;
+    }
+
+    .btn_mod_cat {
+        padding: 2px 4px;
+        font-size: 10px;
+    }
+}
+
+@media only screen and (max-width: 340px) {
+    thead {
+        height: 30px;
+    }
+
+    th {
+        padding: 10px;
+        font-size: 12px;
     }
 }

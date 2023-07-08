@@ -117,3 +117,39 @@ tfoot td{
     padding: 15px;
 }
 
+@media only screen and (max-width: 576px) {
+    .table-container {
+        overflow-x: scroll;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    .ord-img {
+        display: none;
+    }
+
+    .tabular--wrapper {
+        padding: 1rem;
+    }
+
+    .main-title {
+        font-size: 1.5rem;
+    }
+
+    .home_ord h3 {
+        font-size: 2rem;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .table-container {
+        width: 100%;
+        overflow-x: auto;
+    }
+}

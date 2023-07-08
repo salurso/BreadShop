@@ -114,7 +114,6 @@
             </div>
           </td>
           <td><input type="number" id="num_<%=p.getId()%>" name="quantity" min=1 value="<%=c.getQuantity()%>" onchange="changeQuantitySession('<%=p.getId()%>')"></td>
-<%--          <td><input type="number" name="quantity" min=1  value="<%=c.getQuantity()%>" onchange="location.href='ManageCart?action=addQuantity&id=<%=p.getId()%>'"></td>--%>
           <td><%=p.getPrice()*c.getQuantity()%></td>
         </tr>
         <%
@@ -140,10 +139,8 @@
     }else{
 %>
 
-    <h1 class="main-title"> Il tuo carrello è vuoto!</h1>
+    <div class="main-prod"> Il tuo carrello è vuoto!</div>
       <h3 class="main-title"> <button class="send_prod" onclick="location.href='InitServlet?action=product'"> Our Shop </button></h3>
-<%--    <button class="send_prod" onclick="location.href='InitServlet?action=product'"> Our Shop </button>--%>
-
 
     <%
     }

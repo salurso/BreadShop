@@ -3,7 +3,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/admin/navbarAdmin.css?=<%=new Random().nextInt()%>"/>
 
@@ -32,6 +32,7 @@
     <ul class="links">
         <li><a href="HomeServletAdministrator?action=add_product">Aggiungi Prodotti</a></li>
         <li><a href="HomeServletAdministrator?action=manage_product">Gestisci Prodotti</a></li>
+        <li><a href="HomeServletAdministrator?action=manage_category">Gestisci Categorie</a></li>
         <li><a href="HomeServletAdministrator?action=manage_category">Categorie</a></li>
         <li><a href="HomeServletAdministrator?action=orders">Ordini</a></li>
         <li><a href="HomeServletAdministrator?action=users">Utenti</a></li>
@@ -53,6 +54,7 @@
     <div class="dropdown_menu">
         <li><a href="HomeServletAdministrator?action=add_product">Aggiungi Prodotti</a></li>
         <li><a href="HomeServletAdministrator?action=manage_product">Gestisci Prodotti</a></li>
+        <li><a href="HomeServletAdministrator?action=manage_product">Gestisci Categorie</a></li>
         <li><a href="HomeServletAdministrator?action=manage_category">Categorie</a></li>
         <li><a href="HomeServletAdministrator?action=orders">Ordini</a></li>
         <li><a href="HomeServletAdministrator?action=users">Utenti</a></li>

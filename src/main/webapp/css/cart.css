@@ -59,6 +59,15 @@ html::-webkit-scrollbar-thumb{
     justify-content: center;
     align-items: center;
 }
+.main-prod{
+    font-weight: bold;
+    font-size: 2rem;
+    margin-top: 10px;
+    color: #38271E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .tabular--wrapper{
     margin: 80px auto;
@@ -72,9 +81,6 @@ html::-webkit-scrollbar-thumb{
     border-radius: 10px;
     background: #ffffff;
     width: 50%;
-}
-
-.cart-page{
 }
 
 table{
@@ -194,8 +200,106 @@ th:last-child{
     transition: all .2s linear;
 }
 
-@media only screen and(max-width: 600px){
-    .cart-info p{
-        display: none;
+@media (max-width: 991px) {
+    .table-container {
+        width: 75%;
+        max-width: 100%;
+        overflow-x: auto;
+    }
+
+    .table-container table {
+        font-size: 0.9rem;
+    }
+
+    .total-price table {
+        max-width: 250px;
+    }
+
+    td img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 767px) {
+    .table-container {
+        width: 75%;
+        max-width: 100%;
+        overflow-x: auto;
+    }
+
+    .table-container table {
+        font-size: 0.8rem;
+    }
+
+    .total-price table {
+        max-width: 200px;
+    }
+
+    td img {
+        width: 50px;
+        height: 50px;
+        margin-right: 5px;
+    }
+}
+
+@media (max-width: 600px) {
+    .home_ord h3 {
+        font-size: 3.5rem;
+    }
+
+    .main-title {
+        margin-top: 5px;
+    }
+
+    .main-prod {
+        font-size: 1.5rem;
+        margin-top: 5px;
+    }
+
+    .table-container {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+    }
+
+    td img {
+        width: 40px;
+        height: 40px;
+        margin-right: 5px;
+    }
+}
+
+@media (max-width: 400px) {
+    .home_ord h3 {
+        font-size: 2.5rem;
+    }
+    .main-title {
+        margin-top: 3px;
+        font-size: 1.5rem;
+    }
+    .main-prod {
+        font-size: 1.2rem;
+        margin-top: 3px;
+    }
+    .table-container {
+        padding: 0.2rem;
+    }
+    .table-container table {
+        font-size: 0.7rem;
+    }
+    td img {
+        width: 30px;
+        height: 30px;
+        margin-right: 3px;
+    }
+    .submit-ord,
+    .send_prod {
+        padding: 3px 4px;
+        font-size: 0.9rem;
+    }
+    .link-user{
+        padding: 2px 4px;
+        font-size: 0.5rem;
     }
 }

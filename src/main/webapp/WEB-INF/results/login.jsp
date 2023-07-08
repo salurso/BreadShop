@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
-    <title>Benvenuti</title>
+    <link rel="stylesheet" type="text/css" href="./css/login.css">
+    <title>Login - Forneria Del Cilento</title>
 </head>
 <body>
 
@@ -17,22 +17,19 @@
 <%}%>
 
 <div class="wrapper">
-    <h1>Login </h1>
+    <h1> Login </h1>
 
     <form action="loginServlet" method="post">
         <input type="text" placeholder="E-mail" name="email" id="email"required>
-        <i class="bi bi-person-fill"></i>
         <input type="password" placeholder="Password" name="password" id="password" required>
-        <div class="recover">
-            <a href="#">Password Dimenticata?</a>
-        </div>
-    <button onclick="return(validateLogin())" type="submit"> Login </button>
+    <button class="btn_login" onclick="return(validateLogin())" type="submit"> Login </button>
     </form>
 
     <div class="user">
         Sei nuovo? <a href="Register"> Register Here </a>
     </div>
 </div>
+
 <script>
     function validateLogin() {
         var password = document.getElementById('password').value;

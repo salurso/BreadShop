@@ -4,6 +4,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="./css/admin/manageCategory.css?v=<%=new Random().nextInt()%>"/>
     <title>Categorie</title>
 </head>
@@ -19,7 +20,6 @@
             <tr>
                 <th>NOME</th>
                 <th>DESCRIZIONE</th>
-                <th></th>
             </tr>
             </thead>
             <br>
@@ -28,9 +28,9 @@
             %>
             <tbody>
             <tr>
-                <td><%=c.getName()%></td>
+                <td><%=c.getName()%><button class="btn_mod_cat" value=" " onclick="location.href='ManageCategory?action=<%=c.getName()%>'">Modifica categoria</button></td>
                 <td><%=c.getDescription()%></td>
-                <td><button class="btn_mod_cat" value=" " onclick="location.href='ManageCategory?action=<%=c.getName()%>'">Modifica categoria</button></td>
+
             </tr>
             </tbody>
             <%
@@ -40,47 +40,21 @@
     </div>
 </div>
 
+<%--<div class="category">--%>
+<%--    <form action="UpdateCategory"  method="POST">--%>
 
+<%--        <h3 class="add_prod_title">Aggiungi Categoria</h3>--%>
 
-<%--        <div class="category">--%>
-<%--            <fieldset>--%>
-<%--            <form action="UpdateCategory" method="post">--%>
-<%--                <div class="box" id="category-info">--%>
+<%--        <label for="name"> Nome: </label>--%>
+<%--        <input id="name" name="name" type="text" value="" maxlength="50">--%>
 
-<%--                    <h3 class="add_category">Aggiungi Categoria</h3>--%>
+<%--        <label for="description">Descrizione: </label>--%>
+<%--        <textarea class="box" name="description" id="description" style="height:200px" maxlength="200"></textarea>--%>
 
-<%--                    <label for="name"> Nome: </label>--%>
-<%--                    <input id="name" name="name" type="text" value="" maxlength="50">--%>
+<%--        <input class="btn_add" type="submit" name="action" value="AGGIUNGI CATEGORIA" onclick="return(validateUpdate())">--%>
 
-<%--                    <label for="description"> Descrizione: </label>--%>
-<%--                    <textarea name="description" id="description" style="height:200px" maxlength="200"></textarea>--%>
-
-<%--                    <input type="submit" name="action" value="AGGIUNGI CATEGORIA" onclick="return(validateUpdate())">--%>
-<%--                </div>--%>
-<%--            </form>--%>
-<%--            </fieldset>--%>
-<%--        </div>--%>
-
-
-
-<div class="category">
-    <form action="UpdateCategory"  method="POST">
-
-        <h3 class="add_prod_title">Aggiungi Categoria</h3>
-
-        <label for="name"> Nome: </label>
-        <input id="name" name="name" type="text" value="" maxlength="50">
-
-        <label for="description">Descrizione: </label>
-        <textarea class="box" name="description" id="description" style="height:200px" maxlength="200"></textarea>
-
-        <input class="btn_add" type="submit" name="action" value="AGGIUNGI CATEGORIA" onclick="return(validateUpdate())">
-
-    </form>
-</div>
-
-
-
+<%--    </form>--%>
+<%--</div>--%>
 
 <script>
     function validateUpdate() {

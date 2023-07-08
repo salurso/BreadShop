@@ -139,14 +139,34 @@ input[type=submit]:active {
     background-color: #AE7349;
 }
 
-@media (max-width: 991px){
-    .container-info{
-        font-size: 55%;
+@media screen and (max-width: 768px) {
+    .container-info,
+    .add_product form {
+        padding: 1rem;
+    }
+
+    .add_product h3 {
+        font-size: 2rem;
     }
 }
 
-@media (max-width: 450px){
-    .container-info{
-        font-size: 50%;
+@media screen and (max-width: 576px) {
+    .inputbox span {
+        font-size: 0.8em;
+    }
+
+    .btn_add {
+        font-size: 1.5rem;
+        padding: 0.8rem 2rem;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .container-info {
+        margin: 1rem;
+    }
+    .btn_add{
+        font-size: 1rem;
+        align-items: center;
     }
 }

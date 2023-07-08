@@ -258,19 +258,129 @@ body{
     }
 }
 
-@media screen and(max-width: 1200px){
-    .inner-container{
-        padding: 80px
+/*@media screen and(max-width: 1200px){*/
+/*    .inner-container{*/
+/*        padding: 80px*/
+/*    }*/
+/*}*/
+
+/*@media screen and(max-width: 991px){*/
+/*    .about{*/
+/*        background-size: 100%;*/
+/*        padding: 100px 40px;*/
+/*    }*/
+/*    .inner-container{*/
+/*        width: 100%;*/
+/*    }*/
+
+/*}*/
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+    .inner-container {
+        padding: 80px;
     }
 }
 
-@media screen and(max-width: 991px){
-    .about{
-        background-size: 100%;
-        padding: 100px 40px;
+@media (max-width: 991px) {
+    body {
+        background: #C8934F;
     }
-    .inner-container{
+
+    .contactUs {
+        padding: 20px;
+    }
+
+    .box {
+        grid-template-areas:
+      "form"
+      "info"
+      "map";
+    }
+
+    .formBox .row50 {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .inputbox {
         width: 100%;
     }
 
+    .contact {
+        padding: 30px;
+    }
+
+    .map {
+        min-height: 300px;
+        padding: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .contact h3 {
+        font-size: 1.2em;
+    }
+
+    .box {
+        grid-gap: 10px;
+    }
+
+    .inputbox input[type="submit"] {
+        padding: 10px 15px;
+    }
+
+    .sci li a {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    .contactUs .title h2 {
+        font-size: 1.5em;
+    }
+
+    .form img {
+        max-width: 100%;
+    }
+
+    .box {
+        margin-top: 10px;
+        grid-gap: 10px;
+    }
+
+    .infoBox div span {
+        min-width: 30px;
+        height: 30px;
+        font-size: 1.2em;
+    }
+
+    .sci li a {
+        font-size: 1.8em;
+    }
+}
+
+@media (max-width: 380px) {
+    .contactUs .title h2 {
+        font-size: 1.2em;
+    }
+
+    .form img {
+        max-width: 100%;
+    }
+
+    .box {
+        margin-top: 10px;
+        grid-gap: 10px;
+        padding: 10px;
+    }
+
+    .infoBox div span {
+        min-width: 20px;
+        height: 20px;
+        font-size: 1em;
+    }
+
+    .sci li a {
+        font-size: 1.5em;
+    }
 }

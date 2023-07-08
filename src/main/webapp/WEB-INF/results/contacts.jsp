@@ -14,12 +14,6 @@
 
     <title>Contatti</title>
 
-    <script>
-        function myFunction() {
-            // alert("Email Inviata con successo");
-            // location.href='HomePage'
-        }
-    </script>
 </head>
 <body>
 <%@ include file="/WEB-INF/navbar/navbar.jsp" %>
@@ -27,13 +21,6 @@
 
 </div>
 
-
-
-<%--<div class="home_ord">--%>
-
-<%--    <h3> ORDINI </h3>--%>
-
-<%--</div>--%>
 <div class="contactUs">
     <div class="title">
         <h2> Un po' di noi</h2>

@@ -28,6 +28,12 @@ public class ManageCategory extends HttpServlet {
         request.setAttribute("categories", c);
         RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/category.jsp");
         ds.forward(request, response);
+
+        request.setAttribute("category", c);
+        RequestDispatcher ds1 = request.getRequestDispatcher("/WEB-INF/administrator/category.jsp");
+        ds.forward(request, response);
+
+
     }
 
 

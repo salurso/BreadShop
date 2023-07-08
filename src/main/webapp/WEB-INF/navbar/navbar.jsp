@@ -5,6 +5,7 @@
 <html>
 <head>
   <title>Navbar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <link rel="stylesheet" type="text/css" href="css/navbar.css?=<%=new Random().nextInt()%>"/>
 </head>
@@ -66,19 +67,33 @@
 
 
 <script>
-  //script dropdown
-  const toggleBtn = document.querySelector('.toggle_btn')
-  const toggleBtnIcon = document.querySelector('.toggle_btn i')
-  const dropDownMenu= document.querySelector('.dropdown_menu')
+  // //script dropdown
+  // const toggleBtn = document.querySelector('.toggle_btn')
+  // const toggleBtnIcon = document.querySelector('.toggle_btn i')
+  // const dropDownMenu= document.querySelector('.dropdown_menu')
+  //
+  // toggleBtn.onclick=function (){
+  //   dropDownMenu.classList.toggle('open')
+  //   const isOpen = dropDownMenu.classList.contains('open')
+  //
+  //   toggleBtnIcon.classList = isOpen
+  //           ? 'fa-solid fa-xmark'
+  //           : 'fa-solid fa-bars'
+  // }
 
-  toggleBtn.onclick=function (){
-    dropDownMenu.classList.toggle('open')
-    const isOpen = dropDownMenu.classList.contains('open')
+  window.addEventListener('DOMContentLoaded', function() {
+    // script dropdown
+    const toggleBtn = document.querySelector('.toggle_btn');
+    const toggleBtnIcon = document.querySelector('.toggle_btn i');
+    const dropDownMenu = document.querySelector('.dropdown_menu');
 
-    toggleBtnIcon.classList = isOpen
-            ? 'fa-solid fa-xmark'
-            : 'fa-solid fa-bars'
-  }
+    toggleBtn.addEventListener('click', function() {
+      dropDownMenu.classList.toggle('open');
+      const isOpen = dropDownMenu.classList.contains('open');
+
+      toggleBtnIcon.classList = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+    });
+  });
 </script>
 
 

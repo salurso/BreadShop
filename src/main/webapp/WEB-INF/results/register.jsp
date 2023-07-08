@@ -1,9 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Registrazione</title>
+    <title>Registrazione - Forneria Del Cilento</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/login.css">
 
   <script>
     function validateRegistration() {
@@ -61,7 +61,7 @@
     <input type="text" placeholder="Name" name="name" id = "name" required>
     <input type="text" placeholder="Surname" name="surname" id = "surname" required>
     <input type="password" placeholder="Password" name="password" id = "password" required>
-    <button onclick="return(validateRegistration())" type="submit">Sign up</button>
+    <button class="btn_reg" onclick="return(validateRegistration())" type="submit">Sign up</button>
 
     <div class="user">
       Sei gia' registrato? <a href="login"> Login Here </a>

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -9,74 +10,6 @@ body{
     background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("../../images/sfondologin.jpeg");
 }
 
-.tabular--wrapper{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    padding: 2rem;
-}
-
-.table-container{
-    width: 50%;
-
-}
-
-table{
-    width: 100%;
-    border-collapse: collapse;
-}
-
-thead{
-    background: rgba(56,39,30,1);
-    color: #E4E0BB;
-}
-
-th{
-    padding: 15px;
-    text-align: center;
-}
-
-tbody{
-    background: #ffffff;
-}
-
-.ord-img{
-    width: 50%;
-}
-
-td{
-    padding: 15px;
-    font-size: 14px;
-    color: #38271E;
-}
-
-tr:nth-child(even){
-    background: #E4E0BB;
-}
-
-tfoot{
-    background: rgba(56,39,30,0.5);
-    font-weight: bold;
-    color: #E4E0BB;
-}
-
-tfoot td{
-    padding: 15px;
-}
-
-
-img.card-img {
-    width: auto;
-    /*height: auto;*/
-}
-
-.product {
-    padding: 1rem;
-    display: flex; /allinea gli elementi uno di fianco all'altro/
-flex-wrap: wrap; /se ho un elemento in più va daccapo/
-justify-content: center;
-}
 .add_prod_title{
     text-transform: uppercase;
     color: #38271E;
@@ -109,6 +42,8 @@ input[type=text], textarea {
     margin-top: 6px;
     margin-bottom: 16px;
     resize: none;
+    max-height: 150px;
+    overflow-y: scroll;
 }
 
 .btn_update{
@@ -144,32 +79,78 @@ input[type=text], textarea {
     padding: 1rem;
     background-color: brown;
     border: 2px solid  #E4E0BB;
-    color: white;
+    color: #E4E0BB;
     transition: all .2s linear;
 }
 
 .btn_delete:hover{
-    background-color: white;
+    background-color: #E4E0BB;
     border: 2px solid brown;
     color: brown;
     transition: all .2s linear;
 }
 
-@media only screen and (max-width: 992px) {
-    .box {
-        width: 50%;
-    }
-
-    #product-img {
-        margin-left: inherit;
-        float: left;
-    }
-
-    #product-info {
-        margin-left: auto;
-        float: left;
+@media only screen and (max-width: 1200px) {
+    .update_product {
+        margin: 5% 2%;
+        padding: 15px;
     }
 }
+
+@media only screen and (max-width: 992px) {
+    .update_product {
+        margin: 10% 2%;
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .update_product {
+        margin: 15% 2%;
+        padding: 10px;
+    }
+
+    .add_prod_title {
+        font-size: 2rem;
+    }
+
+    input[type=text],
+    textarea {
+        max-height: 100px;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .update_product {
+        margin: 20% 2%;
+        padding: 5px;
+    }
+
+    .add_prod_title {
+        font-size: 1.8rem;
+    }
+
+    input[type=text],
+    textarea {
+        max-height: 80px;
+    }
+}
+
+/*@media only screen and (max-width: 992px) {*/
+/*    .box {*/
+/*        width: 50%;*/
+/*    }*/
+
+/*    #product-img {*/
+/*        margin-left: inherit;*/
+/*        float: left;*/
+/*    }*/
+
+/*    #product-info {*/
+/*        margin-left: auto;*/
+/*        float: left;*/
+/*    }*/
+/*}*/
 
 /*@media only screen and (max-width: 800px) {*/
 /*    * {*/

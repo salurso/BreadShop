@@ -10,31 +10,31 @@
 </head>
 <body>
 <%@ include file="/WEB-INF/navbar/navbarAdmin.jsp" %>
-<div class="tabular--wrapper">
-    <div class="table-container">
-        <table id="categories1">
-            <thead>
-            <tr>
-                <th>NOME</th>
-                <th>DESCRIZIONE</th>
-                <th></th>
-            </tr>
-            </thead>
-            <br>
-            <tbody>
-            <tr>
-                <td><%=p.getName()%></td>
-                <td><%=p.getDescription()%></td>
-                <td><input class="btn_delete" type="submit" name="action" value="ELIMINA" onclick="return(confirmDelete())"></td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+<%--<div class="tabular--wrapper">--%>
+<%--    <div class="table-container">--%>
+<%--        <table id="categories1">--%>
+<%--            <thead>--%>
+<%--            <tr>--%>
+<%--                <th>NOME</th>--%>
+<%--                <th>DESCRIZIONE</th>--%>
+<%--                <th></th>--%>
+<%--            </tr>--%>
+<%--            </thead>--%>
+<%--            <br>--%>
+<%--            <tbody>--%>
+<%--            <tr>--%>
+<%--                <td><%=p.getName()%></td>--%>
+<%--                <td><%=p.getDescription()%></td>--%>
+
+<%--            </tr>--%>
+<%--            </tbody>--%>
+<%--        </table>--%>
+<%--    </div>--%>
+<%--</div>--%>
 
 <div class="category">
     <form action="UpdateCategory"  method="POST">
-        <h3 class="add_prod_title">Aggiorna Categoria</h3>
+        <h3 class="add_prod_title">Modifica Categoria</h3>
 
         <label for="name"> Nome: </label>
         <input id="name" name="name" type="text" value="<%=p.getName()%>" maxlength="50">
@@ -42,8 +42,11 @@
         <label for="description">Descrizione: </label>
         <textarea class="box" name="description" id="description" style="height:200px" maxlength="200"><%=p.getDescription()%></textarea>
 
-        <input class="btn_update" type="submit" name="action" value="AGGIORNA">
+        <div class="btnadd">
+            <input class="btn_update" type="submit" name="action" value="AGGIORNA" onclick="return(validateUpdate())">
+        </div>
     </form>
+        <input class="btn_delete" type="submit" name="action" value="ELIMINA" onclick="return(confirmDelete())">
 </div>
 
 
@@ -53,6 +56,15 @@
             window.location.href="UpdateCategory?action=ELIMINA&name=<%=p.getName()%>";
         }else{
             alert("eliminazione annullata");
+        }
+    }
+
+    function validateUpdate() {
+        var nameRGX = /^[a-zA-Z' ']*$/;
+        var name = document.getElementById('name').value;
+        if ((nameRGX.test(name)) == false) {
+            alert("Nome non valido!");
+            return false;
         }
     }
 </script>

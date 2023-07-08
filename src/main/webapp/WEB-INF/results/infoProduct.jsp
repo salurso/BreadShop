@@ -56,31 +56,9 @@
             </form>
         </div>
       </div>
-
     </div>
   </div>
 </div>
-
-
-
 <%@ include file="/WEB-INF/navbar/footer.jsp" %>
-<%--<div class="small-container single-product">--%>
-<%--  <div class="row">--%>
-<%--    <div class="col-2">--%>
-<%--      <img src="upload/<%=p.getImage()%>" alt="Card 1" id="product-img">--%>
-<%--    </div>--%>
-<%--    <div class="col-2">--%>
-<%--      <p><%=p.getNameCategory()%></p>--%>
-<%--      <h1> <%=p.getName()%> </h1>--%>
-<%--      <h4><%=p.getPrice()%></h4>--%>
-<%--&lt;%&ndash;      <h5><%=c.getQuantity()%></h5>&ndash;%&gt;--%>
-<%--      <a href="" class="btn_add_to_cart"> Add To Cart</a>--%>
-<%--      <h3>Details<i class="fa fa-indent"></i></h3>--%>
-<%--      <br>--%>
-<%--      <p><%=p.getDescription()%></p>--%>
-<%--    </div>--%>
-<%--  </div>--%>
-<%--</div>--%>
-
 </body>
 </html>
