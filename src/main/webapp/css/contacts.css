@@ -1,81 +1,79 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
 
-html{
+html {
     overflow-x: hidden;
     scroll-padding-top: 9rem;
     scroll-behavior: smooth;
 }
 
-html::-webkit-scrollbar{
+html::-webkit-scrollbar {
     width: .8rem;
 }
 
-html::-webkit-scrollbar-track{
+html::-webkit-scrollbar-track {
     background: #E4E0BB;
 }
 
-html::-webkit-scrollbar-thumb{
+html::-webkit-scrollbar-thumb {
     background: black;
     border-radius: 1px;
 }
 
-
-body{
-    background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("../images/sfondologin.jpeg");
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/sfondologin.jpeg");
     background-size: cover;
     background-position: center;
-
 }
 
-
-.contactUs{
+.contactUs {
     position: relative;
     width: 100%;
     padding: 40px 100px;
 }
 
-.contactUs .title{
+.contactUs .title {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 2em;
 }
 
-.contactUs .title h2{
+.contactUs .title h2 {
     color: #E4E0BB;
     font-weight: 500;
 }
 
-.form img{
-    width: 75%;
+.form img {
+    max-width: 90%;
     height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
-.form{
+.form {
     grid-area: form;
 }
 
-.info{
+.info {
     grid-area: info;
 }
 
-.map{
+.map {
     grid-area: map;
 }
 
-.contact{
+.contact {
     padding: 40px;
     background: #E4E0BB;
-    box-shadow: 0 5px 35px rgba(0,0,0,0.19);
+    box-shadow: 0 5px 35px rgba(0, 0, 0, 0.19);
 }
 
-
-.box{
+.box {
     position: relative;
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -87,59 +85,56 @@ body{
     margin-top: 20px;
 }
 
-.contact h3{
+.contact h3 {
     color: #A0602B;
     font-weight: 500;
     font-size: 1.4em;
     margin-bottom: 10px;
 }
 
-.formBox{
+.formBox {
     position: relative;
     width: 100%;
 }
 
-.formBox .row50{
+.formBox .row50 {
     display: flex;
     gap: 20px;
 }
 
-.inputbox{
+.inputbox {
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
     width: 50%;
 }
 
-.formBox .row100 .inputbox{
+.formBox .row100 .inputbox {
     width: 100%;
 }
 
-.inputbox span{
+.inputbox span {
     color: #38271E;
     margin-top: 10px;
     margin-bottom: 5px;
     font-weight: 500;
 }
 
-.inputbox input{
+.inputbox input,
+.inputbox textarea {
     padding: 10px;
     font-size: 1.1em;
     outline: none;
     border: 1px solid #38271E;
 }
 
-.inputbox textarea{
-    padding: 10px;
-    font-size: 1.1em;
-    outline: none;
-    border: 1px solid #38271E;
+.inputbox textarea {
     resize: none;
     min-height: 250px;
     margin-bottom: 20px;
 }
 
-.inputbox input[type="submit"]{
+.inputbox input[type="submit"] {
     background: #A0602B;
     color: #E4E0BB;
     border: none;
@@ -151,25 +146,25 @@ body{
     transition: 0.2s linear all;
 }
 
-.inputbox::placeholder{
+.inputbox::placeholder {
     color: #24262b;
 }
 
-.info{
+.info {
     background: #E4E0BB;
 }
 
-.info h3{
+.info h3 {
     color: #A0602B;
 }
 
-.info .infoBox div{
+.info .infoBox div {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
 }
 
-.info .infoBox div span{
+.info .infoBox div span {
     min-width: 40px;
     height: 40px;
     color: #E4E0BB;
@@ -182,23 +177,19 @@ body{
     margin-right: 15px;
 }
 
-.info .infoBox div p{
+.info .infoBox div p,
+.info .infoBox div a {
     color: #38271E;
     font-size: 1.1em;
+    margin: 0;
 }
 
-.info .infoBox div a{
-    color: #38271E;
-    text-decoration: none;
-    font-size: 1.1em;
-}
-
-.sci{
+.sci {
     margin-top: 40px;
     display: flex;
 }
 
-.sci li{
+.sci li {
     list-style: none;
     margin-right: 15px;
 }
@@ -208,79 +199,61 @@ body{
     font-size: 2em;
 }
 
-.sci li a:hover{
+.sci li a:hover {
     color: white;
 }
 
-.map{
+.map {
     padding: 0;
 }
 
-.map iframe{
+.map iframe {
     width: 100%;
     height: 100%;
 }
 
-/* RESPONSIVE */
-@media (max-width: 991px){
-    body{
-        background: #C8934F ;
+@media (max-width: 1510px) {
+    .form {
+        display: none;
     }
-    .contactUs{
-        padding: 20px;
-    }
-    .box{
-        grid-template-columns:1fr;
+    .contactUs {
+           padding: 20px;
+       }
+
+    .box {
+        grid-template-columns: 1fr;
         grid-template-rows: auto;
         grid-template-areas:
-        "form"
-        "info"
-        "map";
+      "form"
+      "info"
+      "map";
     }
-    .map{
+
+    .map {
         min-height: 300px;
     }
-    .formBox .row50{
+
+    .formBox .row50 {
         display: flex;
         gap: 0;
         flex-direction: column;
     }
-    .inputBox{
+
+    .inputbox {
         width: 100%;
     }
-    .contact{
+
+    .contact {
         padding: 30px;
     }
-    .map
-    {
+
+    .map {
         min-height: 300px;
         padding: 0;
     }
+
 }
-
-/*@media screen and(max-width: 1200px){*/
-/*    .inner-container{*/
-/*        padding: 80px*/
-/*    }*/
-/*}*/
-
-/*@media screen and(max-width: 991px){*/
-/*    .about{*/
-/*        background-size: 100%;*/
-/*        padding: 100px 40px;*/
-/*    }*/
-/*    .inner-container{*/
-/*        width: 100%;*/
-/*    }*/
-
-/*}*/
 /* RESPONSIVE */
-@media (max-width: 1200px) {
-    .inner-container {
-        padding: 80px;
-    }
-}
-
 @media (max-width: 991px) {
     body {
         background: #C8934F;
@@ -291,15 +264,22 @@ body{
     }
 
     .box {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
         grid-template-areas:
       "form"
       "info"
       "map";
     }
 
+    .map {
+        min-height: 300px;
+    }
+
     .formBox .row50 {
-        flex-direction: column;
+        display: flex;
         gap: 0;
+        flex-direction: column;
     }
 
     .inputbox {
@@ -316,7 +296,9 @@ body{
     }
 }
 
+/* RESPONSIVE */
 @media (max-width: 767px) {
+
     .contact h3 {
         font-size: 1.2em;
     }
@@ -369,9 +351,9 @@ body{
     }
 
     .box {
-        margin-top: 10px;
-        grid-gap: 10px;
-        padding: 10px;
+        margin: 0 auto;
+        max-width: 100%;
+        padding: 20px;
     }
 
     .infoBox div span {

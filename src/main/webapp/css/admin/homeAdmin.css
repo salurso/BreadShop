@@ -5,15 +5,22 @@
     font-family: 'Poppins', sans-serif;
 }
 
-::-webkit-scrollbar{
+
+html{
+    overflow-x: hidden;
+    scroll-padding-top: 9rem;
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar{
     width: .8rem;
 }
 
-::-webkit-scrollbar-track{
+html::-webkit-scrollbar-track{
     background: #E4E0BB;
 }
 
-::-webkit-scrollbar-thumb{
+html::-webkit-scrollbar-thumb{
     background: black;
     border-radius: 1px;
 }

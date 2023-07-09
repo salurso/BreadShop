@@ -5,7 +5,7 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="./css/admin/addProductAdmin.css?v=<%=new Random().nextInt()%>"/>
+  <link rel="stylesheet" type="text/css" href="./css/admin/addCategory.css?v=<%=new Random().nextInt()%>"/>
   <title>Inserisci Categoria</title>
   <script>
     function validateInsert() {
@@ -50,7 +50,7 @@
         <label for="description">Descrizione: </label>
         <textarea class="box" name="description" id="description" style="height:200px" maxlength="200"></textarea>
 
-        <input class="btn_add" type="submit" name="action" value="AGGIUNGI CATEGORIA" onclick="return(validateUpdate())">
+        <input class="btn_add" type="submit" name="action" value="AGGIUNGI CATEGORIA" onclick="return(validateInsert())">
 
     </form>
 </div>

@@ -40,20 +40,17 @@
         <form action="InsertProduct" enctype="multipart/form-data" method="POST">
             <h3>Aggiungi Prodotto</h3>
 
-            <div class="inputbox">
-                <input class="box" type="text" name="name" id="name" maxlength="50"  required>
-                <span> Nome </span>
-            </div>
+                <label for="name"> Nome: </label>
+                <input type="text" name="name" id="name" maxlength="50"  required>
 
-            <div class="inputbox">
-                <input class="box" type="text" name="price" id="price" required>
-                <span> Price </span>
-            </div>
+                <label for="price"> Prezzo: </label>
+                <input type="text" name="price" id="price" required>
 
-            <input class="box" type="file" id="image" name="image" value="inserisci immagine">
+
+            <input type="file" id="image" name="image" value="inserisci immagine">
 
             <label for="categories">Categoria: </label>
-            <select class="box" id="categories" name="categories" required>
+            <select id="categories" name="categories" required>
                 <option value="Seleziona_categoria" disabled selected>Seleziona Categoria</option>
                 <%
                     ArrayList<String> categories = (ArrayList<String>) request.getAttribute("categories");
@@ -66,9 +63,9 @@
             </select>
 
             <label for="description">Descrizione: </label>
-            <textarea class="box" name="description" id="description" style="height:200px" maxlength="200"></textarea>
+            <textarea name="description" id="description" style="height:200px" maxlength="200"></textarea>
 
-            <input class="btn_add" type="submit" value="INSERISCI PRODOTTO" onclick="return(validateInsert())">
+            <input class="btn_add" type="submit" name="action" value="AGGIUNGI PRODOTTO" onclick="return(validateInsert())">
 
         </form>
         </div>

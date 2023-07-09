@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -25,11 +26,11 @@ html::-webkit-scrollbar-thumb{
     border-radius: 1px;
 }
 
-body{
-    background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("../../images/sfondologin.jpeg");
+body {
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("../../images/sfondologin.jpeg");
 }
 
-.add_prod_title{
+.add_prod_title {
     text-transform: uppercase;
     color: #38271E;
     margin-bottom: 1rem;
@@ -37,24 +38,27 @@ body{
     font-size: 2.5rem;
 }
 
-.update_product {
+.category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     border-radius: 5px;
     background-color: #E4E0BB;
     padding: 20px;
     margin: 5% 25%;
-    display: flex; /*allinea gli elementi uno di fianco all'altro*/
-    flex-wrap: wrap; /*se ho un elemento in più va daccapo*/
-    justify-content: center;
+    flex-wrap: wrap;
 }
 
-.add_category{
+.add_category {
     align-items: center;
     justify-content: center;
     text-transform: uppercase;
 }
 
-
-input[type=text], textarea {
+input[type=text],
+textarea {
     width: 100%;
     padding: 12px;
     border-radius: 4px;
@@ -65,66 +69,41 @@ input[type=text], textarea {
     overflow-y: scroll;
 }
 
-.btn_update{
+.btn_add {
     letter-spacing: 1px;
     text-decoration: none;
     border-radius: 4px;
     text-transform: uppercase;
     padding: 1rem;
     background-color: #A0602B;
-    border: 2px solid  #E4E0BB;
+    border: 2px solid #E4E0BB;
     color: #E4E0BB;
     transition: all .2s linear;
 }
 
-.btnadd{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.btn_update:hover{
+.btn_add:hover {
     background-color: #E4E0BB;
     border: 2px solid #A0602B;
     color: #A0602B;
     transition: all .2s linear;
 }
 
-.btn_delete{
-    letter-spacing: 1px;
-    text-decoration: none;
-    border-radius: 4px;
-    text-transform: uppercase;
-    padding: 1rem;
-    background-color: brown;
-    border: 2px solid  #E4E0BB;
-    color: #E4E0BB;
-    transition: all .2s linear;
-}
-
-.btn_delete:hover{
-    background-color: #E4E0BB;
-    border: 2px solid brown;
-    color: brown;
-    transition: all .2s linear;
-}
-
 @media only screen and (max-width: 1200px) {
-    .update_product {
+    .category {
         margin: 5% 2%;
         padding: 15px;
     }
 }
 
 @media only screen and (max-width: 992px) {
-    .update_product {
+    .category {
         margin: 10% 2%;
         padding: 10px;
     }
 }
 
 @media only screen and (max-width: 768px) {
-    .update_product {
+    .category {
         margin: 15% 2%;
         padding: 10px;
     }
@@ -140,7 +119,7 @@ input[type=text], textarea {
 }
 
 @media only screen and (max-width: 576px) {
-    .update_product {
+    .category {
         margin: 20% 2%;
         padding: 5px;
     }
@@ -154,43 +133,3 @@ input[type=text], textarea {
         max-height: 80px;
     }
 }
-
-/*@media only screen and (max-width: 992px) {*/
-/*    .box {*/
-/*        width: 50%;*/
-/*    }*/
-
-/*    #product-img {*/
-/*        margin-left: inherit;*/
-/*        float: left;*/
-/*    }*/
-
-/*    #product-info {*/
-/*        margin-left: auto;*/
-/*        float: left;*/
-/*    }*/
-/*}*/
-
-/*@media only screen and (max-width: 800px) {*/
-/*    * {*/
-/*        font-size: 150%;*/
-/*    }*/
-/*}*/
-
-/*@media only screen and (max-width: 700px) {*/
-/*    * {*/
-/*        font-size: 150%;*/
-/*    }*/
-/*}*/
-
-/*@media only screen and (max-width: 500px) {*/
-/*    * {*/
-/*        font-size: 150%;*/
-/*    }*/
-/*}*/
-
-/*@media only screen and (max-width: 300px) {*/
-/*    * {*/
-/*        font-size: 150%;*/
-/*}*/
-/*}*/

@@ -36,8 +36,8 @@ public class HomeServletAdministrator extends HttpServlet {
             RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/homeAdmin.jsp");
             ds.forward(request, response);
         }
-        if(action.equals("prodotti_esauriti")){
-            RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/sold-outProducts.jsp");
+        if(action.equals("add_category")){
+            RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/addCategory.jsp");
             ds.forward(request, response);
         }
         if(action.equals("orders")){

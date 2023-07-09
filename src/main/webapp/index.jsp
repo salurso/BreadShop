@@ -21,7 +21,55 @@
     <title>Forneria Del Cilento</title>
 </head>
 <body>
-<%@ include file="/WEB-INF/navbar/navbar.jsp" %>
+<%--<%@ include file="/WEB-INF/navbar/navbar.jsp" %>--%>
+<header class="header">
+
+    <div class="logo"><a href="HomePage">Forneria Del Cilento</a></div>
+    <ul class="links">
+        <li><a href="InitServlet?action=product">Prodotti</a></li>
+        <li><a href="InitServlet?action=specialita">Specialità</a></li>
+        <li><a href="InitServlet?action=contatti">Contatti</a></li>
+        <li><a href="CartServlet" ><i class="fa-solid fa-cart-shopping" style="color: #38271E;"></i></a></li>
+
+    </ul>
+    <%
+        Utente utente = (Utente) session.getAttribute("login");
+        if(utente!=null){
+    %>
+    <ul class="menu">
+        <li class="has-children"><a class="action_btn"> Ciao <%=utente.getName().toUpperCase(java.util.Locale.ROOT)%><i class="fa fa-caret-down" aria-hidden="true"></i></a>
+            <ul class="sub-menu">
+                <li><a href="InitServlet?action=orders"> Ordini</a></li>
+                <li><a href="loginServlet?action=logout"> Logout </a></li>
+            </ul>
+        </li>
+    </ul>
+
+
+    <%}else{%>
+    <a href="InitServlet?action=login" class="action_btn">Login</a>
+    <%}%>
+    <div class="toggle_btn">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+
+</header>
+
+<div class="dropdown_menu">
+    <li><a href="InitServlet?action=product">Prodotti</a></li>
+    <li><a href="InitServlet?action=specialita">Specialità</a></li>
+    <li><a href="InitServlet?action=contatti">Contatti</a></li>
+    <li><a href="InitServlet?action=orders">Ordini</a></li>
+    <li><a href="InitServlet?action=carts"><i class="fa-solid fa-cart-shopping" style="color: #38271E;"></i></a></li>
+    <%
+        if(utente!=null){
+    %>
+    <li><a class="action_btn"> Ciao <%=utente.getName().toUpperCase(java.util.Locale.ROOT)%> </a></li>
+    <li><a href="loginServlet?action=logout"> Logout </a></li>
+    <%}else{%>
+    <li><a href="InitServlet?action=login" class="action_btn">Login</a></li>
+    <%}%>
+</div>
 
 
 <section class="home" id="home">
@@ -32,7 +80,7 @@
         <p> Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è
             considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo
         </p>
-        <a class="home_btn" href="product"> Learn More </a>
+<%--        <a class="home_btn" href="product"> Learn More </a>--%>
     </div>
 </section>
 
@@ -47,7 +95,7 @@
         <p>La Forneria del Cilento nasce ad Agropoli, all'interno del Parco Nazionale, con l'intenzione e la volontà di esaltare ogni giorno i prodotti ed i sapori autentici di una terra ricca di storia e tradizioni. </p>
         <p> Con la passione nella cura e nella lavorazione delle materie prime, con la continua ricerca delle ricette migliori per la soddisfazione quotidiana dei clienti, con la gentilezza e la disponibilità che li contraddistinguono,</p>
         <p>Simone e Marielena vi aspettano nel loro laboratorio artigianale per poter condividere con voi i sapori genuini del Cilento.</p>
-        <a href="#" class="btn_about"> Learn More</a>
+        <a href="InitServlet?action=contatti" class="btn_about"> Learn More</a>
     </div>
 </section>
 
@@ -183,58 +231,30 @@
 
 <script>
 
-    // //script dropdown
-    // const toggleBtn = document.querySelector('.toggle_btn')
-    // const toggleBtnIcon = document.querySelector('.toggle_btn i')
-    // const dropDownMenu= document.querySelector('.dropdown_menu')
-    //
-    // toggleBtn.onclick=function (){
-    //     dropDownMenu.classList.toggle('open')
-    //     const isOpen = dropDownMenu.classList.contains('open')
-    //
-    //     toggleBtnIcon.classList = isOpen
-    //         ? 'fa-solid fa-xmark'
-    //         : 'fa-solid fa-bars'
-    // }
-    //
-    //
-    // // script products
-    // let previewContainer = document.querySelector('.product-preview');
-    // let previewBox = previewContainer.querySelectorAll('.preview');
-    //
-    // //per ogni prodotto quando ci clicchi mostra le info
-    // document.querySelectorAll('.product-container .product').forEach(product =>{
-    //     product.onclick = () =>{
-    //         previewContainer.style.display='flex';
-    //         let name = product.getAttribute('data-name');
-    //         previewBox.forEach(preview =>{
-    //             let target = preview.getAttribute('data-target');
-    //             if(name === target){
-    //                 preview.classList.add('active');
-    //             }
-    //         });
-    //     };
-    // });
-    //
-    // previewBox.forEach(close =>{
-    //     close.querySelector('.fa-times').onclick = () =>{
-    //         close.classList.remove('active');
-    //         previewContainer.style.display ='none';
-    //     };
-    // });
-
-    window.addEventListener('DOMContentLoaded', function() {
-        // script dropdown
-        const toggleBtn = document.querySelector('.toggle_btn');
-        const toggleBtnIcon = document.querySelector('.toggle_btn i');
-        const dropDownMenu = document.querySelector('.dropdown_menu');
-
-        toggleBtn.addEventListener('click', function() {
-            dropDownMenu.classList.toggle('open');
-            const isOpen = dropDownMenu.classList.contains('open');
-
-            toggleBtnIcon.classList = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+    $(document).ready(function() {
+        $('.toggle_btn').click(function() {
+            $('.dropdown_menu').toggleClass('open');
         });
+
+        $(window).resize(function() {
+            if ($(window).width() > 992) {
+                $('.dropdown_menu').removeClass('open');
+            }
+        });
+    });
+
+    // window.addEventListener('DOMContentLoaded', function() {
+    //     // script dropdown
+    //     const toggleBtn = document.querySelector('.toggle_btn');
+    //     const toggleBtnIcon = document.querySelector('.toggle_btn i');
+    //     const dropDownMenu = document.querySelector('.dropdown_menu');
+    //
+    //     toggleBtn.addEventListener('click', function() {
+    //         dropDownMenu.classList.toggle('open');
+    //         const isOpen = dropDownMenu.classList.contains('open');
+    //
+    //         toggleBtnIcon.classList = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+    //     });
 
         // script products
         const previewContainer = document.querySelector('.product-preview');
@@ -263,7 +283,7 @@
                 previewContainer.style.display = 'none';
             });
         });
-    });
+    // });
 
 </script>
 </body>

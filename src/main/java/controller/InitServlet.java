@@ -32,10 +32,6 @@ public class InitServlet extends HttpServlet {
             RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/results/contacts.jsp");
             ds.forward(request, response);
         }
-        if(action.equals("accounts")){
-            RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/results/account.jsp");
-            ds.forward(request, response);
-        }
         if(action.equals("product")){
             ProdottoDAO pDAO = new ProdottoDAO();
             ArrayList<Prodotto> products = new ArrayList<Prodotto>();

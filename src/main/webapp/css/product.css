@@ -147,11 +147,9 @@ section ul li.active{
     color: #A0602B;
 }
 
-/*.container{*/
-/*    max-width: 100%;*/
-/*    margin:0 auto;*/
-/*    padding:3rem 2rem;*/
-/*}*/
+.container{
+    background: #f2f2f2;
+}
 
 .container .title{
     font-size: 2.5rem;

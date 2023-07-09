@@ -7,6 +7,26 @@
     font-family: 'Poppins', sans-serif;
 }
 
+
+html{
+    overflow-x: hidden;
+    scroll-padding-top: 9rem;
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar{
+    width: .8rem;
+}
+
+html::-webkit-scrollbar-track{
+    background: #E4E0BB;
+}
+
+html::-webkit-scrollbar-thumb{
+    background: black;
+    border-radius: 1px;
+}
+
 body {
     background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("../../images/sfondologin.jpeg");
 }

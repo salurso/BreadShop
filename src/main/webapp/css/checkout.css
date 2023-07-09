@@ -9,6 +9,25 @@
     transition: all .2s linear;
 }
 
+html{
+    overflow-x: hidden;
+    scroll-padding-top: 9rem;
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar{
+    width: .8rem;
+}
+
+html::-webkit-scrollbar-track{
+    background: #E4E0BB;
+}
+
+html::-webkit-scrollbar-thumb{
+    background: black;
+    border-radius: 1px;
+}
+
 .container{
     display: flex;
     justify-content: center;
