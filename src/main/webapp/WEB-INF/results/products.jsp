@@ -50,8 +50,7 @@
 <body>
     <%@ include file="/WEB-INF/navbar/navbar.jsp" %>
     <section class="home_ord" id="home_prod">
-        <div class="container_ord" data-aos="fade-up" data-aos-duration="3000"
-             data-aos-anchor-placement="top-bottom">
+        <div class="container_ord">
             <h3> Prodotti del Cilento </h3>
         </div>
     </section>
@@ -62,10 +61,6 @@
             <%for(Categoria c : categories){%>
                 <li class="list" data-filter="<%=c.getName()%>"><%=c.getName()%></li>
             <%}%>
-<%--            <li class="list" data-filter="Fresco">Fresco</li>--%>
-<%--            <li class="list" data-filter="Secco">Secco</li>--%>
-<%--            <li class="list" data-filter="Rosticceria">Rosticceria</li>--%>
-<%--            <li class="list" data-filter="Pasticceria">Pasticceria</li>--%>
         </ul>
     </section>
 

@@ -246,19 +246,24 @@ th:last-child{
         max-width: 100%;
         overflow-x: auto;
     }
-
-    .table-container table {
-        font-size: 0.8rem;
+    .send_prod,
+    .submit-ord {
+        padding: 5px 10px;
+        font-size: 0.9rem;
     }
-
+    .table-container td .product-name {
+        font-size: 1.5rem;
+    }
+    .table-container td .product-price {
+        font-size: 1.5rem;
+    }
+    .table-container td img {
+        width: 80px;
+        height: 80px;
+        margin-right: 10px;
+    }
     .total-price table {
         max-width: 200px;
-    }
-
-    td img {
-        width: 50px;
-        height: 50px;
-        margin-right: 5px;
     }
 }
 
@@ -266,26 +271,22 @@ th:last-child{
     .home_ord h3 {
         font-size: 3.5rem;
     }
-
     .main-title {
         margin-top: 5px;
     }
-
     .main-prod {
         font-size: 1.5rem;
         margin-top: 5px;
     }
-
     .table-container {
         width: 100%;
         max-width: 100%;
         overflow-x: auto;
     }
-
-    td img {
-        width: 40px;
-        height: 40px;
-        margin-right: 5px;
+    .table-container td img {
+        width: 70px;
+        height: 70px;
+        margin-right: 8px;
     }
 }
 
@@ -297,28 +298,58 @@ th:last-child{
         margin-top: 3px;
         font-size: 1.5rem;
     }
-    .main-prod {
-        font-size: 1.2rem;
-        margin-top: 3px;
-    }
     .table-container {
         padding: 0.2rem;
     }
     .table-container table {
         font-size: 0.7rem;
     }
-    td img {
-        width: 30px;
-        height: 30px;
-        margin-right: 3px;
+
+    .table-container td img {
+        width: 50px;
+        height: 50px;
+        margin-right: 5px;
     }
     .submit-ord,
     .send_prod {
-        padding: 3px 4px;
+        padding: 4px 5px;
         font-size: 0.9rem;
     }
     .link-user{
         padding: 2px 4px;
         font-size: 0.5rem;
+    }
+}
+@media (max-width: 300px) {
+    .home_ord h3 {
+        font-size: 2rem;
+    }
+    .main-title {
+        margin-top: 3px;
+        font-size: 1.2rem;
+    }
+    .main-prod {
+        font-size: 1rem;
+        margin-top: 3px;
+    }
+    .table-container {
+        padding: 0.2rem;
+    }
+    .table-container table {
+        font-size: 0.6rem;
+    }
+    td img {
+        width: 25px;
+        height: 25px;
+        margin-right: 3px;
+    }
+    .send_prod,
+    .submit-ord {
+        padding: 3px 4px;
+        font-size: 0.8rem;
+    }
+    .link-user {
+        padding: 2px 4px;
+        font-size: 0.4rem;
     }
 }
