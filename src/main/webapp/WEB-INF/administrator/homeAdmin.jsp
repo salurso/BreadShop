@@ -32,10 +32,10 @@
                     <span class="item-text"></span>
                 </button>
                 <button class="item" id="add_category" value=" " onclick="location.href='HomeServletAdministrator?action=add_category'">
-                    <span class="item-text">Aggiungi Categorie</span>
+                    <span class="item-text"></span>
                 </button>
                 <button class="item" id="manage_category" value=" " onclick="location.href='HomeServletAdministrator?action=manage_category'">
-                    <span class="item-text">Gestisci Categorie</span>
+                    <span class="item-text"></span>
                 </button>
                 <button class="item" id="orders" value=" " onclick="location.href='HomeServletAdministrator?action=orders'">
                     <span class="item-text"></span>

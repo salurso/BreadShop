@@ -61,9 +61,13 @@ body{
     background-image: url('../../images/manageProduct.png');
 }
 
-/*.item#manage_category{*/
-/*    background-image: url('../../images/manageCategory.png');*/
-/*}*/
+.item#add_category{
+    background-image: url('../../images/manageCategory.png');
+}
+
+.item#manage_category{
+    background-image: url('../../images/addCategory.png');
+}
 
 .item#orders{
     background-image: url('../../images/orders.png');
