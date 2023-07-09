@@ -118,7 +118,6 @@ td img{
     width: 80px;
     height: 80px;
     margin-right: 10px;
-    border: 1px solid #38271E;
 }
 
 .total-price{
@@ -147,7 +146,6 @@ th:last-child{
     padding:25px;
     min-height: 100vh;
     background: linear-gradient(90deg, #C8934F 60%, #AE7349 40.1%);
-
     flex-wrap: wrap;
 }
 
@@ -238,6 +236,7 @@ th:last-child{
     border: 2px solid darkolivegreen;
     color: #E4E0BB;
     transition: all .2s linear;
+    display: flex;
 }
 
 .link-user-rendi:hover{
@@ -255,3 +254,16 @@ th:last-child{
     background: #fff;
     box-shadow: 0 5px 10px rgba(0,0,0,.1);
 }
+
+@media (min-width: 1450px) {
+    .container{
+        flex-flow: column;
+    }
+}
+
+@media (max-width: 334px) {
+    table{
+        overflow-wrap: anywhere;
+    }
+}
+
