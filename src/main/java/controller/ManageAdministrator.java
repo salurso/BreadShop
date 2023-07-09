@@ -21,30 +21,6 @@ import java.util.ArrayList;
 
 @WebServlet(name="ManageAdministrator", value="/ManageAdministrator")
 public class ManageAdministrator extends HttpServlet {
-//    @Override
-//    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        String action = request.getParameter("action");
-//        UtenteDAO uDAO = new UtenteDAO();
-//
-//        if(action.contains("addAdmin")){
-//            String x[] = action.split("addAdmin");
-//            String email = x[1];
-//            uDAO.makeAdministrator(email);
-//            ArrayList<Utente> u = uDAO.doRetrieveAll();
-//            request.setAttribute("users", u);
-//            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/administrator/manageUsers.jsp");
-//            dispatcher.forward(request, response);
-//        }
-//        if(action.contains("removeAdmin")){
-//            String x[] = action.split("removeAdmin");
-//            String email = x[1];
-//            uDAO.removeAdministrator(email);
-//            ArrayList<Utente> u = uDAO.doRetrieveAll();
-//            request.setAttribute("users", u);
-//            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/administrator/manageUsers.jsp");
-//            dispatcher.forward(request, response);
-//        }
-//    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -85,24 +61,6 @@ public class ManageAdministrator extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        String action = request.getParameter("action");
-//        UtenteDAO uDAO = new UtenteDAO();
-//
-//        if(action.contains("addAdmin")){
-//            String x[] = action.split("addAdmin");
-//            String email = x[1];
-//            uDAO.makeAdministrator(email);
-//            ArrayList<Utente> u = uDAO.doRetrieveAll();
-//
-//            ObjectMapper objectMapper = new ObjectMapper();
-//            String jsonData = objectMapper.writeValueAsString(u);
-//
-////             Imposta la risposta
-//            response.setContentType("application/json");
-//            response.setCharacterEncoding("UTF-8");
-//            response.getWriter().write(jsonData);
-//            request.setAttribute("users", u);
-//        }
         doPost(request, response);
     }
 }

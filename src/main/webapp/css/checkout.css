@@ -147,6 +147,8 @@ th:last-child{
     padding:25px;
     min-height: 100vh;
     background: linear-gradient(90deg, #C8934F 60%, #AE7349 40.1%);
+
+    flex-wrap: wrap;
 }
 
 .container form{
@@ -224,4 +226,32 @@ th:last-child{
 
 .container form .submit-btn:hover{
     background: #38271E;
+}
+
+.link-user-rendi{
+    text-decoration: none;
+    border-radius: 4px;
+    text-transform: uppercase;
+    /*flex: 1 1 16rem;*/
+    padding: 5px 7px;
+    background-color: darkolivegreen;
+    border: 2px solid darkolivegreen;
+    color: #E4E0BB;
+    transition: all .2s linear;
+}
+
+.link-user-rendi:hover{
+    background-color: white;
+    border: 2px solid darkolivegreen;
+    color: darkolivegreen;
+    transition: all .2s linear;
+}
+
+.col-metod{
+    /*display: flex;*/
+    /*flex-wrap: wrap;*/
+    padding: 20px;
+    width: 700px;
+    background: #fff;
+    box-shadow: 0 5px 10px rgba(0,0,0,.1);
 }

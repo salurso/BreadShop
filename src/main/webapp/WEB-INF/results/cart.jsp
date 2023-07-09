@@ -78,7 +78,7 @@
 //loggato senza prodotti
     %>
   <h1 class="main-title"> <%=utente.getName()%> il tuo carrello è vuoto!  </h1>
-  <h3 class="main-title"> <button class="send_prod" onclick="location.href='InitServlet?action=product'"> Our Shop </button></h3>
+  <h3 class="main-title"> <button class="send_prod" onclick="location.href='InitServlet?action=product'"> Vai allo Shop </button></h3>
 
 <%
     }
@@ -140,7 +140,7 @@
 %>
 
     <div class="main-prod"> Il tuo carrello è vuoto!</div>
-      <h3 class="main-title"> <button class="send_prod" onclick="location.href='InitServlet?action=product'"> Our Shop </button></h3>
+      <h3 class="main-title"> <button class="send_prod" onclick="location.href='InitServlet?action=product'"> Vai allo Shop </button></h3>
 
     <%
     }
@@ -177,8 +177,7 @@
     xhr.open("POST", "ManageCart", true); //richiesta asincrona
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //necessario nella post, non indispensabile nel get
 
-    var params = "action=changeQuantity&id=" + encodeURIComponent(id) +
-            "&email=" + encodeURIComponent(email) +
+    var params = "action=changeQuantitySession&id=" + encodeURIComponent(id) +
             "&quantity=" + encodeURIComponent(quantity);
 
     xhr.send(params);

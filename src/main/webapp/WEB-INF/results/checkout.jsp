@@ -19,107 +19,111 @@
 %>
 <div class="container">
 
-  <form action="OrderServlet" method="post">
-    <div class="col">
-      <h3 class="title">METODO DI PAGAMENTO</h3>
+  <div class="col-metod">
+    <h3 class="title">METODO DI PAGAMENTO</h3>
 
-      <div class="tabular--wrapper">
-        <div class="table-container">
-          <table>
-            <tr>
-              <th> Numero </th>
-              <th> Titolare carta </th>
-              <th> Data di scadenza </th>
-              <th> </th>
-            </tr>
-            <%
-              int i=0;
-              for(Pagamento p : creditCards){
-                String number = String.valueOf(p.getNumber()).substring(String.valueOf(p.getNumber()).length()-4);
-            %>
-            <tr>
-              <td>termina con <%=number%></td>
-              <td><%=p.getHolder()%></td>
-              <td><%=p.getExpMonth()%>/<%=p.getExpYear()%></td>
-              <td><input type="radio" id="card<%=i%>" name="card" value="<%=p.getId()%>"></td>
-            </tr>
-            <%
-                i++;
-              }
-            %>
-            <input type="submit" name="action" id="check" value="inserisci" class="submit-btn">
-          </table>
-        </div>
+    <div class="tabular--wrapper">
+      <div class="table-container">
+        <table>
+          <tr>
+            <th> Numero </th>
+            <th> Titolare carta </th>
+            <th> Data di scadenza </th>
+            <th> </th>
+          </tr>
+          <%
+            int i=0;
+            for(Pagamento p : creditCards){
+              String number = String.valueOf(p.getNumber()).substring(String.valueOf(p.getNumber()).length()-4);
+          %>
+          <tr>
+            <td>termina con <%=number%></td>
+            <td><%=p.getHolder()%></td>
+            <td><%=p.getExpMonth()%>/<%=p.getExpYear()%></td>
+            <%--              <td><input type="radio" id="card<%=i%>" name="card" value="<%=p.getId()%>"></td>--%>
+            <td><button class="btn-user"><a class="link-user-rendi" onclick="insertCard(<%=p.getId()%>)">Seleziona metodo</a></button></td>
+          </tr>
+          <%
+              i++;
+            }
+          %>
+          <%--            <input type="submit" name="action" id="check" value="inserisci" class="submit-btn">--%>
+          <%--            <input type="submit" name="action" id="check" onclick="insertCard('<%=p.getId%>')" class="submit-btn">--%>
+
+        </table>
       </div>
-    </div><br>
+    </div>
+  </div><br><br>
+
+  <form action="OrderServlet" method="post">
 
     <div class="row">
       <div class="col">
         <h3 class="title">indirizzo</h3>
         <div class="inputBox">
           <span>telefono :</span>
-          <input type="text" name="phone_number" id="phone_number" <%if(utente.getPhone_number()!=null){%>value="<%=utente.getPhone_number()%>"<%}%> placeholder="333 333 3333">
+          <input type="text" name="phone_number" id="phone_number" maxlength="10" <%if(utente.getPhone_number()!=null){%>value="<%=utente.getPhone_number()%>"<%}%> placeholder="3333333333">
         </div>
         <div class="inputBox">
-          <span>città :</span>
-          <input type="text" name="city" <%if(utente.getCity()!=null){%>value="<%=utente.getCity()%>"<%}%> placeholder="Agropoli">
+          <span>citta' :</span>
+          <input type="text" name="city" id="city" maxlength="50" <%if(utente.getCity()!=null){%>value="<%=utente.getCity()%>"<%}%> placeholder="Agropoli">
         </div>
         <div class="inputBox">
           <span>provincia :</span>
-          <input type="province" name="province" <%if(utente.getProvince()!=null){%>value="<%=utente.getProvince()%>"<%}%> placeholder="SA">
+          <input type="province" name="province" id="province" maxlength="2" <%if(utente.getProvince()!=null){%>value="<%=utente.getProvince()%>"<%}%> placeholder="SA">
         </div>
         <div class="inputBox">
           <span>Indirizzo :</span>
-          <input type="text" name="street" <%if(utente.getStreet()!=null){%>value="<%=utente.getStreet()%>"<%}%> placeholder="Via Rossi">
+          <input type="text" name="street" id="street" maxlength="50" <%if(utente.getStreet()!=null){%>value="<%=utente.getStreet()%>"<%}%> placeholder="Via Rossi">
         </div>
 
         <div class="flex">
           <div class="inputBox">
             <span>Num. civico</span>
-            <input type="text" name="street_number" <%if(utente.getStreet()!=null){%>value="<%=utente.getStreet_number()%>"<%}%> placeholder="15">
+            <input type="text" name="street_number" id="street_number" maxlength="3" <%if(utente.getStreet()!=null){%>value="<%=utente.getStreet_number()%>"<%}%> placeholder="15">
           </div>
           <div class="inputBox">
             <span>CAP :</span>
-            <input type="text" name="cap" <%if(utente.getCap()!=null){%>value="<%=utente.getCap()%>"<%}%> placeholder="84070">
+            <input type="text" name="cap" id="cap" maxlength="5" <%if(utente.getCap()!=null){%>value="<%=utente.getCap()%>"<%}%> placeholder="84070">
           </div>
         </div>
       </div>
 
       <div class="col">
         <h3 class="title">pagamento</h3>
-        <%if(request.getParameter("card")!=null){
-          Pagamento p = (Pagamento) request.getAttribute("card");
-        %>
-          <input type="hidden" name="cardId" value="<%=p.getId()%>">
-        <%}else{%>
-          <input type="hidden" name="cardId" value="insert">
-        <%}%>
+<%--        <%if(request.getParameter("card")!=null){--%>
+<%--          Pagamento p = (Pagamento) request.getAttribute("card");--%>
+<%--        %>--%>
+<%--          <input type="hidden" name="cardId" id="cardId" value="<%=p.getId()%>">--%>
+<%--        <%}else{%>--%>
+          <input type="hidden" name="cardId" id="cardId" value="insert">
+<%--        <%}%>--%>
         <div class="inputBox">
           <span>carte accettate :</span>
           <img src="./images/card_img.png" alt="mastercard - visa - paypal">
         </div>
         <div class="inputBox">
           <span>titolare della carta :</span>
-          <input type="text" name="holder" <%if(request.getParameter("card")!=null){Pagamento p = (Pagamento) request.getAttribute("card");%>value="<%=p.getHolder()%>"<%}%> placeholder="Mario Rossi">
+          <input type="text" name="holder" id="holder" <%if(request.getParameter("card")!=null){Pagamento p = (Pagamento) request.getAttribute("card");%>value="<%=p.getHolder()%>"<%}%> placeholder="Mario Rossi">
         </div>
         <div class="inputBox">
           <span>numero carta di credito :</span>
-          <input type="text" name="creditCardNumber" <%if(request.getParameter("card")!=null){Pagamento p = (Pagamento) request.getAttribute("card");String number = String.valueOf(p.getNumber()).substring(String.valueOf(p.getNumber()).length()-4);%>value="termina con <%=number%>"<%}%> placeholder="1111 2222 3333 4444">
+          <input type="text" name="creditCardNumber" id="creditCardNumber" <%if(request.getParameter("card")!=null){Pagamento p = (Pagamento) request.getAttribute("card");String number = String.valueOf(p.getNumber()).substring(String.valueOf(p.getNumber()).length()-4);%>value="termina con <%=number%>"<%}%> maxlength="16"placeholder="1111 2222 3333 4444">
         </div>
         <div class="inputBox">
           <span>CVV :</span>
-          <input type="text" name="cvv" <%if(request.getParameter("card")!=null){%>value="metodo selezionato"<%}%> placeholder="123">
+          <input type="text" name="cvv" id="cvv"<%if(request.getParameter("card")!=null){%>value="metodo selezionato"<%}else{%> maxlength="3" <%}%> placeholder="123">
         </div>
 
         <span>Data di scadenza</span>
         <div class="flex">
           <div class="inputBox">
             <span>mese :</span>
-            <input type="text" name="expMonth" <%if(request.getParameter("card")!=null){Pagamento p = (Pagamento) request.getAttribute("card");%>value="<%=p.getExpMonth()%>"<%}%> placeholder="01">
+            <input type="text" name="expMonth" id="expMonth" <%if(request.getParameter("card")!=null){Pagamento p = (Pagamento) request.getAttribute("card");%>value="<%=p.getExpMonth()%>"<%}%> placeholder="01">
           </div>
           <div class="inputBox">
             <span>anno :</span>
-            <input type="number" name="expYear" <%if(request.getParameter("card")!=null){Pagamento p = (Pagamento) request.getAttribute("card");%>value="<%=p.getExpYear()%>"<%}%> placeholder="2035">
+            <input type="number" name="expYear" id="expYear"<%if(request.getParameter("card")!=null){Pagamento p = (Pagamento) request.getAttribute("card");%>value="<%=p.getExpYear()%>"<%}%> placeholder="2035">
           </div>
         </div>
       </div>
@@ -132,7 +136,7 @@
             <table>
               <tr>
                 <th> Prodotto </th>
-                <th> Quantità </th>
+                <th> Quantita' </th>
                 <th> SubTotale </th>
               </tr>
               <%
@@ -184,7 +188,7 @@
     <%
       }else{
     %>
-    <input type="submit" name="action" value="Acquista" class="submit-btn"/>
+    <input type="submit" name="action" value="Acquista" class="submit-btn" onclick="return(validateOperation())"/>
     <%}%>
   </form>
 
@@ -193,22 +197,120 @@
 <script>
 
   //REGEX VALIDA OPERAZIONI
-  function validateNumber(){
+  function validateOperation(){
 
-  var numberRGX = /^((00|\+)\d{2}[\. ]??)??3\d{2}[\. ]??\d{6,7}([\,\;]((00|\+)\d{2}[\. ]??)??3\d{2}[\. ]??\d{6,7})*$/;
+  var phone_numberRGX = /^((00|\+)\d{2}[\. ]??)??3\d{2}[\. ]??\d{6,7}([\,\;]((00|\+)\d{2}[\. ]??)??3\d{2}[\. ]??\d{6,7})*$/;
+  var phone_number = document.getElementById('phone_number').value;
+  var resultPhone_number = phone_numberRGX.test(phone_number);
+  if (resultPhone_number == false) {
+    alert("Il numero di telefono non rispecchia il formato corretto. Riprovare");
+    return false;
+  }
 
-  var number = document.getElementById('phone_number').value;
-  var resultNumber = numberRGX.test(number);
-  if (resultNumber == false) {
-    alert("Il numero non rispecchia il formato corretto. Riprovare");
+  var cityRGX=/^[a-zA-Z' ']*$/;
+  var city=document.getElementById('city').value;
+  if((cityRGX.test(city))==false){
+    alert("Citta' non valido!");
+    return false;
+  }
+  if((name.length>50 ))
+  {
+    alert("Dimensione città non valida!");
+    return false;
+  }
+
+  var streetRGX=/^[a-zA-Z' ']*$/;
+  var street=document.getElementById('street').value;
+  if((streetRGX.test(street))==false){
+    alert("Indirizzo non valido!");
+    return false;
+  }
+  if((name.length>50))
+  {
+    alert("Dimensione indirizzo non valida!");
+    return false;
+  }
+
+  var street_numberRGX=/^[0-9]*$/;
+  var street_number=document.getElementById('street_number').value;
+  if((street_numberRGX.test(street_number))==false){
+    alert("Numero civico non valido!");
+    return false;
+  }
+  if((name.length>3))
+  {
+    alert("Dimensione numero civico non valida!");
+    return false;
+  }
+
+  var provinceRGX=/^[a-zA-Z]{2}$/;
+  var province=document.getElementById('province').value;
+  if((provinceRGX.test(province))==false){
+    alert("Provincia non valido!");
+    return false;
+  }
+
+  var capRGX=/^[0-9]{5}$/;
+  var cap=document.getElementById('cap').value;
+  if((capRGX.test(cap))==false){
+    alert("CAP non valido!");
+    return false;
+  }
+
+  var holderRGX=/^[a-zA-Z' ']*$/;
+  var holder=document.getElementById('holder').value;
+  if((holderRGX.test(holder))==false){
+    alert("Titolare non valido!");
+    return false;
+  }
+  if((holder.length>50))
+  {
+    alert("Dimensione titolare non valida!");
+    return false;
+  }
+
+  if(document.getElementById("cardId").value=="insert"){
+    var number =document.getElementById('creditCardNumber').value;
+    var numberRGX = /^[0-9]*$/;
+    if((numberRGX.test(number)) == false){
+      alert("Formato del numero carta non valido!");
+      return false;
+    }
+    if(number.length != 16)
+    {
+      alert("Dimensione del numero di carta errato!");
+      return false;
+    }
+
+    var cvvRGX=/^[0-9]{3}$/;
+    var cvv=document.getElementById('cvv').value;
+    if((cvvRGX.test(cvv))==false){
+      alert("CVV non valido!");
+      return false;
+    }
+    if(cvv.length != 3)
+    {
+      alert("Dimensione del numero di carta errato!");
+      return false;
+    }
+  }
+
+  var expMonthRGX=/^[0-9]{2}$/;
+  var expMonth=document.getElementById('expMonth').value;
+  if((expMonthRGX.test(expMonth))==false){
+    alert("Mese di scadenza non valido!");
+    return false;
+  }
+
+  var expYearRGX=/^[0-9]{4}$/;
+  var expYear=document.getElementById('expYear').value;
+  if((expYearRGX.test(expYear))==false){
+    alert("Anno di scadenza non valido!");
     return false;
   }
 
   return true;
 }
-
-
-
 
 
   function changeQuantity(id){
@@ -243,6 +345,33 @@
     setTimeout(function() {
       location.reload();
     }, 100);
+  }
+
+  function insertCard(id){
+    var email = document.getElementById("email").value;
+
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function (){
+      // var object = JSON.parse(xhr.responseText);
+      // alert(xhr.responseText);
+      if(xhr.readyState == 4 && xhr.status == 200){
+
+        var object = JSON.parse(xhr.responseText);
+        document.getElementById("holder").value = object.holder;
+        document.getElementById("creditCardNumber").value = "metodo selezionato";
+        document.getElementById("cvv").value = "metodo selezionato";
+        document.getElementById("expMonth").value = object.expMonth;
+        document.getElementById("expYear").value = object.expYear;
+        document.getElementById("cardId").value = object.id;
+      }
+    };
+    xhr.open("POST", "OrderServlet?action=inserisci&email=" + email + "&id=" + id, true);
+
+    // xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //necessario nella post, non indispensabile nel get
+    // var params = "action=inserisci&id=" + encodeURIComponent(id) +
+    //         "&email=" + encodeURIComponent(email);
+
+    xhr.send();
   }
 </script>
 

@@ -1,5 +1,6 @@
 package controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -28,17 +29,34 @@ public class OrderServlet extends HttpServlet {
             request.setAttribute("carts", carts);
             request.setAttribute("creditCards", creditCards);
             addres = "./WEB-INF/results/checkout.jsp";
+
+            RequestDispatcher ds = request.getRequestDispatcher(addres);
+            ds.forward(request, response);
         }
         if(action.equals("inserisci")){
-            CarrelloDAO cDAO = new CarrelloDAO();
-            ArrayList<Carrello> carts = cDAO.doRetrieveAll();
+//            CarrelloDAO cDAO = new CarrelloDAO();
+//            ArrayList<Carrello> carts = cDAO.doRetrieveAll();
+//            PagamentoDAO pDAO = new PagamentoDAO();
+//            ArrayList<Pagamento> creditCards = pDAO.doRetriveByEmail(email);
+//            int id = Integer.parseInt((request.getParameter("card")));
+//            request.setAttribute("card", pDAO.doRetriveById(id));
+//            request.setAttribute("carts", carts);
+//            request.setAttribute("creditCards", creditCards);
+//            addres = "./WEB-INF/results/checkout.jsp";
+
+
             PagamentoDAO pDAO = new PagamentoDAO();
-            ArrayList<Pagamento> creditCards = pDAO.doRetriveByEmail(email);
-            int id = Integer.parseInt((request.getParameter("card")));
-            request.setAttribute("card", pDAO.doRetriveById(id));
-            request.setAttribute("carts", carts);
-            request.setAttribute("creditCards", creditCards);
-            addres = "./WEB-INF/results/checkout.jsp";
+            int id = Integer.parseInt((request.getParameter("id")));
+            Pagamento p = pDAO.doRetriveById(id);
+
+            ObjectMapper objectMapper = new ObjectMapper();
+            String jsonData = objectMapper.writeValueAsString(p);
+
+//             Imposta la risposta
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            response.getWriter().write(jsonData);
+
         }
         if(action.equals("Acquista")){
             Ordine o = new Ordine();
@@ -91,10 +109,13 @@ public class OrderServlet extends HttpServlet {
 
             request.setAttribute("result", result);
             addres = "index.jsp";
+
+            RequestDispatcher ds = request.getRequestDispatcher(addres);
+            ds.forward(request, response);
         }
 
-        RequestDispatcher ds = request.getRequestDispatcher(addres);
-        ds.forward(request, response);
+//        RequestDispatcher ds = request.getRequestDispatcher(addres);
+//        ds.forward(request, response);
     }
 
     @Override
