@@ -68,6 +68,9 @@ public class HomeServletAdministrator extends HttpServlet {
             ArrayList<Prodotto> products = new ArrayList<Prodotto>();
             products = (ArrayList<Prodotto>) pDAO.doRetrieveAll();
             request.setAttribute("products", products);
+            CategoriaDAO cDAO = new CategoriaDAO();
+            ArrayList<Categoria> categories = (ArrayList<Categoria>) cDAO.doRetrieveAll();
+            request.setAttribute("categories", categories);
             RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/manageProduct.jsp");
             ds.forward(request, response);
         }

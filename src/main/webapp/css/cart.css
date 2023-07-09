@@ -34,26 +34,6 @@ body{
     background: #E4E0BB;
 }
 
-html{
-    overflow-x: hidden;
-    scroll-padding-top: 9rem;
-    scroll-behavior: smooth;
-}
-
-html::-webkit-scrollbar{
-    width: .8rem;
-}
-
-html::-webkit-scrollbar-track{
-    background: #E4E0BB;
-}
-
-html::-webkit-scrollbar-thumb{
-    background: black;
-    border-radius: 1px;
-}
-
-
 .home_ord{
     min-height: 30vh;
     display: flex;
@@ -105,30 +85,12 @@ html::-webkit-scrollbar-thumb{
 table{
     width: 100%;
     border-collapse: collapse;
-    /*border: 1px solid #38271E;*/
 }
 
 .cart-info{
     display: flex;
     flex-wrap: wrap;
 }
-
-.link-user{
-    text-decoration: none;
-    border-radius: 1px;
-    text-transform: uppercase;
-    padding: 2px 5px;
-    background-color: #A0602B;
-    border: 2px solid #A0602B;
-    color: #E4E0BB;
-    transition: all .2s linear;
-}
-
-.link-user:hover {
-    background-color: #E4E0BB;
-    color: #A0602B;
-}
-
 
 th{
     text-align: left;

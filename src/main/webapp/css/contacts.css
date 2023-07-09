@@ -340,29 +340,127 @@ body {
         font-size: 1.8em;
     }
 }
-
-@media (max-width: 380px) {
-    .contactUs .title h2 {
-        font-size: 1.2em;
-    }
-
-    .form img {
-        max-width: 100%;
+@media (max-width: 400px) {
+    .contactUs {
+        padding: 10px;
     }
 
     .box {
         margin: 0 auto;
         max-width: 100%;
+        grid-gap: 10px;
+    }
+
+    .formBox .row50,
+    .inputbox {
+        width: 100%;
+    }
+
+    .inputbox input,
+    .inputbox textarea {
+        font-size: 0.9em;
+    }
+
+    .contact {
         padding: 20px;
     }
 
-    .infoBox div span {
-        min-width: 20px;
-        height: 20px;
-        font-size: 1em;
+    .map {
+        min-height: 200px;
+        padding: 0;
+    }
+}
+
+@media (max-width: 330px) {
+    .contactUs {
+        padding: 5px;
     }
 
-    .sci li a {
-        font-size: 1.5em;
+    .box {
+        grid-template-columns: 1fr;
+        grid-gap: 5px;
+        margin-top: 5px;
+    }
+
+    .inputbox input,
+    .inputbox textarea {
+        font-size: 0.8em;
+    }
+
+    .contact {
+        padding: 10px;
+    }
+
+    .map {
+        min-height: 150px;
+    }
+}
+
+@media (max-width: 314px) {
+    .contactUs {
+        padding: 2px;
+    }
+
+    .box {
+        grid-gap: 2px;
+    }
+
+    .inputbox input,
+    .inputbox textarea {
+        font-size: 0.7em;
+    }
+
+    .contact {
+        padding: 5px;
+    }
+
+    .map {
+        min-height: 100px;
+    }
+}
+
+@media (max-width: 300px) {
+    .contactUs {
+        padding: 1px;
+    }
+
+    .box {
+        grid-gap: 1px;
+    }
+
+    .inputbox input,
+    .inputbox textarea {
+        font-size: 0.6em;
+    }
+
+    .contact {
+        padding: 3px;
+    }
+
+    .map {
+        min-height: 70px;
+    }
+}
+
+@media (max-width: 280px) {
+    .contactUs {
+        padding: 1px;
+    }
+
+    .box {
+        grid-gap: 1px;
+    }
+
+    .inputbox input,
+    .inputbox textarea {
+        font-size: 0.6em;
+    }
+
+    .contact {
+        padding: 2px;
+    }
+
+    .map {
+        min-height: 50px;
     }
 }
