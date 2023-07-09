@@ -62,11 +62,11 @@ body{
 }
 
 .item#add_category{
-    background-image: url('../../images/manageCategory.png');
+    background-image: url('../../images/addCategory.png');
 }
 
 .item#manage_category{
-    background-image: url('../../images/addCategory.png');
+    background-image: url('../../images/manageCategory.png');
 }
 
 .item#orders{
