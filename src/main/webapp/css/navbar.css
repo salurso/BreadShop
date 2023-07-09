@@ -179,28 +179,22 @@ ul {
     .header .action_btn {
         display: none;
     }
-
     .header .toggle_btn {
         display: block;
     }
-
     .dropdown_menu {
         display: none;
     }
-
     .dropdown_menu a {
         color: #38271E;
         font-weight: bold;
     }
-
     .header .logo {
         font-size: 1.2rem;
     }
-
     .header .logo ul {
         font-size: 1.2rem;
     }
-
     .header .links {
         gap: 1rem;
     }
@@ -210,11 +204,9 @@ ul {
     .header .logo {
         font-size: 1rem;
     }
-
     .header .logo ul {
         font-size: 1rem;
     }
-
     .header .links {
         gap: 0.5rem;
     }
@@ -225,20 +217,32 @@ ul {
         width: 100%;
         top: 55px;
     }
-
     .header .links {
         display: none;
     }
-
     .header .toggle_btn {
         display: block;
     }
-
     .header .logo {
         font-size: 1rem;
     }
-
     .header .logo ul {
         font-size: 1rem;
+    }
+}
+
+@media (max-width: 340px) {
+    .header .logo {
+        font-size: 0.8rem;
+    }
+    .header .logo ul {
+        font-size: 0.8rem;
+    }
+    .header .links {
+        gap: 0.3rem;
+    }
+    .sub-menu li {
+        padding: 10px 5px;
+        font-size: 14px;
     }
 }

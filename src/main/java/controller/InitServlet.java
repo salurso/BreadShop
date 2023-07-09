@@ -24,9 +24,6 @@ public class InitServlet extends HttpServlet {
         if(action.equals("login")){
             RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/results/login.jsp");
             ds.forward(request, response);
-//        } if(action.equals("register")){
-//            RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/results/register.jsp");
-//            ds.forward(request, response);
         }
         if(action.equals("contatti")){
             RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/results/contacts.jsp");
@@ -59,17 +56,6 @@ public class InitServlet extends HttpServlet {
             RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/results/specialita.jsp");
             ds.forward(request, response);
         }
-
-
-
-
-//        session.setAttribute("filters", action);
-//        ProdottoDAO pDAO = new ProdottoDAO();
-//        ArrayList<Prodotto> prodottiCategoria = new ArrayList<>();
-//        prodottiCategoria = (ArrayList<Prodotto>) pDAO.doRetrieveByCategory(action);
-//        request.setAttribute("categoria", prodottiCategoria);
-//        RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/results/products.jsp");
-//        ds.forward(request, response);
     }
 
     @Override
