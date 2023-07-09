@@ -19,6 +19,7 @@
     <%=request.getAttribute("result")%>
   </div>
   <%}%>
+
   <div class="container">
     <button class="item" id="add_product" value=" " onclick="location.href='HomeServletAdministrator?action=add_product'">
     </button>
