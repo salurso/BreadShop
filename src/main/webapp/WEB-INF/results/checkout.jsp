@@ -58,7 +58,7 @@
         <h3 class="title">indirizzo</h3>
         <div class="inputBox">
           <span>telefono :</span>
-          <input type="text" name="phone_number" <%if(utente.getPhone_number()!=null){%>value="<%=utente.getPhone_number()%>"<%}%> placeholder="333 333 3333">
+          <input type="text" name="phone_number" id="phone_number" <%if(utente.getPhone_number()!=null){%>value="<%=utente.getPhone_number()%>"<%}%> placeholder="333 333 3333">
         </div>
         <div class="inputBox">
           <span>città :</span>
@@ -191,6 +191,26 @@
 </div>
 
 <script>
+
+  //REGEX VALIDA OPERAZIONI
+  function validateNumber(){
+
+  var numberRGX = /^((00|\+)\d{2}[\. ]??)??3\d{2}[\. ]??\d{6,7}([\,\;]((00|\+)\d{2}[\. ]??)??3\d{2}[\. ]??\d{6,7})*$/;
+
+  var number = document.getElementById('phone_number').value;
+  var resultNumber = numberRGX.test(number);
+  if (resultNumber == false) {
+    alert("Il numero non rispecchia il formato corretto. Riprovare");
+    return false;
+  }
+
+  return true;
+}
+
+
+
+
+
   function changeQuantity(id){
     var email = document.getElementById("email").value;
     var inputElement = document.getElementById('num_' + id); //elemento che contiene la quantità

@@ -335,8 +335,8 @@ th:last-child{
         padding: 4px 5px;
         font-size: 0.9rem;
     }
-    .link-user{
-        padding: 2px 4px;
+    .remove_prod{
+        padding: 2px 2px;
         font-size: 0.5rem;
     }
 }
@@ -368,7 +368,7 @@ th:last-child{
         padding: 3px 4px;
         font-size: 0.8rem;
     }
-    .link-user {
+    .remove_prod {
         font-size: 0.4rem;
     }
 }
