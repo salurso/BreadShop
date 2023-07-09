@@ -40,21 +40,6 @@
     </div>
 </div>
 
-<%--<div class="category">--%>
-<%--    <form action="UpdateCategory"  method="POST">--%>
-
-<%--        <h3 class="add_prod_title">Aggiungi Categoria</h3>--%>
-
-<%--        <label for="name"> Nome: </label>--%>
-<%--        <input id="name" name="name" type="text" value="" maxlength="50">--%>
-
-<%--        <label for="description">Descrizione: </label>--%>
-<%--        <textarea class="box" name="description" id="description" style="height:200px" maxlength="200"></textarea>--%>
-
-<%--        <input class="btn_add" type="submit" name="action" value="AGGIUNGI CATEGORIA" onclick="return(validateUpdate())">--%>
-
-<%--    </form>--%>
-<%--</div>--%>
 
 <script>
     function validateUpdate() {

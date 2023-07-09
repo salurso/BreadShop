@@ -37,10 +37,7 @@
         <span class="product-price">€<%=p.getPrice()%>/kg</span>
 
 
-        <p class="product-description"> <%=p.getDescription()%>Il pane integrale è definito “funzionale” perché svolge un’azione benefica su una o più funzioni dell’organismo al fine di migliorare la salute ed il benessere.
-          Il profumo di cereali tostati ed un intenso sapore di grano sono le caratteristiche predominanti.
-
-          Questo prodotto ha ricevuto la Medaglia d’Argento al Concorso Premio Roma – Sezione Nazionale per i migliori pani di tipo funzionale. </p>
+        <p class="product-description"> <%=p.getDescription()%></p>
         <div class="btn-groups">
           <%if(session.getAttribute("login")==null){%>
           <form action="AddCartSession" method="post">

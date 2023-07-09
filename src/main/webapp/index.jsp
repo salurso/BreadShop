@@ -77,8 +77,9 @@
     <div class="container">
 
         <h3> Forneria Del Cilento </h3>
-        <p> Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è
-            considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo
+        <p>
+            Benvenuti al Panificio del Cilento ad Agropoli. Da noi troverete pane fragrante appena sfornato, dolci artigianali e prelibatezze salate, tutto preparato con passione e ingredienti di qualità.
+            Siamo pronti ad offrirvi un'esperienza culinaria autentica nel cuore del Cilento. Vi aspettiamo con gioia per deliziare i vostri sensi!
         </p>
 <%--        <a class="home_btn" href="product"> Learn More </a>--%>
     </div>
@@ -137,35 +138,35 @@
         <i class="fas fa-times"></i>
         <img src="./upload/paneFresco.png" alt="Card 1">
         <h3> Linea Fresco </h3>
-        <p>Lorem Ipsum dolor sit amet consectetur adipisicing elit. Consequatr, dolorem</p>
+        <p>Pane fresco: croccante fuori, morbido dentro. Una delizia quotidiana.</p>
     </div>
 
     <div class="preview" data-target="p-2">
         <i class="fas fa-times"></i>
         <img src="./upload/fresaBianca.png" alt="Card 1">
         <h3> Linea Secco </h3>
-        <p>Lorem Ipsum dolor sit amet consectetur adipisicing elit. Consequatr, dolorem</p>
+        <p>Pane secco: croccante e leggermente duro. Perfetto da sbriciolare per dare un tocco di croccantezza ai piatti.</p>
     </div>
 
     <div class="preview" data-target="p-3">
         <i class="fas fa-times"></i>
         <img src="./upload/focacciaOrigan.png" alt="Card 1">
         <h3> Rosticceria </h3>
-        <p>Lorem Ipsum dolor sit amet consectetur adipisicing elit. Consequatr, dolorem</p>
+        <p>Rosticceria: sfiziosa varietà di delizie salate. Gusti irresistibili per un'esperienza golosa.</p>
     </div>
 
     <div class="preview" data-target="p-4">
         <i class="fas fa-times"></i>
         <img src="./upload/pasticceria.png" alt="Card 1">
         <h3> Pasticceria </h3>
-        <p>Lorem Ipsum dolor sit amet consectetur adipisicing elit. Consequatr, dolorem</p>
+        <p>Pasticceria: dolci artigianali che conquistano il palato. Un tripudio di golosità.</p>
     </div>
 
     <div class="preview" data-target="p-5">
         <i class="fas fa-times"></i>
         <img src="./upload/speciale.png" alt="Card 1">
         <h3> Speciali </h3>
-        <p>Lorem Ipsum dolor sit amet consectetur adipisicing elit. Consequatr, dolorem</p>
+        <p>Specialità: un'esplosione di sapori unici. Un'esperienza gastronomica indimenticabile</p>
     </div>
 
 </div>
@@ -173,10 +174,11 @@
 <section class="mid" id="mid">
     <div class="container-mid">
         <h3> Acquista i nostri prodotti! </h3>
-        <p> La forneria del cilento, si impegna ad offrire <br>
-            la miglior qualità e velocità di spedizione su tutto il territorio del Cilento <br>
-            Cosa aspetti? Acquista anche tu il nostro pane
-        </p>
+        <p>Scopri il gusto autentico al Panificio del Cilento! Siamo qui per deliziare i tuoi sensi con il pane più fragrante,<br>
+            dolci artigianali irresistibili e prelibatezze salate uniche. I nostri prodotti di alta qualità sono realizzati con passione e ingredienti selezionati.<br>
+            Vieni a trovarci e lasciati conquistare dal sapore genuino del Cilento.<br>
+            Assapora l'autenticità, vivi l'esperienza del gusto al Panificio del Cilento! Ti aspettiamo con gioia.
+        </p><br>
         <a class="home_btn" href="InitServlet?action=product"> Nostro shop</a>
     </div>
 </section>
@@ -190,38 +192,25 @@
             <div class="footer-col">
                 <h4>Company</h4>
                 <ul>
-                    <li><a href="#">about us</a></li>
-                    <li><a href="#">our products</a></li>
-                    <li><a href="#">our service</a></li>
-                    <li><a href="#">privacy & policy</a></li>
+                    <li><a href="InitServlet?action=contatti">about us</a></li>
+                    <li><a href="InitServlet?action=product">prodotti</a></li>
+                    <li><a href="InitServlet?action=specialita">specialità</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>Get Help</h4>
+                <h4>Made by</h4>
                 <ul>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">shipping</a></li>
-                    <li><a href="#">returns</a></li>
-                    <li><a href="#">order status</a></li>
-                    <li><a href="#">payment options</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Online Shop</h4>
-                <ul>
-                    <li><a href="#">Pane</a></li>
-                    <li><a href="#">Rosticceria</a></li>
-                    <li><a href="#">Biscotti</a></li>
-                    <li><a href="#">Specialità</a></li>
+                    <li><a>Andrea Salurso</a></li>
+                    <li><a>Costantino Paciello</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Follow Us</h4>
                 <div class="social">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/i/flow/login?redirect_after_login=%2Fhome%3F"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/forneriadelcilento/?utm_medium=copy_link"><i class="fab fa-instagram"></i></a>
+                    <a href="https://it.linkedin.com/?original_referer=https%3A%2F%2Fwww.google.com%2F"><i class="fab fa-linkedin-in"></i></a>
 
                 </div>
             </div>
@@ -243,18 +232,7 @@
         });
     });
 
-    // window.addEventListener('DOMContentLoaded', function() {
-    //     // script dropdown
-    //     const toggleBtn = document.querySelector('.toggle_btn');
-    //     const toggleBtnIcon = document.querySelector('.toggle_btn i');
-    //     const dropDownMenu = document.querySelector('.dropdown_menu');
-    //
-    //     toggleBtn.addEventListener('click', function() {
-    //         dropDownMenu.classList.toggle('open');
-    //         const isOpen = dropDownMenu.classList.contains('open');
-    //
-    //         toggleBtnIcon.classList = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
-    //     });
+
 
         // script products
         const previewContainer = document.querySelector('.product-preview');

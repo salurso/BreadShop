@@ -22,38 +22,25 @@
       <div class="footer-col">
         <h4>Company</h4>
         <ul>
-          <li><a href="#">about us</a></li>
-          <li><a href="#">our products</a></li>
-          <li><a href="#">our service</a></li>
-          <li><a href="#">privacy & policy</a></li>
+          <li><a href="InitServlet?action=contatti">about us</a></li>
+          <li><a href="InitServlet?action=product">prodotti</a></li>
+          <li><a href="InitServlet?action=specialita">specialità</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Get Help</h4>
+        <h4>Made by</h4>
         <ul>
-          <li><a href="#">FAQ</a></li>
-          <li><a href="#">shipping</a></li>
-          <li><a href="#">returns</a></li>
-          <li><a href="#">order status</a></li>
-          <li><a href="#">payment options</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Online Shop</h4>
-        <ul>
-          <li><a href="#">Pane</a></li>
-          <li><a href="#">Rosticceria</a></li>
-          <li><a href="#">Biscotti</a></li>
-          <li><a href="#">Specialità</a></li>
+          <li><a>Andrea Salurso</a></li>
+          <li><a>Costantino Paciello</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Follow Us</h4>
         <div class="social">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://twitter.com/i/flow/login?redirect_after_login=%2Fhome%3F"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/forneriadelcilento/?utm_medium=copy_link"><i class="fab fa-instagram"></i></a>
+          <a href="https://it.linkedin.com/?original_referer=https%3A%2F%2Fwww.google.com%2F"><i class="fab fa-linkedin-in"></i></a>
 
         </div>
       </div>

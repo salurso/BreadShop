@@ -98,7 +98,7 @@
         </select><br>
 
         <label for="description">descrizione: </label>
-        <textarea name="description" id="description" style="height:200px" maxlength="200"><%=p.getDescription()%></textarea>
+        <textarea name="description" id="description" style="height:200px" maxlength="500"><%=p.getDescription()%></textarea>
         <div class="btnadd">
             <input class="btn_update" type="submit" name="action" value="AGGIORNA" onclick="return(validateUpdate())">
         </div>

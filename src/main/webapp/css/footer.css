@@ -9,7 +9,6 @@
 }
 
 .container-footer {
-    max-width: 1170px;
     margin: auto;
 }
 
@@ -21,6 +20,7 @@
 .footer {
     background-color: #24262b;
     padding: 70px 0;
+
 }
 
 .footer-col {
@@ -69,7 +69,9 @@
 }
 
 .footer-col .social a {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 40px;
     width: 40px;
     background-color: rgba(255, 255, 255, 0.2);

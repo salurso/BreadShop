@@ -51,9 +51,9 @@
 <%--                    <td colspan="2"><%= p.getDescription()%></td>--%>
 <%--                    <td><%= p.getNameCategory()%></td>--%>
                     <td><img class="ord-img" src="upload/<%=p.getImage()%>"></td>
-                    <td><%= p.getName() %></td>
-                    <td colspan="2"><%= p.getDescription()%></td>
-                    <td><%= p.getPrice()%> x <%=p.getQuantity()%></td>
+                    <td colspan="2"><%= p.getName() %></td>
+<%--                    <td colspan="2"><%= p.getDescription()%></td>--%>
+                    <td colspan="2"><%= p.getPrice()%> x <%=p.getQuantity()%></td>
                 </tr>
                 </tbody>
                 <%

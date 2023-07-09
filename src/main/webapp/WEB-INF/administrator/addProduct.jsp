@@ -63,7 +63,7 @@
             </select>
 
             <label for="description">Descrizione: </label>
-            <textarea name="description" id="description" style="height:200px" maxlength="200"></textarea>
+            <textarea name="description" id="description" style="height:200px" maxlength="500"></textarea>
 
             <input class="btn_add" type="submit" name="action" value="AGGIUNGI PRODOTTO" onclick="return(validateInsert())">
 

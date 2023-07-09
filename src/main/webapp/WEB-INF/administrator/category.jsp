@@ -10,27 +10,6 @@
 </head>
 <body>
 <%@ include file="/WEB-INF/navbar/navbarAdmin.jsp" %>
-<%--<div class="tabular--wrapper">--%>
-<%--    <div class="table-container">--%>
-<%--        <table id="categories1">--%>
-<%--            <thead>--%>
-<%--            <tr>--%>
-<%--                <th>NOME</th>--%>
-<%--                <th>DESCRIZIONE</th>--%>
-<%--                <th></th>--%>
-<%--            </tr>--%>
-<%--            </thead>--%>
-<%--            <br>--%>
-<%--            <tbody>--%>
-<%--            <tr>--%>
-<%--                <td><%=p.getName()%></td>--%>
-<%--                <td><%=p.getDescription()%></td>--%>
-
-<%--            </tr>--%>
-<%--            </tbody>--%>
-<%--        </table>--%>
-<%--    </div>--%>
-<%--</div>--%>
 
 <div class="category">
     <form action="UpdateCategory"  method="POST">
@@ -40,7 +19,7 @@
         <input id="name" name="name" type="text" value="<%=p.getName()%>" maxlength="50">
 
         <label for="description">Descrizione: </label>
-        <textarea class="box" name="description" id="description" style="height:200px" maxlength="200"><%=p.getDescription()%></textarea>
+        <textarea class="box" name="description" id="description" style="height:200px" maxlength="400"><%=p.getDescription()%></textarea>
 
         <div class="btnadd">
             <input class="btn_update" type="submit" name="action" value="AGGIORNA" onclick="return(validateUpdate())">
