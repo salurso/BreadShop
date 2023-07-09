@@ -43,11 +43,11 @@
           <td class="emailUser" id="<%=u.getEmail()%>"><%=u.getEmail()%></td>
           <td class="isAdmin"><%=u.isAdmin()%></td>
           <%if(utente.getEmail().equals(u.getEmail())){%>
-          <td><button class="btn-user"><a class="link-user-disabled">Rendi Amministratore</a></button></td>
-          <td><button class="btn-user"><a class="link-user-disabled">Rimuovi Amministratore</a></button></td>
+          <td><button class="btn-user"><a class="link-user-disabled">Rendi Admin</a></button></td>
+          <td><button class="btn-user"><a class="link-user-disabled">Rimuovi Admin</a></button></td>
           <%}else{%>
-          <td><button class="btn-user"><a class="link-user-rendi" onclick="addAdmin('<%=u.getEmail()%>')" id="btn-add">Rendi Amministratore</a></button></td>
-          <td><button class="btn-user"><a class="link-user-remove" onclick="removeAdmin('<%=u.getEmail()%>')">Rimuovi Amministratore</a></button></td>
+          <td><button class="btn-user"><a class="link-user-rendi" onclick="addAdmin('<%=u.getEmail()%>')" id="btn-add">Rendi Admin</a></button></td>
+          <td><button class="btn-user"><a class="link-user-remove" onclick="removeAdmin('<%=u.getEmail()%>')">Rimuovi Admin</a></button></td>
           <%}%>
         </tr>
 

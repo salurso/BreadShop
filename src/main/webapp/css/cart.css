@@ -219,6 +219,26 @@ th:last-child{
     transition: all .2s linear;
 }
 
+.remove_prod{
+    padding: 2px 4px;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: #A0602B;
+    border: 2px solid #A0602B;
+    color: #E4E0BB;
+    transition: all .2s linear;
+}
+
+.remove_prod:hover{
+    background-color: white;
+    border: 2px solid #A0602B;
+    color: #A0602B;
+    transition: all .2s linear;
+}
+
 @media (max-width: 991px) {
     .table-container {
         width: 75%;
@@ -349,7 +369,6 @@ th:last-child{
         font-size: 0.8rem;
     }
     .link-user {
-        padding: 2px 4px;
         font-size: 0.4rem;
     }
 }

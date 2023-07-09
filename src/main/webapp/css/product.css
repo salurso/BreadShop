@@ -60,8 +60,8 @@ section{
 }
 
 section ul{
-    display: flex; /*allinea gli elementi uno di fianco all'altro*/
-    flex-wrap: wrap; /*se ho un elemento in più va daccapo*/
+    display: flex;
+    flex-wrap: wrap;
     margin-bottom: 10px;
     align-items: center;
     justify-content: center;
@@ -69,17 +69,24 @@ section ul{
 
 section ul li{
     list-style: none;
-    background: #eee;
     padding: 8px 20px;
     margin: 5px;
     letter-spacing: 1px;
     cursor: pointer;
+    background: #E4E0BB;
+    border: 2px solid #A0602B;
 }
 
 section ul li.active{
     background: #A0602B;
     color: #E4E0BB;
 }
+
+.list:hover{
+    background-color: #A0602B;
+    color: #E4E0BB;
+}
+
 
 .product{
     display: flex;
@@ -103,10 +110,7 @@ section ul li.active{
 }
 
 .buttons {
-    /*display: inline-block;*/
-    /*gap: 1.5rem;*/
     gap: 5%;
-    /*margin-top: 10px;*/
     justify-content: center;
     text-align: center;
     display: flex;
@@ -159,42 +163,75 @@ section ul li.active{
     text-transform: uppercase;
 }
 
-/*.container .product-container{*/
-/*    width: 100%;*/
-/*    !*display: flex;*!*/
-/*    !*!*flex-wrap: wrap;*!*!*/
-/*    !*justify-content: space-evenly;*!*/
-/*    display: grid;*/
-/*    grid-template-columns: repeat(auto-fill, minmax(22%, 1fr));*/
-/*    gap:1rem;*/
-/*}*/
 .container .product-container {
     gap: 3rem;
     padding: 1rem;
-    /*border: 1px solid red;*/
-    display: flex; /*allinea gli elementi uno di fianco all'altro*/
-    flex-wrap: wrap; /*se ho un elemento in più va daccapo*/
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 }
-/*.container{*/
-/*    width: 1000px;*/
-/*    !*display: flex;*!*/
-/*    !*flex-wrap: wrap;*!*/
-/*    justify-content: space-between;*/
-/*    display: grid;*/
-/*    grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));*/
-/*    gap:2rem;*/
-
-/*}*/
 
 .card{
     position: relative;
-    /*left: -6%;*/
-    /*width: 300px;*/
     width: 20%;
     height: 370px;
     transition: 0.3s ease-out;
     box-shadow: 0 3px 15px rgba(0,0,0,0.7);
+}
+
+.card .imgbox{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height:100%;
+}
+
+.card .imgbox img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    display: block;
+    transition: 0.5s;
+}
+
+.card .content{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    padding: 12px;
+    background: #E4E0BB;
+    transition: all 0.5s cubic-bezier(.48, -0.28, 0.41, 1.4);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.card:hover .content{
+    width: 100%;
+    height: 50%;
+    left: 0;
+    bottom: 0;
+}
+
+.content p{
+    padding: 4%;
+    line-height: 1.3em;
+    transition: 0.3s;
+    text-align: justify;
+    opacity: 0;
+}
+
+.card:hover .content p{
+    transform: translateY(-1rem);
+    opacity: 1;
+}
+
+h2, .price{
+    text-align: center;
 }
 
 @media only screen and (max-width: 1431px) {
@@ -254,65 +291,6 @@ section ul li.active{
         font-size: 85%;
     }
     .buttons {
-         margin-top: 10px;
+        margin-top: 10px;
     }
-}
-
-.card .imgbox{
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height:100%;
-}
-
-.card .imgbox img{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 80%;
-    display: block;
-    transition: 0.5s;
-}
-
-.card .content{
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    /*height: 20%;*/
-    height: 80px;
-    padding: 12px;
-    background: #E4E0BB;
-    transition: all 0.5s cubic-bezier(.48, -0.28, 0.41, 1.4);
-    box-sizing: border-box;
-    overflow: hidden;
-}
-
-.card:hover .content{
-    width: 100%;
-    height: 50%;
-    left: 0;
-    bottom: 0;
-}
-
-.content p{
-    /*margin: 10px 0 0;*/
-    /*padding: 1em 1em;*/
-    padding: 4%;
-    /*transform: translateY(2em);*/
-    line-height: 1.3em;
-    transition: 0.3s;
-    text-align: justify;
-    opacity: 0;
-}
-
-.card:hover .content p{
-    transform: translateY(-1rem);
-    opacity: 1;
-}
-
-h2, .price{
-    text-align: center;
 }

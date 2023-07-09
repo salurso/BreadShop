@@ -61,6 +61,7 @@ html::-webkit-scrollbar-thumb{
 
 .tabular--wrapper{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     background: #E4E0BB;
@@ -69,7 +70,7 @@ html::-webkit-scrollbar-thumb{
 }
 
 .table-container{
-    width: 50%;
+    width: 75%;
 
 }
 
@@ -167,10 +168,8 @@ tfoot td{
 }
 
 @media only screen and (max-width: 1200px) {
-    table {
-        align-items: center;
-        justify-content: center;
-        display: block;
+    .table-container {
+        width: 100%;
     }
 }
 
@@ -196,6 +195,15 @@ tfoot td{
     .link-user-disabled {
         padding: 4px 6px;
         font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    .link-user-rendi,
+    .link-user-remove,
+    .link-user-disabled {
+        padding: 2px 4px;
+        font-size: 11px;
     }
 }
 

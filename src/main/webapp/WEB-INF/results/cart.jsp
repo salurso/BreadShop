@@ -45,7 +45,7 @@
               <div>
                 <p><%=p.getName()%></p>
                 <small id="price<%=p.getId()%>"><%=p.getPrice()%></small>
-                <a class="link-user"  href="ManageCart?action=removeProduct&id=<%=p.getId()%>&email=<%=utente.getEmail()%>">Rimuovi</a>
+                <a class="remove_prod"  href="ManageCart?action=removeProduct&id=<%=p.getId()%>&email=<%=utente.getEmail()%>">Rimuovi</a>
                 <%total+=(p.getPrice()*c.getQuantity());%>
               </div>
             </div>
@@ -108,7 +108,7 @@
               <div>
                 <p><%=p.getName()%></p>
                 <small><%=p.getPrice()%></small>
-                <a class="link-user" href="ManageCart?action=removeProductSession&id=<%=p.getId()%>">Rimuovi</a>
+                <a class="remove_prod" href="ManageCart?action=removeProductSession&id=<%=p.getId()%>">Rimuovi</a>
                 <%total+=(p.getPrice()*c.getQuantity());%>
               </div>
             </div>

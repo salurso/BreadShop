@@ -7,9 +7,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="stylesheet" type="text/css" href="./css/checkout.css?v=<%=new Random().nextInt()%>"/>
-  <link rel="stylesheet" type="text/css" href="./css/cartOrder.css?v=<%=new Random().nextInt()%>"/>
+<%--  <link rel="stylesheet" type="text/css" href="./css/cartOrder.css?v=<%=new Random().nextInt()%>"/>--%>
 
 </head>
 <body>
@@ -85,10 +84,6 @@
           </div>
         </div>
       </div>
-
-<%--      <%--%>
-<%--        if(request.getParameter("card")!=null){Pagamento p = (Pagamento) request.getAttribute("card");--%>
-<%--      %>--%>
 
       <div class="col">
         <h3 class="title">pagamento</h3>
@@ -183,7 +178,9 @@
     <input type="hidden" id="email" name="email" value="<%=utente.getEmail()%>"/>
     <%if(total==0){
     %>
-    <a href="InitServlet?action=product">RITORNA AI PRODOTTI</a>
+    <div class="return">
+      <a class="return-prod" href="InitServlet?action=product">RITORNA AI PRODOTTI</a>
+    </div>
     <%
       }else{
     %>
