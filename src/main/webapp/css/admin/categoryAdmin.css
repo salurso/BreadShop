@@ -134,11 +134,9 @@ textarea {
         margin: 15% 2%;
         padding: 10px;
     }
-
     .add_prod_title {
         font-size: 2rem;
     }
-
     input[type=text],
     textarea {
         max-height: 100px;
@@ -150,11 +148,9 @@ textarea {
         margin: 20% 2%;
         padding: 5px;
     }
-
     .add_prod_title {
         font-size: 1.8rem;
     }
-
     input[type=text],
     textarea {
         max-height: 80px;

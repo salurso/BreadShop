@@ -121,27 +121,21 @@ tfoot td{
     .table-container {
         overflow-x: scroll;
     }
-
     table {
         font-size: 12px;
     }
-
     th, td {
         padding: 8px;
     }
-
     .ord-img {
         display: none;
     }
-
     .tabular--wrapper {
         padding: 1rem;
     }
-
     .main-title {
         font-size: 1.5rem;
     }
-
     .home_ord h3 {
         font-size: 2rem;
     }

@@ -53,29 +53,6 @@ public class PagamentoDAO {
         }
     }
 
-//    public Pagamento doRetriveByNumber(long number) {
-//
-//        try (Connection con = ConPool.getConnection()) {
-//            PreparedStatement ps = con.prepareStatement("SELECT * FROM MetodoDiPagamento WHERE numero=?");
-//            ps.setLong(1, number);
-//            ResultSet rs = ps.executeQuery();
-//            Pagamento p = new Pagamento();
-//
-//            while (rs.next()){
-//                p.setId(rs.getInt(1));
-//                p.setNumber(rs.getLong(2));
-//                p.setCvv(Integer.parseInt(rs.getString(3)));
-//                p.setExpMonth(Integer.parseInt(rs.getString(4)));
-//                p.setExpYear(Integer.parseInt(rs.getString(5)));
-//                p.setHolder(rs.getString(6));
-//            }
-//            return p;
-//
-//        } catch (SQLException s) {
-//            throw new RuntimeException(s);
-//        }
-//    }
-
     public int doInsert(Pagamento p){
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement("INSERT INTO MetodoDiPagamento (numero, cvv, meseScadenza, annoScadenza, titolare) VALUES (?,?,?,?,?)",

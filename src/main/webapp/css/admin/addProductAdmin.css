@@ -90,7 +90,6 @@ input[type=text], input[type=number], input[type=file],select, textarea {
     .add_product form {
         padding: 1rem;
     }
-
     .add_product h3 {
         font-size: 2rem;
     }

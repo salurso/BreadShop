@@ -127,7 +127,6 @@ input:focus{
     color: #38271E;
 }
 
-/* The alert message box */
 .alert {
     width:300px;
     padding: 1rem 1rem;
@@ -141,7 +140,6 @@ input:focus{
     box-shadow: 0 20px 35px rgba(0,0,0,0.1);
 }
 
-/* The close button */
 .closebtn {
     margin-left: 15px;
     color: #38271E;
@@ -153,7 +151,6 @@ input:focus{
     transition: 0.3s;
 }
 
-/* When moving the mouse over the close button */
 .closebtn:hover {
     color: red;
 }

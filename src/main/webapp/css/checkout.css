@@ -45,7 +45,6 @@ html::-webkit-scrollbar-thumb{
 table{
     width: 100%;
     border-collapse: collapse;
-    /*border: 1px solid #38271E;*/
 }
 
 .cart-info{
@@ -247,8 +246,6 @@ th:last-child{
 }
 
 .col-metod{
-    /*display: flex;*/
-    /*flex-wrap: wrap;*/
     padding: 20px;
     width: 700px;
     background: #fff;

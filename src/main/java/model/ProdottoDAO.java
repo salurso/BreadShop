@@ -164,30 +164,4 @@ public class ProdottoDAO {
     }
 
 
-
-//    public Prodotto doRetrieveByIdImage(int id) {
-//
-//        try (Connection con = ConPool.getConnection()) {
-//            PreparedStatement ps = con.prepareStatement("SELECT id, nome, descrizione, prezzo, immagine FROM Prodotto WHERE id = ?");
-//            ps.setInt(1, id);
-//            ResultSet rs = ps.executeQuery();
-////            Blob blob = rs.getBlob("immagine");
-////            byte byteArray[] = blob.getBytes(1, (int) blob.length());
-//
-//            Prodotto p = new Prodotto();
-//            p.setId(rs.getInt("id"));
-//            p.setName(rs.getString("nome"));
-//            p.setDescription(rs.getString("descrizione"));
-//            p.setPrice(rs.getDouble("prezzo"));
-////            p.setImage((InputStream) blob);
-//            InputStream is = rs.getBinaryStream("immagine");
-//            p.setImage(is);
-////            p.setImage((InputStream) rs.getBlob("immagine"));
-//
-//            return p;
-//        } catch (SQLException s) {
-//            throw new RuntimeException(s);
-//        }
-//    }
-
 }

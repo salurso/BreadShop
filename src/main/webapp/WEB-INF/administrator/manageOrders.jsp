@@ -29,8 +29,6 @@
                 for(Ordine o : orders){
                     ArrayList<Prodotto> product = o.getProducts();
             %>
-
-<%--            <h2>Ordini di: <%=o.getEmail_user()%></h2>--%>
             <table>
                 <thead>
                 <tr>
@@ -46,13 +44,8 @@
 
                 <tbody>
                 <tr>
-<%--                    <td><img class="ord-img" src="upload/<%=p.getImage()%>"></td>--%>
-<%--                    <td><%= p.getName() %></td>--%>
-<%--                    <td colspan="2"><%= p.getDescription()%></td>--%>
-<%--                    <td><%= p.getNameCategory()%></td>--%>
                     <td><img class="ord-img" src="upload/<%=p.getImage()%>"></td>
                     <td colspan="2"><%= p.getName() %></td>
-<%--                    <td colspan="2"><%= p.getDescription()%></td>--%>
                     <td colspan="2"><%= p.getPrice()%> x <%=p.getQuantity()%></td>
                 </tr>
                 </tbody>

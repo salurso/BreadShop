@@ -32,7 +32,6 @@
     </thead>
     <br>
     <% for(Utente u : users){ %>
-    <%--        <% for(Utente u : dataArray) %>--%>
     <tbody>
     <tr>
         <td><%=u.getName()%></td>
@@ -46,7 +45,6 @@
         <td><button class="btn-user" onclick="addAdmin()"><a class="link-user-rendi" value="<%=u.getEmail()%>" onclick="addAdmin()" id="btn-add">Rendi Amministratore</a></button></td>
         <td><button class="btn-user"><a class="link-user-remove" href="ManageAdministrator?action=removeAdmin<%=u.getEmail()%>">Rimuovi Amministratore</a></button></td>
         <%}%>
-        <%--          href="ManageAdministrator?action=addAdmin<%=u.getEmail()%>--%>
     </tr>
 
     </tbody>

@@ -177,19 +177,15 @@ tfoot td{
     .tabular--wrapper {
         flex-wrap: wrap;
     }
-
     .table-container {
         width: 100%;
     }
-
     .ord-img {
         width: 100%;
     }
-
     td {
         font-size: 12px;
     }
-
     .link-user-rendi,
     .link-user-remove,
     .link-user-disabled {
@@ -235,7 +231,6 @@ tfoot td{
     td {
         font-size: 12px;
     }
-
     .table-container {
         width: 100%;
         overflow-x: auto;

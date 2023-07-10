@@ -121,23 +121,18 @@ tfoot td{
     .home_ord h3 {
         font-size: 3.5rem;
     }
-
     .main-title {
         font-size: 1.5rem;
     }
-
     .tabular--wrapper {
         padding: 1rem;
     }
-
     .table-container {
         width: 100%;
     }
-
     .ord-img {
         width: 100%;
     }
-
     td {
         font-size: 12px;
     }
@@ -147,30 +142,24 @@ tfoot td{
     .home_ord h3 {
         font-size: 2.5rem;
     }
-
     .main-title {
         font-size: 1.2rem;
         text-align: center;
     }
-
     .tabular--wrapper {
         padding: 0.5rem;
     }
-
     .table-container {
         width: 100%;
         overflow-x: auto;
     }
-
     .ord-img {
         width: 80px;
     }
-
     td {
         font-size: 10px;
         padding: 5px;
     }
-
     th {
         font-size: 12px;
         padding: 10px;

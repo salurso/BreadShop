@@ -274,7 +274,6 @@ th, td{
     display: flex;
     flex-direction: column;
     max-height: 200px;
-    /*overflow-y: scroll;*/
 }
 
 .container .content .content-2 .new-users{
@@ -286,7 +285,6 @@ th, td{
     display: flex;
     flex-direction: column;
     max-height: 150px;
-    /*overflow-y: scroll;*/
 }
 
 .alert {
@@ -302,7 +300,6 @@ th, td{
     box-shadow: 0 20px 35px rgba(0,0,0,0.1);
 }
 
-/* The close button */
 .closebtn {
     margin-left: 15px;
     color: #38271E;
@@ -314,7 +311,6 @@ th, td{
     transition: 0.3s;
 }
 
-/* When moving the mouse over the close button */
 .closebtn:hover {
     color: #A06028;
 }
@@ -344,12 +340,6 @@ th, td{
     }
 
 }
-
-/*@media screen and(max-width: 650px){*/
-/*    .side-menu{*/
-/*        display: none;*/
-/*    }*/
-/*}*/
 
 @media screen and(max-width: 536px){
     .brand-name h1{

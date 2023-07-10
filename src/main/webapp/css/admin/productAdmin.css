@@ -128,11 +128,9 @@ input[type=text], textarea {
         margin: 15% 2%;
         padding: 10px;
     }
-
     .add_prod_title {
         font-size: 2rem;
     }
-
     input[type=text],
     textarea {
         max-height: 100px;
@@ -144,53 +142,12 @@ input[type=text], textarea {
         margin: 20% 2%;
         padding: 5px;
     }
-
     .add_prod_title {
         font-size: 1.8rem;
     }
-
     input[type=text],
     textarea {
         max-height: 80px;
     }
 }
 
-/*@media only screen and (max-width: 992px) {*/
-/*    .box {*/
-/*        width: 50%;*/
-/*    }*/
-
-/*    #product-img {*/
-/*        margin-left: inherit;*/
-/*        float: left;*/
-/*    }*/
-
-/*    #product-info {*/
-/*        margin-left: auto;*/
-/*        float: left;*/
-/*    }*/
-/*}*/
-
-/*@media only screen and (max-width: 800px) {*/
-/*    * {*/
-/*        font-size: 150%;*/
-/*    }*/
-/*}*/
-
-/*@media only screen and (max-width: 700px) {*/
-/*    * {*/
-/*        font-size: 150%;*/
-/*    }*/
-/*}*/
-
-/*@media only screen and (max-width: 500px) {*/
-/*    * {*/
-/*        font-size: 150%;*/
-/*    }*/
-/*}*/
-
-/*@media only screen and (max-width: 300px) {*/
-/*    * {*/
-/*        font-size: 150%;*/
-/*}*/
-/*}*/

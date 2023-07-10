@@ -37,32 +37,6 @@
 <body>
 <%@ include file="/WEB-INF/navbar/navbarAdmin.jsp" %>
 
-<%--<div class="tabular--wrapper">--%>
-<%--    <div class="table-container">--%>
-<%--        <table id="categories1">--%>
-<%--            <thead>--%>
-<%--            <tr>--%>
-<%--                <th>NOME</th>--%>
-<%--                <th>DESCRIZIONE</th>--%>
-<%--                <th>CATEGORIA</th>--%>
-<%--                <th>PREZZO</th>--%>
-<%--                <th></th>--%>
-<%--            </tr>--%>
-<%--            </thead>--%>
-<%--            <br>--%>
-<%--            <tbody>--%>
-<%--            <tr>--%>
-<%--                <td><%=p.getName()%></td>--%>
-<%--                <td><%=p.getDescription()%></td>--%>
-<%--                <td><%=p.getNameCategory()%></td>--%>
-<%--                <td>€<%=p.getPrice()%></td>--%>
-<%--                <td><input class="btn_delete" type="submit" name="action" value="ELIMINA" onclick="return(confirmDelete())"></td>--%>
-<%--            </tr>--%>
-<%--            </tbody>--%>
-<%--        </table>--%>
-<%--    </div>--%>
-<%--</div>--%>
-
 <div class="update_product">
     <form action="UpdateProduct"  method="POST">
 

@@ -12,7 +12,6 @@ public class Prodotto {
     private String nameCategory;
     private int quantity;
 
-//    private InputStream imageFile;
 
     public void setId(int id) {
         this.id = id;
@@ -42,9 +41,6 @@ public class Prodotto {
         this.quantity = quantity;
     }
 
-    //    public void setImageFile(InputStream image) {
-//        this.imageFile = image;
-//    }
 
     public int getId() {
         return id;
@@ -74,7 +70,4 @@ public class Prodotto {
         return quantity;
     }
 
-    //    public InputStream getImageFile() {
-//        return imageFile;
-//    }
 }

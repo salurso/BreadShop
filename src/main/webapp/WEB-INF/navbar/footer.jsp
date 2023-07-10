@@ -37,10 +37,10 @@
       <div class="footer-col">
         <h4>Follow Us</h4>
         <div class="social">
-          <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://twitter.com/i/flow/login?redirect_after_login=%2Fhome%3F"><i class="fab fa-twitter"></i></a>
-          <a href="https://www.instagram.com/forneriadelcilento/?utm_medium=copy_link"><i class="fab fa-instagram"></i></a>
-          <a href="https://it.linkedin.com/?original_referer=https%3A%2F%2Fwww.google.com%2F"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://twitter.com/i/flow/login?redirect_after_login=%2Fhome%3F" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/forneriadelcilento/?utm_medium=copy_link" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://it.linkedin.com/?original_referer=https%3A%2F%2Fwww.google.com%2F" target="_blank"><i class="fab fa-linkedin-in"></i></a>
 
         </div>
       </div>

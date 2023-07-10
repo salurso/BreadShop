@@ -25,17 +25,13 @@
 
         <div class="card-product">
             <div class="card-body">
-                <%--            <a>--%>
                 <img class="card-img" src="upload/<%=p.getImage()%>" alt="Card image" width="600" height="400">
-                <%--            </a>--%>
-                <%--            <div class="info-product">--%>
                 <h4 class="card-title"><%=p.getName()%></h4>
                 <div class="card-price"><%=p.getNameCategory()%></div>
                 <div class="card-price"><%=p.getPrice()%>€</div>
                 <div class="div-btn">
                     <button class="btn-card" value=" " onclick="location.href='ManageProduct?action=<%=p.getId()%>'">Gestisci prodotto</button>
                 </div>
-                <%--            </div>--%>
             </div>
         </div>
         <%

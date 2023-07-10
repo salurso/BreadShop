@@ -15,13 +15,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/home.css?v=<%=new Random().nextInt()%>"/>
     <link rel="stylesheet" type="text/css" href="css/navbar.css?=<%=new Random().nextInt()%>"/>
-    <%--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>--%>
-    <%--    <link rel="stylesheet" href="animate.min.css">--%>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <title>Forneria Del Cilento</title>
 </head>
 <body>
-<%--<%@ include file="/WEB-INF/navbar/navbar.jsp" %>--%>
 <header class="header">
 
     <div class="logo"><a href="HomePage">Forneria Del Cilento</a></div>
@@ -81,7 +78,6 @@
             Benvenuti al Panificio del Cilento ad Agropoli. Da noi troverete pane fragrante appena sfornato, dolci artigianali e prelibatezze salate, tutto preparato con passione e ingredienti di qualità.
             Siamo pronti ad offrirvi un'esperienza culinaria autentica nel cuore del Cilento. Vi aspettiamo con gioia per deliziare i vostri sensi!
         </p>
-<%--        <a class="home_btn" href="product"> Learn More </a>--%>
     </div>
 </section>
 

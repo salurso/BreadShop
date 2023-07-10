@@ -40,16 +40,12 @@
             <td>termina con <%=number%></td>
             <td><%=p.getHolder()%></td>
             <td><%=p.getExpMonth()%>/<%=p.getExpYear()%></td>
-            <%--              <td><input type="radio" id="card<%=i%>" name="card" value="<%=p.getId()%>"></td>--%>
             <td><button class="btn-user"><a class="link-user-rendi" onclick="insertCard(<%=p.getId()%>)">Seleziona metodo</a></button></td>
           </tr>
           <%
               i++;
             }
           %>
-          <%--            <input type="submit" name="action" id="check" value="inserisci" class="submit-btn">--%>
-          <%--            <input type="submit" name="action" id="check" onclick="insertCard('<%=p.getId%>')" class="submit-btn">--%>
-
         </table>
       </div>
     </div>
@@ -91,13 +87,7 @@
 
       <div class="col">
         <h3 class="title">pagamento</h3>
-<%--        <%if(request.getParameter("card")!=null){--%>
-<%--          Pagamento p = (Pagamento) request.getAttribute("card");--%>
-<%--        %>--%>
-<%--          <input type="hidden" name="cardId" id="cardId" value="<%=p.getId()%>">--%>
-<%--        <%}else{%>--%>
           <input type="hidden" name="cardId" id="cardId" value="insert">
-<%--        <%}%>--%>
         <div class="inputBox">
           <span>carte accettate :</span>
           <img src="./images/card_img.png" alt="mastercard - visa - paypal">
@@ -352,8 +342,6 @@
 
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function (){
-      // var object = JSON.parse(xhr.responseText);
-      // alert(xhr.responseText);
       if(xhr.readyState == 4 && xhr.status == 200){
 
         var object = JSON.parse(xhr.responseText);
@@ -366,11 +354,6 @@
       }
     };
     xhr.open("POST", "OrderServlet?action=inserisci&email=" + email + "&id=" + id, true);
-
-    // xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //necessario nella post, non indispensabile nel get
-    // var params = "action=inserisci&id=" + encodeURIComponent(id) +
-    //         "&email=" + encodeURIComponent(email);
-
     xhr.send();
   }
 </script>
