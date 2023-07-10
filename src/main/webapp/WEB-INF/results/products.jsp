@@ -87,7 +87,7 @@
                     </div>
                     <div class="content">
                         <h2><%=p.getName()%></h2>
-                        <div class="price"><%=p.getPrice()%>€</div>
+                        <div class="price">€<%=p.getPrice()%></div>
                         <input type="hidden" name="id" value="<%=p.getId()%>"/>
                         <input type="hidden" name="quantity" min=1  value="1"/>
                         <%if(session.getAttribute("login")!=null){%>
@@ -95,8 +95,8 @@
                         <%}%>
                         <p>
                         <div class="buttons">
-                            <input class="add-to-cart" type="submit" value="Add to cart"/>
-                            <a href="ProductServlet?id=<%=p.getId()%>" class="view-more" >View More</a>
+                            <input class="add-to-cart" type="submit" value="Acquista"/>
+                            <a href="ProductServlet?id=<%=p.getId()%>" class="Dettagli" >Dettagli</a>
                         </div>
                         </p>
                     </div>

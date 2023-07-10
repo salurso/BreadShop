@@ -44,14 +44,14 @@
               <img class="ord-img" src="upload/<%=p.getImage()%>">
               <div>
                 <p><%=p.getName()%></p>
-                <small id="price<%=p.getId()%>"><%=p.getPrice()%></small>
+                <small id="price<%=p.getId()%>">€<%=p.getPrice()%></small>
                 <a class="remove_prod"  href="ManageCart?action=removeProduct&id=<%=p.getId()%>&email=<%=utente.getEmail()%>">Rimuovi</a>
                 <%total+=(p.getPrice()*c.getQuantity());%>
               </div>
             </div>
           </td>
           <td><input type="number" id="num_<%=p.getId()%>" name="quantity" min=1 value="<%=c.getQuantity()%>" onchange="changeQuantity('<%=p.getId()%>')"></td>
-          <td><%=p.getPrice()*c.getQuantity()%></td>
+          <td>€<%=p.getPrice()*c.getQuantity()%></td>
         </tr>
         <%
             }
@@ -63,7 +63,7 @@
         <table>
           <tr>
             <td> Total </td>
-            <td><%=total%></td>
+            <td>€<%=total%></td>
           </tr>
           <tr>
             <td><button class="submit-ord" onclick="location.href='OrderServlet?action=checkout&email=<%=utente.getEmail()%>'">Procedi all'ordine</button></td>

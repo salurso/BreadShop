@@ -115,3 +115,9 @@ input[type=text], input[type=number], input[type=file],select, textarea {
         align-items: center;
     }
 }
+
+@media screen and (max-width: 340px) {
+    .btn_add{
+        font-size: 0.7rem;
+    }
+}

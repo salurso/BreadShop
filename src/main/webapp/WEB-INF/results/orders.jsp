@@ -44,11 +44,11 @@
                 <%for(Prodotto p : products){ %>
 
                 <tbody>
+
                 <tr>
-                    <td><img class="ord-img" src="upload/<%=p.getImage()%>"></td>
-                    <td><%= p.getName() %></td>
-                    <td><%= p.getDescription()%></td>
-                    <td><%= p.getPrice()%></td>
+                    <td><a href="ProductServlet?id=<%=p.getId()%>"><img class="ord-img" src="upload/<%=p.getImage()%>"></a></td>
+                    <td colspan="2"><%= p.getName() %></td>
+                    <td>€<%= p.getPrice()%></td>
                     <td><%=p.getQuantity()%></td>
                 </tr>
                 </tbody>

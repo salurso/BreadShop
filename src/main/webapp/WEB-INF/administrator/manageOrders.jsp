@@ -46,7 +46,8 @@
                 <tr>
                     <td><img class="ord-img" src="upload/<%=p.getImage()%>"></td>
                     <td colspan="2"><%= p.getName() %></td>
-                    <td colspan="2"><%= p.getPrice()%> x <%=p.getQuantity()%></td>
+                    <td>€<%= p.getPrice()%></td>
+                    <td><%=p.getQuantity()%></td>
                 </tr>
                 </tbody>
                 <%

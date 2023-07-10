@@ -34,7 +34,7 @@
 
       <div class="product-div-right">
         <span class="product-name"><%=p.getName()%></span>
-        <span class="product-price">€<%=p.getPrice()%>/kg</span>
+        <span class="product-price">€<%=p.getPrice()%></span>
 
 
         <p class="product-description"> <%=p.getDescription()%></p>
@@ -49,7 +49,7 @@
               <%if(session.getAttribute("login")!=null){%>
               <input type="hidden" name="email" value="<%=utente.getEmail()%>"/>
               <%}%>
-              <input class="add-cart-btn" type="submit" value="Add to cart"/>
+              <input class="add-cart-btn" type="submit" value="Carrello"/>
             </form>
         </div>
       </div>

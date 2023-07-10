@@ -42,8 +42,7 @@
 <body>
 <%@ include file="/WEB-INF/navbar/navbar.jsp" %>
 <section class="home_ord" id="home_prod">
-  <div class="container_ord" data-aos="fade-up" data-aos-duration="3000"
-       data-aos-anchor-placement="top-bottom">
+  <div class="container_ord">
     <h3> Specialità </h3>
   </div>
 </section>
@@ -74,7 +73,7 @@
           </div>
           <div class="content">
             <h2><%=p.getName()%></h2>
-            <div class="price"><%=p.getPrice()%>€</div>
+            <div class="price">€<%=p.getPrice()%></div>
             <input type="hidden" name="id" value="<%=p.getId()%>"/>
             <input type="hidden" name="quantity" min=1  value="1"/>
             <%if(session.getAttribute("login")!=null){%>
@@ -82,8 +81,8 @@
             <%}%>
             <p>
             <div class="buttons">
-              <input class="add-to-cart" type="submit" value="Add to cart"/>
-              <a href="ProductServlet?id=<%=p.getId()%>" class="view-more" >View More</a>
+              <input class="add-to-cart" type="submit" value="Carrello"/>
+              <a href="ProductServlet?id=<%=p.getId()%>" class="view-more" >Dettagli</a>
             </div>
             </p>
           </div>

@@ -19,6 +19,10 @@
     <title>Forneria Del Cilento</title>
 </head>
 <body>
+<%if(request.getAttribute("result")!=null){%>
+<input type="hidden" id="alert" value="<%=request.getAttribute("result")%>">
+<%}%>
+
 <header class="header">
 
     <div class="logo"><a href="HomePage">Forneria Del Cilento</a></div>
@@ -70,7 +74,6 @@
 
 
 <section class="home" id="home">
-
     <div class="container">
 
         <h3> Forneria Del Cilento </h3>
@@ -102,27 +105,27 @@
     <div class="product-container">
 
         <div class="product" data-name="p-1">
-            <img src="./upload/paneFresco.png" alt="Card 1">
+            <img src="./images/paneFresco.png" alt="Card 1">
             <h3> Linea Fresco </h3>
         </div>
 
         <div class="product" data-name="p-2">
-            <img src="./upload/fresaBianca.png" alt="Card 1">
+            <img src="./images/fresaBianca.png" alt="Card 1">
             <h3> Linea Secco </h3>
         </div>
 
         <div class="product" data-name="p-3">
-            <img src="./upload/focacciaOrigan.png" alt="Card 1">
+            <img src="./images/focacciaOrigan.png" alt="Card 1">
             <h3> Rosticceria </h3>
         </div>
 
         <div class="product" data-name="p-4">
-            <img src="./upload/pasticceria.png" alt="Card 1">
+            <img src="./images/pasticceria.png" alt="Card 1">
             <h3> Pasticceria </h3>
         </div>
 
         <div class="product" data-name="p-5">
-            <img src="./upload/speciale.png" alt="Card 1">
+            <img src="./images/speciale.png" alt="Card 1">
             <h3> Speciali </h3>
         </div>
 
@@ -132,35 +135,35 @@
 <div class="product-preview">
     <div class="preview" data-target="p-1">
         <i class="fas fa-times"></i>
-        <img src="./upload/paneFresco.png" alt="Card 1">
+        <img src="./images/paneFresco.png" alt="Card 1">
         <h3> Linea Fresco </h3>
         <p>Pane fresco: croccante fuori, morbido dentro. Una delizia quotidiana.</p>
     </div>
 
     <div class="preview" data-target="p-2">
         <i class="fas fa-times"></i>
-        <img src="./upload/fresaBianca.png" alt="Card 1">
+        <img src="./images/fresaBianca.png" alt="Card 1">
         <h3> Linea Secco </h3>
         <p>Pane secco: croccante e leggermente duro. Perfetto da sbriciolare per dare un tocco di croccantezza ai piatti.</p>
     </div>
 
     <div class="preview" data-target="p-3">
         <i class="fas fa-times"></i>
-        <img src="./upload/focacciaOrigan.png" alt="Card 1">
+        <img src="./images/focacciaOrigan.png" alt="Card 1">
         <h3> Rosticceria </h3>
         <p>Rosticceria: sfiziosa varietà di delizie salate. Gusti irresistibili per un'esperienza golosa.</p>
     </div>
 
     <div class="preview" data-target="p-4">
         <i class="fas fa-times"></i>
-        <img src="./upload/pasticceria.png" alt="Card 1">
+        <img src="./images/pasticceria.png" alt="Card 1">
         <h3> Pasticceria </h3>
         <p>Pasticceria: dolci artigianali che conquistano il palato. Un tripudio di golosità.</p>
     </div>
 
     <div class="preview" data-target="p-5">
         <i class="fas fa-times"></i>
-        <img src="./upload/speciale.png" alt="Card 1">
+        <img src="./images/speciale.png" alt="Card 1">
         <h3> Speciali </h3>
         <p>Specialità: un'esplosione di sapori unici. Un'esperienza gastronomica indimenticabile</p>
     </div>
@@ -259,6 +262,8 @@
         });
     // });
 
+    if(document.getElementById("alert").value!=null)
+        alert(document.getElementById("alert").value);
 </script>
 </body>
 </html>
