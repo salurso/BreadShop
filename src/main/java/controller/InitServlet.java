@@ -56,6 +56,13 @@ public class InitServlet extends HttpServlet {
             RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/results/specialita.jsp");
             ds.forward(request, response);
         }
+        if(action.equals("account")){
+            PagamentoDAO pDAO = new PagamentoDAO();
+            ArrayList<Pagamento> creditCards = pDAO.doRetriveByEmail(request.getParameter("email"));
+            request.setAttribute("creditCards", creditCards);
+            RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/results/account.jsp");
+            ds.forward(request, response);
+        }
     }
 
     @Override

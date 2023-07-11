@@ -22,11 +22,11 @@
     <form action="loginServlet" method="post">
         <input type="text" placeholder="E-mail" name="email" id="email"required>
         <input type="password" placeholder="Password" name="password" id="password" required>
-    <button class="btn_login" onclick="return(validateLogin())" type="submit"> Login </button>
+    <button class="btn_login" type="submit" onclick="return(validateLogin())"> Login </button>
     </form>
 
     <div class="user">
-        Sei nuovo? <a href="Register"> Register Here </a>
+        Sei nuovo? <a href="Register"> Registrati Qui! </a>
     </div>
 </div>
 

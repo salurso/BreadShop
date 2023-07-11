@@ -41,16 +41,6 @@
 </div>
 
 
-<script>
-    function validateUpdate() {
-        var nameRGX=/^[a-zA-Z' ']*$/;
-        var name=document.getElementById('name').value;
-        if((nameRGX.test(name))==false){
-            alert("Nome non valido!");
-            return false;
-        }
-        return true;
-    }
-</script>
+
 </body>
 </html>

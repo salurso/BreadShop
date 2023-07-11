@@ -8,7 +8,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="./css/checkout.css?v=<%=new Random().nextInt()%>"/>
-<%--  <link rel="stylesheet" type="text/css" href="./css/cartOrder.css?v=<%=new Random().nextInt()%>"/>--%>
 
 </head>
 <body>
@@ -94,26 +93,26 @@
         </div>
         <div class="inputBox">
           <span>titolare della carta :</span>
-          <input type="text" name="holder" id="holder" <%if(request.getParameter("card")!=null){Pagamento p = (Pagamento) request.getAttribute("card");%>value="<%=p.getHolder()%>"<%}%> placeholder="Mario Rossi">
+          <input type="text" name="holder" id="holder" placeholder="Mario Rossi">
         </div>
         <div class="inputBox">
           <span>numero carta di credito :</span>
-          <input type="text" name="creditCardNumber" id="creditCardNumber" <%if(request.getParameter("card")!=null){Pagamento p = (Pagamento) request.getAttribute("card");String number = String.valueOf(p.getNumber()).substring(String.valueOf(p.getNumber()).length()-4);%>value="termina con <%=number%>"<%}%> maxlength="16"placeholder="1111 2222 3333 4444">
+          <input type="text" name="creditCardNumber" id="creditCardNumber"  maxlength="16" placeholder="1111 2222 3333 4444">
         </div>
         <div class="inputBox">
           <span>CVV :</span>
-          <input type="text" name="cvv" id="cvv"<%if(request.getParameter("card")!=null){%>value="metodo selezionato"<%}else{%> maxlength="3" <%}%> placeholder="123">
+          <input type="text" name="cvv" id="cvv" maxlength="3" placeholder="123">
         </div>
 
         <span>Data di scadenza</span>
         <div class="flex">
           <div class="inputBox">
             <span>mese :</span>
-            <input type="text" name="expMonth" id="expMonth" <%if(request.getParameter("card")!=null){Pagamento p = (Pagamento) request.getAttribute("card");%>value="<%=p.getExpMonth()%>"<%}%> placeholder="01">
+            <input  type="text" name="expMonth" id="expMonth"  maxlength="2" placeholder="01">
           </div>
           <div class="inputBox">
             <span>anno :</span>
-            <input type="number" name="expYear" id="expYear"<%if(request.getParameter("card")!=null){Pagamento p = (Pagamento) request.getAttribute("card");%>value="<%=p.getExpYear()%>"<%}%> placeholder="2035">
+            <input type="text" name="expYear" id="expYear" maxlength="4" placeholder="2035">
           </div>
         </div>
       </div>
@@ -143,7 +142,6 @@
                       <p><%=p.getName()%></p>
                       <small id="price<%=p.getId()%>"><%=p.getPrice()%></small>
                       <a class="link-user" onclick="remove(<%=p.getId()%>)">Rimuovi</a>
-<%--                      <a class="link-user" href="ManageCart?action=removeProduct&id=<%=p.getId()%>&email=<%=utente.getEmail()%>">Rimuovi</a>--%>
                       <%total+=(p.getPrice()*c.getQuantity());%>
                     </div>
                   </div>
@@ -178,14 +176,17 @@
     <%
       }else{
     %>
-    <input type="submit" name="action" value="Acquista" class="submit-btn" onclick="return(validateOperation())"/>
+    <input type="submit" name="action" onclick="return(validateOperation())" value="Acquista" class="submit-btn"/>
     <%}%>
   </form>
-
+  <%if(request.getAttribute("check")!=null){%>
+  <input type="hidden" id="check" value="<%=request.getAttribute("check")%>">
+  <%}%>
 </div>
 
 <script>
-
+  if(document.getElementById("check").value!=null)
+    alert(document.getElementById("check").value);
   //REGEX VALIDA OPERAZIONI
   function validateOperation(){
 
@@ -203,7 +204,7 @@
     alert("Citta' non valido!");
     return false;
   }
-  if((name.length>50 ))
+  if((city.length>50 ))
   {
     alert("Dimensione città non valida!");
     return false;
@@ -215,7 +216,7 @@
     alert("Indirizzo non valido!");
     return false;
   }
-  if((name.length>50))
+  if((street.length>50))
   {
     alert("Dimensione indirizzo non valida!");
     return false;
@@ -227,7 +228,7 @@
     alert("Numero civico non valido!");
     return false;
   }
-  if((name.length>3))
+  if((street_number.length>3))
   {
     alert("Dimensione numero civico non valida!");
     return false;

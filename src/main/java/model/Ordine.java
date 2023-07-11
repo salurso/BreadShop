@@ -10,9 +10,9 @@ public class Ordine {
     private double total;
     private String city;
     private String via;
-    private int house_number;
+    private String house_number;
     private String province;
-    private int cap;
+    private String cap;
     private String phone_number;
     private String email_user;
     private ArrayList<Prodotto> products;
@@ -38,7 +38,7 @@ public class Ordine {
         this.via = via;
     }
 
-    public void setHouse_number(int house_number) {
+    public void setHouse_number(String house_number) {
         this.house_number = house_number;
     }
 
@@ -46,7 +46,7 @@ public class Ordine {
         this.province = province;
     }
 
-    public void setCap(int cap) {
+    public void setCap(String cap) {
         this.cap = cap;
     }
 
@@ -82,7 +82,7 @@ public class Ordine {
         return via;
     }
 
-    public int getHouse_number() {
+    public String getHouse_number() {
         return house_number;
     }
 
@@ -90,7 +90,7 @@ public class Ordine {
         return province;
     }
 
-    public int getCap() {
+    public String getCap() {
         return cap;
     }
 

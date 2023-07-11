@@ -19,9 +19,9 @@ public class OrdineDAO {
                 o.setTotal(rs.getDouble(3));
                 o.setCity(rs.getString(4));
                 o.setVia(rs.getString(5));
-                o.setHouse_number(rs.getInt(6));
+                o.setHouse_number(rs.getString(6));
                 o.setProvince(rs.getString(7));
-                o.setCap(rs.getInt(8));
+                o.setCap(rs.getString(8));
                 o.setEmail_user(rs.getString(9));
                 o.setProducts(this.doRetrieveProductsOrder(o.getId()));
 
@@ -49,9 +49,9 @@ public class OrdineDAO {
                 o.setTotal(rs.getDouble(3));
                 o.setCity(rs.getString(4));
                 o.setVia(rs.getString(5));
-                o.setHouse_number(rs.getInt(6));
+                o.setHouse_number(String.valueOf(rs.getInt(6)));
                 o.setProvince(rs.getString(7));
-                o.setCap(rs.getInt(8));
+                o.setCap(String.valueOf(rs.getInt(8)));
                 o.setEmail_user(rs.getString(9));
                 o.setProducts(this.doRetrieveProductsOrder(o.getId()));
 
@@ -101,9 +101,9 @@ public class OrdineDAO {
             ps.setDouble(2, o.getTotal());
             ps.setString(3, o.getCity());
             ps.setString(4, o.getVia());
-            ps.setInt(5, o.getHouse_number());
+            ps.setString(5, o.getHouse_number());
             ps.setString(6, o.getProvince());
-            ps.setInt(7, o.getCap());
+            ps.setString(7, o.getCap());
             ps.setString(8, o.getPhone_number());
             ps.setString(9, o.getEmail_user());
             ps.setLong(10, cardId);

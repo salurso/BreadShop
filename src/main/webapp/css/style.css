@@ -134,7 +134,7 @@ input:focus{
     background-color: white;
     color: #38271E;
     border-radius: 10px;
-    border: 2px solid red;
+    border: 2px solid #A06028;
     text-align:center;
     font-weight: bold;
     box-shadow: 0 20px 35px rgba(0,0,0,0.1);
@@ -152,5 +152,5 @@ input:focus{
 }
 
 .closebtn:hover {
-    color: red;
+    color: #A06028;
 }

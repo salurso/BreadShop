@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="./css/navbar.css?v=<%=new Random().nextInt()%>"/>
     <link rel="stylesheet" type="text/css" href="./css/product.css?v=<%=new Random().nextInt()%>"/>
-    <%--    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>--%>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 
     <script type="text/javascript">
@@ -35,7 +35,13 @@
             $('.list').click(function (){
                 $(this).addClass('active').siblings().removeClass('active');
             })
+
+            if ( window.history.replaceState ) { // lo stato precedente (con requisiti) viene resettato
+                window.history.replaceState( null, null, window.location.href );
+            }
         })
+
+
 
     </script>
 
@@ -113,5 +119,6 @@
 </div>
 
 <%@ include file="/WEB-INF/navbar/footer.jsp" %>
+
 </body>
 </html>

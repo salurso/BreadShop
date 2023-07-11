@@ -21,18 +21,6 @@ public class UpdateCategory extends HttpServlet {
         c.setName(request.getParameter("name"));
         String result = null;
 
-        OrdineDAO oDAO = new OrdineDAO();
-        ArrayList<Ordine> orders = new ArrayList<>();
-        orders = (ArrayList<Ordine>) oDAO.doRetrieveAll();
-        request.setAttribute("orders", orders);
-        UtenteDAO uDAO = new UtenteDAO();
-        ArrayList<Utente> users = new ArrayList<>();
-        users = (ArrayList<Utente>) uDAO.doRetrieveNotAdmin(); //RESTITUISCE TUTTI GLI UTENTI NON ADMIN
-        request.setAttribute("users", users);
-        ArrayList<Utente> admin = new ArrayList<>();
-        admin = (ArrayList<Utente>) uDAO.doRetrieveAdmin(); //RESTITUISCE TUTTI GLI UTENTI CHE SONO ADMIN
-        request.setAttribute("admin", admin);
-
         if(action.equals("AGGIORNA")){
             c.setDescription(request.getParameter("description"));
 
@@ -41,6 +29,11 @@ public class UpdateCategory extends HttpServlet {
             }else{
                 result = "Categoria aggiornato!";
             }
+
+            request.setAttribute("result", result);
+
+            RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/homeAdmin.jsp");
+            ds.forward(request, response);
         }
         if(action.equals("ELIMINA")){
             ProdottoDAO pDAO = new ProdottoDAO();
@@ -50,6 +43,11 @@ public class UpdateCategory extends HttpServlet {
             }else{
                 result = "Problema eliminazione!";
             }
+
+            //Imposta la risposta
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            response.getWriter().write(result);
         }
         if(action.equals("AGGIUNGI CATEGORIA")){
             c.setDescription(request.getParameter("description"));
@@ -59,15 +57,18 @@ public class UpdateCategory extends HttpServlet {
             }else{
                 result = "Categoria inserito!";
             }
-        }
-        request.setAttribute("result", result);
 
-        RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/homeAdmin.jsp");
-        ds.forward(request, response);
+            request.setAttribute("result", result);
+
+            RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/homeAdmin.jsp");
+            ds.forward(request, response);
+        }
+
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request, response);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("HomeServletAdministrator?action=homeAdmin");
+        requestDispatcher.forward(request, response);
     }
 }

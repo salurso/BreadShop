@@ -29,7 +29,7 @@
     <ul class="menu">
         <li class="has-children"> <a class="action_btn"> <%=utente.getName().toUpperCase(java.util.Locale.ROOT)%> <i class="fa fa-caret-down" aria-hidden="true"></i></a>
             <ul class="sub-menu">
-                <li><a href="loginServlet?action=logout"> Logout </a></li>
+                <li><a href="LogoutServlet"> Logout </a></li>
             </ul>
         </li>
     </ul>
@@ -48,7 +48,7 @@
         <li><a href="HomeServletAdministrator?action=users">Utenti</a></li>
 
 
-        <li><a href="loginServlet?action=logout"> Logout </a></li>
+        <li><a href="LogoutServlet"> Logout </a></li>
 
     </div>
 </header>

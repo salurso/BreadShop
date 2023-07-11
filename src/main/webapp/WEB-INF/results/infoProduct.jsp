@@ -40,12 +40,12 @@
         <p class="product-description"> <%=p.getDescription()%></p>
         <div class="btn-groups">
           <%if(session.getAttribute("login")==null){%>
-          <form action="AddCartSession" method="post">
-              <%}else{%>
+            <form action="AddCartSession" method="post">
+          <%}else{%>
             <form action="AddCartServlet" method="post">
-                <%}%>
+          <%}%>
               <input type="hidden" name="id" value="<%=p.getId()%>"/>
-             <input class="quantity" type="number" name="quantity" min=1  value="1">
+              <input class="quantity" type="number" name="quantity" min=1  value="1">
               <%if(session.getAttribute("login")!=null){%>
               <input type="hidden" name="email" value="<%=utente.getEmail()%>"/>
               <%}%>

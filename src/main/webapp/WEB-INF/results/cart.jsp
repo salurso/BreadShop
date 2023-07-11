@@ -175,7 +175,7 @@
 
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "ManageCart", true); //richiesta asincrona
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //necessario nella post, non indispensabile nel get
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
     var params = "action=changeQuantitySession&id=" + encodeURIComponent(id) +
             "&quantity=" + encodeURIComponent(quantity);
@@ -191,7 +191,7 @@
     var xhr = new XMLHttpRequest();
 
     xhr.open("POST", "ManageCart", true); //richiesta asincrona
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //necessario nella post, non indispensabile nel get
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
     var params = "action=removeProduct&id=" + encodeURIComponent(id) +
             "&email=" + encodeURIComponent(email);

@@ -1,5 +1,6 @@
 package controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -18,24 +19,11 @@ public class UpdateProduct extends HttpServlet {
         String action = request.getParameter("action");
         ProdottoDAO pDAO = new ProdottoDAO();
 
-        OrdineDAO oDAO = new OrdineDAO();
-        ArrayList<Ordine> orders = new ArrayList<>();
-        orders = (ArrayList<Ordine>) oDAO.doRetrieveAll();
-        request.setAttribute("orders", orders);
-        UtenteDAO uDAO = new UtenteDAO();
-        ArrayList<Utente> users = new ArrayList<>();
-        users = (ArrayList<Utente>) uDAO.doRetrieveNotAdmin(); //RESTITUISCE TUTTI GLI UTENTI NON ADMIN
-        request.setAttribute("users", users);
-        ArrayList<Utente> admin = new ArrayList<>();
-        admin = (ArrayList<Utente>) uDAO.doRetrieveAdmin(); //RESTITUISCE TUTTI GLI UTENTI CHE SONO ADMIN
-        request.setAttribute("admin", admin);
-
         if(action.equals("AGGIORNA")){
             Prodotto p = new Prodotto();
             p.setId(Integer.parseInt(request.getParameter("id")));
             p.setName(request.getParameter("name"));
             p.setPrice(Double.parseDouble(request.getParameter("price")));
-//            p.setImage(request.getParameter("image"));
             p.setDescription(request.getParameter("description"));
             p.setNameCategory(request.getParameter("categories"));
 
@@ -53,21 +41,24 @@ public class UpdateProduct extends HttpServlet {
         if(action.equals("ELIMINA")){
             int id = Integer.parseInt(request.getParameter("id"));
             String result;
+
             if(pDAO.doDelete(id)==0){
                 result = "Problema eliminazione!";
             }else{
                 result = "Prodotto eliminato!";
             }
 
-            request.setAttribute("result", result);
+            //Imposta la risposta
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            response.getWriter().write(result);
 
-            RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/homeAdmin.jsp");
-            ds.forward(request, response);
         }
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request, response);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("HomeServletAdministrator?action=homeAdmin");
+        requestDispatcher.forward(request, response);
     }
 }

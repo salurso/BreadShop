@@ -32,7 +32,7 @@
     <li class="has-children"><a class="action_btn"> Ciao <%=utente.getName().toUpperCase(java.util.Locale.ROOT)%><i class="fa fa-caret-down" aria-hidden="true"></i></a>
       <ul class="sub-menu">
         <li><a href="InitServlet?action=orders"> Ordini</a></li>
-        <li><a href="loginServlet?action=logout"> Logout </a></li>
+        <li><a href="LogoutServlet"> Logout </a></li>
       </ul>
     </li>
   </ul>
@@ -57,7 +57,7 @@
     if(utente!=null){
   %>
   <li><a class="action_btn"> Ciao <%=utente.getName().toUpperCase(java.util.Locale.ROOT)%> </a></li>
-  <li><a href="loginServlet?action=logout"> Logout </a></li>
+  <li><a href="logoutServlet"> Logout </a></li>
   <%}else{%>
   <li><a href="InitServlet?action=login" class="action_btn">Login</a></li>
   <%}%>

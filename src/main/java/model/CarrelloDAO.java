@@ -135,7 +135,7 @@ public class CarrelloDAO {
 
     public int doDelete(int id, String email) {
         try (Connection con = ConPool.getConnection()) {
-            PreparedStatement ps = con.prepareStatement("DELETE FROM Carrello WHERE idProdotto = ? AND emailUtente=?");
+            PreparedStatement ps = con.prepareStatement("DELETE FROM Carrello WHERE idProdotto = ? AND emailUtente = ?");
             ps.setInt(1, id);
             ps.setString(2, email);
 

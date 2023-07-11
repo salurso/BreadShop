@@ -126,50 +126,50 @@ public class UtenteDAO {
         }
     }
 
-    public List<Utente> doRetrieveNotAdmin(){
-        try (Connection con = ConPool.getConnection()) {
-
-            PreparedStatement ps = con.prepareStatement("SELECT nome, cognome, email FROM utente WHERE NOT nome <> admin");
-            ResultSet rs = ps.executeQuery();
-            ArrayList<Utente> user = new ArrayList<>();
-
-            while (rs.next()){
-                Utente u = new Utente();
-                u.setName(rs.getString(1));
-                u.setSurname(rs.getString(2));
-                u.setEmail(rs.getString(3));
-
-
-                user.add(u);
-            }
-            return user;
-
-        } catch (SQLException s) {
-            throw new RuntimeException(s);
-        }
-    }
-
-    public List<Utente> doRetrieveAdmin(){
-        try (Connection con = ConPool.getConnection()) {
-
-            PreparedStatement ps = con.prepareStatement("SELECT nome, cognome, email FROM utente WHERE nome <> admin");
-            ResultSet rs = ps.executeQuery();
-            ArrayList<Utente> admin = new ArrayList<>();
-
-            while (rs.next()){
-                Utente a = new Utente();
-                a.setName(rs.getString(1));
-                a.setSurname(rs.getString(2));
-                a.setEmail(rs.getString(3));
-
-                admin.add(a);
-            }
-            return admin;
-
-        } catch (SQLException s) {
-            throw new RuntimeException(s);
-        }
-    }
+//    public List<Utente> doRetrieveNotAdmin(){
+//        try (Connection con = ConPool.getConnection()) {
+//
+//            PreparedStatement ps = con.prepareStatement("SELECT nome, cognome, email FROM utente WHERE NOT nome <> admin");
+//            ResultSet rs = ps.executeQuery();
+//            ArrayList<Utente> user = new ArrayList<>();
+//
+//            while (rs.next()){
+//                Utente u = new Utente();
+//                u.setName(rs.getString(1));
+//                u.setSurname(rs.getString(2));
+//                u.setEmail(rs.getString(3));
+//
+//
+//                user.add(u);
+//            }
+//            return user;
+//
+//        } catch (SQLException s) {
+//            throw new RuntimeException(s);
+//        }
+//    }
+//
+//    public List<Utente> doRetrieveAdmin(){
+//        try (Connection con = ConPool.getConnection()) {
+//
+//            PreparedStatement ps = con.prepareStatement("SELECT nome, cognome, email FROM utente WHERE nome <> admin");
+//            ResultSet rs = ps.executeQuery();
+//            ArrayList<Utente> admin = new ArrayList<>();
+//
+//            while (rs.next()){
+//                Utente a = new Utente();
+//                a.setName(rs.getString(1));
+//                a.setSurname(rs.getString(2));
+//                a.setEmail(rs.getString(3));
+//
+//                admin.add(a);
+//            }
+//            return admin;
+//
+//        } catch (SQLException s) {
+//            throw new RuntimeException(s);
+//        }
+//    }
 
     public void makeAdministrator(String email) {
         try (Connection con = ConPool.getConnection()) {
@@ -194,6 +194,24 @@ public class UtenteDAO {
             if (ps.executeUpdate() != 1) {
                 throw new RuntimeException("UPDATE error.");
             }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public int updateAddress(String phone, String city, String province, String street, String streetNumber, String cap, String email){
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement("UPDATE Utente SET telefono=? AND citta=? AND via=? AND num_civico=? AND provincia=? AND cap=? WHERE email=? ",
+                    Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, phone);
+            ps.setString(2, city);
+            ps.setString(3, street);
+            ps.setInt(4, Integer.parseInt(streetNumber));
+            ps.setString(5, province);
+            ps.setString(6, cap);
+            ps.setString(7, email);
+
+            return ps.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

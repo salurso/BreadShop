@@ -30,16 +30,12 @@ public class InsertProduct extends HttpServlet {
         String description = request.getParameter("description");
         String category = request.getParameter("categories");
 
-//        Part part = request.getPart("image");
-//        InputStream in = part.getInputStream();
-
         Part filePart = request.getPart("image");
         String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
 
         Prodotto p = new Prodotto();
         p.setName(name);
         p.setPrice(price);
-//        p.setImage(in);
         p.setImage(fileName);
         p.setDescription(description);
         p.setNameCategory(category);
@@ -68,24 +64,13 @@ public class InsertProduct extends HttpServlet {
 
         request.setAttribute("result", result);
 
-        OrdineDAO oDAO = new OrdineDAO();
-        ArrayList<Ordine> orders = new ArrayList<>();
-        orders = (ArrayList<Ordine>) oDAO.doRetrieveAll();
-        request.setAttribute("orders", orders);
-        UtenteDAO uDAO = new UtenteDAO();
-        ArrayList<Utente> users = new ArrayList<>();
-        users = (ArrayList<Utente>) uDAO.doRetrieveNotAdmin(); //RESTITUISCE TUTTI GLI UTENTI NON ADMIN
-        request.setAttribute("users", users);
-        ArrayList<Utente> admin = new ArrayList<>();
-        admin = (ArrayList<Utente>) uDAO.doRetrieveAdmin(); //RESTITUISCE TUTTI GLI UTENTI CHE SONO ADMIN
-        request.setAttribute("admin", admin);
-
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/administrator/homeAdmin.jsp");
         requestDispatcher.forward(request, response);
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request, response);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("HomeServletAdministrator?action=homeAdmin");
+        requestDispatcher.forward(request, response);
     }
 }

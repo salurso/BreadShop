@@ -32,6 +32,23 @@
 
             return true;
         }
+
+        function confirmDelete(id){
+            if(confirm("Sei sicuro di voler eliminare il prodotto??")){
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function (){
+                    if(xhr.readyState == 4 && xhr.status == 200){
+                        alert(xhr.responseText)
+                        window.location.href="HomeServletAdministrator?action=homeAdmin";
+                    }
+                };
+                xhr.open("POST", "UpdateProduct?action=ELIMINA&id=" + id, true);
+                xhr.send();
+            }else{
+                alert("eliminazione annullata");
+
+            }
+        }
     </script>
 </head>
 <body>
@@ -77,17 +94,8 @@
             <input class="btn_update" type="submit" name="action" value="AGGIORNA" onclick="return(validateUpdate())">
         </div>
     </form>
-    <td><input class="btn_delete" type="submit" name="action" value="ELIMINA" onclick="return(confirmDelete())"></td>
+    <input class="btn_delete" type="submit" name="action" value="ELIMINA" onclick="return(confirmDelete(<%=p.getId()%>))">
 
 </div>
-<script>
-    function confirmDelete(){
-        if(confirm("Sei sicuro di voler eliminare il prodotto??")){
-            window.location.href="UpdateProduct?action=ELIMINA&id=<%=p.getId()%>";
-        }else{
-            alert("eliminazione annullata");
-        }
-    }
-</script>
 </body>
 </html>

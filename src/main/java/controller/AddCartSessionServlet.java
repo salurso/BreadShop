@@ -62,6 +62,14 @@ public class AddCartSessionServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request, response);
+        ProdottoDAO pDAO = new ProdottoDAO();
+        ArrayList<Prodotto> products = new ArrayList<Prodotto>();
+        products = (ArrayList<Prodotto>) pDAO.doRetrieveAll();
+        request.setAttribute("product", products);
+        CategoriaDAO catDAO = new CategoriaDAO();
+        ArrayList<Categoria> categories = catDAO.doRetrieveAll();
+        request.setAttribute("categories", categories);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/results/products.jsp");
+        dispatcher.forward(request, response);
     }
 }

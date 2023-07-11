@@ -6,16 +6,19 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import model.Utente;
 
 import java.io.IOException;
 
-@WebServlet(name = "login", value = "/login")
-public class Login extends HttpServlet {
+@WebServlet(name = "LogoutServlet", value = "/LogoutServlet")
+public class LogoutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/results/login.jsp");
-        ds.forward(request, response);
-
+        HttpSession session = request.getSession();
+        session.invalidate();
+        RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+        rd.forward(request, response);
     }
 
 }

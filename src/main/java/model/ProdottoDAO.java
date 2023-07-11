@@ -1,11 +1,6 @@
 package model;
 
-import jakarta.servlet.http.Part;
-
-import java.awt.*;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -130,7 +125,6 @@ public class ProdottoDAO {
             PreparedStatement ps = con.prepareStatement("UPDATE prodotto SET nome = ?, prezzo = ?, descrizione = ?, nomeCategoria = ? WHERE id = ?");
             ps.setString(1, p.getName());
             ps.setDouble(2, p.getPrice());
-//            ps.setString(3,p.getImage());
             ps.setString(3, p.getDescription());
             ps.setString(4, p.getNameCategory());
             ps.setInt(5, p.getId());
@@ -152,12 +146,12 @@ public class ProdottoDAO {
         }
     }
 
-    public int doDeleteByCategory(String nameCat) {
+    public void doDeleteByCategory(String nameCat) {
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement("DELETE FROM prodotto WHERE nomeCategoria = ?");
             ps.setString(1, nameCat);
 
-            return ps.executeUpdate();
+            ps.executeUpdate();
         } catch (SQLException s) {
             throw new RuntimeException(s);
         }

@@ -39,7 +39,7 @@
         alert("Cognome non valido!");
         return false;
       }
-      
+
       return true;
     }
   </script>
@@ -54,16 +54,16 @@
 <%}%>
 
 <div class="wrapper_reg">
-  <h1>Sign Up </h1>
+  <h1>Registrati </h1>
   <form action="process_registration" method="post">
     <input type="email" placeholder="E-mail" name="email" id="email" required>
     <input type="text" placeholder="Name" name="name" id = "name" required>
     <input type="text" placeholder="Surname" name="surname" id = "surname" required>
     <input type="password" placeholder="Password" name="password" id = "password" required>
-    <button class="btn_reg" onclick="return(validateRegistration())" type="submit">Sign up</button>
+    <button class="btn_reg" onclick="return(validateRegistration())" type="submit">Registrati</button>
 
     <div class="user">
-      Sei gia' registrato? <a href="login"> Login Here </a>
+      Sei gia' registrato? <a href="login"> Login </a>
     </div>
   </form>
 </div>
