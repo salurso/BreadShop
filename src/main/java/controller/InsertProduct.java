@@ -16,7 +16,8 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
+import java.sql.SQLIntegrityConstraintViolationException;
+
 
 @MultipartConfig
 @WebServlet(name = "InsertProduct", value = "/InsertProduct")
@@ -40,12 +41,18 @@ public class InsertProduct extends HttpServlet {
         p.setDescription(description);
         p.setNameCategory(category);
 
-        String result;
+        String result = "";
         ProdottoDAO pDAO = new ProdottoDAO();
-        if(pDAO.doInsert(p) == 0)
-            result = "Problema inserimento!";
-        else
+        try{
+            pDAO.doInsert(p);
             result = "Prodotto inserito!";
+        }catch (Exception e){
+            result = "Prodotto già inserito!";
+            request.setAttribute("result", result);
+
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/administrator/homeAdmin.jsp");
+            requestDispatcher.forward(request, response);
+        }
 
         String destinazione = CARTELLA_UPLOAD + File.separator + fileName;
         Path pathDestinazione = Paths.get(getServletContext().getRealPath(destinazione));

@@ -1,10 +1,4 @@
-<%@ page import="java.util.Random" %><%--
-  Created by IntelliJ IDEA.
-  User: andre
-  Date: 03/07/2023
-  Time: 15:58
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.util.Random" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -17,9 +11,6 @@
 </head>
 <body>
 <%@ include file="/WEB-INF/navbar/navbar.jsp" %>
-<div class="about-container">
-
-</div>
 
 <div class="contactUs">
     <div class="title">
@@ -35,7 +26,7 @@
 
         </div>
         <div class="contact info">
-            <h3> Contact Info </h3>
+            <h3> Contatti </h3>
             <div class="infoBox">
                 <div>
                     <span><i class="fa-solid fa-map-pin"></i></span>

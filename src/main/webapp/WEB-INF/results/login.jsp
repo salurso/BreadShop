@@ -5,7 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="./css/login.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <title>Login - Forneria Del Cilento</title>
+
+    <script>
+        $(document).ready(function(){
+            if ( window.history.replaceState ) { // lo stato precedente (con requisiti) viene resettato
+                window.history.replaceState( null, null, window.location.href );
+            }
+        });
+    </script>
+
 </head>
 <body>
 
@@ -18,9 +29,8 @@
 
 <div class="wrapper">
     <h1> Login </h1>
-
     <form action="loginServlet" method="post">
-        <input type="text" placeholder="E-mail" name="email" id="email"required>
+        <input type="text" placeholder="E-mail" name="email" id="email" required>
         <input type="password" placeholder="Password" name="password" id="password" required>
     <button class="btn_login" type="submit" onclick="return(validateLogin())"> Login </button>
     </form>
@@ -51,7 +61,6 @@
             alert("L'email non rispecchia il formato corretto.Riprovare");
             return false;
         }
-
         return true;
     }
 </script>

@@ -1,6 +1,4 @@
-<%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Random" %>
-<%@ page import="model.Categoria" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -36,9 +34,6 @@
 <body>
 <%@ include file="/WEB-INF/navbar/navbarAdmin.jsp" %>
 
-<%
-    Categoria p = (Categoria) request.getAttribute("category");
-%>
 <div class="category">
     <form action="UpdateCategory"  method="POST">
 

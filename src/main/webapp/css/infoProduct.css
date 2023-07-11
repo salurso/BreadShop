@@ -82,26 +82,10 @@ img{
     opacity: 0.9;
 }
 
-.product-name i{
-    color: #38271E;
-    font-size: 16px;
-    letter-spacing: 0.2px;
-}
-
 .product-price{
     font-size: 24px;
     opacity: 0.9;
     font-weight: 400;
-}
-
-.product-rating{
-    display: flex;
-    align-items: center;
-    margin-top: 12px;
-}
-
-.product-rating span{
-    margin-right: 6px;
 }
 
 .product-description{

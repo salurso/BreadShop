@@ -1,19 +1,13 @@
 <%@ page import="model.Prodotto" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="javax.sql.rowset.CachedRowSet" %>
-<%@ page import="model.Carrello" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <link rel="stylesheet" type="text/css" href="./css/infoProduct.css?v=<%=new Random().nextInt()%>"/>
-  <link rel="stylesheet" type="text/css" href="./css/footer.css?v=<%=new Random().nextInt()%>"/>
-
 
   <%
     Prodotto p = (Prodotto) request.getAttribute("product");
-    Carrello c = (Carrello) request.getAttribute("carts");
   %>
 
     <title><%=p.getName()%> - <%=p.getNameCategory()%></title>
@@ -49,7 +43,7 @@
               <%if(session.getAttribute("login")!=null){%>
               <input type="hidden" name="email" value="<%=utente.getEmail()%>"/>
               <%}%>
-              <input class="add-cart-btn" type="submit" value="Carrello"/>
+              <input class="add-cart-btn" type="submit" value="Acquista"/>
             </form>
         </div>
       </div>

@@ -1,8 +1,4 @@
 <%@ page import="model.Prodotto" %>
-<%@ page import="java.io.InputStream" %>
-<%@ page import="java.io.ByteArrayOutputStream" %>
-<%@ page import="java.util.Base64" %>
-<%@ page import="java.io.IOException" %>
 <%@ page import="java.util.Random" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>

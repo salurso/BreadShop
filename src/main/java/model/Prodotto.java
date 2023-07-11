@@ -1,7 +1,5 @@
 package model;
 
-import java.io.InputStream;
-
 public class Prodotto {
 
     private int id;
@@ -11,7 +9,6 @@ public class Prodotto {
     private String image;
     private String nameCategory;
     private int quantity;
-
 
     public void setId(int id) {
         this.id = id;
@@ -40,7 +37,6 @@ public class Prodotto {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-
 
     public int getId() {
         return id;

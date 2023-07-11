@@ -1,6 +1,5 @@
 package controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -57,7 +56,6 @@ public class ManageCart extends HttpServlet {
                 }
                 i++;
             }
-
             session.setAttribute("carts", carts);
         }
         RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/results/cart.jsp");

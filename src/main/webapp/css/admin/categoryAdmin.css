@@ -52,11 +52,11 @@ body {
     flex-wrap: wrap;
 }
 
-.add_category {
-    align-items: center;
-    justify-content: center;
-    text-transform: uppercase;
-}
+/*.add_category {*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    text-transform: uppercase;*/
+/*}*/
 
 input[type=text],
 textarea {

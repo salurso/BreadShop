@@ -92,64 +92,6 @@ body {
     margin-bottom: 10px;
 }
 
-.formBox {
-    position: relative;
-    width: 100%;
-}
-
-.formBox .row50 {
-    display: flex;
-    gap: 20px;
-}
-
-.inputbox {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
-    width: 50%;
-}
-
-.formBox .row100 .inputbox {
-    width: 100%;
-}
-
-.inputbox span {
-    color: #38271E;
-    margin-top: 10px;
-    margin-bottom: 5px;
-    font-weight: 500;
-}
-
-.inputbox input,
-.inputbox textarea {
-    padding: 10px;
-    font-size: 1.1em;
-    outline: none;
-    border: 1px solid #38271E;
-}
-
-.inputbox textarea {
-    resize: none;
-    min-height: 250px;
-    margin-bottom: 20px;
-}
-
-.inputbox input[type="submit"] {
-    background: #A0602B;
-    color: #E4E0BB;
-    border: none;
-    font-size: 1.1em;
-    max-width: 120px;
-    font-weight: 500;
-    cursor: pointer;
-    padding: 14px 15px;
-    transition: 0.2s linear all;
-}
-
-.inputbox::placeholder {
-    color: #24262b;
-}
-
 .info {
     background: #E4E0BB;
 }
@@ -233,16 +175,6 @@ body {
         min-height: 300px;
     }
 
-    .formBox .row50 {
-        display: flex;
-        gap: 0;
-        flex-direction: column;
-    }
-
-    .inputbox {
-        width: 100%;
-    }
-
     .contact {
         padding: 30px;
     }
@@ -276,16 +208,6 @@ body {
         min-height: 300px;
     }
 
-    .formBox .row50 {
-        display: flex;
-        gap: 0;
-        flex-direction: column;
-    }
-
-    .inputbox {
-        width: 100%;
-    }
-
     .contact {
         padding: 30px;
     }
@@ -305,10 +227,6 @@ body {
 
     .box {
         grid-gap: 10px;
-    }
-
-    .inputbox input[type="submit"] {
-        padding: 10px 15px;
     }
 
     .sci li a {
@@ -351,16 +269,6 @@ body {
         grid-gap: 10px;
     }
 
-    .formBox .row50,
-    .inputbox {
-        width: 100%;
-    }
-
-    .inputbox input,
-    .inputbox textarea {
-        font-size: 0.9em;
-    }
-
     .contact {
         padding: 20px;
     }
@@ -382,11 +290,6 @@ body {
         margin-top: 5px;
     }
 
-    .inputbox input,
-    .inputbox textarea {
-        font-size: 0.8em;
-    }
-
     .contact {
         padding: 10px;
     }
@@ -403,11 +306,6 @@ body {
 
     .box {
         grid-gap: 2px;
-    }
-
-    .inputbox input,
-    .inputbox textarea {
-        font-size: 0.7em;
     }
 
     .contact {
@@ -428,11 +326,6 @@ body {
         grid-gap: 1px;
     }
 
-    .inputbox input,
-    .inputbox textarea {
-        font-size: 0.6em;
-    }
-
     .contact {
         padding: 3px;
     }
@@ -449,11 +342,6 @@ body {
 
     .box {
         grid-gap: 1px;
-    }
-
-    .inputbox input,
-    .inputbox textarea {
-        font-size: 0.6em;
     }
 
     .contact {

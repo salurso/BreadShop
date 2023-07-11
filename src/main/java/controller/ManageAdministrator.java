@@ -1,22 +1,14 @@
 package controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.Prodotto;
-import model.ProdottoDAO;
 import model.Utente;
 import model.UtenteDAO;
-
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.sql.Blob;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 @WebServlet(name="ManageAdministrator", value="/ManageAdministrator")

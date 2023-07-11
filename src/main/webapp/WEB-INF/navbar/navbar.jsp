@@ -13,6 +13,7 @@
 
 </head>
 <body>
+<% Utente utente = (Utente) session.getAttribute("login");%>
 
 <header class="header">
 
@@ -21,11 +22,16 @@
     <li><a href="InitServlet?action=product">Prodotti</a></li>
     <li><a href="InitServlet?action=specialita">Specialità</a></li>
     <li><a href="InitServlet?action=contatti">Contatti</a></li>
+    <%
+      if(utente!=null){
+    %>
+    <li><a href="InitServlet?action=account">Account</a></li>
+    <%}%>
     <li><a href="CartServlet" ><i class="fa-solid fa-cart-shopping" style="color: #38271E;"></i></a></li>
 
   </ul>
   <%
-    Utente utente = (Utente) session.getAttribute("login");
+
     if(utente!=null){
   %>
   <ul class="menu">
@@ -52,12 +58,17 @@
   <li><a href="InitServlet?action=specialita">Specialità</a></li>
   <li><a href="InitServlet?action=contatti">Contatti</a></li>
   <li><a href="InitServlet?action=orders">Ordini</a></li>
+  <%
+    if(utente!=null){
+  %>
+  <li><a href="InitServlet?action=account">Account</a></li>
+  <%}%>
   <li><a href="CartServlet"><i class="fa-solid fa-cart-shopping" style="color: #38271E;"></i></a></li>
   <%
     if(utente!=null){
   %>
   <li><a class="action_btn"> Ciao <%=utente.getName().toUpperCase(java.util.Locale.ROOT)%> </a></li>
-  <li><a href="logoutServlet"> Logout </a></li>
+  <li><a href="LogoutServlet"> Logout </a></li>
   <%}else{%>
   <li><a href="InitServlet?action=login" class="action_btn">Login</a></li>
   <%}%>
@@ -79,7 +90,5 @@
   });
 
 </script>
-
-
 </body>
 </html>

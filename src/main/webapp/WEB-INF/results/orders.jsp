@@ -2,7 +2,6 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="model.Prodotto" %>
 <%@ page import="java.util.Random" %>
-<%@ page import="model.Pagamento" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -22,7 +21,6 @@
     <h1 class="main-title"> Ciao <%=utente.getName()%>, ecco i tuoi ordini:  </h1>
     <%
         ArrayList<Ordine> orders = (ArrayList<Ordine>) request.getAttribute("orders");
-        ArrayList<Pagamento> cards = (ArrayList<Pagamento>) request.getAttribute("cards");
         for(Ordine o : orders){
             if(utente.getEmail().equals(o.getEmail_user())){
                 ArrayList<Prodotto> products = o.getProducts();
@@ -63,7 +61,8 @@
         %>
         <%
         }else{%>
-        <h3>Attenzione, non ci sono ordini recenti!</h3>
+        <div class="main-prod"> Non sei Loggato!</div>
+        <h3 class="main-title"> <button class="btn_login" onclick="location.href='login'"> Login </button></h3>
         <%
             }
         %>

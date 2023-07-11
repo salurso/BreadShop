@@ -7,9 +7,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.*;
-
 import java.io.IOException;
-import java.util.ArrayList;
 
 @WebServlet(name = "UpdateCategory", value = "/UpdateCategory")
 public class UpdateCategory extends HttpServlet {
@@ -52,10 +50,15 @@ public class UpdateCategory extends HttpServlet {
         if(action.equals("AGGIUNGI CATEGORIA")){
             c.setDescription(request.getParameter("description"));
 
-            if(cDAO.doInsert(c)==0){
-                result = "Problema inserimento!";
-            }else{
-                result = "Categoria inserito!";
+            try{
+                cDAO.doInsert(c);
+                result = "Categoria aggiornata!";
+            }catch (Exception e){
+                result = "Categoria già esistente!";
+                request.setAttribute("result", result);
+
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/administrator/homeAdmin.jsp");
+                requestDispatcher.forward(request, response);
             }
 
             request.setAttribute("result", result);

@@ -1,17 +1,10 @@
 <%@ page import="model.Prodotto" %>
-<%@ page import="java.io.InputStream" %>
-<%@ page import="java.io.ByteArrayOutputStream" %>
-<%@ page import="java.util.Base64" %>
-<%@ page import="java.io.IOException" %>
 <%@ page import="java.util.Random" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="com.mysql.cj.util.StringUtils" %>
-<%@ page import="java.time.temporal.UnsupportedTemporalTypeException" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="./css/navbar.css?v=<%=new Random().nextInt()%>"/>
   <link rel="stylesheet" type="text/css" href="./css/product.css?v=<%=new Random().nextInt()%>"/>
   <%--    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>--%>
   <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
@@ -81,7 +74,7 @@
             <%}%>
             <p>
             <div class="buttons">
-              <input class="add-to-cart" type="submit" value="Carrello"/>
+              <input class="add-to-cart" type="submit" value="Acquista"/>
               <a href="ProductServlet?id=<%=p.getId()%>" class="view-more" >Dettagli</a>
             </div>
             </p>

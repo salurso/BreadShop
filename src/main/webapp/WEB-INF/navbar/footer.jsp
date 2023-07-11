@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: andre
-  Date: 01/07/2023
-  Time: 13:24
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -20,22 +13,22 @@
   <div class="container-footer">
     <div class="row-footer">
       <div class="footer-col">
-        <h4>Company</h4>
+        <h4>Conosciamoci</h4>
         <ul>
-          <li><a href="InitServlet?action=contatti">about us</a></li>
+          <li><a href="InitServlet?action=contatti">contatti</a></li>
           <li><a href="InitServlet?action=product">prodotti</a></li>
           <li><a href="InitServlet?action=specialita">specialità</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Made by</h4>
+        <h4>Creato da</h4>
         <ul>
           <li><a>Andrea Salurso</a></li>
           <li><a>Costantino Paciello</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Follow Us</h4>
+        <h4>I nostri social </h4>
         <div class="social">
           <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
           <a href="https://twitter.com/i/flow/login?redirect_after_login=%2Fhome%3F" target="_blank"><i class="fab fa-twitter"></i></a>

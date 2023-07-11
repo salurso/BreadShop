@@ -51,28 +51,6 @@ public class ProdottoDAO {
             }
     }
 
-    public List<Prodotto> doRetrieveByCategory(String cat) {
-
-        try (Connection con = ConPool.getConnection()) {
-            PreparedStatement ps = con.prepareStatement("SELECT id, nome, prezzo, immagine FROM Prodotto  WHERE nomeCategoria = ?");
-
-            ResultSet rs = ps.executeQuery();
-            List<Prodotto> prodotti = new ArrayList<>();
-            while (rs.next()) {
-                Prodotto p = new Prodotto();
-                p.setId(rs.getInt(1));
-                p.setName(rs.getString(2));
-                p.setPrice(rs.getDouble(3));
-                p.setImage(rs.getString(4));
-
-                prodotti.add(p);
-            }
-            return prodotti;
-        } catch (SQLException s) {
-            throw new RuntimeException(s);
-        }
-    }
-
     public ArrayList<String> getCategories() {
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement("SELECT nome FROM Categoria");
@@ -83,17 +61,6 @@ public class ProdottoDAO {
                categories.add(rs.getString(1));
             }
             return categories;
-        } catch (SQLException s) {
-            throw new RuntimeException(s);
-        }
-    }
-
-    public double getPriceById(int id) {
-        try (Connection con = ConPool.getConnection()) {
-            PreparedStatement ps = con.prepareStatement("SELECT prezzo FROM Prodotto WHERE id=?");
-            ps.setInt(1, id);
-            ResultSet rs = ps.executeQuery();
-            return rs.getDouble(1);
         } catch (SQLException s) {
             throw new RuntimeException(s);
         }
@@ -156,6 +123,4 @@ public class ProdottoDAO {
             throw new RuntimeException(s);
         }
     }
-
-
 }

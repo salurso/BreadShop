@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 public class CarrelloDAO {
 
-    //totale double NOT NULL,
     public ArrayList<Carrello> doRetrieveAll(){
         try (Connection con = ConPool.getConnection()) {
 
@@ -148,14 +147,6 @@ public class CarrelloDAO {
     public int changeQuantity(int id, String email, int quantity){
         try (Connection con = ConPool.getConnection()) {
 
-//            PreparedStatement ps = con.prepareStatement("SELECT quantita FROM Carrello WHERE emailUtente=? AND idProdotto=?");
-//            ps.setInt(1, id);
-//            ps.setString(2, email);
-//            ResultSet rs = ps.executeQuery();
-//            Carrello c = new Carrello();
-//            rs.next();
-//            c.setQuantity(rs.getInt(1));
-//            (c.getQuantity()+1)
             PreparedStatement ps = con.prepareStatement("UPDATE Carrello SET quantita=? WHERE emailUtente=? AND idProdotto=?");
             ps.setInt(1, quantity);
             ps.setString(2, email);

@@ -13,13 +13,6 @@ public class HomeServletAdministrator extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
-        if(action==null){
-
-        }
-        if(action.equals("user")){
-            RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/manageUsers.jsp");
-            ds.forward(request, response);
-        }
         if(action.equals("homeAdmin")){
             RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/homeAdmin.jsp");
             ds.forward(request, response);

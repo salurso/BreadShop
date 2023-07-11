@@ -1,6 +1,5 @@
 package controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -8,9 +7,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.*;
-
 import java.io.IOException;
-import java.util.ArrayList;
+
 
 @WebServlet(name = "UpdateProduct", value = "/UpdateProduct")
 public class UpdateProduct extends HttpServlet {
@@ -27,12 +25,19 @@ public class UpdateProduct extends HttpServlet {
             p.setDescription(request.getParameter("description"));
             p.setNameCategory(request.getParameter("categories"));
 
-            String result;
-            if(pDAO.doUpdate(p)==0){
-                result = "Problema aggiornamento!";
-            }else{
+            String result = "";
+            try{
+                pDAO.doUpdate(p);
                 result = "Prodotto aggiornato!";
+            }catch (Exception e){
+                result = "Prodotto già esistente!";
+                request.setAttribute("result", result);
+
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/administrator/homeAdmin.jsp");
+                requestDispatcher.forward(request, response);
             }
+
+
             request.setAttribute("result", result);
 
             RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/administrator/homeAdmin.jsp");

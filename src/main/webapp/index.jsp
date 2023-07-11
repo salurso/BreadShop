@@ -1,9 +1,5 @@
-<%@ page import="model.UtenteDAO" %>
 <%@ page import="model.Utente" %>
 <%@ page import="java.util.Random" %>
-<%@ page import="model.Prodotto" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="model.Categoria" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
@@ -22,59 +18,7 @@
 <%if(request.getAttribute("result")!=null){%>
 <input type="hidden" id="alert" value="<%=request.getAttribute("result")%>">
 <%}%>
-
-<header class="header">
-
-    <div class="logo"><a href="HomePage">Forneria Del Cilento</a></div>
-    <ul class="links">
-        <li><a href="InitServlet?action=product">Prodotti</a></li>
-        <li><a href="InitServlet?action=specialita">Specialità</a></li>
-        <li><a href="InitServlet?action=contatti">Contatti</a></li>
-        <li><a href="InitServlet?action=account">Account</a></li>
-        <li><a href="CartServlet" ><i class="fa-solid fa-cart-shopping" style="color: #38271E;"></i></a></li>
-
-    </ul>
-    <%
-        Utente utente = (Utente) session.getAttribute("login");
-        if(utente!=null){
-    %>
-    <ul class="menu">
-        <li class="has-children"><a class="action_btn"> Ciao <%=utente.getName().toUpperCase(java.util.Locale.ROOT)%><i class="fa fa-caret-down" aria-hidden="true"></i></a>
-            <ul class="sub-menu">
-                <li><a href="InitServlet?action=orders"> Ordini</a></li>
-                <li><a href="LogoutServlet"> Logout </a></li>
-            </ul>
-        </li>
-    </ul>
-
-
-    <%}else{%>
-    <a href="InitServlet?action=login" class="action_btn">Login</a>
-    <%}%>
-    <div class="toggle_btn">
-        <i class="fa-solid fa-bars"></i>
-    </div>
-
-</header>
-
-<div class="dropdown_menu">
-    <li><a href="InitServlet?action=product">Prodotti</a></li>
-    <li><a href="InitServlet?action=specialita">Specialità</a></li>
-    <li><a href="InitServlet?action=contatti">Contatti</a></li>
-    <li><a href="InitServlet?action=orders">Ordini</a></li>
-    <li><a href="InitServlet?action=account">Account</a></li>
-    <li><a href="InitServlet?action=carts"><i class="fa-solid fa-cart-shopping" style="color: #38271E;"></i></a></li>
-    <%
-        if(utente!=null){
-    %>
-    <li><a class="action_btn"> Ciao <%=utente.getName().toUpperCase(java.util.Locale.ROOT)%> </a></li>
-    <li><a href="LogoutServlet"> Logout </a></li>
-    <%}else{%>
-    <li><a href="InitServlet?action=login" class="action_btn">Login</a></li>
-    <%}%>
-</div>
-
-
+<%@ include file="/WEB-INF/navbar/navbar.jsp" %>
 <section class="home" id="home">
     <div class="container">
 
@@ -97,7 +41,7 @@
         <p>La Forneria del Cilento nasce ad Agropoli, all'interno del Parco Nazionale, con l'intenzione e la volontà di esaltare ogni giorno i prodotti ed i sapori autentici di una terra ricca di storia e tradizioni. </p>
         <p> Con la passione nella cura e nella lavorazione delle materie prime, con la continua ricerca delle ricette migliori per la soddisfazione quotidiana dei clienti, con la gentilezza e la disponibilità che li contraddistinguono,</p>
         <p>Simone e Marielena vi aspettano nel loro laboratorio artigianale per poter condividere con voi i sapori genuini del Cilento.</p>
-        <a href="InitServlet?action=contatti" class="btn_about"> Learn More</a>
+        <a href="InitServlet?action=contatti" class="btn_about"> Contattaci </a>
     </div>
 </section>
 
@@ -185,83 +129,37 @@
 
 
 <%--footer--%>
-
-<footer class="footer">
-    <div class="container-footer">
-        <div class="row-footer">
-            <div class="footer-col">
-                <h4>Company</h4>
-                <ul>
-                    <li><a href="InitServlet?action=contatti">about us</a></li>
-                    <li><a href="InitServlet?action=product">prodotti</a></li>
-                    <li><a href="InitServlet?action=specialita">specialità</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Made by</h4>
-                <ul>
-                    <li><a>Andrea Salurso</a></li>
-                    <li><a>Costantino Paciello</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Follow Us</h4>
-                <div class="social">
-                    <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://twitter.com/i/flow/login?redirect_after_login=%2Fhome%3F"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.instagram.com/forneriadelcilento/?utm_medium=copy_link"><i class="fab fa-instagram"></i></a>
-                    <a href="https://it.linkedin.com/?original_referer=https%3A%2F%2Fwww.google.com%2F"><i class="fab fa-linkedin-in"></i></a>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-
+<%@ include file="/WEB-INF/navbar/footer.jsp" %>
 <script>
 
-    $(document).ready(function() {
-        $('.toggle_btn').click(function() {
-            $('.dropdown_menu').toggleClass('open');
-        });
+    // script products
+    const previewContainer = document.querySelector('.product-preview');
+    const previewBox = Array.from(previewContainer.querySelectorAll('.preview'));
 
-        $(window).resize(function() {
-            if ($(window).width() > 992) {
-                $('.dropdown_menu').removeClass('open');
-            }
+    // per ogni prodotto quando ci clicchi mostra le info
+    document.querySelectorAll('.product-container .product').forEach(function(product) {
+        product.addEventListener('click', function() {
+            previewContainer.style.display = 'flex';
+            const name = product.getAttribute('data-name');
+
+            previewBox.forEach(function(preview) {
+                const target = preview.getAttribute('data-target');
+                if (name === target) {
+                    preview.style.display = 'block';
+                } else {
+                    preview.style.display = 'none';
+                }
+            });
         });
     });
 
-
-
-        // script products
-        const previewContainer = document.querySelector('.product-preview');
-        const previewBox = Array.from(previewContainer.querySelectorAll('.preview'));
-
-        // per ogni prodotto quando ci clicchi mostra le info
-        document.querySelectorAll('.product-container .product').forEach(function(product) {
-            product.addEventListener('click', function() {
-                previewContainer.style.display = 'flex';
-                const name = product.getAttribute('data-name');
-
-                previewBox.forEach(function(preview) {
-                    const target = preview.getAttribute('data-target');
-                    if (name === target) {
-                        preview.style.display = 'block';
-                    } else {
-                        preview.style.display = 'none';
-                    }
-                });
-            });
+    previewBox.forEach(function(close) {
+        close.querySelector('.fa-times').addEventListener('click', function() {
+            close.style.display = 'none';
+            previewContainer.style.display = 'none';
         });
-
-        previewBox.forEach(function(close) {
-            close.querySelector('.fa-times').addEventListener('click', function() {
-                close.style.display = 'none';
-                previewContainer.style.display = 'none';
-            });
-        });
-    // });
+    });
+// });
 
     if(document.getElementById("alert").value!=null)
         alert(document.getElementById("alert").value);

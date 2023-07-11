@@ -18,9 +18,6 @@ public class InitServlet extends HttpServlet {
         HttpSession session = request.getSession();
         UtenteDAO uDAO = new UtenteDAO();
         Utente utente = UtenteDAO.doRetrieveByEmailPassword(request.getParameter("email"), request.getParameter("password"));
-        if(action==null){
-
-        }
         if(action.equals("login")){
             RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/results/login.jsp");
             ds.forward(request, response);
@@ -57,9 +54,6 @@ public class InitServlet extends HttpServlet {
             ds.forward(request, response);
         }
         if(action.equals("account")){
-            PagamentoDAO pDAO = new PagamentoDAO();
-            ArrayList<Pagamento> creditCards = pDAO.doRetriveByEmail(request.getParameter("email"));
-            request.setAttribute("creditCards", creditCards);
             RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/results/account.jsp");
             ds.forward(request, response);
         }

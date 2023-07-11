@@ -67,10 +67,12 @@ public class RegistrationServlet extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/results/register.jsp");
             rd.include(request, response);
         }
+    }
 
-
-
-
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher ds = request.getRequestDispatcher("/WEB-INF/results/login.jsp");
+        ds.forward(request, response);
+//        doPost(request, response);
     }
 }
 

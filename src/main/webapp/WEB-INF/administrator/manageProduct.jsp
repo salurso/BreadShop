@@ -1,7 +1,4 @@
-<%@ page import="model.Utente" %>
 <%@ page import="model.Prodotto" %>
-<%@ page import="model.ProdottoDAO" %>
-<%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Random" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>

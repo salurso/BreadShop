@@ -8,15 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.Categoria;
 import model.CategoriaDAO;
-import model.Prodotto;
-import model.ProdottoDAO;
-
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.sql.Blob;
-import java.sql.SQLException;
-import java.util.ArrayList;
 
 @WebServlet(name="ManageCategory", value="/ManageCategory")
 public class ManageCategory extends HttpServlet {
@@ -32,8 +24,6 @@ public class ManageCategory extends HttpServlet {
         request.setAttribute("category", c);
         RequestDispatcher ds1 = request.getRequestDispatcher("/WEB-INF/administrator/category.jsp");
         ds.forward(request, response);
-
-
     }
 
 

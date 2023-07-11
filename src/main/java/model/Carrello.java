@@ -1,12 +1,9 @@
 package model;
 
-import java.util.ArrayList;
-
 public class Carrello {
     private String email;
     private Prodotto products;
     private int quantity;
-    private double total;
 
     public String getEmail() {
         return email;
@@ -32,11 +29,4 @@ public class Carrello {
         this.quantity = quantity;
     }
 
-    public double getTotal() {
-        return total;
-    }
-
-    public void setTotal(double total) {
-        this.total =total;
-    }
 }

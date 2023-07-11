@@ -39,8 +39,13 @@
                     window.location.href="HomeServletAdministrator?action=homeAdmin";
                 }
             };
-            xhr.open("POST", "UpdateCategory?action=ELIMINA&name=" + name, true);
-            xhr.send();
+            xhr.open("POST", "UpdateCategory", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //necessario nella post, non indispensabile nel get
+
+            var params = "action=ELIMINA&name=" + encodeURIComponent(name);
+            xhr.send(params);
+
+            // xhr.send();
         }else{
             alert("eliminazione annullata");
 

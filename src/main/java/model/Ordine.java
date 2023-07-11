@@ -2,7 +2,6 @@ package model;
 
 import java.sql.Date;
 import java.util.ArrayList;
-import java.util.GregorianCalendar;
 
 public class Ordine {
     private int id;

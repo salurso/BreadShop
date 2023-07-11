@@ -1,7 +1,6 @@
 <%@ page import="model.Carrello" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="model.Prodotto" %>
-<%@ page import="model.ProdottoDAO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -169,7 +168,6 @@
   }
 
   function changeQuantitySession(id){
-    // var email = document.getElementById("email").value;
     var inputElement = document.getElementById('num_' + id);
     var quantity = inputElement.value;
 

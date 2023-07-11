@@ -286,7 +286,7 @@
     }
   }
 
-  var expMonthRGX=/^[0-9]{2}$/;
+  var expMonthRGX=/^[0-9]{1,2}$/;
   var expMonth=document.getElementById('expMonth').value;
   if((expMonthRGX.test(expMonth))==false){
     alert("Mese di scadenza non valido!");

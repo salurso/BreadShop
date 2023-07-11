@@ -18,7 +18,7 @@
             var price=document.getElementById('price').value;
             var priceRGX=/^[0-9'.']*$/;
             if(priceRGX.test(price)==false){
-                alert("Errore nella definizione del prezzo: usare il '.' invece della ','");
+                alert("Errore nella definizione del prezzo");
                 return false;
             }
 

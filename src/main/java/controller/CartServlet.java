@@ -8,7 +8,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.Carrello;
 import model.CarrelloDAO;
-import model.ProdottoDAO;
 
 import java.io.IOException;
 import java.util.ArrayList;

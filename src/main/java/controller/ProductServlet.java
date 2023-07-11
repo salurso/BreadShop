@@ -10,7 +10,7 @@ import model.Prodotto;
 import model.ProdottoDAO;
 
 import java.io.IOException;
-import java.util.ArrayList;
+
 
 @WebServlet(name = "ProductServlet", value = "/ProductServlet")
 public class ProductServlet extends HttpServlet {
